@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'Marc Collado',
+    title: "Marc Collado's Personal Website.",
     titleTemplate: 'Marc Collado — %s',
     shortName: 'Marc',
     author: 'Marc Collado',
     siteLanguage: 'en',
     image: '/static/img/marc-collado.jpg',
     description:
-      'Marc Collado Personal Website. Product Manager @ Ironhack. Co-founder @ iomando. Industrial Engineer. Programmer aficionado. Avid runner.',
+      'An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.',
     siteUrl: 'https://www.collado.io',
     twitter: '@MarcCollado'
   },
