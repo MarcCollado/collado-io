@@ -1,6 +1,6 @@
 {
   "name": "collado.io",
-  "description": "Marc Collado Personal Website",
+  "description": "An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.",
   "version": "1.0.0",
   "author": "Marc Collado",
   "dependencies": {
@@ -32,7 +32,9 @@
     "react-tabs": "^3.0.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "graphql",
+    "react"
   ],
   "license": "MIT",
   "scripts": {
