@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://collado-io.netlify.com/*"
+  to = "https://www.collado.io/:splat"
+
+  status = 301
