@@ -7,6 +7,8 @@
   --fakeAsbestosAlpha88: #52555588;
   --bianchiGreen: #b3e4c8;
   --bianchiGreenAlpha88: #b3e4c888;
+  --codeRed: #eb5757;
+  --codeAsbestos: #dcdcdc;
 }
 
 html {
@@ -118,13 +120,36 @@ blockquote p {
 }
 
 code {
+  /* Display & Box Model */
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+
   /* Text */
   font-family: 'Inconsolata', monospace;
   font-size: smaller;
   letter-spacing: -1px;
 
   /* Color */
-  color: var(--fakeAsbestos);
+  color: var(--codeRed);
+  background: var(--codeAsbestos);
+}
+
+pre {
+  /* Display & Box Model */
+  border-radius: 0.5em;
+  padding: 1em 1.5em;
+
+  /* Text */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  /* Color */
+  background: var(--codeAsbestos);
+}
+
+pre > code {
+  /* Text */
+  line-height: 1.5em;
 }
 
 hr {
