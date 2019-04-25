@@ -1,7 +1,7 @@
 ---
 title: 'pansa'
 date: '2019-01-01'
-path: '/work/pansa/'
+path: '/work/pansa'
 excerpt: 'Cloud storage for your mind'
 ---
 

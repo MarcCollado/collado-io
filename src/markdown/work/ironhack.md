@@ -1,7 +1,7 @@
 ---
 title: 'Ironhack'
 date: '2015-09-01'
-path: '/work/ironhack/'
+path: '/work/ironhack'
 excerpt: 'Empowering the next generation of digital creators'
 ---
 

@@ -43,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
         const uniqTags = [...new Set(allTags)];
         uniqTags.forEach((tag) => {
           createPage({
-            path: `/tags/${tag}/`,
+            path: `/tags/${tag}`,
             component: tagPage,
             context: { tag }
           });

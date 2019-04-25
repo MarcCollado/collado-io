@@ -1,7 +1,7 @@
 ---
 title: 'iomando'
 date: '2011-09-01'
-path: '/work/iomando/'
+path: '/work/iomando'
 excerpt: 'Keyless access management for mobile devices'
 ---
 
