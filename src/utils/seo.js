@@ -39,12 +39,12 @@ const SEO = ({ title, description, image, pathname, article }) => (
       site: {
         siteMetadata: {
           defaultTitle,
+          defaultDescription,
+          siteUrl,
           shortName,
           author,
           siteLanguage,
           defaultImage,
-          defaultDescription,
-          siteUrl,
           twitter
         }
       }
@@ -52,8 +52,8 @@ const SEO = ({ title, description, image, pathname, article }) => (
       const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
-        image: `${siteUrl}${image || defaultImage}`,
-        url: `${siteUrl}${pathname || '/'}`
+        url: `${siteUrl}${pathname || '/'}`,
+        image: `${siteUrl}${image || defaultImage}`
       };
 
       return (

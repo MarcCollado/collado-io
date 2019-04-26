@@ -55,8 +55,8 @@ class Layout extends React.Component {
       children,
       title,
       description,
-      image,
       pathname,
+      image,
       article
     } = this.props;
     const { renderSnackBar } = this.state;
@@ -66,8 +66,8 @@ class Layout extends React.Component {
         <SEO
           title={title}
           description={description}
-          image={image}
           pathname={pathname}
+          image={image}
           article={article}
         />
         {renderSnackBar ? (
@@ -84,16 +84,16 @@ class Layout extends React.Component {
 Layout.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
   pathname: PropTypes.string,
+  image: PropTypes.string,
   article: PropTypes.bool
 };
 
 Layout.defaultProps = {
   title: null,
   description: null,
-  image: null,
   pathname: null,
+  image: null,
   article: false
 };
 

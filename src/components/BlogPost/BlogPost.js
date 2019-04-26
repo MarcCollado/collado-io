@@ -9,9 +9,9 @@ import { Tag } from '../Tag';
 const BlogPost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, excerpt, date, tags } = frontmatter;
+  const { path, title, excerpt, date, tags } = frontmatter;
   return (
-    <Layout title={title} description={excerpt}>
+    <Layout title={title} description={excerpt} pathname={path}>
       <h1 className={styles.title}>{title}</h1>
       <div
         className={styles.markdown}
