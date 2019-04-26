@@ -9,9 +9,9 @@ import { Tag } from '../Tag';
 const BlogPost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, date, tags } = frontmatter;
+  const { title, excerpt, date, tags } = frontmatter;
   return (
-    <Layout title={title}>
+    <Layout title={title} description={excerpt}>
       <h1 className={styles.title}>{title}</h1>
       <div
         className={styles.markdown}
@@ -37,6 +37,7 @@ export const query = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        excerpt
         path
         tags
         title
@@ -51,12 +52,17 @@ BlogPost.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         date: PropTypes.string.isRequired,
+        excerpt: PropTypes.string,
         path: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string).isRequired,
         title: PropTypes.string.isRequired
       })
     })
   }).isRequired
+};
+
+BlogPost.defaultProps = {
+  // TODO: add excerpt defaultProps
 };
 
 export default BlogPost;

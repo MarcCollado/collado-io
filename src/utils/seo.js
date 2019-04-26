@@ -20,12 +20,11 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-        titleTemplate
+        defaultDescription: description
         shortName
         author
         siteLanguage
         defaultImage: image
-        defaultDescription: description
         siteUrl
         twitter
       }
@@ -33,31 +32,28 @@ const query = graphql`
   }
 `;
 
-const SEO = ({
-  title, description, image, pathname, article,
-}) => (
+const SEO = ({ title, description, image, pathname, article }) => (
   <StaticQuery
     query={query}
     render={({
       site: {
         siteMetadata: {
           defaultTitle,
-          titleTemplate,
           shortName,
           author,
           siteLanguage,
           defaultImage,
           defaultDescription,
           siteUrl,
-          twitter,
-        },
-      },
+          twitter
+        }
+      }
     }) => {
       const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
-        url: `${siteUrl}${pathname || '/'}`,
+        url: `${siteUrl}${pathname || '/'}`
       };
 
       return (
@@ -68,15 +64,36 @@ const SEO = ({
             <meta name="image" content={seo.image} />
             <meta name="apple-mobile-web-app-title" content={shortName} />
             <meta name="application-name" content={shortName} />
-            <meta name="google-site-verification" content="vFwB-R5enzdQD5dGriZ1LWEt8Vs2gS9FPjXeeCg4LAI" />
+            <meta
+              name="google-site-verification"
+              content="vFwB-R5enzdQD5dGriZ1LWEt8Vs2gS9FPjXeeCg4LAI"
+            />
 
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
-            <link rel="icon" type="image/png" href={favicon128} sizes="128x128" />
-            <link rel="icon" type="image/png" href={favicon196} sizes="196x196" />
-            <link rel="apple-touch-icon-precomposed" sizes="120x120" href={apple120} />
-            <link rel="apple-touch-icon-precomposed" sizes="152x152" href={apple152} />
+            <link
+              rel="icon"
+              type="image/png"
+              href={favicon128}
+              sizes="128x128"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              href={favicon196}
+              sizes="196x196"
+            />
+            <link
+              rel="apple-touch-icon-precomposed"
+              sizes="120x120"
+              href={apple120}
+            />
+            <link
+              rel="apple-touch-icon-precomposed"
+              sizes="152x152"
+              href={apple152}
+            />
             {/*
             <link rel="apple-touch-icon-precomposed" sizes="167x167" href={apple167} />
             <link rel="apple-touch-icon-precomposed" sizes="180x180" href={apple180} />
@@ -109,7 +126,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   pathname: PropTypes.string,
-  article: PropTypes.bool,
+  article: PropTypes.bool
 };
 
 SEO.defaultProps = {
@@ -117,7 +134,7 @@ SEO.defaultProps = {
   description: null,
   image: null,
   pathname: null,
-  article: false,
+  article: false
 };
 
 export default SEO;
