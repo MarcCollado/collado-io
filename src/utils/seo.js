@@ -21,11 +21,11 @@ const query = graphql`
       siteMetadata {
         defaultTitle: title
         defaultDescription: description
-        shortName
-        author
-        siteLanguage
-        defaultImage: image
         siteUrl
+        defaultImage: image
+        siteLanguage
+        author
+        shortName
         twitter
       }
     }
@@ -41,10 +41,10 @@ const SEO = ({ title, description, image, pathname, article }) => (
           defaultTitle,
           defaultDescription,
           siteUrl,
-          shortName,
-          author,
-          siteLanguage,
           defaultImage,
+          siteLanguage,
+          author,
+          shortName,
           twitter
         }
       }
