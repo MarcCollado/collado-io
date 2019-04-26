@@ -1,7 +1,6 @@
 module.exports = {
   siteMetadata: {
     title: "Marc Collado's Personal Website.",
-    titleTemplate: 'Marc Collado — %s',
     shortName: 'Marc',
     author: 'Marc Collado',
     siteLanguage: 'en',
