@@ -8,12 +8,20 @@ import { WorkCard } from '../../components/WorkCard';
 
 const WorkPage = ({ data }) => {
   const WorkData = data.allMarkdownRemark.edges;
+  const WorkSEO = WorkData
+    // Get md files with the frontmatter date set to null (index.md)
+    .filter((edge) => edge.node.frontmatter.date === null)
+    .map((edge) => ({
+      path: edge.node.frontmatter.path,
+      title: edge.node.frontmatter.title,
+      excerpt: edge.node.frontmatter.excerpt
+    }));
   const WorkIntro = WorkData
-    // Get md files with the fronmatter date set to null (index.md)
+    // Get (again) md files with the frontmatter date set to null (index.md)
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => edge.node.html);
   const renderCards = WorkData
-    // Get md files with fronmatter date data set
+    // Get md files with frontmatter date data set
     .filter((edge) => !!edge.node.frontmatter.date)
     // Generate a feed of WorkPosts
     .map((edge) => (
@@ -26,7 +34,11 @@ const WorkPage = ({ data }) => {
     ));
 
   return (
-    <Layout>
+    <Layout
+      title={WorkSEO[0].title}
+      description={WorkSEO[0].excerpt}
+      pathname={WorkSEO[0].path}
+    >
       <Header tagline="Things I've Done" title="Work" />
       <div dangerouslySetInnerHTML={{ __html: WorkIntro }} />
       <div className={styles.container}>{renderCards}</div>
@@ -46,9 +58,9 @@ export const query = graphql`
           html
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            title
             excerpt
             path
-            title
           }
         }
       }
@@ -66,15 +78,19 @@ WorkPage.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               date: PropTypes.string,
+              title: PropTypes.string.isRequired,
               excerpt: PropTypes.string,
-              path: PropTypes.string,
-              title: PropTypes.string.isRequired
+              path: PropTypes.string
             })
           })
         })
       )
     })
   }).isRequired
+};
+
+WorkPage.defaultProps = {
+  // TODO: add defaultProps
 };
 
 export default WorkPage;
