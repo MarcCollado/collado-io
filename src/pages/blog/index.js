@@ -14,10 +14,10 @@ const BlogPage = ({ data }) => {
       // Generate a feed of BlogPosts
       <BlogCard
         key={edge.node.id}
-        path={edge.node.frontmatter.path}
         title={edge.node.frontmatter.title}
-        excerpt={edge.node.frontmatter.excerpt}
         date={edge.node.frontmatter.date}
+        path={edge.node.frontmatter.path}
+        excerpt={edge.node.frontmatter.excerpt}
       />
     ));
 
@@ -36,17 +36,7 @@ export const query = graphql`
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            excerpt
-            path
-            title
-          }
-        }
-      }
+      ...BlogData
     }
   }
 `;
@@ -59,10 +49,10 @@ BlogPage.propTypes = {
           node: PropTypes.shape({
             id: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired
+              excerpt: PropTypes.string.isRequired
             })
           })
         })
