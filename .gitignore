@@ -1,11 +1,33 @@
-# Project dependencies
-.cache
-.vscode
-node_modules
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+.vscode/
+node_modules/
 yarn-error.log
 
-# Build directory
+# Gatsby files
+.cache/
 public
 
-# MacOS files
+# Mac files
 .DS_Store
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
