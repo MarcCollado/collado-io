@@ -25,14 +25,17 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       `).then((result) => {
-        if (result.errors) reject(result.errors);
+        if (result.errors) {
+          throw result.errors;
+        }
         // Create pages for each blog post
         const posts = result.data.blogPosts.edges;
+
         posts.forEach(({ node }) => {
           createPage({
             path: node.frontmatter.path,
             component: blogPostPage,
-            context: {}
+            context: {},
           });
         });
         // List all the tags found in the blog posts
@@ -45,7 +48,7 @@ exports.createPages = ({ actions, graphql }) => {
           createPage({
             path: `/tags/${tag}`,
             component: tagPage,
-            context: { tag }
+            context: { tag },
           });
         });
       })
