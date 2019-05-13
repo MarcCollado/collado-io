@@ -12,8 +12,8 @@ const WorkPage = ({ data }) => {
     // Get md files with the frontmatter date set to null (index.md)
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => ({
-      path: edge.node.frontmatter.path,
       title: edge.node.frontmatter.title,
+      path: edge.node.frontmatter.path,
       excerpt: edge.node.frontmatter.excerpt
     }));
   const WorkIntro = WorkData
@@ -27,8 +27,8 @@ const WorkPage = ({ data }) => {
     .map((edge) => (
       <WorkCard
         key={edge.node.id}
-        path={edge.node.frontmatter.path}
         title={edge.node.frontmatter.title}
+        path={edge.node.frontmatter.path}
         excerpt={edge.node.frontmatter.excerpt}
       />
     ));
@@ -52,18 +52,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/" } }
       limit: 50
     ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            excerpt
-            path
-          }
-        }
-      }
+      ...WorkData
     }
   }
 `;
@@ -77,10 +66,10 @@ WorkPage.propTypes = {
             id: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
-              date: PropTypes.string,
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string,
-              path: PropTypes.string
+              date: PropTypes.string,
+              path: PropTypes.string,
+              excerpt: PropTypes.string
             })
           })
         })
