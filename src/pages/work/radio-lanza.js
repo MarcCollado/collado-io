@@ -9,17 +9,20 @@ import { Header } from '../../components/Header';
 // import '../../styles/tabs.css';
 import { renderBlogCards } from '../../utils/helpers';
 
-const pansa = ({ data }) => {
+const radioLanza = ({ data }) => {
   const pageCopy = data.pageCopy.edges[0].node.html;
-  const pansaBlogPosts = data.pansaBlogPosts.edges;
-  const renderPansaCards = renderBlogCards.bind(null, pansaBlogPosts);
+  const radioLanzaBlogPosts = data.radioLanzaBlogPosts.edges;
+  const renderRadioLanzaCards = renderBlogCards.bind(null, radioLanzaBlogPosts);
   // Get the images from the GraphQL query
-  const pansaPlaceholder = data.pansaPlaceholder.childImageSharp.fluid;
+  const radioLanzaCover = data.radioLanzaCover.childImageSharp.fluid;
 
   return (
     <Layout>
-      <Header tagline="Cloud storage for your mind " title="pansa" />
-      <Img className={styles.image} alt="pansa" fluid={pansaPlaceholder} />
+      <Header
+        tagline="A Podcast w/ Jimmy Flores & Marc Collado"
+        title="Radio Lanza"
+      />
+      <Img className={styles.image} alt="Radio Lanza" fluid={radioLanzaCover} />
       <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
       <hr />
       <p>
@@ -32,7 +35,7 @@ const pansa = ({ data }) => {
         and also below you will find a recollection of posts covering a little
         bit why such a product needs to exist.
       </p>
-      {renderPansaCards('idea')}
+      {renderRadioLanzaCards('')}
     </Layout>
   );
 };
@@ -41,7 +44,7 @@ export const query = graphql`
   {
     pageCopy: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(pansa)/" }
+        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(radio-lanza)/" }
       }
       limit: 1
     ) {
@@ -52,10 +55,10 @@ export const query = graphql`
         }
       }
     }
-    pansaBlogPosts: allMarkdownRemark(
+    radioLanzaBlogPosts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
-        frontmatter: { tags: { in: ["pansa"] } }
+        frontmatter: { tags: { in: ["radio lanza"] } }
       }
       limit: 50
       sort: { fields: [frontmatter___date], order: DESC }
@@ -74,7 +77,7 @@ export const query = graphql`
         }
       }
     }
-    pansaPlaceholder: file(relativePath: { eq: "pansa-placeholder.png" }) {
+    radioLanzaCover: file(relativePath: { eq: "radio-lanza-cover.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
@@ -84,7 +87,7 @@ export const query = graphql`
   }
 `;
 
-pansa.propTypes = {
+radioLanza.propTypes = {
   data: PropTypes.shape({
     pageCopy: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -96,7 +99,7 @@ pansa.propTypes = {
         })
       )
     }),
-    pansaBlogPosts: PropTypes.shape({
+    radioLanzaBlogPosts: PropTypes.shape({
       totalCount: PropTypes.number,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -113,8 +116,8 @@ pansa.propTypes = {
         })
       )
     }),
-    pansaPlaceholder: PropTypes.object.isRequired
+    radioLanzaCover: PropTypes.object.isRequired
   }).isRequired
 };
 
-export default pansa;
+export default radioLanza;
