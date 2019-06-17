@@ -9,7 +9,7 @@ import { WorkCard } from '../../components/WorkCard';
 const WorkPage = ({ data }) => {
   const WorkData = data.allMarkdownRemark.edges;
   const WorkSEO = WorkData
-    // Get md files with the frontmatter date set to null (index.md)
+    // Get index.md from ".../markdown/work/"
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => ({
       title: edge.node.frontmatter.title,
@@ -17,14 +17,15 @@ const WorkPage = ({ data }) => {
       excerpt: edge.node.frontmatter.excerpt
     }));
   const WorkIntro = WorkData
-    // Get (again) md files with the frontmatter date set to null (index.md)
+    // Get index.md from ".../markdown/work/"
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => edge.node.html);
   const renderCards = WorkData
-    // Get md files with frontmatter date data set
+    // Get *.md files with frontmatter date from ".../markdown/work/"
     .filter((edge) => !!edge.node.frontmatter.date)
-    // Generate a feed of WorkPosts
     .map((edge) => (
+      // Generate feed of WorkCards
+      // The thumbnail image is fetched inside the WorkCard component
       <WorkCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
@@ -50,7 +51,7 @@ export const query = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/" } }
-      limit: 50
+      limit: 10
     ) {
       ...WorkData
     }

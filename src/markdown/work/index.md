@@ -5,6 +5,8 @@ path: '/work'
 excerpt: "The Work page at Marc Collado's Personal Website — insightful stories about iomando and Ironhack."
 ---
 
+<!-- "excerpt" field used for SEO purposes only -->
+
 Despite _work_ doesn't fully capture the essence of this page — since it aims to showcase both companies I've been professionally involved with, but also random side projects of mine — I must admit, I couldn't find a better signifier.
 
 Before you jump in though, here's a little bit of context on some of the projects:
