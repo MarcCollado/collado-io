@@ -77,7 +77,7 @@ export const query = graphql`
         }
       }
     }
-    radioLanzaCover: file(relativePath: { eq: "radio-lanza-cover.png" }) {
+    radioLanzaCover: file(relativePath: { eq: "radio-lanza-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
