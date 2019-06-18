@@ -34,16 +34,16 @@
 
 .snackbar__close {
   /* Display & Box Model */
-  margin-left: 0.5em;
+  margin: 0.55em 0 0 1em;
   border: none;
   border-radius: 1em;
-  padding: 6px 9px;
+  padding: 5px 7.5px;
 
   /* Flex */
   display: flex;
 
   /* Color */
-  background-color: #f1c40f;
+  background-color: #f1c40f88;
 
   /* Other */
   transition: background-color 0.3s ease;
