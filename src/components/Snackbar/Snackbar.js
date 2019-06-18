@@ -6,9 +6,8 @@ import styles from './Snackbar.module.css';
 const Snackbar = ({ unmount }) => (
   <div className={styles.snackbar__container}>
     <p className={styles.snackbar__text}>
-      {`Something's changed? 🤔 Yes, yes! After more than five years, I've rebuilt the place, from scratch 🔥 But you know, with great power comes great responsibility, so please, before you proceed `}
-      <a href="/blog/2018/collado-io-live">read the manual</a>
-      {` 📚 Otherwise, be safe, and enjoy 🖖`}
+      {`🎧 Jimmy Flores & I just launched a new podcast:`}{' '}
+      <a href="/work/radio-lanza"> say hi to Radio Lanza</a>
     </p>
     <button onClick={unmount} className={styles.snackbar__close}>
       <FontAwesomeIcon
