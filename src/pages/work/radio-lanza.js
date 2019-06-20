@@ -35,34 +35,36 @@ const radioLanza = ({ data }) => {
         title="Radio Lanza"
       />
       <Img className={styles.image} alt="Radio Lanza" fluid={radioLanzaCover} />
-      <a className={styles.card__link} href={podcastURL.apple}>
-        <Img
-          className={styles.image}
-          alt="Listen on Apple Podcasts"
-          fluid={applePodcasts}
-        />
-      </a>
-      <a className={styles.card__link} href={podcastURL.google}>
-        <Img
-          className={styles.image}
-          alt="Listen on Google Podcasts"
-          fluid={googlePodcasts}
-        />
-      </a>
-      <a className={styles.card__link} href={podcastURL.spotify}>
-        <Img
-          className={styles.image}
-          alt="Listen on Spotify"
-          fluid={spotifyPodcasts}
-        />
-      </a>
-      <a className={styles.card__link} href={podcastURL.overcast}>
-        <Img
-          className={styles.image}
-          alt="Listen on Overcast"
-          fluid={overcastPodcasts}
-        />
-      </a>
+      <div className={styles.podcast__container}>
+        <a href={podcastURL.apple}>
+          <Img
+            className={styles.podcast__image}
+            alt="Listen on Apple Podcasts"
+            fluid={applePodcasts}
+          />
+        </a>
+        <a href={podcastURL.google}>
+          <Img
+            className={styles.podcast__image}
+            alt="Listen on Google Podcasts"
+            fluid={googlePodcasts}
+          />
+        </a>
+        <a href={podcastURL.spotify}>
+          <Img
+            className={styles.podcast__image}
+            alt="Listen on Spotify"
+            fluid={spotifyPodcasts}
+          />
+        </a>
+        <a href={podcastURL.overcast}>
+          <Img
+            className={styles.podcast__image}
+            alt="Listen on Overcast"
+            fluid={overcastPodcasts}
+          />
+        </a>
+      </div>
       <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
       <hr />
       <p>
@@ -126,28 +128,28 @@ export const query = graphql`
     }
     applePodcasts: file(relativePath: { eq: "podcast-badge-apple.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     googlePodcasts: file(relativePath: { eq: "podcast-badge-google.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     spotifyPodcasts: file(relativePath: { eq: "podcast-badge-spotify.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     overcastPodcasts: file(relativePath: { eq: "podcast-badge-overcast.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 200) {
           ...GatsbyImageSharpFluid
         }
       }

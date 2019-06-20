@@ -1,12 +1,26 @@
 /* index.js */
 .container {
-  /* FLEX */
+  /* Flex */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 /* work pages */
 .image {
   /* Display & Box Model */
-  margin: 1em 0;
+  margin: 1em 0em 0.25em;
+}
+
+.podcast__container {
+  /* Flex */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.podcast__image {
+  /* Display & Box Model */
+  width: 182px;
+  margin: 1em 0.5em 0em;
 }
