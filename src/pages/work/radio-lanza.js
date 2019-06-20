@@ -68,16 +68,16 @@ const radioLanza = ({ data }) => {
       <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
       <hr />
       <p>
-        This side-project — and this page — is currently under development and
-        it will be released some time in 2019.
+        This work-page is still under development. In the upcoming weeks it will
+        feature the list of episodes and show notes below.
       </p>
       <p>
-        Meanwhile you can find out more in the{' '}
-        <a href="https://github.com/MarcCollado/pansa">project repository</a>{' '}
-        and also below you will find a recollection of posts covering a little
-        bit why such a product needs to exist.
+        Meanwhile you can check them out at{' '}
+        <a href="https://www.radiolanza.com">the official Radio Lanza page</a>{' '}
+        and also below you will find a recollection of posts explaining the
+        story behind Radio Lanza.
       </p>
-      {renderRadioLanzaCards('')}
+      {renderRadioLanzaCards('update')}
     </Layout>
   );
 };
