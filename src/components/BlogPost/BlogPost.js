@@ -9,7 +9,7 @@ import { Tag } from '../Tag';
 const BlogPost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { path, title, excerpt, date, tags } = frontmatter;
+  const { title, date, path, tags, excerpt } = frontmatter;
   return (
     <Layout title={title} description={excerpt} pathname={path}>
       <h1 className={styles.title}>{title}</h1>
@@ -36,11 +36,11 @@ export const query = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
+        title
         date(formatString: "MMMM DD, YYYY")
-        excerpt
         path
         tags
-        title
+        excerpt
       }
     }
   }
@@ -51,11 +51,11 @@ BlogPost.propTypes = {
     markdownRemark: PropTypes.shape({
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
-        excerpt: PropTypes.string,
         path: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-        title: PropTypes.string.isRequired
+        excerpt: PropTypes.string
       })
     })
   }).isRequired
