@@ -3,23 +3,53 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styles from './EpisodePost.module.css';
 import { Layout } from '../Layout';
+import { Podcasts } from '../Podcasts';
 import { PublishedAt } from '../PublishedAt';
 import { Tag } from '../Tag';
 
 const EpisodePost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, date, path, tags, excerpt, webURL, iTunesURL } = frontmatter;
+  const {
+    title,
+    date,
+    path,
+    tags,
+    excerpt,
+    episodeURL,
+    playerURL,
+    iTunesURL
+  } = frontmatter;
 
   return (
     <Layout>
-      <h1>Hello</h1>
+      <h1 className={styles.title}>The show notes</h1>
+      <iframe
+        className={styles.player}
+        title={title}
+        frameBorder="no"
+        scrolling="no"
+        seamless
+        src={`https://player.simplecast.com/${playerURL}?dark=false`}
+      />
+      <div
+        className={styles.markdown}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      <hr />
+      <div className={styles.meta}>
+        <h1 className={styles.title}>Listen on</h1>
+        <Podcasts />
+        <div className={styles.meta__date}>
+          <PublishedAt date={date} />
+        </div>
+      </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query blogPostQuery($path: String!) {
+  query episodePostQuery($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -28,7 +58,8 @@ export const query = graphql`
         path
         tags
         excerpt
-        webURL
+        episodeURL
+        playerURL
         iTunesURL
       }
     }
@@ -45,7 +76,8 @@ EpisodePost.propTypes = {
         path: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string).isRequired,
         excerpt: PropTypes.string.isRequired,
-        webURL: PropTypes.string.isRequired,
+        episodeURL: PropTypes.string.isRequired,
+        playerURL: PropTypes.string.isRequired,
         iTunesURL: PropTypes.string.isRequired
       })
     })
