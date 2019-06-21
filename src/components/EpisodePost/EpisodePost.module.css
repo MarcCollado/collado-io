@@ -3,6 +3,13 @@
   margin: 0.25em 0;
 }
 
+.player {
+  /* Display & Box Model */
+  margin: 0.75em 0 0;
+  height: 200px;
+  width: 100%;
+}
+
 .markdown > hr {
   /* Display & Box Model */
   margin: 1.5em 0;
@@ -29,7 +36,7 @@
 
 .meta {
   /* Display & Box Model */
-  margin-top: 1.5em;
+  margin-top: 0.75em;
 
   /* Flex */
   display: flex;
@@ -37,12 +44,7 @@
   align-items: center;
 }
 
-.tag__container {
+.meta__date {
   /* Display & Box Model */
-  margin-top: 0.75em;
-
-  /* Flex */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 1.25em;
 }
