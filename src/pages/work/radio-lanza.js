@@ -6,16 +6,9 @@ import Img from 'gatsby-image';
 import styles from './work.module.css';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
+import { Podcasts } from '../../components/Podcasts';
 // import '../../styles/tabs.css';
 import { renderBlogCards } from '../../utils/helpers';
-
-const podcastURL = {
-  apple: 'https://podcasts.apple.com/es/podcast/radio-lanza/id1468000755',
-  spotify: 'https://open.spotify.com/show/3P6zGrc3Mv8yHCKDXZsUQZ',
-  google:
-    'https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9sUjBxOVFlTg%3D%3D',
-  overcast: 'https://overcast.fm/itunes1468000755/radio-lanza'
-};
 
 const radioLanza = ({ data }) => {
   const pageCopy = data.pageCopy.edges[0].node.html;
@@ -23,10 +16,6 @@ const radioLanza = ({ data }) => {
   const renderRadioLanzaCards = renderBlogCards.bind(null, radioLanzaBlogPosts);
   // Get the images from the GraphQL query
   const radioLanzaCover = data.radioLanzaCover.childImageSharp.fluid;
-  const applePodcasts = data.applePodcasts.childImageSharp.fluid;
-  const googlePodcasts = data.googlePodcasts.childImageSharp.fluid;
-  const spotifyPodcasts = data.spotifyPodcasts.childImageSharp.fluid;
-  const overcastPodcasts = data.overcastPodcasts.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -35,36 +24,7 @@ const radioLanza = ({ data }) => {
         title="Radio Lanza"
       />
       <Img className={styles.image} alt="Radio Lanza" fluid={radioLanzaCover} />
-      <div className={styles.podcast__container}>
-        <a href={podcastURL.apple}>
-          <Img
-            className={styles.podcast__image}
-            alt="Listen on Apple Podcasts"
-            fluid={applePodcasts}
-          />
-        </a>
-        <a href={podcastURL.google}>
-          <Img
-            className={styles.podcast__image}
-            alt="Listen on Google Podcasts"
-            fluid={googlePodcasts}
-          />
-        </a>
-        <a href={podcastURL.spotify}>
-          <Img
-            className={styles.podcast__image}
-            alt="Listen on Spotify"
-            fluid={spotifyPodcasts}
-          />
-        </a>
-        <a href={podcastURL.overcast}>
-          <Img
-            className={styles.podcast__image}
-            alt="Listen on Overcast"
-            fluid={overcastPodcasts}
-          />
-        </a>
-      </div>
+      <Podcasts />
       <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
       <hr />
       <p>
@@ -84,6 +44,13 @@ const radioLanza = ({ data }) => {
 
 export const query = graphql`
   {
+    radioLanzaCover: file(relativePath: { eq: "radio-lanza-cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     pageCopy: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(radio-lanza)/" }
@@ -119,46 +86,12 @@ export const query = graphql`
         }
       }
     }
-    radioLanzaCover: file(relativePath: { eq: "radio-lanza-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    applePodcasts: file(relativePath: { eq: "podcast-badge-apple.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    googlePodcasts: file(relativePath: { eq: "podcast-badge-google.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    spotifyPodcasts: file(relativePath: { eq: "podcast-badge-spotify.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    overcastPodcasts: file(relativePath: { eq: "podcast-badge-overcast.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
   }
 `;
 
 radioLanza.propTypes = {
   data: PropTypes.shape({
+    radioLanzaCover: PropTypes.object.isRequired,
     pageCopy: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -185,12 +118,7 @@ radioLanza.propTypes = {
           })
         })
       )
-    }),
-    radioLanzaCover: PropTypes.object.isRequired,
-    applePodcasts: PropTypes.object.isRequired,
-    googlePodcasts: PropTypes.object.isRequired,
-    spotifyPodcasts: PropTypes.object.isRequired,
-    overcastPodcasts: PropTypes.object.isRequired
+    })
   }).isRequired
 };
 
