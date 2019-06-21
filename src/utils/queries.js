@@ -1,8 +1,12 @@
 import { graphql } from 'gatsby';
 
-// Blog page query
-export const queryBlogData = graphql`
-  fragment BlogData on MarkdownRemarkConnection {
+/* Used by: BlogPage
+- Fetch markdowns for blog posts at src/markdown/blog/
+- It is used by BlogPage to generate the feed of BlogCard
+- No need to fetch html because it is used in BlogPost instead
+*/
+export const allBlogPostsQuery = graphql`
+  fragment allBlogPosts on MarkdownRemarkConnection {
     edges {
       node {
         id

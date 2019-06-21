@@ -7,14 +7,13 @@ import { Header } from '../components/Header';
 
 const HomePage = ({ data }) => {
   const pageCopy = data.pageCopy.edges[0].node.html;
-  const cartoonMarc = data.cartoonMarc.childImageSharp.fluid;
-
+  const marcPicture = data.marcPicture.childImageSharp.fluid;
   return (
     <Layout>
-      <Header tagline="Singularly Curious" title="Marc Collado" />
+      <Header title="Marc Collado" tagline="Singularly Curious" />
       <Img
         alt="Marc Collado"
-        fluid={cartoonMarc}
+        fluid={marcPicture}
         style={{ width: `15em`, margin: `0 auto -1em` }}
       />
       <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
@@ -24,6 +23,13 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
   {
+    marcPicture: file(relativePath: { eq: "marc.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     pageCopy: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(home)/" } }
       limit: 1
@@ -35,18 +41,12 @@ export const query = graphql`
         }
       }
     }
-    cartoonMarc: file(relativePath: { eq: "marc.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
   }
 `;
 
 HomePage.propTypes = {
   data: PropTypes.shape({
+    marcPicture: PropTypes.object.isRequired,
     pageCopy: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -56,8 +56,7 @@ HomePage.propTypes = {
           })
         })
       )
-    }),
-    cartoonMarc: PropTypes.object.isRequired
+    })
   }).isRequired
 };
 

@@ -6,12 +6,10 @@ import { Header } from '../../components/Header';
 import { BlogCard } from '../../components/BlogCard';
 
 const BlogPage = ({ data }) => {
-  const BlogData = data.allMarkdownRemark.edges;
-  const renderCards = BlogData
-    // Get md files
+  const allBlogPosts = data.allMarkdownRemark.edges;
+  const renderAllBlogCards = allBlogPosts
     .filter((edge) => !!edge.node.frontmatter.date)
     .map((edge) => (
-      // Generate a feed of BlogPosts
       <BlogCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
@@ -20,15 +18,14 @@ const BlogPage = ({ data }) => {
         excerpt={edge.node.frontmatter.excerpt}
       />
     ));
-
   return (
     <Layout>
-      <Header tagline="Things I've Written" title="Blog" />
-      {renderCards}
+      <Header title="Blog" tagline="Things I've Written" />
+      {renderAllBlogCards}
     </Layout>
   );
 };
-
+// From queries.js
 export const query = graphql`
   {
     allMarkdownRemark(
@@ -36,7 +33,7 @@ export const query = graphql`
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...BlogData
+      ...allBlogPosts
     }
   }
 `;
