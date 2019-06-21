@@ -2,14 +2,13 @@ const path = require('path');
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-
   return new Promise((resolve, reject) => {
     const blogPostPage = path.resolve(`src/components/BlogPost/BlogPost.js`);
     const episodePostPage = path.resolve(
       `src/components/EpisodePost/EpisodePost.js`
     );
     const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
-    // Query to fetch Blog Posts
+    // Fetch markdowns for blog posts at /src/markdown/blog/
     resolve(
       graphql(`
         {
@@ -32,9 +31,8 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
           throw result.errors;
         }
-        // Create pages for each blog post
         const posts = result.data.blogPosts.edges;
-
+        // Create pages for each blog post using `frontmatter.path`
         posts.forEach(({ node }) => {
           createPage({
             path: node.frontmatter.path,
@@ -42,7 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
             context: {}
           });
         });
-        // List all the tags found in the blog posts
+        // List all the unique tags found in the blog posts
         let allTags = [];
         posts.forEach(({ node }) => {
           allTags = [...allTags, ...node.frontmatter.tags];
@@ -57,7 +55,7 @@ exports.createPages = ({ actions, graphql }) => {
         });
       })
     );
-    // Query to fetch all Episode Posts
+    // Fetch markdowns for Radio Lanza episode posts at /src/markdown/episodes/
     resolve(
       graphql(`
         {
@@ -81,9 +79,8 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
           throw result.errors;
         }
-        // Create pages for each blog post
         const episodes = result.data.episodePosts.edges;
-
+        // Create pages for each episode post using `frontmatter.path`
         episodes.forEach(({ node }) => {
           createPage({
             path: node.frontmatter.path,

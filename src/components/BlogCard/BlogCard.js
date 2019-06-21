@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styles from './BlogCard.module.css';
 import { PublishedAt } from '../PublishedAt';
-
-const BlogCard = ({ path, title, excerpt, date }) => (
+/*
+TODO: title, date, excerpt could be passed down as props to BlogPost through state (location.state) within the Link component. But the data doesn't persist on BlogPost upon refresh.
+ */
+const BlogCard = ({ title, date, path, excerpt }) => (
   <div className={styles.card}>
     <Link className={styles.card__link} to={path}>
       <h2 className={styles.card__title}>{title}</h2>
@@ -15,10 +17,10 @@ const BlogCard = ({ path, title, excerpt, date }) => (
 );
 
 BlogCard.propTypes = {
+  title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
   path: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  excerpt: PropTypes.string
 };
 
 BlogCard.defaultProps = {

@@ -1,11 +1,11 @@
-/* Shared .card styles with BlogCard & NowCard */
 .card {
   /* Display & Box Model */
   box-shadow: var(--fakeAsbestosAlpha22) 0 0.125em 0.25em 0;
-  width: 15em;
-  margin: 1em;
   border: 1px solid var(--fakeAsbestosAlpha22);
   border-radius: 0.25em;
+  /* Shares this ☝️ .card styles with: BlogCard, NowCard, WorkCard */
+  margin: 1em;
+  width: 15em;
   overflow: hidden;
 
   /* Flex */
