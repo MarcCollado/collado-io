@@ -5,7 +5,11 @@ exports.createPages = ({ actions, graphql }) => {
 
   return new Promise((resolve, reject) => {
     const blogPostPage = path.resolve(`src/components/BlogPost/BlogPost.js`);
+    const episodePostPage = path.resolve(
+      `src/components/EpisodePost/EpisodePost.js`
+    );
     const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
+    // Query to fetch Blog Posts
     resolve(
       graphql(`
         {
@@ -35,7 +39,7 @@ exports.createPages = ({ actions, graphql }) => {
           createPage({
             path: node.frontmatter.path,
             component: blogPostPage,
-            context: {},
+            context: {}
           });
         });
         // List all the tags found in the blog posts
@@ -48,7 +52,43 @@ exports.createPages = ({ actions, graphql }) => {
           createPage({
             path: `/tags/${tag}`,
             component: tagPage,
-            context: { tag },
+            context: { tag }
+          });
+        });
+      })
+    );
+    // Query to fetch all Episode Posts
+    resolve(
+      graphql(`
+        {
+          episodePosts: allMarkdownRemark(
+            filter: {
+              fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" }
+            }
+            limit: 1000
+            sort: { fields: [frontmatter___date], order: DESC }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  path
+                }
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          throw result.errors;
+        }
+        // Create pages for each blog post
+        const episodes = result.data.episodePosts.edges;
+
+        episodes.forEach(({ node }) => {
+          createPage({
+            path: node.frontmatter.path,
+            component: episodePostPage,
+            context: {}
           });
         });
       })
