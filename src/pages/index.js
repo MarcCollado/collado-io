@@ -6,7 +6,7 @@ import { Layout } from '../components/Layout';
 import { Header } from '../components/Header';
 
 const HomePage = ({ data }) => {
-  const pageCopy = data.pageCopy.edges[0].node.html;
+  const homeIndexHtml = data.pageCopy.edges[0].node.html;
   const marcPicture = data.marcPicture.childImageSharp.fluid;
   return (
     <Layout>
@@ -16,7 +16,7 @@ const HomePage = ({ data }) => {
         fluid={marcPicture}
         style={{ width: `15em`, margin: `0 auto -1em` }}
       />
-      <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
+      <div dangerouslySetInnerHTML={{ __html: homeIndexHtml }} />
     </Layout>
   );
 };
