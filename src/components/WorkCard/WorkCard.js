@@ -11,12 +11,13 @@ const titleTranslator = {
   'Radio Lanza': 'radioLanza'
 };
 
-const WorkCard = ({ data, excerpt, path, title }) => {
+const WorkCard = ({ data, title, path, excerpt }) => {
   const titleKey = titleTranslator[title];
+  const thumbnailImageURL = data[titleKey].childImageSharp.fluid;
   return (
     <div className={styles.card}>
       <Link className={styles.card__link} to={path}>
-        <Img fluid={data[titleKey].childImageSharp.fluid} alt={title} />
+        <Img fluid={thumbnailImageURL} alt={title} />
         <div className={styles.card__wrapper}>
           <h2 className={styles.card__title}>{title}</h2>
           <p className={styles.card__excerpt}>{excerpt}</p>
@@ -63,7 +64,7 @@ WorkCard.propTypes = {
     ironhack: PropTypes.object.isRequired,
     radioLanza: PropTypes.object.isRequired
   }).isRequired,
-  excerpt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  excerpt: PropTypes.string.isRequired
 };
