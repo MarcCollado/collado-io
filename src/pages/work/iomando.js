@@ -7,30 +7,37 @@ import styles from './work.module.css';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import '../../styles/tabs.css';
-import { renderBlogCards } from '../../utils/helpers';
+import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const iomando = ({ data }) => {
-  const pageCopy = data.pageCopy.edges[0].node.html;
+  const workIomandoCoverImg = data.workIomandoCoverImg.childImageSharp.fluid;
+  const workIomando = {
+    title: data.workIomando.edges[0].node.frontmatter.title,
+    path: data.workIomando.edges[0].node.frontmatter.path,
+    excerpt: data.workIomando.edges[0].node.frontmatter.excerpt,
+    html: data.workIomando.edges[0].node.html
+  };
   const iomandoBlogPosts = data.iomandoBlogPosts.edges;
-  const renderIomandoCards = renderBlogCards.bind(null, iomandoBlogPosts);
-  // Get the images from the GraphQL query
-  const iomandoCover = data.iomandoCover.childImageSharp.fluid;
-  const iomandoProduct = data.iomandoProduct.childImageSharp.fluid;
-  const iomandoInsights = data.iomandoInsights.childImageSharp.fluid;
-  const iomandoStories = data.iomandoStories.childImageSharp.fluid;
+  const renderIomandoBlogCards = renderFilteredBlogCards.bind(
+    null,
+    iomandoBlogPosts
+  );
+  const workIomandoProductCoverImg =
+    data.workIomandoProductCoverImg.childImageSharp.fluid;
+  const workIomandoInsightsCoverImg =
+    data.workIomandoInsightsCoverImg.childImageSharp.fluid;
+  const workIomandoStoriesCoverImg =
+    data.workIomandoStoriesCoverImg.childImageSharp.fluid;
 
   return (
     <Layout>
-      <Header
-        tagline="Keyless access management for mobile devices"
-        title="iomando"
-      />
+      <Header title={workIomando.title} tagline={workIomando.excerpt} />
       <Img
         className={styles.image}
         alt="iomando technologies"
-        fluid={iomandoCover}
+        fluid={workIomandoCoverImg}
       />
-      <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
+      <div dangerouslySetInnerHTML={{ __html: workIomando.html }} />
       <Tabs>
         <TabList>
           <Tab>
@@ -46,23 +53,23 @@ const iomando = ({ data }) => {
 
         <TabPanel>
           <p>
-            At iomando, we cared about our product and our users' experience
+            {`At iomando, we cared about our product and our users' experience
             beyond what most would consider unreasonable. Even in the early
             days, we understood that investing in having the best product would
             eventually become a unique asset and the enabler of a thriving
-            business.
+            business.`}
           </p>
           <Img
             className={styles.image}
             alt="iomando updates"
-            fluid={iomandoProduct}
+            fluid={workIomandoProductCoverImg}
           />
           <p>
             Here is a recollection of all the release notes and product updates.
             Right from the very first 1.0, minor .1s, up to the latest 3.0, upon
             which the company was acquired.
           </p>
-          {renderIomandoCards('update')}
+          {renderIomandoBlogCards('update')}
         </TabPanel>
         <TabPanel>
           <p>
@@ -75,14 +82,14 @@ const iomando = ({ data }) => {
           <Img
             className={styles.image}
             alt="iomando insights"
-            fluid={iomandoInsights}
+            fluid={workIomandoInsightsCoverImg}
           />
           <p>
             Here is a recollection of posts that uncovers a naive journey of
             discovery, trying to convince the opaque, hardware-based
             accessibility management market, that software was the new thing.
           </p>
-          {renderIomandoCards('idea')}
+          {renderIomandoBlogCards('idea')}
         </TabPanel>
         <TabPanel>
           <p>
@@ -91,12 +98,12 @@ const iomando = ({ data }) => {
           <Img
             className={styles.image}
             alt="iomando stories"
-            fluid={iomandoStories}
+            fluid={workIomandoStoriesCoverImg}
           />
           <p>
             {`Here's a recollection of stories, decisions, but most important, some the lessons learned along the way on how to manage and lead a startup from zero to acquisition.`}
           </p>
-          {renderIomandoCards('memoir')}
+          {renderIomandoBlogCards('memoir')}
         </TabPanel>
       </Tabs>
     </Layout>
@@ -105,16 +112,45 @@ const iomando = ({ data }) => {
 
 export const query = graphql`
   {
-    pageCopy: allMarkdownRemark(
+    workIomandoCoverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    workIomando: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(iomando)/" }
       }
       limit: 1
     ) {
-      edges {
-        node {
-          id
-          html
+      ...allWorkPosts
+    }
+    workIomandoProductCoverImg: file(
+      relativePath: { eq: "iomando-updates.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    workIomandoInsightsCoverImg: file(
+      relativePath: { eq: "iomando-insights.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    workIomandoStoriesCoverImg: file(
+      relativePath: { eq: "iomando-stories.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -123,87 +159,51 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
         frontmatter: { tags: { in: ["iomando"] } }
       }
-      limit: 50
+      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            excerpt
-            path
-            tags
-            title
-          }
-        }
-      }
-    }
-    iomandoCover: file(relativePath: { eq: "iomando-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iomandoProduct: file(relativePath: { eq: "iomando-updates.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iomandoInsights: file(relativePath: { eq: "iomando-insights.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iomandoStories: file(relativePath: { eq: "iomando-stories.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...allBlogPosts
     }
   }
 `;
 
 iomando.propTypes = {
   data: PropTypes.shape({
-    pageCopy: PropTypes.shape({
+    workIomandoCoverImg: PropTypes.object.isRequired,
+    workIomando: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
             id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired
-          })
-        })
-      )
-    }),
-    iomandoBlogPosts: PropTypes.shape({
-      totalCount: PropTypes.number,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
-              date: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
+              title: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              title: PropTypes.string.isRequired
+              excerpt: PropTypes.string.isRequired
             })
           })
         })
       )
     }),
-    iomandoCover: PropTypes.object.isRequired,
-    iomandoProduct: PropTypes.object.isRequired,
-    iomandoInsights: PropTypes.object.isRequired,
-    iomandoStories: PropTypes.object.isRequired
+    workIomandoProductCoverImg: PropTypes.object.isRequired,
+    workIomandoInsightsCoverImg: PropTypes.object.isRequired,
+    workIomandoStoriesCoverImg: PropTypes.object.isRequired,
+    iomandoBlogPosts: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              date: PropTypes.string.isRequired,
+              path: PropTypes.string.isRequired,
+              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+              excerpt: PropTypes.string.isRequired
+            })
+          })
+        })
+      )
+    })
   }).isRequired
 };
 

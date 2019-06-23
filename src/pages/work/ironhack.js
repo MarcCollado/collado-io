@@ -7,29 +7,35 @@ import styles from './work.module.css';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import '../../styles/tabs.css';
-import { renderBlogCards } from '../../utils/helpers';
+import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const Ironhack = ({ data }) => {
-  const pageCopy = data.pageCopy.edges[0].node.html;
+  const workIronhackCoverImg = data.workIronhackCoverImg.childImageSharp.fluid;
+  const workIronhack = {
+    title: data.workIronhack.edges[0].node.frontmatter.title,
+    path: data.workIronhack.edges[0].node.frontmatter.path,
+    excerpt: data.workIronhack.edges[0].node.frontmatter.excerpt,
+    html: data.workIronhack.edges[0].node.html
+  };
   const ironhackBlogPosts = data.ironhackBlogPosts.edges;
-  const renderIronhackCards = renderBlogCards.bind(null, ironhackBlogPosts);
-  // Get the images from the GraphQL query
-  const ironhackCover = data.ironhackCover.childImageSharp.fluid;
-  const ironhackInsights = data.ironhackInsights.childImageSharp.fluid;
-  const ironhackStories = data.ironhackStories.childImageSharp.fluid;
+  const renderIronhackBlogCards = renderFilteredBlogCards.bind(
+    null,
+    ironhackBlogPosts
+  );
+  const workIronhackInsightsCoverImg =
+    data.workIronhackInsightsCoverImg.childImageSharp.fluid;
+  const workIronhackStoriesCoverImg =
+    data.workIronhackStoriesCoverImg.childImageSharp.fluid;
 
   return (
     <Layout>
-      <Header
-        tagline="Empowering the next generation of digital creators"
-        title="Ironhack"
-      />
+      <Header title={workIronhack.title} tagline={workIronhack.excerpt} />
       <Img
         className={styles.image}
-        alt="Ironhack technologies"
-        fluid={ironhackCover}
+        alt="Ironhack"
+        fluid={workIronhackCoverImg}
       />
-      <div dangerouslySetInnerHTML={{ __html: pageCopy }} />
+      <div dangerouslySetInnerHTML={{ __html: workIronhack.html }} />
       <Tabs>
         <TabList>
           <Tab>
@@ -50,7 +56,7 @@ const Ironhack = ({ data }) => {
           <Img
             className={styles.image}
             alt="Ironhack insights"
-            fluid={ironhackInsights}
+            fluid={workIronhackInsightsCoverImg}
           />
           <p>
             Thousands of graduates across eleven locations have taught me a lot
@@ -59,7 +65,7 @@ const Ironhack = ({ data }) => {
             what has worked (what has not...) and the lessons we have learned
             along the way.
           </p>
-          {renderIronhackCards('idea')}
+          {renderIronhackBlogCards('idea')}
         </TabPanel>
         <TabPanel>
           <p>
@@ -71,7 +77,7 @@ const Ironhack = ({ data }) => {
           <Img
             className={styles.image}
             alt="Ironhack stories"
-            fluid={ironhackStories}
+            fluid={workIronhackStoriesCoverImg}
           />
           <p>
             After more than four years, I have accumulated thousands of stories,
@@ -79,7 +85,7 @@ const Ironhack = ({ data }) => {
             Here is a recollection of posts that distill my story at Ironhack
             from a more confidential, idiosyncratic perspective.
           </p>
-          {renderIronhackCards('memoir')}
+          {renderIronhackBlogCards('memoir')}
         </TabPanel>
       </Tabs>
     </Layout>
@@ -88,16 +94,36 @@ const Ironhack = ({ data }) => {
 
 export const query = graphql`
   {
-    pageCopy: allMarkdownRemark(
+    workIronhackCoverImg: file(relativePath: { eq: "ironhack-cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    workIronhack: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(ironhack)/" }
       }
       limit: 1
     ) {
-      edges {
-        node {
-          id
-          html
+      ...allWorkPosts
+    }
+    workIronhackInsightsCoverImg: file(
+      relativePath: { eq: "ironhack-insights.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    workIronhackStoriesCoverImg: file(
+      relativePath: { eq: "ironhack-barcelona.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -106,50 +132,18 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
         frontmatter: { tags: { in: ["ironhack"] } }
       }
-      limit: 50
+      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            excerpt
-            path
-            tags
-            title
-          }
-        }
-      }
-    }
-    ironhackCover: file(relativePath: { eq: "ironhack-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    ironhackInsights: file(relativePath: { eq: "ironhack-insights.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    ironhackStories: file(relativePath: { eq: "ironhack-barcelona.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...allBlogPosts
     }
   }
 `;
 
 Ironhack.propTypes = {
   data: PropTypes.shape({
-    pageCopy: PropTypes.shape({
+    workIronhackCoverImg: PropTypes.object.isRequired,
+    workIronhack: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -159,26 +153,24 @@ Ironhack.propTypes = {
         })
       )
     }),
+    workIronhackInsightsCoverImg: PropTypes.object.isRequired,
+    workIronhackStoriesCoverImg: PropTypes.object.isRequired,
     ironhackBlogPosts: PropTypes.shape({
-      totalCount: PropTypes.number,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
             id: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              title: PropTypes.string.isRequired
+              excerpt: PropTypes.string.isRequired
             })
           })
         })
       )
-    }),
-    ironhackCover: PropTypes.object.isRequired,
-    ironhackInsights: PropTypes.object.isRequired,
-    ironhackStories: PropTypes.object.isRequired
+    })
   }).isRequired
 };
 

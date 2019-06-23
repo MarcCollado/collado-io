@@ -8,12 +8,15 @@ import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import { Podcasts } from '../../components/Podcasts';
 // import '../../styles/tabs.css';
-import { renderBlogCards } from '../../utils/helpers';
+import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const radioLanza = ({ data }) => {
   const pageCopy = data.pageCopy.edges[0].node.html;
   const radioLanzaBlogPosts = data.radioLanzaBlogPosts.edges;
-  const renderRadioLanzaCards = renderBlogCards.bind(null, radioLanzaBlogPosts);
+  const renderRadioLanzaCards = renderFilteredBlogCards.bind(
+    null,
+    radioLanzaBlogPosts
+  );
   // Get the images from the GraphQL query
   const radioLanzaCover = data.radioLanzaCover.childImageSharp.fluid;
 
