@@ -1,6 +1,8 @@
 ---
-title: 'Home'
+title: 'Marc Collado'
 date: null
+path: '/'
+excerpt: 'Singularly Curious'
 ---
 
 ## Me, In A Bullet List

@@ -6,31 +6,35 @@ import { Layout } from '../components/Layout';
 import { Header } from '../components/Header';
 
 const HomePage = ({ data }) => {
-  const homeIndexHtml = data.pageCopy.edges[0].node.html;
-  const marcPicture = data.marcPicture.childImageSharp.fluid;
+  const homeCoverImg = data.homeCoverImg.childImageSharp.fluid;
+  const homeIndex = {
+    title: data.homeIndex.edges[0].node.frontmatter.title,
+    excerpt: data.homeIndex.edges[0].node.frontmatter.excerpt,
+    html: data.homeIndex.edges[0].node.html
+  };
   return (
     <Layout>
-      <Header title="Marc Collado" tagline="Singularly Curious" />
+      <Header title={homeIndex.title} tagline={homeIndex.excerpt} />
       <Img
-        alt="Marc Collado"
-        fluid={marcPicture}
+        alt={homeIndex.title}
+        fluid={homeCoverImg}
         style={{ width: `15em`, margin: `0 auto -1em` }}
       />
-      <div dangerouslySetInnerHTML={{ __html: homeIndexHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: homeIndex.html }} />
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    marcPicture: file(relativePath: { eq: "marc.jpg" }) {
+    homeCoverImg: file(relativePath: { eq: "marc.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    pageCopy: allMarkdownRemark(
+    homeIndex: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(home)/" } }
       limit: 1
     ) {
@@ -38,6 +42,10 @@ export const query = graphql`
         node {
           id
           html
+          frontmatter {
+            title
+            excerpt
+          }
         }
       }
     }
@@ -46,13 +54,17 @@ export const query = graphql`
 
 HomePage.propTypes = {
   data: PropTypes.shape({
-    marcPicture: PropTypes.object.isRequired,
-    pageCopy: PropTypes.shape({
+    homeCoverImg: PropTypes.object.isRequired,
+    homeIndex: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
             id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired
+            html: PropTypes.string.isRequired,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              excerpt: PropTypes.string.isRequired
+            })
           })
         })
       )
