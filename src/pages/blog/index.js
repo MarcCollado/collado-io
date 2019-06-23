@@ -25,7 +25,7 @@ const BlogPage = ({ data }) => {
     </Layout>
   );
 };
-// From queries.js
+
 export const query = graphql`
   {
     allMarkdownRemark(
@@ -49,6 +49,7 @@ BlogPage.propTypes = {
               title: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
+              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
               excerpt: PropTypes.string.isRequired
             })
           })
