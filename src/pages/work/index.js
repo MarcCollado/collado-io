@@ -7,25 +7,19 @@ import { Header } from '../../components/Header';
 import { WorkCard } from '../../components/WorkCard';
 
 const WorkPage = ({ data }) => {
-  const WorkData = data.allMarkdownRemark.edges;
-  const WorkSEO = WorkData
-    // Get index.md from ".../markdown/work/"
+  const allWorkPosts = data.allMarkdownRemark.edges;
+  const workIndex = allWorkPosts
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => ({
       title: edge.node.frontmatter.title,
       path: edge.node.frontmatter.path,
-      excerpt: edge.node.frontmatter.excerpt
+      excerpt: edge.node.frontmatter.excerpt,
+      html: edge.node.html
     }));
-  const WorkIntro = WorkData
-    // Get index.md from ".../markdown/work/"
-    .filter((edge) => edge.node.frontmatter.date === null)
-    .map((edge) => edge.node.html);
-  const renderCards = WorkData
-    // Get *.md files with frontmatter date from ".../markdown/work/"
+  const renderAllWorkCards = allWorkPosts
     .filter((edge) => !!edge.node.frontmatter.date)
     .map((edge) => (
-      // Generate feed of WorkCards
-      // The thumbnail image is fetched inside the WorkCard component
+      // Each thumbnail image is fetched inside WorkCard component
       <WorkCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
@@ -36,13 +30,13 @@ const WorkPage = ({ data }) => {
 
   return (
     <Layout
-      title={WorkSEO[0].title}
-      description={WorkSEO[0].excerpt}
-      pathname={WorkSEO[0].path}
+      title={workIndex[0].title}
+      description={workIndex[0].excerpt}
+      pathname={workIndex[0].path}
     >
-      <Header tagline="Things I've Done" title="Work" />
-      <div dangerouslySetInnerHTML={{ __html: WorkIntro }} />
-      <div className={styles.container}>{renderCards}</div>
+      <Header title={workIndex[0].title} tagline="Things I've Done" />
+      <div dangerouslySetInnerHTML={{ __html: workIndex[0].html }} />
+      <div className={styles.container}>{renderAllWorkCards}</div>
     </Layout>
   );
 };
@@ -51,9 +45,9 @@ export const query = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/" } }
-      limit: 10
+      limit: 100
     ) {
-      ...WorkData
+      ...allWorkPosts
     }
   }
 `;
