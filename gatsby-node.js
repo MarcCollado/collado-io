@@ -8,7 +8,7 @@ exports.createPages = ({ actions, graphql }) => {
       `src/components/EpisodePost/EpisodePost.js`
     );
     const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
-    // Fetch markdowns for blog posts at /src/markdown/blog/
+    // Fetch markdowns for blog posts at .../markdown/blog/
     resolve(
       graphql(`
         {
@@ -55,11 +55,11 @@ exports.createPages = ({ actions, graphql }) => {
         });
       })
     );
-    // Fetch markdowns for Radio Lanza episode posts at /src/markdown/episodes/
+    // Fetch markdowns for Radio Lanza episodes at .../markdown/episodes/
     resolve(
       graphql(`
         {
-          episodePosts: allMarkdownRemark(
+          radioLanzaEpisodes: allMarkdownRemark(
             filter: {
               fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" }
             }
@@ -79,9 +79,9 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
           throw result.errors;
         }
-        const episodes = result.data.episodePosts.edges;
-        // Create pages for each episode post using `frontmatter.path`
-        episodes.forEach(({ node }) => {
+        const radioLanzaEpisodes = result.data.radioLanzaEpisodes.edges;
+        // Create pages for each episode using `frontmatter.path`
+        radioLanzaEpisodes.forEach(({ node }) => {
           createPage({
             path: node.frontmatter.path,
             component: episodePostPage,

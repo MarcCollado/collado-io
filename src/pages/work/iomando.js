@@ -28,7 +28,6 @@ const iomando = ({ data }) => {
     data.workIomandoInsightsCoverImg.childImageSharp.fluid;
   const workIomandoStoriesCoverImg =
     data.workIomandoStoriesCoverImg.childImageSharp.fluid;
-
   return (
     <Layout>
       <Header title={workIomando.title} tagline={workIomando.excerpt} />
