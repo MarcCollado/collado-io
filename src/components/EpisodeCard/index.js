@@ -1,1 +1,1 @@
-export { default as EpsisodeCard } from './EpisodeCard';
+export { default as EpisodeCard } from './EpisodeCard';
