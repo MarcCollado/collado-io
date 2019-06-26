@@ -1,5 +1,6 @@
 import React from 'react';
 import { BlogCard } from '../components/BlogCard';
+import { EpisodeCard } from '../components/EpisodeCard';
 
 /*
 - Generates a tag-filtered array of BlogCard
@@ -14,6 +15,20 @@ export function renderFilteredBlogCards(data, tag) {
     .filter((edge) => edge.node.frontmatter.tags.includes(tag))
     .map((edge) => (
       <BlogCard
+        key={edge.node.id}
+        title={edge.node.frontmatter.title}
+        date={edge.node.frontmatter.date}
+        path={edge.node.frontmatter.path}
+        excerpt={edge.node.frontmatter.excerpt}
+      />
+    ));
+}
+
+export function renderAllEpisodeCards(data) {
+  return data
+    .filter((edge) => !!edge.node.frontmatter.date)
+    .map((edge) => (
+      <EpisodeCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
         date={edge.node.frontmatter.date}
