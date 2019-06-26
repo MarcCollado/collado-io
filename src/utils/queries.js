@@ -16,14 +16,16 @@ export const allBlogPostsQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           path
           tags
+          featured
           excerpt
+          source
         }
       }
     }
   }
 `;
 
-/* Used by: WorkPage
+/* Used by: WorkPage, Workpage(s)
 - Fetch all markdowns for work posts at src/markdown/work/
 - It is used by WorkPage to:
   - Pull content for WorkPage React Helmet SEO
@@ -62,7 +64,11 @@ export const allRadioLanzaEpisodesQuery = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           path
+          tags
+          featured
           excerpt
+          show
+          episode
           episodeURL
           playerURL
           iTunesURL
