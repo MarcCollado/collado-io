@@ -57,7 +57,10 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         tags
+        featured
         excerpt
+        show
+        episode
         episodeURL
         playerURL
         iTunesURL
