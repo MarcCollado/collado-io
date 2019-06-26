@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Marc Collado's Personal Website.",
+    title: "Marc Collado's Personal Website",
     shortName: 'Marc',
     author: 'Marc Collado',
     siteLanguage: 'en',
@@ -55,7 +55,6 @@ module.exports = {
         ]
       }
     },
-
     // Image processing
     {
       resolve: 'gatsby-plugin-sharp',
@@ -65,7 +64,20 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-
+    // Offline
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Marc Collado's Personal Website`,
+        short_name: `collado.io`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#b3e4c8`,
+        display: `standalone`,
+        icon: `static/favicon/icon.png`
+      }
+    },
+    `gatsby-plugin-offline`,
     // Utils & Helpers
     {
       resolve: 'gatsby-plugin-google-analytics',
