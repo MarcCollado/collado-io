@@ -1,7 +1,7 @@
 ---
 title: 'Now'
 date: null
-path: '/work'
+path: '/now'
 excerpt: "The Now page at Marc Collado's Personal Website — where you can see what I am currently doing."
 ---
 
