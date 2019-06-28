@@ -6,41 +6,35 @@ import { Header } from '../../components/Header';
 import { NowCard } from '../../components/NowCard';
 
 const NowPage = ({ data }) => {
-  const NowData = data.allMarkdownRemark.edges;
-  const NowSEO = NowData
-    // Get md files with the frontmatter date set to null (index.md)
+  const allNowPosts = data.allMarkdownRemark.edges;
+  const nowIndex = allNowPosts
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => ({
-      path: edge.node.frontmatter.path,
       title: edge.node.frontmatter.title,
-      excerpt: edge.node.frontmatter.excerpt
+      path: edge.node.frontmatter.path,
+      excerpt: edge.node.frontmatter.excerpt,
+      html: edge.node.html
     }));
-  const NowIntro = NowData
-    // Get (again) md files with the frontmatter date set to null (index.md)
-    .filter((edge) => edge.node.frontmatter.date === null)
-    .map((edge) => edge.node.html);
-  const renderCards = NowData
-    // Get md files with frontmatter date data set
+  const renderAllNowCards = allNowPosts
     .filter((edge) => !!edge.node.frontmatter.date)
-    // Generate a feed of NowPosts
     .map((edge) => (
       <NowCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
-        html={edge.node.html}
         date={edge.node.frontmatter.date}
+        html={edge.node.html}
       />
     ));
 
   return (
     <Layout
-      title={NowSEO[0].title}
-      description={NowSEO[0].excerpt}
-      pathname={NowSEO[0].path}
+      title={nowIndex[0].title}
+      description={nowIndex[0].excerpt}
+      pathname={nowIndex[0].path}
     >
-      <Header tagline="Things I'm Doing" title="Now" />
-      <div dangerouslySetInnerHTML={{ __html: NowIntro }} />
-      {renderCards}
+      <Header title={nowIndex[0].title} tagline="Things I'm Doing" />
+      <div dangerouslySetInnerHTML={{ __html: nowIndex[0].html }} />
+      {renderAllNowCards}
     </Layout>
   );
 };
@@ -49,21 +43,10 @@ export const query = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(now)/" } }
-      limit: 50
+      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            excerpt
-            path
-          }
-        }
-      }
+      ...allWorkPosts
     }
   }
 `;
@@ -77,10 +60,10 @@ NowPage.propTypes = {
             id: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
-              date: PropTypes.string,
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string,
-              path: PropTypes.string
+              date: PropTypes.string,
+              path: PropTypes.string.isRequired,
+              excerpt: PropTypes.string.isRequired
             })
           })
         })
