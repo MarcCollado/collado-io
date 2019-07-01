@@ -48,10 +48,10 @@ const Ironhack = ({ data }) => {
 
         <TabPanel>
           <p>
-            Education — as we know it — is changing, for the better. At Ironhack
-            I had a unique opportunity to be part and lead this revolution,
-            using technology to create the tools for our students to boost their
-            careers and become digital creators themselves.
+            Education is changing for the better. At Ironhack I had a unique
+            opportunity to be part and lead this revolution; using technology to
+            create the tools for our students to boost their careers and become
+            digital creators themselves.
           </p>
           <Img
             className={styles.image}
@@ -60,19 +60,18 @@ const Ironhack = ({ data }) => {
           />
           <p>
             Thousands of graduates across eleven locations have taught me a lot
-            about education and how our students ultimately learn. Here is a
-            recollection of posts around educational products, methodologies,
-            what has worked (what has not...) and the lessons we have learned
-            along the way.
+            about education and how we learn. Here is a recollection of posts
+            around educational products and methodologies. What has worked, what
+            has not, and the lessons we have learned along the way.
           </p>
           {renderIronhackBlogCards('idea')}
         </TabPanel>
         <TabPanel>
           <p>
-            When I joined, early 2015, Ironhack looked like nothing it has
-            become today. We were barely ten of us and the idea of changing
-            people lives in just two months sounded more like a wild dream
-            rather than an attainable reality.
+            Back in 2015, when I joined Ironhack, it looked nothing like today.
+            We were barely ten of us and the idea of changing people lives in
+            just two months sounded more of a wild dream rather than an
+            attainable reality.
           </p>
           <Img
             className={styles.image}
@@ -81,9 +80,9 @@ const Ironhack = ({ data }) => {
           />
           <p>
             After more than four years, I have accumulated thousands of stories,
-            raging from being a student myself to scaling campuses operations.
-            Here is a recollection of posts that distill my story at Ironhack
-            from a more confidential, idiosyncratic perspective.
+            from being a student myself to scaling campuses operations. Here is
+            a recollection of posts that cover my story at Ironhack from a more
+            confidential, idiosyncratic perspective.
           </p>
           {renderIronhackBlogCards('memoir')}
         </TabPanel>
