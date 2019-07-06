@@ -3,57 +3,84 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
-import { NowCard } from '../../components/NowCard';
+import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const NowPage = ({ data }) => {
-  const allNowPosts = data.allMarkdownRemark.edges;
-  const nowIndex = allNowPosts
-    .filter((edge) => edge.node.frontmatter.date === null)
-    .map((edge) => ({
-      title: edge.node.frontmatter.title,
-      path: edge.node.frontmatter.path,
-      excerpt: edge.node.frontmatter.excerpt,
-      html: edge.node.html
-    }));
-  const renderAllNowCards = allNowPosts
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
-      <NowCard
-        key={edge.node.id}
-        title={edge.node.frontmatter.title}
-        date={edge.node.frontmatter.date}
-        html={edge.node.html}
-      />
-    ));
-
+  const nowIndex = {
+    title: data.nowIndex.edges[0].node.frontmatter.title,
+    excerpt: data.nowIndex.edges[0].node.frontmatter.excerpt,
+    html: data.nowIndex.edges[0].node.html
+  };
+  const nowBlogPosts = data.nowBlogPosts.edges;
+  const pastNowBlogPosts = nowBlogPosts.slice(1);
+  const renderPastNowBlogPosts = renderFilteredBlogCards.bind(
+    null,
+    pastNowBlogPosts
+  );
+  const currentNowBlogPost = {
+    title: nowBlogPosts[0].node.frontmatter.title,
+    date: nowBlogPosts[0].node.frontmatter.date,
+    html: nowBlogPosts[0].node.html
+  };
   return (
-    <Layout
-      title={nowIndex[0].title}
-      description={nowIndex[0].excerpt}
-      pathname={nowIndex[0].path}
-    >
-      <Header title={nowIndex[0].title} tagline="Things I'm Doing" />
-      <div dangerouslySetInnerHTML={{ __html: nowIndex[0].html }} />
-      {renderAllNowCards}
+    <Layout title={nowIndex.title} description={nowIndex.excerpt}>
+      <Header title={nowIndex.title} tagline="Things I'm Doing" />
+      <div dangerouslySetInnerHTML={{ __html: nowIndex.html }} />
+      <h2>{`${currentNowBlogPost.title} — what I'm up to`}</h2>
+      <div dangerouslySetInnerHTML={{ __html: currentNowBlogPost.html }} />
+      <p>
+        {`That's all for ${currentNowBlogPost.title.toLowerCase()} — if you are curious about what I was up to in the past, check out older editions of the now project below 👇`}
+      </p>
+      {renderPastNowBlogPosts('now')}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    allMarkdownRemark(
+    nowIndex: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(now)/" } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          html
+          frontmatter {
+            title
+            excerpt
+          }
+        }
+      }
+    }
+    nowBlogPosts: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        frontmatter: { tags: { in: ["now"] } }
+      }
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allWorkPosts
+      edges {
+        node {
+          id
+          html
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+            tags
+            excerpt
+          }
+        }
+      }
     }
   }
 `;
 
 NowPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    nowIndex: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -61,8 +88,23 @@ NowPage.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              date: PropTypes.string,
+              excerpt: PropTypes.string.isRequired
+            })
+          })
+        })
+      )
+    }),
+    nowBlogPosts: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            html: PropTypes.string.isRequired,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
+              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
               excerpt: PropTypes.string.isRequired
             })
           })
@@ -70,10 +112,6 @@ NowPage.propTypes = {
       )
     })
   }).isRequired
-};
-
-NowPage.defaultProps = {
-  // TODO: add defaultProps
 };
 
 export default NowPage;
