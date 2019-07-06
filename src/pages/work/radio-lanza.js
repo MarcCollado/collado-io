@@ -128,7 +128,6 @@ RadioLanza.propTypes = {
       )
     }),
     radioLanzaBlogPosts: PropTypes.shape({
-      totalCount: PropTypes.number,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
