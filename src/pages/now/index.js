@@ -26,7 +26,7 @@ const NowPage = ({ data }) => {
     <Layout title={nowIndex.title} description={nowIndex.excerpt}>
       <Header title={nowIndex.title} tagline="Things I'm Doing" />
       <div dangerouslySetInnerHTML={{ __html: nowIndex.html }} />
-      <h2>{`${currentNowBlogPost.title} — what I'm up to`}</h2>
+      <h2>{currentNowBlogPost.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: currentNowBlogPost.html }} />
       <p>
         {`That's all for ${currentNowBlogPost.title.toLowerCase()} — if you are curious about what I was up to in the past, check out older editions of the now project below 👇`}
