@@ -20,6 +20,7 @@ const NowPage = ({ data }) => {
   const currentNowBlogPost = {
     title: nowBlogPosts[0].node.frontmatter.title,
     date: nowBlogPosts[0].node.frontmatter.date,
+    excerpt: nowBlogPosts[0].node.frontmatter.excerpt,
     html: nowBlogPosts[0].node.html
   };
   return (
@@ -27,6 +28,7 @@ const NowPage = ({ data }) => {
       <Header title={nowIndex.title} tagline="Things I'm Doing" />
       <div dangerouslySetInnerHTML={{ __html: nowIndex.html }} />
       <h2>{currentNowBlogPost.title}</h2>
+      <p>{currentNowBlogPost.excerpt}</p>
       <div dangerouslySetInnerHTML={{ __html: currentNowBlogPost.html }} />
       <p>
         {`That's all for ${currentNowBlogPost.title.toLowerCase()} — if you are curious about what I was up to in the past, check out older editions of the now project below 👇`}
