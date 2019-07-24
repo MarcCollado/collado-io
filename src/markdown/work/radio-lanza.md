@@ -2,7 +2,7 @@
 title: 'Radio Lanza'
 date: '2019-05-01'
 path: '/work/radio-lanza'
-excerpt: 'A podcast w/ Jimmy Flores & Marc Collado'
+excerpt: 'A podcast with Jimmy Flores and Marc Collado'
 ---
 
 Radio Lanza is a podcast co-hosted by Jimmy Flores & Marc Collado. In each episode we share our personal experiences on how to launch your own business idea — so we can guide and help our audience avoid the mistakes we've made.
