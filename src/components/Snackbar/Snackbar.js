@@ -6,7 +6,7 @@ import styles from './Snackbar.module.css';
 const Snackbar = ({ unmount }) => (
   <div className={styles.snackbar__container}>
     <p className={styles.snackbar__text}>
-      {`🎧 Jimmy Flores & I just launched a new podcast:`}{' '}
+      {`🎧 Jimmy Flores and I just launched a new podcast:`}{' '}
       <a href="/work/radio-lanza"> say hi to Radio Lanza</a>
     </p>
     <button onClick={unmount} className={styles.snackbar__close}>
