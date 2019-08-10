@@ -34,16 +34,23 @@
 
 .snackbar__close {
   /* Display & Box Model */
-  margin: 0.55em 0 0 1em;
+  margin: 0.8em 0 0 1em;
   border: none;
-  border-radius: 1em;
-  padding: 5px 7.5px;
+  border-radius: 1.25em;
+  height: 1.25em;
+  width: 1.25em;
 
   /* Flex */
   display: flex;
+  justify-content: center;
+  align-content: center;
 
   /* Color */
   background-color: #f1c40f88;
+
+  /* Text */
+  font-size: smaller;
+  text-align: center;
 
   /* Other */
   transition: background-color 0.3s ease;
@@ -54,7 +61,7 @@
   background-color: var(--fakeAsbestosAlpha88);
 }
 
-.snackbar__icon {
-  /* Text */
-  text-align: center;
+.snackbar__close > span {
+  margin: 1px 0px 0px 0.5px;
+  font-size: xx-small;
 }

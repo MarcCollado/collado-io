@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import 'normalize.css';
 import styles from './Layout.module.css';
 import { Snackbar } from '../Snackbar';
 import { Navbar } from '../Navbar';
 import { Footer } from '../Footer';
 import SEO from '../../utils/seo';
-
-library.add(faTimes, faCalendarCheck);
 
 class Layout extends React.Component {
   constructor(props) {
