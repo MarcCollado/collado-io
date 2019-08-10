@@ -8,7 +8,7 @@
   --bianchiGreen: #b3e4c8;
   --bianchiGreenAlpha88: #b3e4c888;
   --codeRed: #eb5757;
-  --codeAsbestos: #dcdcdc;
+  --codeAsbestos: #f4f4f4;
 }
 
 html {
@@ -103,6 +103,12 @@ ol {
   padding-inline-start: 1.25em;
 }
 
+/* Workaround to fix broken style within nested lists */
+ul > li > p {
+  /* Display & Box Model */
+  margin-top: 0;
+}
+
 blockquote {
   /* Display & Box Model */
   margin: 1.25em 0;
@@ -126,11 +132,11 @@ code {
 
   /* Text */
   font-family: 'Inconsolata', monospace;
-  font-size: smaller;
   letter-spacing: -1px;
+  line-height: 1.5em;
 
   /* Color */
-  color: var(--codeRed);
+  color: var(--fakeAsbestos);
   background: var(--codeAsbestos);
 }
 
@@ -149,7 +155,7 @@ pre {
 
 pre > code {
   /* Text */
-  line-height: 1.5em;
+  font-family: 'Inconsolata', monospace;
 }
 
 hr {
