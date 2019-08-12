@@ -1,10 +1,11 @@
 import { graphql } from 'gatsby';
 
-/* Used by: BlogPage, WorkPage(s),
-- Fetch all markdowns for blog posts at src/markdown/blog/
-- It is used by BlogPage to:
-  - Generate the feed of BlogCard
-- No need to fetch html because it is used in BlogPost instead
+/*
+Used by: BlogPage, WorkPage(s),
+Notes:
+  - Its parent query should fetch at src/markdown/blog/**
+  - No html is requested since the point of this query is to generate cards
+  - Used in combination with render__Cards methods
 */
 export const allBlogPostsQuery = graphql`
   fragment allBlogPosts on MarkdownRemarkConnection {
