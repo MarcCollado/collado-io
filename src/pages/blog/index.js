@@ -3,25 +3,15 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
-import { BlogCard } from '../../components/BlogCard';
+import { renderAllBlogCards } from '../../utils/helpers';
 
 const BlogPage = ({ data }) => {
   const allBlogPosts = data.allMarkdownRemark.edges;
-  const renderAllBlogCards = allBlogPosts
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
-      <BlogCard
-        key={edge.node.id}
-        title={edge.node.frontmatter.title}
-        date={edge.node.frontmatter.date}
-        path={edge.node.frontmatter.path}
-        excerpt={edge.node.frontmatter.excerpt}
-      />
-    ));
   return (
+    // TODO: both title and tagline are sourced from markdowns
     <Layout>
       <Header title="Blog" tagline="Things I've Written" />
-      {renderAllBlogCards}
+      {renderAllBlogCards(allBlogPosts)}
     </Layout>
   );
 };
@@ -44,13 +34,15 @@ BlogPage.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            id: PropTypes.string,
             frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
+              title: PropTypes.string,
+              date: PropTypes.string,
+              path: PropTypes.string,
+              tags: PropTypes.arrayOf(PropTypes.string),
+              featured: PropTypes.string,
+              excerpt: PropTypes.string,
+              source: PropTypes.string
             })
           })
         })
