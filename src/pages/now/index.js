@@ -44,16 +44,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(now)/" } }
       limit: 1
     ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            excerpt
-          }
-        }
-      }
+      ...allWorkPosts
     }
     nowBlogPosts: allMarkdownRemark(
       filter: {
@@ -63,19 +54,7 @@ export const query = graphql`
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            path
-            tags
-            excerpt
-          }
-        }
-      }
+      ...allBlogPosts
     }
   }
 `;
@@ -86,11 +65,13 @@ NowPage.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
+            id: PropTypes.string,
+            html: PropTypes.string,
             frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
+              title: PropTypes.string,
+              date: PropTypes.string,
+              path: PropTypes.string,
+              excerpt: PropTypes.string
             })
           })
         })
@@ -100,14 +81,16 @@ NowPage.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
+            id: PropTypes.string,
+            html: PropTypes.string,
             frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
+              title: PropTypes.string,
+              date: PropTypes.string,
+              path: PropTypes.string,
+              tags: PropTypes.arrayOf(PropTypes.string),
+              featured: PropTypes.string,
+              excerpt: PropTypes.string,
+              source: PropTypes.string
             })
           })
         })
