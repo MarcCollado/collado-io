@@ -3,20 +3,16 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
-import { renderFilteredBlogCards } from '../../utils/helpers';
+import { renderAllBlogCards } from '../../utils/helpers';
 
 const NowPage = ({ data }) => {
-  const nowIndex = {
-    title: data.nowIndex.edges[0].node.frontmatter.title,
-    excerpt: data.nowIndex.edges[0].node.frontmatter.excerpt,
-    html: data.nowIndex.edges[0].node.html
+  const nowPageInfo = {
+    title: data.nowPageInfo.edges[0].node.frontmatter.title,
+    excerpt: data.nowPageInfo.edges[0].node.frontmatter.excerpt,
+    html: data.nowPageInfo.edges[0].node.html
   };
   const nowBlogPosts = data.nowBlogPosts.edges;
   const pastNowBlogPosts = nowBlogPosts.slice(1);
-  const renderPastNowBlogPosts = renderFilteredBlogCards.bind(
-    null,
-    pastNowBlogPosts
-  );
   const currentNowBlogPost = {
     title: nowBlogPosts[0].node.frontmatter.title,
     date: nowBlogPosts[0].node.frontmatter.date,
@@ -24,44 +20,44 @@ const NowPage = ({ data }) => {
     html: nowBlogPosts[0].node.html
   };
   return (
-    <Layout title={nowIndex.title} description={nowIndex.excerpt}>
-      <Header title={nowIndex.title} tagline="Things I'm Doing" />
-      <div dangerouslySetInnerHTML={{ __html: nowIndex.html }} />
+    <Layout title={nowPageInfo.title} description={nowPageInfo.excerpt}>
+      <Header title={nowPageInfo.title} tagline="Things I'm Doing" />
+      <div dangerouslySetInnerHTML={{ __html: nowPageInfo.html }} />
       <h2>{currentNowBlogPost.title}</h2>
       <p>{currentNowBlogPost.excerpt}</p>
       <div dangerouslySetInnerHTML={{ __html: currentNowBlogPost.html }} />
       <p>
         {`That's all for ${currentNowBlogPost.title.toLowerCase()} — if you are curious about what I was up to in the past, check out older editions of the now project below 👇`}
       </p>
-      {renderPastNowBlogPosts('now')}
+      {renderAllBlogCards(pastNowBlogPosts)}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    nowIndex: allMarkdownRemark(
+    nowPageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(now)/" } }
       limit: 1
     ) {
-      ...allWorkPosts
+      ...pageInfo
     }
     nowBlogPosts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
         frontmatter: { tags: { in: ["now"] } }
       }
-      limit: 100
+      limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allBlogPostsWithHtml
     }
   }
 `;
 
 NowPage.propTypes = {
   data: PropTypes.shape({
-    nowIndex: PropTypes.shape({
+    nowPageInfo: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({

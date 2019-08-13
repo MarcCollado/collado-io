@@ -6,7 +6,7 @@ import { EpisodeCard } from '../components/EpisodeCard';
 Input:
   - data: ...allBlogPosts GraphQL query results
 Output: generates an array of BlogCard
-Used by: BlogPage,
+Used by: BlogPage, NowPage
  */
 export function renderAllBlogCards(data) {
   return data

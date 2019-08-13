@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 /*
-Used by: BlogPage, WorkPage(s),
+Used by: BlogPage, WorkPage(s)
 Notes:
   - Its parent query should fetch at src/markdown/blog/**
   - No html is requested since the point of this query is to generate cards
@@ -26,15 +26,35 @@ export const allBlogPostsQuery = graphql`
   }
 `;
 
-/* Used by: WorkPage, Workpage(s)
-- Fetch all markdowns for work posts at src/markdown/work/
-- It is used by WorkPage to:
-  - Pull content for WorkPage React Helmet SEO
-  - Pull content for WorkPage copy
-  - Generate the feed of WorkCard
+/*
+Used by: NowPage
+Notes: almost identical as allBlogPosts but this one also fetches the html
 */
-export const allWorkPostsQuery = graphql`
-  fragment allWorkPosts on MarkdownRemarkConnection {
+export const allBlogPostsQueryWithHtml = graphql`
+  fragment allBlogPostsWithHtml on MarkdownRemarkConnection {
+    edges {
+      node {
+        id
+        html
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+          path
+          tags
+          featured
+          excerpt
+          source
+        }
+      }
+    }
+  }
+`;
+
+/*
+Used by: HomePage, NowPage
+*/
+export const PageInfoQuery = graphql`
+  fragment pageInfo on MarkdownRemarkConnection {
     edges {
       node {
         id

@@ -6,64 +6,57 @@ import { Layout } from '../components/Layout';
 import { Header } from '../components/Header';
 
 const HomePage = ({ data }) => {
-  const homeCoverImg = data.homeCoverImg.childImageSharp.fluid;
-  const homeIndex = {
-    title: data.homeIndex.edges[0].node.frontmatter.title,
-    excerpt: data.homeIndex.edges[0].node.frontmatter.excerpt,
-    html: data.homeIndex.edges[0].node.html
+  const homePageImg = data.homePageImg.childImageSharp.fluid;
+  const homePageInfo = {
+    title: data.homePageInfo.edges[0].node.frontmatter.title,
+    excerpt: data.homePageInfo.edges[0].node.frontmatter.excerpt,
+    html: data.homePageInfo.edges[0].node.html
   };
   return (
     <Layout>
-      <Header title={homeIndex.title} tagline={homeIndex.excerpt} />
+      <Header title={homePageInfo.title} tagline={homePageInfo.excerpt} />
       <Img
-        alt={homeIndex.title}
-        fluid={homeCoverImg}
+        alt={homePageInfo.title}
+        fluid={homePageImg}
         style={{ width: `15em`, margin: `0 auto -1em` }}
       />
-      <div dangerouslySetInnerHTML={{ __html: homeIndex.html }} />
+      <div dangerouslySetInnerHTML={{ __html: homePageInfo.html }} />
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    homeCoverImg: file(relativePath: { eq: "marc.jpg" }) {
+    homePageImg: file(relativePath: { eq: "pages/marc.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    homeIndex: allMarkdownRemark(
+    homePageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(home)/" } }
       limit: 1
     ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            excerpt
-          }
-        }
-      }
+      ...pageInfo
     }
   }
 `;
 
 HomePage.propTypes = {
   data: PropTypes.shape({
-    homeCoverImg: PropTypes.object.isRequired,
-    homeIndex: PropTypes.shape({
+    homePageImg: PropTypes.object,
+    homePageInfo: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
+            id: PropTypes.string,
+            html: PropTypes.string,
             frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
+              title: PropTypes.string,
+              date: PropTypes.string,
+              path: PropTypes.string,
+              excerpt: PropTypes.string
             })
           })
         })
