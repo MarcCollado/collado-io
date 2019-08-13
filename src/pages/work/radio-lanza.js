@@ -87,7 +87,7 @@ export const query = graphql`
       }
       limit: 1
     ) {
-      ...allWorkPosts
+      ...pageInfo
     }
     allRadioLanzaEpisodes: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" } }

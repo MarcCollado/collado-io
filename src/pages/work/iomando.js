@@ -124,7 +124,7 @@ export const query = graphql`
       }
       limit: 1
     ) {
-      ...allWorkPosts
+      ...pageInfo
     }
     workIomandoProductCoverImg: file(
       relativePath: { eq: "iomando-updates.jpg" }

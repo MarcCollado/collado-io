@@ -7,8 +7,8 @@ import { Header } from '../../components/Header';
 import { WorkCard } from '../../components/WorkCard';
 
 const WorkPage = ({ data }) => {
-  const allWorkPosts = data.allMarkdownRemark.edges;
-  const workIndex = allWorkPosts
+  const pageInfo = data.allMarkdownRemark.edges;
+  const workIndex = pageInfo
     .filter((edge) => edge.node.frontmatter.date === null)
     .map((edge) => ({
       title: edge.node.frontmatter.title,
@@ -16,7 +16,7 @@ const WorkPage = ({ data }) => {
       excerpt: edge.node.frontmatter.excerpt,
       html: edge.node.html
     }));
-  const renderAllWorkCards = allWorkPosts
+  const renderAllWorkCards = pageInfo
     .filter((edge) => !!edge.node.frontmatter.date)
     .map((edge) => (
       // Each thumbnail image is fetched inside WorkCard component
@@ -47,7 +47,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/" } }
       limit: 100
     ) {
-      ...allWorkPosts
+      ...pageInfo
     }
   }
 `;

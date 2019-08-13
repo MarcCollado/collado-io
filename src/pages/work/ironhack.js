@@ -106,7 +106,7 @@ export const query = graphql`
       }
       limit: 1
     ) {
-      ...allWorkPosts
+      ...pageInfo
     }
     workIronhackInsightsCoverImg: file(
       relativePath: { eq: "ironhack-insights.jpg" }
