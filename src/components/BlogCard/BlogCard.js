@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styles from './BlogCard.module.css';
 import { PublishedAt } from '../PublishedAt';
-
+// TODO: { title, date, excerpt } (even html and the rest of BlogPost params could be requested from the query) could be passed down as props to BlogPost through state (location.state) within the Link component. But the data doesn't persist on BlogPost upon refresh.
 const BlogCard = ({ title, date, path, excerpt }) => (
   <div className={styles.card}>
     <Link className={styles.card__link} to={path}>

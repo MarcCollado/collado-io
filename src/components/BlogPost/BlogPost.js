@@ -53,18 +53,16 @@ BlogPost.propTypes = {
     markdownRemark: PropTypes.shape({
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        path: PropTypes.string.isRequired,
-        tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-        excerpt: PropTypes.string
+        title: PropTypes.string,
+        date: PropTypes.string,
+        path: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string),
+        featured: PropTypes.string,
+        excerpt: PropTypes.string,
+        source: PropTypes.string
       })
     })
   }).isRequired
-};
-
-BlogPost.defaultProps = {
-  // TODO: add excerpt defaultProps
 };
 
 export default BlogPost;
