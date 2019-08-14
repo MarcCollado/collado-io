@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: "Marc Collado's Personal Website",
-    shortName: 'Marc',
+    title: "Marc Collado's personal website",
     author: 'Marc Collado',
-    siteLanguage: 'en',
-    image: '/static/img/marc-collado.jpg',
+    shortName: 'collado.io',
     description:
-      'An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.',
+      'An overly opinionated blog about my personal experiences at iomando, Ironhack, or Radio Lanza — plus a miscellaneous discussion around the Internet, technology, education, health and great products in general.',
     siteUrl: 'https://www.collado.io',
-    twitter: '@MarcCollado'
+    twitter: '@MarcCollado',
+    image: '/static/img/marc-collado.jpg',
+    siteLanguage: 'en'
   },
   plugins: [
     // Source filesystem
@@ -81,6 +81,6 @@ module.exports = {
     // Utils & Helpers
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
+    'gatsby-plugin-catch-links'
   ]
 };

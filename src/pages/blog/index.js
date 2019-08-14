@@ -5,11 +5,15 @@ import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import { renderAllBlogCards } from '../../utils/helpers';
 
-const BlogPage = ({ data }) => {
+const BlogPage = ({ data, location }) => {
   const allBlogPosts = data.allMarkdownRemark.edges;
   return (
     // TODO: both title and tagline are sourced from markdowns
-    <Layout>
+    <Layout
+      title="Blog"
+      description="Things I've Written"
+      pathname={location.pathname}
+    >
       <Header title="Blog" tagline="Things I've Written" />
       {renderAllBlogCards(allBlogPosts)}
     </Layout>

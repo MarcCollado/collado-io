@@ -2,11 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-const Twitter = ({
-  cardType, username, title, description, image,
-}) => (
+const Twitter = ({ card, username, title, description, image }) => (
   <Helmet>
-    <meta name="twitter:card" content={cardType} />
+    <meta name="twitter:card" content={card} />
     {username && <meta name="twitter:creator" content={username} />}
     {title && <meta name="twitter:title" content={title} />}
     {description && <meta name="twitter:description" content={description} />}
@@ -15,19 +13,19 @@ const Twitter = ({
 );
 
 Twitter.propTypes = {
-  cardType: PropTypes.string,
+  card: PropTypes.string,
   username: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.string
 };
 
 Twitter.defaultProps = {
-  cardType: 'summary_large_image',
+  card: 'summary_large_image',
   username: null,
   title: null,
   description: null,
-  image: null,
+  image: null
 };
 
 export default Twitter;

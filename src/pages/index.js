@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Layout } from '../components/Layout';
 import { Header } from '../components/Header';
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data, location }) => {
   const homePageImg = data.homePageImg.childImageSharp.fluid;
   const homePageInfo = {
     title: data.homePageInfo.edges[0].node.frontmatter.title,
@@ -13,7 +13,11 @@ const HomePage = ({ data }) => {
     html: data.homePageInfo.edges[0].node.html
   };
   return (
-    <Layout>
+    <Layout
+      title={homePageInfo.title}
+      description={homePageInfo.excerpt}
+      pathname={location.pathname}
+    >
       <Header title={homePageInfo.title} tagline={homePageInfo.excerpt} />
       <Img
         alt={homePageInfo.title}

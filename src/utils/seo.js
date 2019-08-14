@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Twitter from './twitter';
@@ -20,13 +20,13 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-        defaultDescription: description
-        siteUrl
-        defaultImage: image
-        siteLanguage
         author
         shortName
+        defaultDescription: description
+        siteUrl
         twitter
+        defaultImage: image
+        siteLanguage
       }
     }
   }
@@ -39,18 +39,19 @@ const SEO = ({ title, description, image, pathname, article }) => (
       site: {
         siteMetadata: {
           defaultTitle,
-          defaultDescription,
-          siteUrl,
-          defaultImage,
-          siteLanguage,
           author,
           shortName,
-          twitter
+          defaultDescription,
+          siteUrl,
+          twitter,
+          defaultImage,
+          siteLanguage
         }
       }
     }) => {
       const seo = {
         title: title || defaultTitle,
+        author,
         description: description || defaultDescription,
         url: `${siteUrl}${pathname || '/'}`,
         image: `${siteUrl}${image || defaultImage}`
@@ -68,7 +69,6 @@ const SEO = ({ title, description, image, pathname, article }) => (
               name="google-site-verification"
               content="vFwB-R5enzdQD5dGriZ1LWEt8Vs2gS9FPjXeeCg4LAI"
             />
-
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
@@ -98,7 +98,6 @@ const SEO = ({ title, description, image, pathname, article }) => (
             <link rel="apple-touch-icon-precomposed" sizes="167x167" href={apple167} />
             <link rel="apple-touch-icon-precomposed" sizes="180x180" href={apple180} />
             */}
-
             {seo.url && <meta property="og:url" content={seo.url} />}
             {(article ? true : null) && (
               <meta property="og:type" content="article" />
@@ -114,6 +113,7 @@ const SEO = ({ title, description, image, pathname, article }) => (
             title={seo.title}
             description={seo.description}
             image={seo.image}
+            card="summary"
           />
         </>
       );
