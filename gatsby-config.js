@@ -81,6 +81,7 @@ module.exports = {
     // Utils & Helpers
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-twitter',
     'gatsby-plugin-catch-links'
   ]
 };
