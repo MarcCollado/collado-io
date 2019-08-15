@@ -166,6 +166,13 @@ hr {
   opacity: 0.5;
 }
 
+/* Center embedded tweets */
+twitter-widget.twitter-tweet {
+  /* Display & Box Model */
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media (min-width: 576px) {
   html {
     /* Text */
