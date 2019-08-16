@@ -1,16 +1,19 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
-
 import { Layout } from '../components/Layout';
 import { Header } from '../components/Header';
 
-const TagsPage = ({ data }) => {
+const TagsPage = ({ data, location }) => {
   const { group } = data.allMarkdownRemark;
 
   return (
-    <Layout>
-      <Header title="All Tags" tagline="The blog, tagged" />
+    <Layout
+      title="All tags"
+      description="The blog, tagged"
+      pathname={location.pathname}
+    >
+      <Header title="All tags" tagline="The blog, tagged" />
       <ul>
         {group.map((tag) => (
           <li key={tag.fieldValue}>
@@ -26,11 +29,6 @@ const TagsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(markdown)/" } }
       limit: 1000
@@ -52,11 +50,6 @@ TagsPage.propTypes = {
           totalCount: PropTypes.number.isRequired
         }).isRequired
       )
-    }),
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired
-      })
     })
   }).isRequired
 };

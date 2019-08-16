@@ -2,9 +2,9 @@ import React from 'react';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 
-const NotFoundPage = () => (
-  <Layout>
-    <Header tagline="Page Not Found" title="404" />
+const NotFoundPage = ({ location }) => (
+  <Layout title="404" description="Page not found" pathname={location.pathname}>
+    <Header tagline="Page not found" title="404" />
     <div>
       <h2>Oh, no! Page not found 😓</h2>
       <p>

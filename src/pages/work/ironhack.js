@@ -9,11 +9,10 @@ import { Header } from '../../components/Header';
 import '../../styles/tabs.css';
 import { renderFilteredBlogCards } from '../../utils/helpers';
 
-const Ironhack = ({ data }) => {
+const Ironhack = ({ data, location }) => {
   const workIronhackCoverImg = data.workIronhackCoverImg.childImageSharp.fluid;
   const workIronhack = {
     title: data.workIronhack.edges[0].node.frontmatter.title,
-    path: data.workIronhack.edges[0].node.frontmatter.path,
     excerpt: data.workIronhack.edges[0].node.frontmatter.excerpt,
     html: data.workIronhack.edges[0].node.html
   };
@@ -28,7 +27,12 @@ const Ironhack = ({ data }) => {
     data.workIronhackStoriesCoverImg.childImageSharp.fluid;
 
   return (
-    <Layout>
+    <Layout
+      title={workIronhack.title}
+      description={workIronhack.excerpt}
+      pathname={location.pathname}
+      image={workIronhackCoverImg}
+    >
       <Header title={workIronhack.title} tagline={workIronhack.excerpt} />
       <Img
         className={styles.image}
@@ -147,7 +151,11 @@ Ironhack.propTypes = {
         PropTypes.shape({
           node: PropTypes.shape({
             id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired
+            html: PropTypes.string.isRequired,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              excerpt: PropTypes.string.isRequired
+            })
           })
         })
       )

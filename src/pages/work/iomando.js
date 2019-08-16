@@ -9,11 +9,10 @@ import { Header } from '../../components/Header';
 import '../../styles/tabs.css';
 import { renderFilteredBlogCards } from '../../utils/helpers';
 
-const iomando = ({ data }) => {
+const iomando = ({ data, location }) => {
   const workIomandoCoverImg = data.workIomandoCoverImg.childImageSharp.fluid;
   const workIomando = {
     title: data.workIomando.edges[0].node.frontmatter.title,
-    path: data.workIomando.edges[0].node.frontmatter.path,
     excerpt: data.workIomando.edges[0].node.frontmatter.excerpt,
     html: data.workIomando.edges[0].node.html
   };
@@ -24,12 +23,20 @@ const iomando = ({ data }) => {
   );
   const workIomandoProductCoverImg =
     data.workIomandoProductCoverImg.childImageSharp.fluid;
+  const workIomandoSeoImg =
+    data.workIomandoProductCoverImg.childImageSharp.fluid.src;
   const workIomandoInsightsCoverImg =
     data.workIomandoInsightsCoverImg.childImageSharp.fluid;
   const workIomandoStoriesCoverImg =
     data.workIomandoStoriesCoverImg.childImageSharp.fluid;
+
   return (
-    <Layout>
+    <Layout
+      title={workIomando.title}
+      description={workIomando.excerpt}
+      pathname={location.pathname}
+      image={workIomandoSeoImg}
+    >
       <Header title={workIomando.title} tagline={workIomando.excerpt} />
       <Img
         className={styles.image}
@@ -132,6 +139,7 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
+          src
         }
       }
     }
@@ -177,7 +185,6 @@ iomando.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
               excerpt: PropTypes.string.isRequired
             })
           })

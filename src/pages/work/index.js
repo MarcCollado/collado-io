@@ -6,7 +6,7 @@ import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import { WorkCard } from '../../components/WorkCard';
 
-const WorkPage = ({ data }) => {
+const WorkPage = ({ data, location }) => {
   const pageInfo = data.allMarkdownRemark.edges;
   const workIndex = pageInfo
     .filter((edge) => edge.node.frontmatter.date === null)
@@ -32,9 +32,9 @@ const WorkPage = ({ data }) => {
     <Layout
       title={workIndex[0].title}
       description={workIndex[0].excerpt}
-      pathname={workIndex[0].path}
+      pathname={location.pathname}
     >
-      <Header title={workIndex[0].title} tagline="Things I've Done" />
+      <Header title={workIndex[0].title} tagline={workIndex[0].excerpt} />
       <div dangerouslySetInnerHTML={{ __html: workIndex[0].html }} />
       <div className={styles.container}>{renderAllWorkCards}</div>
     </Layout>

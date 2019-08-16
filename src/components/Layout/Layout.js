@@ -60,7 +60,7 @@ class Layout extends React.Component {
     return (
       <div className={styles.out__container}>
         <SEO
-          title={title}
+          title={`Marc Collado' personal website — ${title}`}
           description={description}
           pathname={pathname}
           image={image}
@@ -78,17 +78,14 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  pathname: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
   image: PropTypes.string,
   article: PropTypes.bool
 };
 
 Layout.defaultProps = {
-  title: null,
-  description: null,
-  pathname: null,
   image: null,
   article: false
 };

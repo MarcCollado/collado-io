@@ -2,7 +2,7 @@
 title: 'Work'
 date: null
 path: '/work'
-excerpt: "The Work page at Marc Collado's Personal Website — insightful stories about iomando and Ironhack."
+excerpt: "Things I've done"
 ---
 
 <!-- "path" field is used for the WorkCard link, the URL is generated because of the page -->

@@ -5,7 +5,7 @@ import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
 import { renderAllBlogCards } from '../../utils/helpers';
 
-const NowPage = ({ data }) => {
+const NowPage = ({ data, location }) => {
   const nowPageInfo = {
     title: data.nowPageInfo.edges[0].node.frontmatter.title,
     excerpt: data.nowPageInfo.edges[0].node.frontmatter.excerpt,
@@ -20,7 +20,11 @@ const NowPage = ({ data }) => {
     html: nowBlogPosts[0].node.html
   };
   return (
-    <Layout title={nowPageInfo.title} description={nowPageInfo.excerpt}>
+    <Layout
+      title={nowPageInfo.title}
+      description={nowPageInfo.excerpt}
+      pathname={location.pathname}
+    >
       <Header title={nowPageInfo.title} tagline="Things I'm Doing" />
       <div dangerouslySetInnerHTML={{ __html: nowPageInfo.html }} />
       <h2>{currentNowBlogPost.title}</h2>

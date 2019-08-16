@@ -2,7 +2,7 @@
 title: 'Marc Collado'
 date: null
 path: '/'
-excerpt: 'Singularly Curious'
+excerpt: 'Singularly curious'
 ---
 
 ## Me, in a bullet list

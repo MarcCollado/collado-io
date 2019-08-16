@@ -14,7 +14,7 @@ const HomePage = ({ data, location }) => {
   };
   return (
     <Layout
-      title={homePageInfo.title}
+      title="Home"
       description={homePageInfo.excerpt}
       pathname={location.pathname}
     >

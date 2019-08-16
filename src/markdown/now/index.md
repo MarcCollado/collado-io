@@ -2,7 +2,7 @@
 title: 'Now'
 date: null
 path: '/now'
-excerpt: "The Now page at Marc Collado's Personal Website — where you can see what I am currently doing."
+excerpt: "Things I'm doing"
 ---
 
 This is a [/now page](https://nownownow.com/about), inspired by [Derek Sivers](https://sivers.org) and the [nownownow](https://nownownow.com) project.

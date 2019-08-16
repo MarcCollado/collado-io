@@ -11,7 +11,7 @@ const BlogPost = ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   const { title, date, path, tags, excerpt } = frontmatter;
   return (
-    <Layout title={title} description={excerpt} pathname={path}>
+    <Layout title={title} description={excerpt} pathname={path} article="true">
       <h1 className={styles.title}>{title}</h1>
       <div
         className={styles.markdown}

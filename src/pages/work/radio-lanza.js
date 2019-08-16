@@ -13,12 +13,11 @@ import {
   renderAllEpisodeCards
 } from '../../utils/helpers';
 
-const RadioLanza = ({ data }) => {
+const RadioLanza = ({ data, location }) => {
   const workRadioLanzaCoverImg =
     data.workRadioLanzaCoverImg.childImageSharp.fluid;
   const workRadioLanza = {
     title: data.workRadioLanza.edges[0].node.frontmatter.title,
-    path: data.workRadioLanza.edges[0].node.frontmatter.path,
     excerpt: data.workRadioLanza.edges[0].node.frontmatter.excerpt,
     html: data.workRadioLanza.edges[0].node.html
   };
@@ -28,8 +27,14 @@ const RadioLanza = ({ data }) => {
     radioLanzaBlogPosts
   );
   const allRadioLanzaEpisodes = data.allRadioLanzaEpisodes.edges;
+
   return (
-    <Layout>
+    <Layout
+      title={workRadioLanza.title}
+      description={workRadioLanza.excerpt}
+      pathname={location.pathname}
+      image={workRadioLanzaCoverImg}
+    >
       <Header title={workRadioLanza.title} tagline={workRadioLanza.excerpt} />
       <Img
         className={styles.image}
@@ -128,6 +133,22 @@ RadioLanza.propTypes = {
       )
     }),
     radioLanzaBlogPosts: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              date: PropTypes.string.isRequired,
+              path: PropTypes.string.isRequired,
+              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+              excerpt: PropTypes.string.isRequired
+            })
+          })
+        })
+      )
+    }),
+    allRadioLanzaEpisodes: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
