@@ -13,7 +13,7 @@ const HomePage = ({ data, location }) => {
     html: data.homePageInfo.edges[0].node.html
   };
   return (
-    <Layout title="Home" description={null} pathname={null}>
+    <Layout title="Home" description="" pathname={location.pathname}>
       <Header title={homePageInfo.title} tagline={homePageInfo.excerpt} />
       <Img
         title={homePageInfo.title}

@@ -23,7 +23,7 @@ OpenGraph.propTypes = {
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  article: PropTypes.string.isRequired,
+  article: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired
 };
 

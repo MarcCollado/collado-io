@@ -86,7 +86,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  image: null,
+  image: '',
   article: false
 };
 
