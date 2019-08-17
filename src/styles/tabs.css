@@ -34,7 +34,7 @@ BREAKPOINTS
   margin-bottom: 0em;
   border: 1px solid transparent;
   border-bottom: none;
-  padding: 0.5em;
+  padding: 0.5em 0.5em 0.25em;
 
   /* Text */
   list-style: none;
@@ -103,6 +103,6 @@ BREAKPOINTS
 @media (min-width: 768px) {
   .react-tabs__tab {
     /* Display & Box Model */
-    padding: 0em 1.25em 0.25em;
+    padding: 0.5em 1.25em 0.25em;
   }
 }
