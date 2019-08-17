@@ -16,6 +16,8 @@ import {
 const RadioLanza = ({ data, location }) => {
   const workRadioLanzaCoverImg =
     data.workRadioLanzaCoverImg.childImageSharp.fluid;
+  const workRadioLanzaSeoImg =
+    data.workRadioLanzaCoverImg.childImageSharp.fluid.src;
   const workRadioLanza = {
     title: data.workRadioLanza.edges[0].node.frontmatter.title,
     excerpt: data.workRadioLanza.edges[0].node.frontmatter.excerpt,
@@ -33,12 +35,13 @@ const RadioLanza = ({ data, location }) => {
       title={workRadioLanza.title}
       description={workRadioLanza.excerpt}
       pathname={location.pathname}
-      image={workRadioLanzaCoverImg}
+      image={workRadioLanzaSeoImg}
     >
       <Header title={workRadioLanza.title} tagline={workRadioLanza.excerpt} />
       <Img
         className={styles.image}
-        alt="Radio Lanza"
+        title={workRadioLanza.title}
+        alt={workRadioLanza.excerpt}
         fluid={workRadioLanzaCoverImg}
       />
       <Podcasts />

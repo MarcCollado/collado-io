@@ -11,6 +11,7 @@ import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const iomando = ({ data, location }) => {
   const workIomandoCoverImg = data.workIomandoCoverImg.childImageSharp.fluid;
+  const workIomandoSeoImg = data.workIomandoCoverImg.childImageSharp.fluid.src;
   const workIomando = {
     title: data.workIomando.edges[0].node.frontmatter.title,
     excerpt: data.workIomando.edges[0].node.frontmatter.excerpt,
@@ -23,8 +24,6 @@ const iomando = ({ data, location }) => {
   );
   const workIomandoProductCoverImg =
     data.workIomandoProductCoverImg.childImageSharp.fluid;
-  const workIomandoSeoImg =
-    data.workIomandoProductCoverImg.childImageSharp.fluid.src;
   const workIomandoInsightsCoverImg =
     data.workIomandoInsightsCoverImg.childImageSharp.fluid;
   const workIomandoStoriesCoverImg =
@@ -40,7 +39,8 @@ const iomando = ({ data, location }) => {
       <Header title={workIomando.title} tagline={workIomando.excerpt} />
       <Img
         className={styles.image}
-        alt="iomando technologies"
+        title={workIomando.title}
+        alt={workIomando.excerpt}
         fluid={workIomandoCoverImg}
       />
       <div dangerouslySetInnerHTML={{ __html: workIomando.html }} />
@@ -67,7 +67,8 @@ const iomando = ({ data, location }) => {
           </p>
           <Img
             className={styles.image}
-            alt="iomando updates"
+            title="iomando updates"
+            alt="All the iomando release notes and product updates."
             fluid={workIomandoProductCoverImg}
           />
           <p>
@@ -87,7 +88,8 @@ const iomando = ({ data, location }) => {
           </p>
           <Img
             className={styles.image}
-            alt="iomando insights"
+            title="iomando insights"
+            alt="Recollection of iomando blog posts that uncovers a naive journey of discovery."
             fluid={workIomandoInsightsCoverImg}
           />
           <p>
@@ -103,7 +105,8 @@ const iomando = ({ data, location }) => {
           </p>
           <Img
             className={styles.image}
-            alt="iomando stories"
+            title="iomando stories"
+            alt="Besides developing a great product, iomando has taught me a far more valuable lesson: how to build a sustainable business."
             fluid={workIomandoStoriesCoverImg}
           />
           <p>
@@ -122,6 +125,7 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
+          src
         }
       }
     }
@@ -139,7 +143,6 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
-          src
         }
       }
     }

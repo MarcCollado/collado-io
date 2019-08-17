@@ -8,13 +8,12 @@ import { renderAllBlogCards } from '../../utils/helpers';
 const BlogPage = ({ data, location }) => {
   const allBlogPosts = data.allMarkdownRemark.edges;
   return (
-    // TODO: both title and tagline are sourced from markdowns
     <Layout
       title="Blog"
-      description="Things I've Written"
+      description="Things I've written"
       pathname={location.pathname}
     >
-      <Header title="Blog" tagline="Things I've Written" />
+      <Header title="Blog" tagline="Things I've written" />
       {renderAllBlogCards(allBlogPosts)}
     </Layout>
   );

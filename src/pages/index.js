@@ -13,13 +13,10 @@ const HomePage = ({ data, location }) => {
     html: data.homePageInfo.edges[0].node.html
   };
   return (
-    <Layout
-      title="Home"
-      description={homePageInfo.excerpt}
-      pathname={location.pathname}
-    >
+    <Layout title="Home" description={null} pathname={null}>
       <Header title={homePageInfo.title} tagline={homePageInfo.excerpt} />
       <Img
+        title={homePageInfo.title}
         alt={homePageInfo.title}
         fluid={homePageImg}
         style={{ width: `15em`, margin: `0 auto -1em` }}

@@ -5,24 +5,14 @@ import styles from './EpisodePost.module.css';
 import { Layout } from '../Layout';
 import { Podcasts } from '../Podcasts';
 import { PublishedAt } from '../PublishedAt';
-import { Tag } from '../Tag';
 
 const EpisodePost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const {
-    title,
-    date,
-    path,
-    tags,
-    excerpt,
-    episodeURL,
-    playerURL,
-    iTunesURL
-  } = frontmatter;
+  const { title, date, path, tags, excerpt, show, playerURL } = frontmatter;
 
   return (
-    <Layout>
+    <Layout title={title} description={`${show} — ${excerpt}`} pathname={path}>
       <h1 className={styles.title}>The show notes</h1>
       <iframe
         className={styles.player}
@@ -79,6 +69,7 @@ EpisodePost.propTypes = {
         path: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string).isRequired,
         excerpt: PropTypes.string.isRequired,
+        show: PropTypes.string.isRequired,
         episodeURL: PropTypes.string.isRequired,
         playerURL: PropTypes.string.isRequired,
         iTunesURL: PropTypes.string.isRequired

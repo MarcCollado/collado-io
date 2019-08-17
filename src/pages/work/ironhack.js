@@ -11,6 +11,8 @@ import { renderFilteredBlogCards } from '../../utils/helpers';
 
 const Ironhack = ({ data, location }) => {
   const workIronhackCoverImg = data.workIronhackCoverImg.childImageSharp.fluid;
+  const workIronhackSeoImg =
+    data.workIronhackCoverImg.childImageSharp.fluid.src;
   const workIronhack = {
     title: data.workIronhack.edges[0].node.frontmatter.title,
     excerpt: data.workIronhack.edges[0].node.frontmatter.excerpt,
@@ -31,12 +33,13 @@ const Ironhack = ({ data, location }) => {
       title={workIronhack.title}
       description={workIronhack.excerpt}
       pathname={location.pathname}
-      image={workIronhackCoverImg}
+      image={workIronhackSeoImg}
     >
       <Header title={workIronhack.title} tagline={workIronhack.excerpt} />
       <Img
         className={styles.image}
-        alt="Ironhack"
+        title={workIronhack.title}
+        alt={workIronhack.excerpt}
         fluid={workIronhackCoverImg}
       />
       <div dangerouslySetInnerHTML={{ __html: workIronhack.html }} />
@@ -59,7 +62,8 @@ const Ironhack = ({ data, location }) => {
           </p>
           <Img
             className={styles.image}
-            alt="Ironhack insights"
+            title="Ironhack insights"
+            alt="Ironhack is changing education for the better."
             fluid={workIronhackInsightsCoverImg}
           />
           <p>
@@ -79,7 +83,8 @@ const Ironhack = ({ data, location }) => {
           </p>
           <Img
             className={styles.image}
-            alt="Ironhack stories"
+            title="Ironhack stories"
+            alt="Recollection of posts that cover my story at Ironhack from a more confidential, idiosyncratic perspective."
             fluid={workIronhackStoriesCoverImg}
           />
           <p>
@@ -101,6 +106,7 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
+          src
         }
       }
     }

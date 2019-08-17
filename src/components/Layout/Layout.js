@@ -60,7 +60,7 @@ class Layout extends React.Component {
     return (
       <div className={styles.out__container}>
         <SEO
-          title={`Marc Collado' personal website — ${title}`}
+          title={title}
           description={description}
           pathname={pathname}
           image={image}

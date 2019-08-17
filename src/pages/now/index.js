@@ -25,7 +25,7 @@ const NowPage = ({ data, location }) => {
       description={nowPageInfo.excerpt}
       pathname={location.pathname}
     >
-      <Header title={nowPageInfo.title} tagline="Things I'm Doing" />
+      <Header title={nowPageInfo.title} tagline={nowPageInfo.excerpt} />
       <div dangerouslySetInnerHTML={{ __html: nowPageInfo.html }} />
       <h2>{currentNowBlogPost.title}</h2>
       <p>{currentNowBlogPost.excerpt}</p>
