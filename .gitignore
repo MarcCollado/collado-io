@@ -8,26 +8,26 @@ pids
 *.seed
 *.pid.lock
 
-# Dependency directories
+# Config files
 .vscode/
+
+# Packages
 node_modules/
-yarn-error.log
 
 # Gatsby files
 .cache/
 public
 
+# Typescript v1 declaration files
+typings/
+
+# Optional cache directory
+.npm
+.eslintcache
+.node_repl_history
+
 # Mac files
 .DS_Store
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Output of 'npm pack'
-*.tgz
 
 # dotenv environment variables file
 .env
