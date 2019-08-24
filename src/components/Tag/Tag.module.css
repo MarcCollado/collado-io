@@ -1,25 +1,49 @@
 .tag {
   /* Display & Box Model */
-  margin-bottom: 0.5em;
-  margin-right: 0.25em;
-  border-radius: 0.25em;
-  padding: 0.2em 0.5em 0.25em;
+  padding: 0.125em 0.25em;
+}
+
+.tag__hash {
+  /* Display & Box Model */
+  margin-right: 2px;
+
+  /* Text */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: smaller;
+  text-decoration: none;
 
   /* Color */
-  background: var(--fakeAsbestosAlpha22);
+  color: var(--hipBlack);
+}
+
+.tag__link,
+.tag__link:visited,
+.tag__link:hover,
+.tag__link:active {
+  /* Display & Box Model */
+  border-bottom: 0.25em solid var(--bianchiGreen);
+  box-shadow: inset 0 -0.25em 0 var(--bianchiGreen);
+  padding-top: 0.25em;
+
+  /* Text */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: smaller;
+  letter-spacing: -1px;
+  text-decoration: none;
+
+  /* Color */
+  color: var(--hipBlack);
 
   /* Other */
   transition: background 0.3s ease;
 }
 
-.tag:hover {
-  /* Color */
-  background: var(--fakeAsbestosAlpha88);
+.tag__link.anchor {
+  /* Display & Box Model */
+  display: none;
 }
 
-.tag__link {
-  /* Text */
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: smaller;
-  letter-spacing: -1px;
+.tag__link:hover {
+  /* Color */
+  background: var(--bianchiGreen);
 }

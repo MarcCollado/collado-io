@@ -5,6 +5,7 @@ import styles from './Tag.module.css';
 
 const Tag = ({ children }) => (
   <div className={styles.tag}>
+    <span className={styles.tag__hash}>#</span>
     <Link className={styles.tag__link} to={`/tags/${children}`}>
       {`${children}`.toLowerCase()}
     </Link>
