@@ -128,7 +128,6 @@ RadioLanza.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
               excerpt: PropTypes.string.isRequired
             })
           })
