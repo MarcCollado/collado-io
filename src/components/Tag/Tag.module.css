@@ -18,7 +18,6 @@
 
 .tag__link,
 .tag__link:visited,
-.tag__link:hover,
 .tag__link:active {
   /* Display & Box Model */
   border-bottom: 0.25em solid var(--bianchiGreen);
