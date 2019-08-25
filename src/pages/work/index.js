@@ -73,8 +73,4 @@ WorkPage.propTypes = {
   }).isRequired
 };
 
-WorkPage.defaultProps = {
-  // TODO: add defaultProps
-};
-
 export default WorkPage;
