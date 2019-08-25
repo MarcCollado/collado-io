@@ -1,9 +1,8 @@
 import { graphql } from 'gatsby';
 
 /*
-Used by: BlogPage, WorkPage(s)
-Notes:
-  - Its parent query should fetch at src/markdown/blog/**
+Used by: BlogPage, 3xWorkPage(s)
+  - Its parent query should fetch at /src/markdown/blog/
   - No html is requested since the point of this query is to generate cards
   - Used in combination with render__Cards methods
 */
@@ -28,9 +27,9 @@ export const allBlogPostsQuery = graphql`
 
 /*
 Used by: NowPage
-Notes: almost identical as allBlogPosts but this one also fetches the html
+ - Almost identical as allBlogPosts but this one also fetches the html
 */
-export const allBlogPostsQueryWithHtml = graphql`
+export const allBlogPostsWithHtmlQuery = graphql`
   fragment allBlogPostsWithHtml on MarkdownRemarkConnection {
     edges {
       node {
@@ -71,8 +70,7 @@ export const PageInfoQuery = graphql`
 `;
 
 /* Used by: RadioLanza
-- Fetch all markdowns for work posts at src/markdown/episodes/
-- It is used by RadioLanza to:
+  - Fetch all markdowns for work posts at src/markdown/episodes/
   - Generate the feed of EpisodeCard
 */
 export const allRadioLanzaEpisodesQuery = graphql`
