@@ -10,7 +10,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2019,
     sourceType: 'module'
   },
   extends: ['airbnb', 'prettier', 'prettier/react'],
@@ -26,10 +26,10 @@ module.exports = {
       }
     ],
     'react/forbid-prop-types': 'warn',
-    'react/jsx-filename-extension': 'off',
+    'react/jsx-filename-extension': 'warn', //off
     'react/prefer-stateless-function': 'warn',
     'react/prop-types': 'warn',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'warn' //off
   },
   settings: {
     react: {
