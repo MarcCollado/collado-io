@@ -9,17 +9,17 @@ pids
 *.pid.lock
 
 # Config files
-.vscode/
+.vscode
 
 # Packages
-node_modules/
+node_modules
 
 # Gatsby files
-.cache/
+.cache
 public
 
 # Typescript v1 declaration files
-typings/
+typings
 
 # Optional cache directory
 .npm
