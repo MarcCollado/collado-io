@@ -1,20 +1,20 @@
 ---
-title: 'Especial: cambiar de carrera y aprender a programar'
+title: 'Especial: Aprender a programar'
 date: '2019-09-05'
-path: '/work/radio-lanza/episodes/especial-bootcamp-web-data'
+path: '/work/radio-lanza/episodes/especial-aprender-a-programar'
 tags: ['']
 featured: 'false'
-excerpt: ''
+excerpt: 'En este episodio especial de Radio Lanza recibimos el primer email de nuestra audiencia. "John" nos pide consejo profesional para afrontar un cambio de carrera y moverse del sector industrial hacia lanzar sus propios proyectos en el mundo digital. "John" nos pregunta qué tipo de bootcamp cursar, si desarrollo web o data science. Nosotros nos cuestionamos si realmente un bootcamp es lo que necesita.'
 show: 'Radio Lanza'
 episode: 'bonus'
-episodeURL: 'https://www.radiolanza.com/episodes/especial-bootcamp-web-data'
-playerURL: ''
-iTunesURL: 'https://podcasts.apple.com/es/podcast/id1468000755?'
+episodeURL: 'https://www.radiolanza.com/episodes/especial-aprender-a-programar'
+playerURL: 'd2030c07-c15e-40fb-bc35-68c211c378ef'
+iTunesURL: 'https://podcasts.apple.com/es/podcast/id1468000755?i=1000448625775'
 ---
 
 ## La pregunta
 
-John, 32 años, Ingeniero Industrial, con más de 10 años de experiencia trabajando en consultoría y proyectos industriales — concretamente en el sector de la construcción y automóvil.
+[John Appleseed](https://en.wikipedia.org/wiki/Johnny_Appleseed), 32 años, Ingeniero Industrial, con más de 10 años de experiencia trabajando en consultoría y proyectos industriales — concretamente en el sector de la construcción y automóvil.
 
 En su día a día se da cuenta que muchas de estas empresas están generando muchos datos que no están aprovechando, que se están perdiendo. John quiere montar sus propios proyectos y "dejar atrás el mundo industrial", pero no tiene claro por dónde empezar.
 
@@ -43,6 +43,6 @@ Por otro, John tampoco tiene claro si para el tipo de proyectos que quiere lleva
 
 ## Maratón de Ciudad de México
 
-- Jimmy nos cuenta cómo afronta el Maratón de Ciudad de México.
+- Jimmy nos cuenta cómo afronta el [Maratón de Ciudad de México](https://www.instagram.com/p/B1gqk18BBo3/).
 - Podcast: [Echando Kilómetros](https://podcasts.apple.com/us/podcast/echando-kilómetros-conversaciones-sobre-running-natación/id1086788711)
 - Producto: [Dice by PCalc](https://www.pcalc.com/dice/index.html)
