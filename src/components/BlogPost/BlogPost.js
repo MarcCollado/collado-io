@@ -3,13 +3,15 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styles from './BlogPost.module.css';
 import { Layout } from '../Layout';
-import { PublishedAt } from '../PublishedAt';
-import { Tag } from '../Tag';
+import BlogPostMeta from '../BlogPostMeta/BlogPostMeta';
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   const { title, date, path, tags, excerpt } = frontmatter;
+  const nextBlogPostPath = pageContext.next.frontmatter.path;
+  const prevBlogPostPath = pageContext.prev.frontmatter.path;
+
   return (
     <Layout title={title} description={excerpt} pathname={path} article="true">
       <h1 className={styles.title}>{title}</h1>
@@ -17,16 +19,12 @@ const BlogPost = ({ data }) => {
         className={styles.markdown}
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <hr />
-      <div className={styles.meta}>
-        <PublishedAt date={date} />
-        <h3>Tags</h3>
-        <div className={styles.tag__container}>
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
-      </div>
+      <BlogPostMeta
+        date={date}
+        tags={tags}
+        next={nextBlogPostPath === path ? null : nextBlogPostPath}
+        prev={prevBlogPostPath === path ? null : prevBlogPostPath}
+      />
     </Layout>
   );
 };
@@ -34,6 +32,7 @@ const BlogPost = ({ data }) => {
 export const query = graphql`
   query blogPostQuery($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      id
       html
       frontmatter {
         title
@@ -59,10 +58,10 @@ BlogPost.propTypes = {
         tags: PropTypes.arrayOf(PropTypes.string),
         featured: PropTypes.string,
         excerpt: PropTypes.string,
-        source: PropTypes.string
-      })
-    })
-  }).isRequired
+        source: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default BlogPost;

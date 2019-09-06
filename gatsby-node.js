@@ -30,15 +30,16 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create pages for each blog post using `frontmatter.path`
   posts.forEach((post, index) => {
-    const prev = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+    const prev =
+      index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
+    const next = index === 0 ? posts[index].node : posts[index - 1].node;
     createPage({
       path: post.node.frontmatter.path,
       component: blogPostPage,
       context: {
         prev,
-        next
-      }
+        next,
+      },
     });
   });
 
@@ -52,7 +53,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/tags/${tag}`,
       component: tagPage,
-      context: { tag }
+      context: { tag },
     });
   });
 
@@ -87,7 +88,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: node.frontmatter.path,
       component: episodePostPage,
-      context: {}
+      context: {},
     });
   });
 };
