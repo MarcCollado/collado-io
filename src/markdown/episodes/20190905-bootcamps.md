@@ -9,7 +9,7 @@ show: 'Radio Lanza'
 episode: 'bonus'
 episodeURL: 'https://www.radiolanza.com/episodes/especial-aprender-a-programar'
 playerURL: 'd2030c07-c15e-40fb-bc35-68c211c378ef'
-iTunesURL: 'https://podcasts.apple.com/es/podcast/id1468000755?i=1000448625775'
+iTunesURL: 'https://podcasts.apple.com/es/podcast/especial-aprender-a-programar/id1468000755?i=1000448625775'
 ---
 
 ## La pregunta
