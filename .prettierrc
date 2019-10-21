@@ -1,6 +1,5 @@
 {
   "singleQuote": true,
   "arrowParens": "always",
-  "trailingComma": "es5",
   "endOfLine": "lf"
 }
