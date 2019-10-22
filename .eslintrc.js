@@ -3,18 +3,18 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
-    jest: true,
+    jest: true
   },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2019,
     ecmaFeatures: {
       jsx: true,
-      modules: 'true',
-    },
+      modules: 'true'
+    }
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
-  plugins: ['html', 'jsx-a11y', 'react'],
+  extends: ['airbnb', 'prettier'],
+  plugins: ['html', 'jsx-a11y', 'prettier', 'react'],
   rules: {
     'no-console': 'warn',
     'no-unused-vars': 'warn',
@@ -22,18 +22,18 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': [
       'warn',
       {
-        specialLink: ['to'],
-      },
+        specialLink: ['to']
+      }
     ],
     'react/forbid-prop-types': 'warn',
     'react/jsx-filename-extension': 'off',
     'react/prefer-stateless-function': 'warn',
     'react/prop-types': 'warn',
-    'react/react-in-jsx-scope': 'warn', //off
+    'react/react-in-jsx-scope': 'warn' //off
   },
   settings: {
     react: {
-      version: 'detect',
-    },
-  },
+      version: 'detect'
+    }
+  }
 };
