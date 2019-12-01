@@ -57,7 +57,11 @@ const RadioLanza = ({ data, location }) => {
         </TabList>
         <TabPanel>
           <p>
-            {`The show notes! Readers familiar with Radio Lanza might already know that I derive almost as much pleasure crafting and curating the show notes as I do co-hosting the podcast itself. Maybe the whole podcast venture is just an excuse to write down and structure our own words in a bullet point fashion.`}
+            The show notes! Readers familiar with Radio Lanza might already know
+            that I derive almost as much pleasure crafting and curating the show
+            notes as I do co-hosting the podcast itself. Maybe the whole podcast
+            venture is just an excuse to write down and structure our own words
+            in a bullet point fashion.
           </p>
           <p>
             Either way, below you will find the aforementioned show notes for
@@ -69,7 +73,8 @@ const RadioLanza = ({ data, location }) => {
         </TabPanel>
         <TabPanel>
           <p>
-            {`Here is a recollection of Radio Lanza blog posts covering announcements, ideas, and updates around the podcast itself.`}
+            Here is a recollection of Radio Lanza blog posts covering
+            announcements, ideas, and updates around the podcast itself.
           </p>
           {renderRadioLanzaCards('update')}
         </TabPanel>
@@ -160,7 +165,8 @@ RadioLanza.propTypes = {
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
+              excerpt: PropTypes.string.isRequired,
+              episode: PropTypes.string.isRequired
             })
           })
         })
