@@ -60,6 +60,7 @@ export function renderAllEpisodeCards(data) {
         date={edge.node.frontmatter.date}
         path={edge.node.frontmatter.path}
         excerpt={edge.node.frontmatter.excerpt}
+        episode={edge.node.frontmatter.episode}
       />
     ));
 }
