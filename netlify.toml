@@ -1,3 +1,12 @@
+[build]
+  publish = "public/"
+  command = "gatsby build"
+  environment = { NODE_VERSION = "12.4.1" }
+
+# [context.production]
+# [context.deploy-preview]
+# [context.branch-deploy]
+
 [[redirects]]
   from = "https://collado-io.netlify.com/*"
   to = "https://www.collado.io/:splat"
