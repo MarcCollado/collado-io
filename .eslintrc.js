@@ -8,13 +8,14 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2019,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
       modules: 'true'
     }
   },
-  extends: ['airbnb', 'prettier'],
   plugins: ['html', 'jsx-a11y', 'prettier', 'react'],
+  extends: ['airbnb', 'prettier'],
   rules: {
     'no-console': 'warn',
     'no-unused-vars': 'warn',
