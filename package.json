@@ -55,6 +55,9 @@
     "eslint-plugin-react": "^7.17.0",
     "prettier": "^1.19.1"
   },
+  "prettier": {
+    "endOfLine": "lf"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/MarcCollado/collado-io"
