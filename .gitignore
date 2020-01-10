@@ -1,33 +1,14 @@
-# Logs
 logs
 *.log
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Config files
 .vscode
-
-# Packages
+build
+coverage
 node_modules
-
-# Gatsby files
-.cache
 public
 
-# Typescript v1 declaration files
-typings
-
-# Optional cache directory
-.npm
-.eslintcache
-.node_repl_history
-
-# Mac files
-.DS_Store
-
-# dotenv environment variables file
+.cache
 .env
+.eslintcache
+.npm
+.DS_Store
