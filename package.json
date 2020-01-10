@@ -3,6 +3,12 @@
   "description": "An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.",
   "version": "1.0.0",
   "author": "Marc Collado",
+  "keywords": [
+    "gatsby",
+    "graphql",
+    "react"
+  ],
+  "license": "MIT",
   "dependencies": {
     "gatsby": "^2.18.21",
     "gatsby-image": "^2.2.38",
@@ -29,21 +35,6 @@
     "react-helmet": "^5.2.1",
     "react-tabs": "^3.1.0"
   },
-  "keywords": [
-    "gatsby",
-    "graphql",
-    "react"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "start": "npm run develop",
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
@@ -55,7 +46,18 @@
     "eslint-plugin-react": "^7.17.0",
     "prettier": "^1.19.1"
   },
+  "scripts": {
+    "start": "npm run develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md,json} \" ",
+    "lint": "eslint --fix \"**/*.{js,jsx}\" ",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "prettier": {
+    "singleQuote": true,
     "endOfLine": "lf"
   },
   "repository": {
