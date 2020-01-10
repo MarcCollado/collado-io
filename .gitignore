@@ -1,11 +1,13 @@
 logs
 *.log
+npm-debug.log*
 
 .vscode
 build
 coverage
-node_modules
-public
+node_modules/
+jspm_packages/
+public/
 
 .cache
 .env
