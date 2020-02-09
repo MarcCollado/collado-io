@@ -53,7 +53,7 @@ const Podcasts = ({ data }) => {
   );
 };
 
-export default (props) => (
+export default props => (
   <StaticQuery
     query={graphql`
       query PodcastsQuery {
@@ -95,7 +95,7 @@ export default (props) => (
         }
       }
     `}
-    render={(data) => <Podcasts data={data} {...props} />}
+    render={data => <Podcasts data={data} {...props} />}
   />
 );
 

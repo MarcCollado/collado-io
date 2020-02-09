@@ -20,7 +20,7 @@ class Layout extends React.Component {
     }
   }
 
-  shouldSnackBarRender = (token) => {
+  shouldSnackBarRender = token => {
     const timeNow = Date.now();
     const timeToken = token.timestamp;
     const timeDiff = timeNow - timeToken;
@@ -32,7 +32,7 @@ class Layout extends React.Component {
     }
   };
 
-  renewToken = (timeNow) => {
+  renewToken = timeNow => {
     const token = {
       timestamp: timeNow,
       renderSnackBar: false

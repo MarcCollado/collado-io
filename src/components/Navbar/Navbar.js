@@ -6,7 +6,7 @@ const navItems = ['home', 'blog', 'work', 'now'];
 
 const Navbar = () => (
   <div className={styles.navbar}>
-    {navItems.map((item) => (
+    {navItems.map(item => (
       <Link
         className={styles.navbar__link}
         style={{ color: 'white' }}

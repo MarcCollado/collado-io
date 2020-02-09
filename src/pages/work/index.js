@@ -9,16 +9,16 @@ import { WorkCard } from '../../components/WorkCard';
 const WorkPage = ({ data, location }) => {
   const pageInfo = data.allMarkdownRemark.edges;
   const workIndex = pageInfo
-    .filter((edge) => edge.node.frontmatter.date === null)
-    .map((edge) => ({
+    .filter(edge => edge.node.frontmatter.date === null)
+    .map(edge => ({
       title: edge.node.frontmatter.title,
       path: edge.node.frontmatter.path,
       excerpt: edge.node.frontmatter.excerpt,
       html: edge.node.html
     }));
   const renderAllWorkCards = pageInfo
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
+    .filter(edge => !!edge.node.frontmatter.date)
+    .map(edge => (
       // Each thumbnail image is fetched inside WorkCard component
       <WorkCard
         key={edge.node.id}

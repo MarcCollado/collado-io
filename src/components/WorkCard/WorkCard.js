@@ -27,7 +27,7 @@ const WorkCard = ({ data, title, path, excerpt }) => {
   );
 };
 
-export default (props) => (
+export default props => (
   <StaticQuery
     query={graphql`
       query WorkCardQuery {
@@ -54,7 +54,7 @@ export default (props) => (
         }
       }
     `}
-    render={(data) => <WorkCard data={data} {...props} />}
+    render={data => <WorkCard data={data} {...props} />}
   />
 );
 

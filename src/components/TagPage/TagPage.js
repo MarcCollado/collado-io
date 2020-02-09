@@ -15,8 +15,8 @@ const TagPage = ({ pageContext, data }) => {
 
   const renderCards = BlogData
     // Get md files
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
+    .filter(edge => !!edge.node.frontmatter.date)
+    .map(edge => (
       // Generate a feed of BlogPosts
       <BlogCard
         key={edge.node.id}
