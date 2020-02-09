@@ -1,24 +1,34 @@
 module.exports = {
   env: {
+    es6: true,
     browser: true,
     node: true,
-    es6: true,
     jest: true
   },
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-      modules: 'true'
+      jsx: true
     }
   },
-  plugins: ['html', 'jsx-a11y', 'prettier', 'react'],
-  extends: ['airbnb', 'prettier'],
+  plugins: ['import', 'react', 'jsx-a11y', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+    'prettier/react'
+  ],
   rules: {
-    'no-console': 'warn',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: 'props|ownProps|state'
+      }
+    ],
     'no-useless-constructor': 'warn',
     'jsx-a11y/anchor-is-valid': [
       'warn',
@@ -26,11 +36,15 @@ module.exports = {
         specialLink: ['to']
       }
     ],
+    'react/display-name': 'off',
+    // Rules up for review
     'react/forbid-prop-types': 'warn',
+    'react/prop-types': 'warn',
     'react/jsx-filename-extension': 'off',
     'react/prefer-stateless-function': 'warn',
-    'react/prop-types': 'warn',
-    'react/react-in-jsx-scope': 'warn' //off
+    'react/react-in-jsx-scope': 'warn',
+    // Prettier
+    'prettier/prettier': 'error'
   },
   settings: {
     react: {
