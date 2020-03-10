@@ -1,11 +1,3 @@
-/* index.js */
-.container {
-  /* Flex */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 /* work pages */
 .image {
   /* Display & Box Model */
