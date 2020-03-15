@@ -1,7 +1,7 @@
 {
   "name": "collado.io",
   "description": "An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.",
-  "version": "20.2.1",
+  "version": "20.3.1",
   "author": "Marc Collado",
   "keywords": [
     "gatsby",
