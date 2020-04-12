@@ -36,13 +36,6 @@
     "react-tabs": "^3.1.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
     "husky": "^4.2.1",
     "prettier": "^1.19.1"
   },
@@ -52,8 +45,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json} \" ",
-    "lint": "eslint --fix \"src/**/**/**/*.{js,jsx}\" "
+    "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json} \" "
   },
   "husky": {
     "hooks": {
