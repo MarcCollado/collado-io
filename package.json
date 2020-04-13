@@ -1,59 +1,62 @@
 {
   "name": "collado.io",
   "description": "An opinionated blog about my experiences at iomando and Ironhack, plus a miscellaneous discussion around technology, education, health and great products in general.",
-  "version": "20.3.1",
-  "author": "Marc Collado",
+  "version": "20.4.1",
+  "author": "Marc Collado <marc@collado.io>",
+  "homepage": "https://www.collado.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcCollado/collado-io"
+  },
   "keywords": [
-    "gatsby",
-    "graphql",
-    "react"
+    "gatsby"
   ],
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^2.19.12",
-    "gatsby-image": "^2.2.40",
-    "gatsby-plugin-catch-links": "^2.1.25",
-    "gatsby-plugin-manifest": "^2.2.41",
-    "gatsby-plugin-offline": "^3.0.34",
-    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby": "^2.20.18",
+    "gatsby-image": "^2.3.2",
+    "gatsby-plugin-catch-links": "^2.2.1",
+    "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-offline": "^3.1.2",
+    "gatsby-plugin-react-helmet": "^3.2.2",
     "gatsby-plugin-sentry": "^1.0.1",
-    "gatsby-plugin-sharp": "^2.4.5",
-    "gatsby-plugin-sitemap": "^2.2.27",
-    "gatsby-plugin-twitter": "^2.1.19",
-    "gatsby-remark-autolink-headers": "^2.1.24",
-    "gatsby-remark-copy-linked-files": "^2.1.37",
+    "gatsby-plugin-sharp": "^2.5.4",
+    "gatsby-plugin-sitemap": "^2.3.1",
+    "gatsby-plugin-twitter": "^2.2.2",
+    "gatsby-remark-autolink-headers": "^2.2.1",
+    "gatsby-remark-copy-linked-files": "^2.2.1",
     "gatsby-remark-embed-video": "^2.0.1",
-    "gatsby-remark-images": "^3.1.44",
-    "gatsby-remark-responsive-iframe": "^2.2.32",
-    "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-transformer-remark": "^2.6.50",
-    "gatsby-transformer-sharp": "^2.3.14",
+    "gatsby-remark-images": "^3.2.2",
+    "gatsby-remark-responsive-iframe": "^2.3.1",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.4.4",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
     "react-tabs": "^3.1.0"
   },
   "devDependencies": {
-    "husky": "^4.2.1",
-    "prettier": "^1.19.1"
+    "husky": "^4.2.5",
+    "prettier": "^2.0.4"
   },
   "scripts": {
-    "start": "gatsby develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json} \" ",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json} \" "
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run format"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MarcCollado/collado-io"
   }
 }
