@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 const OpenGraph = ({ title, description, url, image, article, username }) => (
   <Helmet>
@@ -24,7 +24,7 @@ OpenGraph.propTypes = {
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   article: PropTypes.bool.isRequired,
-  username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
 };
 
 export default OpenGraph;
