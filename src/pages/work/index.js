@@ -11,7 +11,7 @@ const titleTranslator = {
   iomando: 'iomando',
   Ironhack: 'ironhack',
   'Radio Lanza': 'radioLanza',
-  Gamestry: 'gamestry'
+  Gamestry: 'gamestry',
 };
 
 const WorkPage = ({ data, location }) => {
@@ -21,17 +21,17 @@ const WorkPage = ({ data, location }) => {
   const pageInfo = data.workPageInfo.edges;
   // get the content of the /work page itself (does not have 'date' field)
   const workIndex = pageInfo
-    .filter(edge => edge.node.frontmatter.date === null)
-    .map(edge => ({
+    .filter((edge) => edge.node.frontmatter.date === null)
+    .map((edge) => ({
       title: edge.node.frontmatter.title,
       path: edge.node.frontmatter.path,
       excerpt: edge.node.frontmatter.excerpt,
-      html: edge.node.html
+      html: edge.node.html,
     }));
   // render work Cards from the mds that do have 'date' field
   const renderAllWorkCards = pageInfo
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => {
+    .filter((edge) => !!edge.node.frontmatter.date)
+    .map((edge) => {
       const title = edge.node.frontmatter.title;
       const titleValue = titleTranslator[title];
       const cardImage = data[titleValue].childImageSharp.fluid;
@@ -109,17 +109,17 @@ WorkPage.propTypes = {
               title: PropTypes.string.isRequired,
               date: PropTypes.string,
               path: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
+      ),
+    }),
+    iomando: PropTypes.object.isRequired,
+    ironhack: PropTypes.object.isRequired,
+    radioLanza: PropTypes.object.isRequired,
+    gamestry: PropTypes.object.isRequired,
   }).isRequired,
-  iomando: PropTypes.object.isRequired,
-  ironhack: PropTypes.object.isRequired,
-  radioLanza: PropTypes.object.isRequired,
-  gamestry: PropTypes.object.isRequired
 };
 
 export default WorkPage;
