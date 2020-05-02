@@ -83,7 +83,7 @@ const Gamestry = ({ data, location }) => {
           <Img
             className={styles.image}
             title="Gamestry stories"
-            alt="Lorem... Stories..."
+            alt="The stories behind Gamestry's thriving community."
             fluid={workGamestryStoriesCoverImg}
           />
           <p>
