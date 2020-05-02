@@ -6,7 +6,7 @@ const NotFoundPage = ({ location }) => (
   <Layout title="404" description="Page not found" pathname={location.pathname}>
     <Header title="404" tagline="Page not found" />
     <div>
-      <h2>Oh, no! Page not found 😓</h2>
+      <h2>Oh, no! Page not found {'😓'}</h2>
       <p>
         Don't worry, happens to the best of us. Maybe you ended up here
         because...

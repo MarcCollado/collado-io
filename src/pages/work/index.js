@@ -15,8 +15,6 @@ const titleTranslator = {
 };
 
 const WorkPage = ({ data, location }) => {
-  // get pathname to show/hide certain elements from the Card
-  const isWorkPath = location.pathname === '/work';
   // get the GQL data pulled from md/work files
   const pageInfo = data.workPageInfo.edges;
   // get the content of the /work page itself (does not have 'date' field)
