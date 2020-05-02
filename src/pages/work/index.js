@@ -66,7 +66,7 @@ export const query = graphql`
     ) {
       ...pageInfo
     }
-    gamestry: file(relativePath: { eq: "gamestry.jpg" }) {
+    gamestry: file(relativePath: { eq: "gamestry.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid

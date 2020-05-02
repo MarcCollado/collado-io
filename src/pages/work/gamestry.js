@@ -16,15 +16,15 @@ const Gamestry = ({ data, location }) => {
   const workGamestry = {
     title: data.workGamestry.edges[0].node.frontmatter.title,
     excerpt: data.workGamestry.edges[0].node.frontmatter.excerpt,
-    html: data.workGamestry.edges[0].node.html
+    html: data.workGamestry.edges[0].node.html,
   };
   const gamestryBlogPosts = data.gamestryBlogPosts.edges;
   const renderGamestryBlogCards = renderFilteredBlogCards.bind(
     null,
-    GamestryBlogPosts
+    gamestryBlogPosts
   );
-  const workGamestryInsightsCoverImg =
-    data.workGamestryInsightsCoverImg.childImageSharp.fluid;
+  const workGamestryProductCoverImg =
+    data.workGamestryProductCoverImg.childImageSharp.fluid;
   const workGamestryStoriesCoverImg =
     data.workGamestryStoriesCoverImg.childImageSharp.fluid;
 
@@ -46,7 +46,7 @@ const Gamestry = ({ data, location }) => {
       <Tabs>
         <TabList>
           <Tab>
-            <p>Product releases</p>
+            <p>Product insights</p>
           </Tab>
           <Tab>
             <p>Gamestry stories</p>
@@ -54,25 +54,43 @@ const Gamestry = ({ data, location }) => {
         </TabList>
 
         <TabPanel>
-          <p>Lorem... Product releases...</p>
+          <p>
+            Kick-starting a product from "nada" is a daring endeavor. However,
+            building something that has never been tried before on top of
+            emergent grounds — such as Esports — makes things even more
+            exhilarating.{' '}
+          </p>
           <Img
             className={styles.image}
-            title="Product releases"
-            alt="Gamestry is..."
-            fluid={workGamestryInsightsCoverImg}
+            title="Product insights"
+            alt="The stories behind the making of Gamestry's product."
+            fluid={workGamestryProductCoverImg}
           />
-          <p>Lorem... Product releases...</p>
+          <p>
+            From coding the first API controller, hiring the first developers
+            and designers, up to scaling the entire product team. Here's a
+            recollection of all the insights behind the making of Gamestry's
+            product.
+          </p>
           {renderGamestryBlogCards('update')}
         </TabPanel>
         <TabPanel>
-          <p>Lorem... Stories...</p>
+          <p>
+            Gamestry was a daunting challenge from the get-go: creating a
+            brand-new learning platform around an industry I knew almost nothing
+            about.
+          </p>
           <Img
             className={styles.image}
             title="Gamestry stories"
             alt="Lorem... Stories..."
             fluid={workGamestryStoriesCoverImg}
           />
-          <p>Lorem... Stories...</p>
+          <p>
+            Here are some of the stories that led to a thriving gaming community
+            connecting pro coaches, and enthusiastic players. An idea that not
+            so long ago, seldom believed to be even possible.
+          </p>
           {renderGamestryBlogCards('memoir')}
         </TabPanel>
       </Tabs>
@@ -99,7 +117,7 @@ export const query = graphql`
       ...pageInfo
     }
     workGamestryProductCoverImg: file(
-      relativePath: { eq: "gamestry-updates.jpg" }
+      relativePath: { eq: "gamestry-product.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 800) {
@@ -140,11 +158,11 @@ Gamestry.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
+      ),
     }),
     workGamestryProductCoverImg: PropTypes.object.isRequired,
     workGamestryStoriesCoverImg: PropTypes.object.isRequired,
@@ -158,13 +176,13 @@ Gamestry.propTypes = {
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default Gamestry;
