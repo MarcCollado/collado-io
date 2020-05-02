@@ -16,7 +16,7 @@ const Ironhack = ({ data, location }) => {
   const workIronhack = {
     title: data.workIronhack.edges[0].node.frontmatter.title,
     excerpt: data.workIronhack.edges[0].node.frontmatter.excerpt,
-    html: data.workIronhack.edges[0].node.html
+    html: data.workIronhack.edges[0].node.html,
   };
   const ironhackBlogPosts = data.ironhackBlogPosts.edges;
   const renderIronhackBlogCards = renderFilteredBlogCards.bind(
@@ -160,11 +160,11 @@ Ironhack.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
+      ),
     }),
     workIronhackInsightsCoverImg: PropTypes.object.isRequired,
     workIronhackStoriesCoverImg: PropTypes.object.isRequired,
@@ -178,13 +178,13 @@ Ironhack.propTypes = {
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default Ironhack;

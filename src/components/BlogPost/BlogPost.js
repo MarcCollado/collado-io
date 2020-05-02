@@ -58,10 +58,10 @@ BlogPost.propTypes = {
         tags: PropTypes.arrayOf(PropTypes.string),
         featured: PropTypes.string,
         excerpt: PropTypes.string,
-        source: PropTypes.string
-      })
-    })
-  }).isRequired
+        source: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default BlogPost;

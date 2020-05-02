@@ -13,7 +13,7 @@ const Tag = ({ children }) => (
 );
 
 Tag.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
 };
 
 export default Tag;

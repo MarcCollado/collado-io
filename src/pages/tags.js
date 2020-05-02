@@ -15,7 +15,7 @@ const TagsPage = ({ data, location }) => {
     >
       <Header title="All tags" tagline="The blog, tagged" />
       <ul>
-        {group.map(tag => (
+        {group.map((tag) => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${tag.fieldValue}/`}>
               {`${tag.fieldValue} (${tag.totalCount})`}
@@ -47,11 +47,11 @@ TagsPage.propTypes = {
       group: PropTypes.arrayOf(
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,
-          totalCount: PropTypes.number.isRequired
+          totalCount: PropTypes.number.isRequired,
         }).isRequired
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default TagsPage;

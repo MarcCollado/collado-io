@@ -21,11 +21,11 @@ EpisodeCard.propTypes = {
   excerpt: PropTypes.string,
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  episode: PropTypes.string.isRequired
+  episode: PropTypes.string.isRequired,
 };
 
 EpisodeCard.defaultProps = {
-  excerpt: ''
+  excerpt: '',
 };
 
 export default EpisodeCard;

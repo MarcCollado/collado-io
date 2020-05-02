@@ -72,10 +72,10 @@ EpisodePost.propTypes = {
         show: PropTypes.string.isRequired,
         episodeURL: PropTypes.string.isRequired,
         playerURL: PropTypes.string.isRequired,
-        iTunesURL: PropTypes.string.isRequired
-      })
-    })
-  }).isRequired
+        iTunesURL: PropTypes.string.isRequired,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default EpisodePost;

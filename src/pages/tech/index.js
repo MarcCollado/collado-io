@@ -8,7 +8,7 @@ const TechPage = ({ data, location }) => {
   const techPageInfo = {
     title: data.techPageInfo.edges[0].node.frontmatter.title,
     excerpt: data.techPageInfo.edges[0].node.frontmatter.excerpt,
-    html: data.techPageInfo.edges[0].node.html
+    html: data.techPageInfo.edges[0].node.html,
   };
   return (
     <Layout title="Tech" description="" pathname={location.pathname}>
@@ -42,13 +42,13 @@ TechPage.propTypes = {
               title: PropTypes.string,
               date: PropTypes.string,
               path: PropTypes.string,
-              excerpt: PropTypes.string
-            })
-          })
+              excerpt: PropTypes.string,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default TechPage;

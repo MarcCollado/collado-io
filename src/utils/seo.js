@@ -39,9 +39,9 @@ const SEO = ({ title, description, pathname, image, article }) => (
           author,
           shortName,
           twitter,
-          siteLanguage
-        }
-      }
+          siteLanguage,
+        },
+      },
     }) => {
       const seo = {
         // Composed attributes
@@ -55,7 +55,7 @@ const SEO = ({ title, description, pathname, image, article }) => (
         author,
         shortName,
         twitter,
-        siteLanguage
+        siteLanguage,
       };
 
       return (
@@ -108,7 +108,7 @@ SEO.propTypes = {
   description: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  article: PropTypes.bool.isRequired
+  article: PropTypes.bool.isRequired,
 };
 
 export default SEO;

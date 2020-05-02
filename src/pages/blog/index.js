@@ -45,13 +45,13 @@ BlogPage.propTypes = {
               tags: PropTypes.arrayOf(PropTypes.string),
               featured: PropTypes.string,
               excerpt: PropTypes.string,
-              source: PropTypes.string
-            })
-          })
+              source: PropTypes.string,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default BlogPage;

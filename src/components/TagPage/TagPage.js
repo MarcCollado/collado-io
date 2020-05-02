@@ -15,8 +15,8 @@ const TagPage = ({ pageContext, data }) => {
 
   const renderCards = BlogData
     // Get md files
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => (
+    .filter((edge) => !!edge.node.frontmatter.date)
+    .map((edge) => (
       // Generate a feed of BlogPosts
       <BlogCard
         key={edge.node.id}
@@ -64,7 +64,7 @@ export const query = graphql`
 
 TagPage.propTypes = {
   pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired
+    tag: PropTypes.string.isRequired,
   }).isRequired,
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -76,13 +76,13 @@ TagPage.propTypes = {
               date: PropTypes.string.isRequired,
               excerpt: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired
-            })
-          })
+              title: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default TagPage;

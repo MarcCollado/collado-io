@@ -15,7 +15,7 @@ const Snackbar = ({ unmount }) => (
 );
 
 Snackbar.propTypes = {
-  unmount: PropTypes.func.isRequired
+  unmount: PropTypes.func.isRequired,
 };
 
 export default Snackbar;

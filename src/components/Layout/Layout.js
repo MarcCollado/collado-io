@@ -20,7 +20,7 @@ class Layout extends React.Component {
     }
   }
 
-  shouldSnackBarRender = token => {
+  shouldSnackBarRender = (token) => {
     const timeNow = Date.now();
     const timeToken = token.timestamp;
     const timeDiff = timeNow - timeToken;
@@ -32,10 +32,10 @@ class Layout extends React.Component {
     }
   };
 
-  renewToken = timeNow => {
+  renewToken = (timeNow) => {
     const token = {
       timestamp: timeNow,
-      renderSnackBar: false
+      renderSnackBar: false,
     };
     localStorage.setItem('collado.io:token', JSON.stringify(token));
   };
@@ -53,7 +53,7 @@ class Layout extends React.Component {
       description,
       pathname,
       image,
-      article
+      article,
     } = this.props;
     const { renderSnackBar } = this.state;
 
@@ -82,12 +82,12 @@ Layout.propTypes = {
   description: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
   image: PropTypes.string,
-  article: PropTypes.bool
+  article: PropTypes.bool,
 };
 
 Layout.defaultProps = {
   image: '',
-  article: false
+  article: false,
 };
 
 export default Layout;

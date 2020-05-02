@@ -27,13 +27,13 @@ BlogCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string,
   path: PropTypes.string.isRequired,
-  excerpt: PropTypes.string
+  excerpt: PropTypes.string,
 };
 
 BlogCard.defaultProps = {
   image: '',
   date: '',
-  excerpt: ''
+  excerpt: '',
 };
 
 export default BlogCard;

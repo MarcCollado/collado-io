@@ -9,7 +9,7 @@ const podcastsURLs = {
   spotify: 'https://open.spotify.com/show/3P6zGrc3Mv8yHCKDXZsUQZ',
   google:
     'https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9sUjBxOVFlTg%3D%3D',
-  overcast: 'https://overcast.fm/itunes1468000755/radio-lanza'
+  overcast: 'https://overcast.fm/itunes1468000755/radio-lanza',
 };
 
 const Podcasts = ({ data }) => {
@@ -53,7 +53,7 @@ const Podcasts = ({ data }) => {
   );
 };
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query PodcastsQuery {
@@ -95,7 +95,7 @@ export default props => (
         }
       }
     `}
-    render={data => <Podcasts data={data} {...props} />}
+    render={(data) => <Podcasts data={data} {...props} />}
   />
 );
 
@@ -104,6 +104,6 @@ Podcasts.propTypes = {
     applePodcasts: PropTypes.object.isRequired,
     googlePodcasts: PropTypes.object.isRequired,
     spotifyPodcasts: PropTypes.object.isRequired,
-    overcastPodcasts: PropTypes.object.isRequired
-  }).isRequired
+    overcastPodcasts: PropTypes.object.isRequired,
+  }).isRequired,
 };

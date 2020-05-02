@@ -10,7 +10,7 @@ import { Podcasts } from '../../components/Podcasts';
 import '../../styles/tabs.css';
 import {
   renderFilteredBlogCards,
-  renderAllEpisodeCards
+  renderAllEpisodeCards,
 } from '../../utils/helpers';
 
 const RadioLanza = ({ data, location }) => {
@@ -21,7 +21,7 @@ const RadioLanza = ({ data, location }) => {
   const workRadioLanza = {
     title: data.workRadioLanza.edges[0].node.frontmatter.title,
     excerpt: data.workRadioLanza.edges[0].node.frontmatter.excerpt,
-    html: data.workRadioLanza.edges[0].node.html
+    html: data.workRadioLanza.edges[0].node.html,
   };
   const radioLanzaBlogPosts = data.radioLanzaBlogPosts.edges;
   const renderRadioLanzaCards = renderFilteredBlogCards.bind(
@@ -133,11 +133,11 @@ RadioLanza.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
+      ),
     }),
     radioLanzaBlogPosts: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -149,11 +149,11 @@ RadioLanza.propTypes = {
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
+      ),
     }),
     allRadioLanzaEpisodes: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -166,13 +166,13 @@ RadioLanza.propTypes = {
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
               excerpt: PropTypes.string.isRequired,
-              episode: PropTypes.string.isRequired
-            })
-          })
+              episode: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default RadioLanza;

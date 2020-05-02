@@ -15,7 +15,7 @@ const iomando = ({ data, location }) => {
   const workIomando = {
     title: data.workIomando.edges[0].node.frontmatter.title,
     excerpt: data.workIomando.edges[0].node.frontmatter.excerpt,
-    html: data.workIomando.edges[0].node.html
+    html: data.workIomando.edges[0].node.html,
   };
   const iomandoBlogPosts = data.iomandoBlogPosts.edges;
   const renderIomandoBlogCards = renderFilteredBlogCards.bind(
@@ -188,11 +188,11 @@ iomando.propTypes = {
             html: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
+      ),
     }),
     workIomandoProductCoverImg: PropTypes.object.isRequired,
     workIomandoInsightsCoverImg: PropTypes.object.isRequired,
@@ -207,13 +207,13 @@ iomando.propTypes = {
               date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired
-            })
-          })
+              excerpt: PropTypes.string.isRequired,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default iomando;

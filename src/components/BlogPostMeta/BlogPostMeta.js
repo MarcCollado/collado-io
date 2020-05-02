@@ -42,7 +42,7 @@ const BlogPostMeta = ({ date, tags, next, prev }) => (
     <div className={styles.meta}>
       <PublishedAt date={date} />
       <div className={styles.tag__container}>
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
         ))}
       </div>
@@ -54,7 +54,7 @@ BlogPostMeta.propTypes = {
   date: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   next: PropTypes.string.isRequired,
-  prev: PropTypes.string.isRequired
+  prev: PropTypes.string.isRequired,
 };
 
 export default BlogPostMeta;

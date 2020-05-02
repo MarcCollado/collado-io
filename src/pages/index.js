@@ -10,7 +10,7 @@ const HomePage = ({ data, location }) => {
   const homePageInfo = {
     title: data.homePageInfo.edges[0].node.frontmatter.title,
     excerpt: data.homePageInfo.edges[0].node.frontmatter.excerpt,
-    html: data.homePageInfo.edges[0].node.html
+    html: data.homePageInfo.edges[0].node.html,
   };
   return (
     <Layout title="Home" description="" pathname={location.pathname}>
@@ -57,13 +57,13 @@ HomePage.propTypes = {
               title: PropTypes.string,
               date: PropTypes.string,
               path: PropTypes.string,
-              excerpt: PropTypes.string
-            })
-          })
+              excerpt: PropTypes.string,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default HomePage;

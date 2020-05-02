@@ -9,7 +9,7 @@ const PublishedAt = ({ date }) => (
 );
 
 PublishedAt.propTypes = {
-  date: PropTypes.string.isRequired
+  date: PropTypes.string.isRequired,
 };
 
 export default PublishedAt;

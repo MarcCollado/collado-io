@@ -10,8 +10,8 @@ Used by: BlogPage, NowPage
  */
 export function renderAllBlogCards(data) {
   return data
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => (
+    .filter((edge) => !!edge.node.frontmatter.date)
+    .map((edge) => (
       <BlogCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
@@ -32,8 +32,8 @@ export function renderAllBlogCards(data) {
 
 export function renderFilteredBlogCards(data, tag) {
   return data
-    .filter(edge => edge.node.frontmatter.tags.includes(tag))
-    .map(edge => (
+    .filter((edge) => edge.node.frontmatter.tags.includes(tag))
+    .map((edge) => (
       <BlogCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
@@ -52,8 +52,8 @@ Output: generates an array of EpisodeCard
 
 export function renderAllEpisodeCards(data) {
   return data
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => (
+    .filter((edge) => !!edge.node.frontmatter.date)
+    .map((edge) => (
       <EpisodeCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}

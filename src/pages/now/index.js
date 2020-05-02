@@ -9,7 +9,7 @@ const NowPage = ({ data, location }) => {
   const nowPageInfo = {
     title: data.nowPageInfo.edges[0].node.frontmatter.title,
     excerpt: data.nowPageInfo.edges[0].node.frontmatter.excerpt,
-    html: data.nowPageInfo.edges[0].node.html
+    html: data.nowPageInfo.edges[0].node.html,
   };
   const nowBlogPosts = data.nowBlogPosts.edges;
   const pastNowBlogPosts = nowBlogPosts.slice(1);
@@ -17,7 +17,7 @@ const NowPage = ({ data, location }) => {
     title: nowBlogPosts[0].node.frontmatter.title,
     date: nowBlogPosts[0].node.frontmatter.date,
     excerpt: nowBlogPosts[0].node.frontmatter.excerpt,
-    html: nowBlogPosts[0].node.html
+    html: nowBlogPosts[0].node.html,
   };
   return (
     <Layout
@@ -71,11 +71,11 @@ NowPage.propTypes = {
               title: PropTypes.string,
               date: PropTypes.string,
               path: PropTypes.string,
-              excerpt: PropTypes.string
-            })
-          })
+              excerpt: PropTypes.string,
+            }),
+          }),
         })
-      )
+      ),
     }),
     nowBlogPosts: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -90,13 +90,13 @@ NowPage.propTypes = {
               tags: PropTypes.arrayOf(PropTypes.string),
               featured: PropTypes.string,
               excerpt: PropTypes.string,
-              source: PropTypes.string
-            })
-          })
+              source: PropTypes.string,
+            }),
+          }),
         })
-      )
-    })
-  }).isRequired
+      ),
+    }),
+  }).isRequired,
 };
 
 export default NowPage;
