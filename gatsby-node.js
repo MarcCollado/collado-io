@@ -4,12 +4,14 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const blogPostPage = path.resolve(`src/components/BlogPost/BlogPost.js`);
   const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
+
+  // Fetch all md posts in the blog folder
   const fetchBlogPosts = await graphql(`
     {
       blogPosts: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" } }
-        limit: 1000
         sort: { fields: [frontmatter___date], order: DESC }
+        limit: 10000
       ) {
         edges {
           node {
@@ -22,13 +24,15 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `);
+
   if (fetchBlogPosts.errors) {
     throw fetchBlogPosts.errors;
   }
+
   // posts is an array of objects { node }
   const posts = fetchBlogPosts.data.blogPosts.edges;
 
-  // Create pages for each blog post using `frontmatter.path`
+  // Create pages for each blog post using frontmatter.path
   posts.forEach((post, index) => {
     const prev =
       index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
@@ -48,6 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
   posts.forEach(({ node }) => {
     allTags = [...allTags, ...node.frontmatter.tags];
   });
+
   const uniqTags = [...new Set(allTags)];
   uniqTags.forEach((tag) => {
     createPage({
@@ -60,12 +65,14 @@ exports.createPages = async ({ actions, graphql }) => {
   const episodePostPage = path.resolve(
     `src/components/EpisodePost/EpisodePost.js`
   );
+
+  // Fetch all md posts in the episodes folder
   const fetchEpisodes = await graphql(`
     {
       radioLanzaEpisodes: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" } }
-        limit: 1000
         sort: { fields: [frontmatter___date], order: DESC }
+        limit: 10000
       ) {
         edges {
           node {
@@ -77,9 +84,11 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `);
+
   if (fetchEpisodes.errors) {
     throw fetchEpisodes.errors;
   }
+
   // radioLanzaEpisodes is an array of objects { node }
   const radioLanzaEpisodes = fetchEpisodes.data.radioLanzaEpisodes.edges;
 
