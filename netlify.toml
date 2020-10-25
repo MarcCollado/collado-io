@@ -12,3 +12,6 @@
   to = "https://www.collado.io/:splat"
 
   status = 301
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
