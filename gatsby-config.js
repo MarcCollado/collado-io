@@ -7,24 +7,25 @@ module.exports = {
     shortName: 'collado.io',
     author: 'Marc Collado',
     twitter: '@MarcCollado',
-    siteLanguage: 'en'
+    siteLanguage: 'en',
   },
   plugins: [
-    // Source filesystem
+    // Filesystem
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/img`
-      }
+        path: `${__dirname}/src/img`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'markdown',
-        path: `${__dirname}/src/markdown`
-      }
+        path: `${__dirname}/src/markdown`,
+      },
     },
+
     // Markdown parser
     {
       resolve: 'gatsby-transformer-remark',
@@ -38,32 +39,33 @@ module.exports = {
               maxWidth: 800,
               linkImagesToOriginal: false,
               showCaptions: false,
-              quality: 75
-            }
+              quality: 75,
+            },
           },
-
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
               width: 800,
               related: false,
-              noIframeBorder: true
-            }
+              noIframeBorder: true,
+            },
           },
-          'gatsby-remark-responsive-iframe'
-        ]
-      }
+          'gatsby-remark-responsive-iframe',
+        ],
+      },
     },
-    // Image processing
+
+    // Images
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
         stripMetadata: true,
-        defaultQuality: 75
-      }
+        defaultQuality: 75,
+      },
     },
     'gatsby-transformer-sharp',
-    // Offline
+
+    // Offline features
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -73,20 +75,21 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#b3e4c8`,
         display: `standalone`,
-        icon: `static/favicon/icon.png`
-      }
+        icon: `static/favicon/icon.png`,
+      },
     },
     `gatsby-plugin-offline`,
+
     // Utils & Helpers
     {
       resolve: 'gatsby-plugin-sentry',
       options: {
-        dsn: 'https://d5f01249b62045b8a9ae3a529b781008@sentry.io/1835268'
-      }
+        dsn: 'https://d5f01249b62045b8a9ae3a529b781008@sentry.io/1835268',
+      },
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-twitter',
-    'gatsby-plugin-catch-links'
-  ]
+    'gatsby-plugin-catch-links',
+  ],
 };
