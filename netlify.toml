@@ -8,7 +8,7 @@
 # [context.branch-deploy]
 
 [[redirects]]
-  from = "https://collado-io.netlify.com/*"
+  from = "https://collado-io.netlify.app/*"
   to = "https://www.collado.io/:splat"
 
   status = 301
