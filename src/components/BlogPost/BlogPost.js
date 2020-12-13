@@ -13,7 +13,7 @@ const BlogPost = ({ data, pageContext }) => {
   const prevBlogPostPath = pageContext.prev.frontmatter.path;
 
   return (
-    <Layout title={title} description={excerpt} pathname={path} article="true">
+    <Layout title={title} description={excerpt} pathname={path} article={true}>
       <h1 className={styles.title}>{title}</h1>
       <div
         className={styles.markdown}
