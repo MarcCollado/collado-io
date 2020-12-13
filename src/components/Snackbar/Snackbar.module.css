@@ -8,7 +8,7 @@
   align-items: center;
 
   /* Color */
-  background-color: #ffbd01;
+  background-color: #32c5ff88;
 }
 
 .snackbar__text {
@@ -35,7 +35,7 @@
 .snackbar__close {
   /* Display & Box Model */
   margin: 1.1em 0 0 0.8em;
-  padding-top: 4px;
+  padding-top: 3px;
   border: none;
   border-radius: 1.25em;
   height: 1.25em;
@@ -47,7 +47,7 @@
   align-content: center;
 
   /* Color */
-  background-color: #f1c40f88;
+  background-color: #32c5ff88;
 
   /* Text */
   font-size: smaller;
