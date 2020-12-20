@@ -12,6 +12,7 @@ const titleTranslator = {
   Ironhack: 'ironhack',
   'Radio Lanza': 'radioLanza',
   Gamestry: 'gamestry',
+  Safareig: 'safareig',
 };
 
 const WorkPage = ({ data, location }) => {
@@ -63,6 +64,13 @@ export const query = graphql`
       limit: 100
     ) {
       ...pageInfo
+    }
+    safareig: file(relativePath: { eq: "safareig.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
     gamestry: file(relativePath: { eq: "gamestry.png" }) {
       childImageSharp {
