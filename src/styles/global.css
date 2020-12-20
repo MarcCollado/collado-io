@@ -168,10 +168,15 @@ hr {
 }
 
 /* Center embedded tweets */
-twitter-widget.twitter-tweet {
+.twitter-tweet {
   /* Display & Box Model */
   margin-right: auto;
   margin-left: auto;
+}
+
+.twitter-tweet > iframe {
+  /* Display & Box Model */
+  margin-top: 12px;
 }
 
 @media (min-width: 576px) {
