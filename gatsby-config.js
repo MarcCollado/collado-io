@@ -10,29 +10,26 @@ module.exports = {
     siteLanguage: 'en',
   },
   plugins: [
-    // Filesystem
+    // FILESYSTEM
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/src/img`,
+        name: 'assets',
+        path: `${__dirname}/src/assets/img`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'markdown',
-        path: `${__dirname}/src/markdown`,
+        path: `${__dirname}/src/assets/markdown`,
       },
     },
-
-    // Markdown parser
+    // MARKDOWN
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-copy-linked-files',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -50,12 +47,14 @@ module.exports = {
               noIframeBorder: true,
             },
           },
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-responsive-iframe',
         ],
       },
     },
-
-    // Images
+    // IMAGES & ASSETS
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
@@ -63,9 +62,8 @@ module.exports = {
         defaultQuality: 75,
       },
     },
-    'gatsby-transformer-sharp',
-
-    // Offline features
+    // OFFLINE
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -78,9 +76,7 @@ module.exports = {
         icon: `static/favicon/icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
-
-    // Utils & Helpers
+    // UTILS & HELPERS
     {
       resolve: '@sentry/gatsby',
       options: {
@@ -88,6 +84,7 @@ module.exports = {
         autoSessionTracking: true,
       },
     },
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-twitter',
