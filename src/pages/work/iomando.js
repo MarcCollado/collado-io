@@ -121,6 +121,22 @@ const iomando = ({ data, location }) => {
 
 export const query = graphql`
   {
+    workIomando: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/iomando.md/" } }
+      limit: 1
+    ) {
+      ...pageInfo
+    }
+    iomandoBlogPosts: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        frontmatter: { tags: { in: ["iomando"] } }
+      }
+      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      ...allBlogPosts
+    }
     workIomandoCoverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
@@ -128,12 +144,6 @@ export const query = graphql`
           src
         }
       }
-    }
-    workIomando: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/iomando.md/" } }
-      limit: 1
-    ) {
-      ...pageInfo
     }
     workIomandoProductCoverImg: file(
       relativePath: { eq: "iomando-updates.jpg" }
@@ -161,16 +171,6 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
-    }
-    iomandoBlogPosts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
-        frontmatter: { tags: { in: ["iomando"] } }
-      }
-      limit: 100
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allBlogPosts
     }
   }
 `;

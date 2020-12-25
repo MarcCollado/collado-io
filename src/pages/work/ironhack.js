@@ -102,14 +102,6 @@ const Ironhack = ({ data, location }) => {
 
 export const query = graphql`
   {
-    workIronhackCoverImg: file(relativePath: { eq: "ironhack-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-          src
-        }
-      }
-    }
     workIronhack: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/pages/ironhack.md/" }
@@ -117,6 +109,24 @@ export const query = graphql`
       limit: 1
     ) {
       ...pageInfo
+    }
+    ironhackBlogPosts: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        frontmatter: { tags: { in: ["ironhack"] } }
+      }
+      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      ...allBlogPosts
+    }
+    workIronhackCoverImg: file(relativePath: { eq: "ironhack-cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+          src
+        }
+      }
     }
     workIronhackInsightsCoverImg: file(
       relativePath: { eq: "ironhack-insights.jpg" }
@@ -135,16 +145,6 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
-    }
-    ironhackBlogPosts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
-        frontmatter: { tags: { in: ["ironhack"] } }
-      }
-      limit: 100
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allBlogPosts
     }
   }
 `;

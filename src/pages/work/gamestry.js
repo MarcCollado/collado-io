@@ -100,14 +100,6 @@ const Gamestry = ({ data, location }) => {
 
 export const query = graphql`
   {
-    workGamestryCoverImg: file(relativePath: { eq: "gamestry-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-          src
-        }
-      }
-    }
     workGamestry: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/pages/gamestry.md/" }
@@ -115,6 +107,24 @@ export const query = graphql`
       limit: 1
     ) {
       ...pageInfo
+    }
+    gamestryBlogPosts: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        frontmatter: { tags: { in: ["gamestry"] } }
+      }
+      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      ...allBlogPosts
+    }
+    workGamestryCoverImg: file(relativePath: { eq: "gamestry-cover.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+          src
+        }
+      }
     }
     workGamestryProductCoverImg: file(
       relativePath: { eq: "gamestry-product.jpg" }
@@ -133,16 +143,6 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
-    }
-    gamestryBlogPosts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
-        frontmatter: { tags: { in: ["gamestry"] } }
-      }
-      limit: 100
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allBlogPosts
     }
   }
 `;

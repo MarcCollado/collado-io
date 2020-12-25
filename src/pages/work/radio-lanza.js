@@ -85,15 +85,6 @@ const RadioLanza = ({ data, location }) => {
 
 export const query = graphql`
   {
-    workRadioLanzaCoverImg: file(
-      relativePath: { eq: "radio-lanza-cover.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     workRadioLanza: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/pages/radio-lanza.md/" }
@@ -101,13 +92,6 @@ export const query = graphql`
       limit: 1
     ) {
       ...pageInfo
-    }
-    allRadioLanzaEpisodes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/episodes/" } }
-      limit: 100
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allRadioLanzaEpisodes
     }
     radioLanzaBlogPosts: allMarkdownRemark(
       filter: {
@@ -118,6 +102,22 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...allBlogPosts
+    }
+    workRadioLanzaCoverImg: file(
+      relativePath: { eq: "radio-lanza-cover.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allRadioLanzaEpisodes: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/markdown/episodes/" } }
+      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      ...allRadioLanzaEpisodes
     }
   }
 `;
