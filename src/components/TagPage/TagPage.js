@@ -43,7 +43,6 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: [$tag] } }
       }
-      limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount

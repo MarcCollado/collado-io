@@ -29,10 +29,7 @@ const TagsPage = ({ data, location }) => {
 
 export const query = graphql`
   {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(markdown)/" } }
-      limit: 1000
-    ) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(markdown)/" } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
