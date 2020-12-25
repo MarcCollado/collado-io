@@ -40,7 +40,7 @@ export const query = graphql`
   query tagPageQuery($tag: String) {
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: [$tag] } }
       }
       limit: 1000
