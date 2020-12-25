@@ -110,7 +110,7 @@ export const query = graphql`
     }
     workGamestry: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(gamestry)/" }
+        fileAbsolutePath: { regex: "/src/markdown/pages/gamestry.md/" }
       }
       limit: 1
     ) {

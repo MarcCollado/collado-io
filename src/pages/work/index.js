@@ -60,7 +60,7 @@ const WorkPage = ({ data, location }) => {
 export const query = graphql`
   {
     workPageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/" } }
       limit: 100
     ) {
       ...pageInfo

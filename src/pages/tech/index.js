@@ -21,7 +21,7 @@ const TechPage = ({ data, location }) => {
 export const query = graphql`
   {
     techPageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(tech)/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/tech.md/" } }
       limit: 1
     ) {
       ...pageInfo

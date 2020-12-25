@@ -41,7 +41,7 @@ const NowPage = ({ data, location }) => {
 export const query = graphql`
   {
     nowPageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(now)/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/now.md/" } }
       limit: 1
     ) {
       ...pageInfo

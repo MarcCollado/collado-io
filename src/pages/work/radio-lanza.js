@@ -96,7 +96,7 @@ export const query = graphql`
     }
     workRadioLanza: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(radio-lanza)/" }
+        fileAbsolutePath: { regex: "/src/markdown/pages/radio-lanza.md/" }
       }
       limit: 1
     ) {

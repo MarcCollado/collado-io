@@ -112,7 +112,7 @@ export const query = graphql`
     }
     workIronhack: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(ironhack)/" }
+        fileAbsolutePath: { regex: "/src/markdown/pages/ironhack.md/" }
       }
       limit: 1
     ) {

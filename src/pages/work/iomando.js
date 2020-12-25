@@ -130,9 +130,7 @@ export const query = graphql`
       }
     }
     workIomando: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(work)/(iomando)/" }
-      }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/iomando.md/" } }
       limit: 1
     ) {
       ...pageInfo
