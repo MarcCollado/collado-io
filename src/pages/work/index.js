@@ -20,7 +20,7 @@ const WorkPage = ({ data, location }) => {
   const pageInfo = data.workPageInfo.edges;
   // get the content of the /work page itself (does not have 'date' field)
   const workIndex = pageInfo
-    .filter((edge) => edge.node.frontmatter.date === null)
+    .filter((edge) => edge.node.frontmatter.title === 'Work')
     .map((edge) => ({
       title: edge.node.frontmatter.title,
       path: edge.node.frontmatter.path,
@@ -29,7 +29,7 @@ const WorkPage = ({ data, location }) => {
     }));
   // render work Cards from the mds that do have 'date' field
   const renderAllWorkCards = pageInfo
-    .filter((edge) => !!edge.node.frontmatter.date)
+    .filter((edge) => edge.node.frontmatter.title in titleTranslator)
     .map((edge) => {
       const title = edge.node.frontmatter.title;
       const titleValue = titleTranslator[title];
