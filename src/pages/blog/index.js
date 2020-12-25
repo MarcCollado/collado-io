@@ -22,7 +22,7 @@ const BlogPage = ({ data, location }) => {
 export const query = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/posts/" } }
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

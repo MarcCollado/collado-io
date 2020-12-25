@@ -48,7 +48,7 @@ export const query = graphql`
     }
     nowBlogPosts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["now"] } }
       }
       limit: 1000

@@ -138,7 +138,7 @@ export const query = graphql`
     }
     ironhackBlogPosts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["ironhack"] } }
       }
       limit: 100

@@ -136,7 +136,7 @@ export const query = graphql`
     }
     gamestryBlogPosts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["gamestry"] } }
       }
       limit: 100

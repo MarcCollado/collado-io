@@ -103,7 +103,7 @@ export const query = graphql`
       ...pageInfo
     }
     allRadioLanzaEpisodes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/episodes/" } }
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -111,7 +111,7 @@ export const query = graphql`
     }
     radioLanzaBlogPosts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["radio lanza"] } }
       }
       limit: 100

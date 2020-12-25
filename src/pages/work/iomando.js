@@ -166,7 +166,7 @@ export const query = graphql`
     }
     iomandoBlogPosts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" }
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["iomando"] } }
       }
       limit: 100

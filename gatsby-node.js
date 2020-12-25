@@ -5,13 +5,12 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogPostPage = path.resolve(`src/components/BlogPost/BlogPost.js`);
   const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
 
-  // Fetch all md posts in the blog folder
-  const fetchBlogPosts = await graphql(`
+  // Fetch all markdown posts
+  const fetchPosts = await graphql(`
     {
-      blogPosts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(blog)/" } }
+      posts: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/src/markdown/posts/" } }
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 10000
       ) {
         edges {
           node {
@@ -25,14 +24,14 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  if (fetchBlogPosts.errors) {
-    throw fetchBlogPosts.errors;
+  if (fetchPosts.errors) {
+    throw fetchPosts.errors;
   }
 
-  // posts is an array of objects { node }
-  const posts = fetchBlogPosts.data.blogPosts.edges;
+  // [{ node }]
+  const posts = fetchPosts.data.posts.edges;
 
-  // Create pages for each blog post using frontmatter.path
+  // Create a page for each post through path
   posts.forEach((post, index) => {
     const prev =
       index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
@@ -47,14 +46,14 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  // List all the unique tags found in the blog posts
+  // List all unique tags
   let allTags = [];
   posts.forEach(({ node }) => {
     allTags = [...allTags, ...node.frontmatter.tags];
   });
-
-  const uniqTags = [...new Set(allTags)];
-  uniqTags.forEach((tag) => {
+  const uniqueTags = [...new Set(allTags)];
+  // Create a page for each tag
+  uniqueTags.forEach((tag) => {
     createPage({
       path: `/tags/${tag}`,
       component: tagPage,
@@ -70,7 +69,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const fetchEpisodes = await graphql(`
     {
       radioLanzaEpisodes: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/(src)/(markdown)/(episodes)/" } }
+        filter: { fileAbsolutePath: { regex: "/src/markdown/episodes/" } }
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 10000
       ) {
