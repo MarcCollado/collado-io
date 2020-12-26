@@ -2,14 +2,18 @@ import React from 'react';
 import { BlogCard } from '../components/BlogCard';
 import { EpisodeCard } from '../components/EpisodeCard';
 
-/*
-Input:
-  - data: ...allBlogPosts GraphQL query results
-Output: generates an array of BlogCard
-Used by: BlogPage, NowPage
+/**
+ * Generates and renders a list of posts
+ * @generator
+ * @param {array} edges - allPosts from GraphQL query results
+ * @returns {array} - list of cards w/o the html
  */
-export function renderAllBlogCards(data) {
-  return data
+export function renderPosts(edges) {
+  if (typeof edges !== 'object') {
+    throw new Error('Expected an array of posts.');
+  }
+
+  return edges
     .filter((edge) => !!edge.node.frontmatter.date)
     .map((edge) => (
       <BlogCard
@@ -20,6 +24,28 @@ export function renderAllBlogCards(data) {
         excerpt={edge.node.frontmatter.excerpt}
       />
     ));
+}
+
+/**
+ * Extracts page information from the corresponding markdown file
+ * @param {array} edges - pageInfo from GraphQL query results
+ * @returns {object} - page information
+ */
+export function extractPageInfo(edges) {
+  if (typeof edges !== 'object' || edges.length !== 1) {
+    throw new Error('Expected an array with one item.');
+  }
+
+  const pageInfo = {
+    title: edges[0].node.frontmatter?.title,
+    date: edges[0].node.frontmatter?.date,
+    path: edges[0].node.frontmatter?.path,
+    excerpt: edges[0].node.frontmatter?.excerpt,
+    // seo: edges[0].node.frontmatter?.seo,
+    html: edges[0].node.html,
+  };
+
+  return pageInfo;
 }
 
 /*
