@@ -135,7 +135,7 @@ export const query = graphql`
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allPosts
     }
     workIomandoCoverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
       childImageSharp {

@@ -101,7 +101,7 @@ export const query = graphql`
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allPosts
     }
     workRadioLanzaCoverImg: file(
       relativePath: { eq: "radio-lanza-cover.jpg" }

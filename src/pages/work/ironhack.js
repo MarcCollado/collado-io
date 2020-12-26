@@ -118,7 +118,7 @@ export const query = graphql`
       limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allPosts
     }
     workIronhackCoverImg: file(relativePath: { eq: "ironhack-cover.jpg" }) {
       childImageSharp {
