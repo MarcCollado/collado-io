@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
-import { renderAllBlogCards } from '../../utils/helpers';
+import { renderPosts } from '../../utils/helpers';
 
 const NowPage = ({ data, location }) => {
   const nowPageInfo = {
@@ -33,7 +33,7 @@ const NowPage = ({ data, location }) => {
       <p>
         {`That's all for ${currentNowBlogPost.title.toLowerCase()} — if you are curious about what I was up to in the past, check out older editions of the now project below 👇`}
       </p>
-      {renderAllBlogCards(pastNowBlogPosts)}
+      {renderPosts(pastNowBlogPosts)}
     </Layout>
   );
 };
@@ -54,7 +54,7 @@ export const query = graphql`
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPostsWithHtml
+      ...allPostsWithHtml
     }
   }
 `;
