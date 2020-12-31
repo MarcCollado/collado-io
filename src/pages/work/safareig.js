@@ -1,69 +1,62 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 
-import { Layout } from '../../components/Layout';
+// Components
 import { Header } from '../../components/Header';
+import { Layout } from '../../components/Layout';
 
+// Utils
 import styles from './work.module.css';
-import { renderFilteredBlogCards } from '../../utils/helpers';
+import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
 const Safareig = ({ data, location }) => {
-  const workSafareigCoverImg = data.workSafareigCoverImg.childImageSharp.fluid;
-  const workSafareigSeoImg =
-    data.workSafareigCoverImg.childImageSharp.fluid.src;
-  const workSafareig = {
-    title: data.workSafareig.edges[0].node.frontmatter.title,
-    excerpt: data.workSafareig.edges[0].node.frontmatter.excerpt,
-    html: data.workSafareig.edges[0].node.html,
-  };
-  const safareigBlogPosts = data.safareigBlogPosts.edges;
-
+  const coverImg = data.coverImg.childImageSharp.fluid;
+  const seoImg = data.coverImg.childImageSharp.fluid.src;
+  const pageInfo = extractPageInfo(data.safareigPageInfo.edges);
+  const safareigPosts = data.safareigPosts.edges;
   return (
     <Layout
-      title={workSafareig.title}
-      description={workSafareig.excerpt}
+      title={pageInfo.title}
+      description={pageInfo.excerpt}
       pathname={location.pathname}
-      image={workSafareigSeoImg}
+      image={seoImg}
     >
-      <Header title={workSafareig.title} tagline={workSafareig.excerpt} />
+      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
       <a target="_blank" rel="noreferrer" href="https://www.safareig.fm">
         <Img
           className={styles.image}
-          title={workSafareig.title}
-          alt={workSafareig.excerpt}
-          fluid={workSafareigCoverImg}
+          title={pageInfo.title}
+          alt={pageInfo.excerpt}
+          fluid={coverImg}
         />
       </a>
-      <div dangerouslySetInnerHTML={{ __html: workSafareig.html }} />
-      <h2>(Encara) més sobre Safareig</h2>
-      {renderFilteredBlogCards(safareigBlogPosts, 'safareig')}
+      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
+      {renderPosts(safareigPosts)}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    workSafareig: allMarkdownRemark(
+    safareigPageInfo: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/pages/safareig.md/" }
       }
-      limit: 1
     ) {
       ...pageInfo
     }
-    safareigBlogPosts: allMarkdownRemark(
+    safareigPosts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["safareig"] } }
       }
-      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...allPosts
     }
-    workSafareigCoverImg: file(relativePath: { eq: "safareig-cover.jpg" }) {
+    coverImg: file(relativePath: { eq: "safareig-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
@@ -75,7 +68,7 @@ export const query = graphql`
 
 Safareig.propTypes = {
   data: PropTypes.shape({
-    workSafareigCoverImg: PropTypes.object.isRequired,
+    coverImg: PropTypes.object.isRequired,
     workSafareig: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
