@@ -1,44 +1,32 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import styles from './work.module.css';
-import { Layout } from '../../components/Layout';
-import { Header } from '../../components/Header';
-import { BlogCard } from '../../components/BlogCard';
 
-// Helper that returns the matching graphQL query for each title
-const titleTranslator = {
-  iomando: 'iomando',
-  Ironhack: 'ironhack',
-  'Radio Lanza': 'radioLanza',
-  Gamestry: 'gamestry',
-  Safareig: 'safareig',
-};
+// Components
+import { BlogCard } from '../../components/BlogCard';
+import { Header } from '../../components/Header';
+import { Layout } from '../../components/Layout';
+
+// Utils
+import styles from './work.module.css';
+import { extractPageInfo } from '../../utils/helpers';
+import { workmaps } from '../../utils/workmaps';
 
 const WorkPage = ({ data, location }) => {
-  // get the GQL data pulled from md/work files
-  const pageInfo = data.workPageInfo.edges;
-  // get the content of the /work page itself (does not have 'date' field)
-  const workIndex = pageInfo
-    .filter((edge) => edge.node.frontmatter.title === 'Work')
-    .map((edge) => ({
-      title: edge.node.frontmatter.title,
-      path: edge.node.frontmatter.path,
-      excerpt: edge.node.frontmatter.excerpt,
-      html: edge.node.html,
-    }));
-  // render work Cards from the mds that do have 'date' field
-  const renderAllWorkCards = pageInfo
-    .filter((edge) => edge.node.frontmatter.title in titleTranslator)
+  const pageInfo = extractPageInfo(
+    data.workPage.edges.filter((edge) => edge.node.frontmatter.title === 'Work')
+  );
+  const renderWorkCards = data.workPage.edges
+    .filter((edge) => edge.node.frontmatter.title in workmaps)
     .map((edge) => {
-      const title = edge.node.frontmatter.title;
-      const titleValue = titleTranslator[title];
-      const cardImage = data[titleValue].childImageSharp.fluid;
+      const k = edge.node.frontmatter.title;
+      const v = workmaps[k];
+      const img = data[v].childImageSharp.fluid;
       return (
         <BlogCard
           key={edge.node.id}
-          image={cardImage}
-          title={title}
+          image={img}
+          title={k}
           path={edge.node.frontmatter.path}
           excerpt={edge.node.frontmatter.excerpt}
         />
@@ -46,22 +34,22 @@ const WorkPage = ({ data, location }) => {
     });
   return (
     <Layout
-      title={workIndex[0].title}
-      description={workIndex[0].excerpt}
+      title={pageInfo.title}
+      description={pageInfo.excerpt}
       pathname={location.pathname}
     >
-      <Header title={workIndex[0].title} tagline={workIndex[0].excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: workIndex[0].html }} />
-      <div className={styles.container}>{renderAllWorkCards}</div>
+      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
+      <div className={styles.container}>{renderWorkCards}</div>
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    workPageInfo: allMarkdownRemark(
+    workPage: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/pages/" } }
-      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...pageInfo
     }
@@ -125,6 +113,7 @@ WorkPage.propTypes = {
     ironhack: PropTypes.object.isRequired,
     radioLanza: PropTypes.object.isRequired,
     gamestry: PropTypes.object.isRequired,
+    safareig: PropTypes.object.isRequired,
   }).isRequired,
 };
 
