@@ -1,9 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 // import PropTypes from 'prop-types';
+
 // Components
 import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
+
 // Utils
 import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
