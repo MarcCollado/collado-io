@@ -23,7 +23,7 @@ const BlogCard = ({ image, title, date, path, excerpt }) => (
 );
 
 BlogCard.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string.isRequired,
   date: PropTypes.string,
   path: PropTypes.string.isRequired,
@@ -31,7 +31,7 @@ BlogCard.propTypes = {
 };
 
 BlogCard.defaultProps = {
-  image: '',
+  image: null,
   date: '',
   excerpt: '',
 };
