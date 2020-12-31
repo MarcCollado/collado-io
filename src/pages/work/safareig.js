@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 // Components
 import { Header } from '../../components/Header';
@@ -14,8 +14,8 @@ import { renderPosts, extractPageInfo } from '../../utils/helpers';
 const Safareig = ({ data, location }) => {
   const coverImg = data.coverImg.childImageSharp.fluid;
   const seoImg = data.coverImg.childImageSharp.fluid.src;
-  const pageInfo = extractPageInfo(data.safareigPageInfo.edges);
-  const safareigPosts = data.safareigPosts.edges;
+  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const posts = data.posts.edges;
   return (
     <Layout
       title={pageInfo.title}
@@ -33,21 +33,21 @@ const Safareig = ({ data, location }) => {
         />
       </a>
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
-      {renderPosts(safareigPosts)}
+      {renderPosts(posts)}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    safareigPageInfo: allMarkdownRemark(
+    pageInfo: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/pages/safareig.md/" }
       }
     ) {
       ...pageInfo
     }
-    safareigPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["safareig"] } }
@@ -65,41 +65,5 @@ export const query = graphql`
     }
   }
 `;
-
-Safareig.propTypes = {
-  data: PropTypes.shape({
-    coverImg: PropTypes.object.isRequired,
-    workSafareig: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-    safareigBlogPosts: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-  }).isRequired,
-};
 
 export default Safareig;

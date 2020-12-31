@@ -10,8 +10,8 @@ import { Layout } from '../../components/Layout';
 import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
 const BooksPage = ({ data, location }) => {
-  const pageInfo = extractPageInfo(data.booksPageInfo.edges);
-  const booksPosts = data.booksPosts.edges;
+  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const posts = data.posts.edges;
   return (
     <Layout
       title={pageInfo.title}
@@ -20,19 +20,19 @@ const BooksPage = ({ data, location }) => {
     >
       <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
-      {renderPosts(booksPosts)}
+      {renderPosts(posts)}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    booksPageInfo: allMarkdownRemark(
+    pageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/pages/books.md/" } }
     ) {
       ...pageInfo
     }
-    booksPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["books"] } }

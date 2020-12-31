@@ -10,8 +10,8 @@ import { Layout } from '../../components/Layout';
 import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
 const NowPage = ({ data, location }) => {
-  const pageInfo = extractPageInfo(data.nowPageInfo.edges);
-  const nowPosts = data.nowPosts.edges;
+  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const posts = data.posts.edges;
   return (
     <Layout
       title={pageInfo.title}
@@ -20,19 +20,19 @@ const NowPage = ({ data, location }) => {
     >
       <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
-      {renderPosts(nowPosts)}
+      {renderPosts(posts)}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    nowPageInfo: allMarkdownRemark(
+    pageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/pages/now.md/" } }
     ) {
       ...pageInfo
     }
-    nowPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["now"] } }
