@@ -12,7 +12,7 @@ Late in 2017, the company ended up acquired by [Citibox](https://www.citibox.com
 
 ## ⚡️ Highlights
 
-- Built and launched the [first version of the product](/blog/2013/iomando-10)
-- Raised a seed round with local angels and early stage funds
-- Assembled and led the product and engineering teams
+- Built and launched the [first version of the product](/blog/2013/iomando-10) — which I coded by myself
+- Hired, scaled, and led both the product and engineering teams
+- Raised a seed round of 300.000€ with local angels and early-stage funds
 - Featured as 30 under 30 by Entrepreneur Magazine in 2015
