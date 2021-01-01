@@ -115,7 +115,6 @@ export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/pages/iomando.md/" } }
-      limit: 1
     ) {
       ...pageInfo
     }
@@ -124,7 +123,6 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["iomando"] } }
       }
-      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...allPosts
