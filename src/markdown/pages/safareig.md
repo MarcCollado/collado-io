@@ -3,6 +3,7 @@ title: 'Safareig'
 date: '2020-09-01'
 path: '/work/safareig'
 excerpt: 'El teu aperitiu tecnològic'
+# seo: ''
 ---
 
 Safareig és un podcast amb [Ramon Gilabert](https://twitter.com/RamonGilabert) i [Marc Collado](https://twitter.com/MarcCollado).

@@ -3,6 +3,7 @@ title: 'iomando'
 date: '2011-09-01'
 path: '/work/iomando'
 excerpt: 'Keyless access management for mobile devices'
+# seo: ''
 ---
 
 In 2011, inadvertently, [I became an entrepreneur](/blog/2013/iomando-prologue). Upon graduating from college, a random idea led me to co-found iomando technologies — a startup pioneering keyless access management for mobile devices. Which in plain English means opening doors and other stuff with your phone.

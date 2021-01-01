@@ -3,6 +3,7 @@ title: 'Marc Collado'
 date: null
 path: '/'
 excerpt: 'Singularly curious'
+# seo: ''
 ---
 
 ## Me, in a bullet list
