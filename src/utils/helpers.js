@@ -3,30 +3,6 @@ import { BlogCard } from '../components/BlogCard';
 import { EpisodeCard } from '../components/EpisodeCard';
 
 /**
- * Generates and renders a list of posts
- * @generator
- * @param {array} edges - allPosts from GraphQL query results
- * @returns {array} - list of cards w/o the html
- */
-export function renderPosts(edges) {
-  if (typeof edges !== 'object') {
-    throw new Error('Expected an array of posts.');
-  }
-
-  return edges
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
-      <BlogCard
-        key={edge.node.id}
-        title={edge.node.frontmatter.title}
-        date={edge.node.frontmatter.date}
-        path={edge.node.frontmatter.path}
-        excerpt={edge.node.frontmatter.excerpt}
-      />
-    ));
-}
-
-/**
  * Extracts page information from the corresponding markdown file
  * @param {array} edges - pageInfo from GraphQL query results
  * @returns {object} - page information
@@ -48,27 +24,53 @@ export function extractPageInfo(edges) {
   return pageInfo;
 }
 
-/*
-- Generates a tag-filtered array of BlogCards
-@ Params:
-  - data: object returned from the allMarkdownRemark GraphQL query
-  - tag: string with the tag filter
-@ Returns: array of tag-filtered BlogCards
+/**
+ * Generates and renders a list of posts
+ * @generator
+ * @param {array} edges - allPosts from GraphQL query results
+ * @returns {array} - list of cards w/o the html
  */
+export function renderPosts(edges, tag = '') {
+  if (typeof edges !== 'object') {
+    throw new Error('Expected an array of posts.');
+  }
 
-export function renderFilteredBlogCards(data, tag) {
-  return data
-    .filter((edge) => edge.node.frontmatter.tags.includes(tag))
+  return edges
+    .filter((edge) =>
+      tag !== '' ? edge.node.frontmatter?.tags.includes(tag) : edge
+    )
+    .filter((edge) => !!edge.node.frontmatter?.date)
     .map((edge) => (
       <BlogCard
         key={edge.node.id}
-        title={edge.node.frontmatter.title}
-        date={edge.node.frontmatter.date}
-        path={edge.node.frontmatter.path}
-        excerpt={edge.node.frontmatter.excerpt}
+        title={edge.node.frontmatter?.title}
+        date={edge.node.frontmatter?.date}
+        path={edge.node.frontmatter?.path}
+        excerpt={edge.node.frontmatter?.excerpt}
       />
     ));
 }
+
+// /**
+//  * Generates and renders a tag-filtered array of posts
+//  * @generator
+//  * @param {array} edges - allPosts from GraphQL query results
+//  * @param {string} tag — tag to filter posts
+//  * @returns {array} - list of cards w/o the html
+//  */
+// export function renderFilteredPosts(data, tag) {
+//   return data
+//     .filter((edge) => )
+//     .map((edge) => (
+//       <BlogCard
+//         key={edge.node.id}
+//         title={edge.node.frontmatter.title}
+//         date={edge.node.frontmatter.date}
+//         path={edge.node.frontmatter.path}
+//         excerpt={edge.node.frontmatter.excerpt}
+//       />
+//     ));
+// }
 
 /*
 Input:
