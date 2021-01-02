@@ -3,10 +3,10 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../../components/Layout';
 import { Header } from '../../components/Header';
-import { renderAllBlogCards } from '../../utils/helpers';
+import { renderPosts } from '../../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
-  const allBlogPosts = data.allMarkdownRemark.edges;
+  const allPosts = data.allMarkdownRemark.edges;
   return (
     <Layout
       title="Blog"
@@ -14,7 +14,7 @@ const BlogPage = ({ data, location }) => {
       pathname={location.pathname}
     >
       <Header title="Blog" tagline="Things I've written" />
-      {renderAllBlogCards(allBlogPosts)}
+      {renderPosts(allPosts)}
     </Layout>
   );
 };
@@ -22,11 +22,15 @@ const BlogPage = ({ data, location }) => {
 export const query = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/posts/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        frontmatter: { tags: { nin: ["books", "now"] } }
+      }
+
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allPosts
     }
   }
 `;

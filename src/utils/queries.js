@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby';
 
 /*
-Used by: BlogPage, 3xWorkPage(s)
-  - Its parent query should fetch at /src/markdown/blog/
-  - No html is requested since the point of this query is to generate cards
-  - Used in combination with render__Cards methods
+Used by: Blog, Books, Now, Work(s)
+- No html is requested since this query only generates cards
+- Use in combination with render__Cards methods
 */
-export const allBlogPostsQuery = graphql`
-  fragment allBlogPosts on MarkdownRemarkConnection {
+export const allPostsQuery = graphql`
+  fragment allPosts on MarkdownRemarkConnection {
     edges {
       node {
         id
@@ -18,6 +17,7 @@ export const allBlogPostsQuery = graphql`
           tags
           featured
           excerpt
+          # seo
           source
         }
       }
@@ -26,11 +26,10 @@ export const allBlogPostsQuery = graphql`
 `;
 
 /*
-Used by: NowPage
- - Almost identical as allBlogPosts but this one also fetches the html
+Almost identical as allPosts, but also fetches the html
 */
-export const allBlogPostsWithHtmlQuery = graphql`
-  fragment allBlogPostsWithHtml on MarkdownRemarkConnection {
+export const allPostsWithHtmlQuery = graphql`
+  fragment allPostsWithHtml on MarkdownRemarkConnection {
     edges {
       node {
         id
@@ -42,6 +41,7 @@ export const allBlogPostsWithHtmlQuery = graphql`
           tags
           featured
           excerpt
+          # seo
           source
         }
       }
@@ -50,7 +50,7 @@ export const allBlogPostsWithHtmlQuery = graphql`
 `;
 
 /*
-Used by: HomePage, NowPage
+Retrieves the data to build a top-level page layout
 */
 export const PageInfoQuery = graphql`
   fragment pageInfo on MarkdownRemarkConnection {
@@ -63,6 +63,7 @@ export const PageInfoQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           path
           excerpt
+          # seo
         }
       }
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from './Navbar.module.css';
 
-const navItems = ['home', 'blog', 'work', 'now'];
+const navItems = ['home', 'blog', 'books', 'work', 'now'];
 
 const Navbar = () => (
   <div className={styles.navbar}>

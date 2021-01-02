@@ -1,49 +1,41 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
-import styles from './work.module.css';
-import { Layout } from '../../components/Layout';
+
+// Components
 import { Header } from '../../components/Header';
+import { Layout } from '../../components/Layout';
+
+// Utils
 import '../../styles/tabs.css';
-import { renderFilteredBlogCards } from '../../utils/helpers';
+import styles from './work.module.css';
+import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
 const iomando = ({ data, location }) => {
-  const workIomandoCoverImg = data.workIomandoCoverImg.childImageSharp.fluid;
-  const workIomandoSeoImg = data.workIomandoCoverImg.childImageSharp.fluid.src;
-  const workIomando = {
-    title: data.workIomando.edges[0].node.frontmatter.title,
-    excerpt: data.workIomando.edges[0].node.frontmatter.excerpt,
-    html: data.workIomando.edges[0].node.html,
-  };
-  const iomandoBlogPosts = data.iomandoBlogPosts.edges;
-  const renderIomandoBlogCards = renderFilteredBlogCards.bind(
-    null,
-    iomandoBlogPosts
-  );
-  const workIomandoProductCoverImg =
-    data.workIomandoProductCoverImg.childImageSharp.fluid;
-  const workIomandoInsightsCoverImg =
-    data.workIomandoInsightsCoverImg.childImageSharp.fluid;
-  const workIomandoStoriesCoverImg =
-    data.workIomandoStoriesCoverImg.childImageSharp.fluid;
-
+  const coverImg = data.coverImg.childImageSharp.fluid;
+  const seoImg = data.coverImg.childImageSharp.fluid.src;
+  const productImg = data.productImg.childImageSharp.fluid;
+  const insightsImg = data.insightsImg.childImageSharp.fluid;
+  const storiesImg = data.storiesImg.childImageSharp.fluid;
+  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const posts = data.posts.edges;
   return (
     <Layout
-      title={workIomando.title}
-      description={workIomando.excerpt}
+      title={pageInfo.title}
+      description={pageInfo.excerpt}
       pathname={location.pathname}
-      image={workIomandoSeoImg}
+      image={seoImg}
     >
-      <Header title={workIomando.title} tagline={workIomando.excerpt} />
+      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
       <Img
         className={styles.image}
-        title={workIomando.title}
-        alt={workIomando.excerpt}
-        fluid={workIomandoCoverImg}
+        title={pageInfo.title}
+        alt={pageInfo.excerpt}
+        fluid={coverImg}
       />
-      <div dangerouslySetInnerHTML={{ __html: workIomando.html }} />
+      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <Tabs>
         <TabList>
           <Tab>
@@ -68,15 +60,15 @@ const iomando = ({ data, location }) => {
           <Img
             className={styles.image}
             title="iomando updates"
-            alt="All the iomando release notes and product updates."
-            fluid={workIomandoProductCoverImg}
+            alt="iomando release notes and product updates."
+            fluid={productImg}
           />
           <p>
             Here is a recollection of all the release notes and product updates.
             Right from the very first 1.0, minor .1s, up to the latest 3.0, upon
             which the company was acquired.
           </p>
-          {renderIomandoBlogCards('update')}
+          {renderPosts(posts, 'update')}
         </TabPanel>
         <TabPanel>
           <p>
@@ -89,15 +81,15 @@ const iomando = ({ data, location }) => {
           <Img
             className={styles.image}
             title="iomando insights"
-            alt="Recollection of iomando blog posts that uncovers a naive journey of discovery."
-            fluid={workIomandoInsightsCoverImg}
+            alt="iomando posts that uncover a naive journey of discovery."
+            fluid={insightsImg}
           />
           <p>
             Here is a recollection of posts that uncovers a naive journey of
             discovery, trying to convince the opaque, hardware-based
             accessibility management market, that software was the new thing.
           </p>
-          {renderIomandoBlogCards('idea')}
+          {renderPosts(posts, 'idea')}
         </TabPanel>
         <TabPanel>
           <p>
@@ -106,13 +98,13 @@ const iomando = ({ data, location }) => {
           <Img
             className={styles.image}
             title="iomando stories"
-            alt="Besides developing a great product, iomando has taught me a far more valuable lesson: how to build a sustainable business."
-            fluid={workIomandoStoriesCoverImg}
+            alt="iomando has taught me a valuable lesson: how to build a sustainable business."
+            fluid={storiesImg}
           />
           <p>
             {`Here's a recollection of stories, decisions, but most important, some the lessons learned along the way on how to manage and lead a startup from zero to acquisition.`}
           </p>
-          {renderIomandoBlogCards('memoir')}
+          {renderPosts(posts, 'memoir')}
         </TabPanel>
       </Tabs>
     </Layout>
@@ -121,51 +113,42 @@ const iomando = ({ data, location }) => {
 
 export const query = graphql`
   {
-    workIomando: allMarkdownRemark(
+    pageInfo: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/pages/iomando.md/" } }
-      limit: 1
     ) {
       ...pageInfo
     }
-    iomandoBlogPosts: allMarkdownRemark(
+    posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { in: ["iomando"] } }
       }
-      limit: 100
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allBlogPosts
+      ...allPosts
     }
-    workIomandoCoverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-          src
-        }
-      }
-    }
-    workIomandoProductCoverImg: file(
-      relativePath: { eq: "iomando-updates.jpg" }
-    ) {
+    coverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    workIomandoInsightsCoverImg: file(
-      relativePath: { eq: "iomando-insights.jpg" }
-    ) {
+    productImg: file(relativePath: { eq: "iomando-updates.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    workIomandoStoriesCoverImg: file(
-      relativePath: { eq: "iomando-stories.jpg" }
-    ) {
+    insightsImg: file(relativePath: { eq: "iomando-insights.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    storiesImg: file(relativePath: { eq: "iomando-stories.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
@@ -177,8 +160,11 @@ export const query = graphql`
 
 iomando.propTypes = {
   data: PropTypes.shape({
-    workIomandoCoverImg: PropTypes.object.isRequired,
-    workIomando: PropTypes.shape({
+    coverImg: PropTypes.object.isRequired,
+    productImg: PropTypes.object.isRequired,
+    insightsImg: PropTypes.object.isRequired,
+    storiesImg: PropTypes.object.isRequired,
+    pageInfo: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -192,10 +178,7 @@ iomando.propTypes = {
         })
       ),
     }),
-    workIomandoProductCoverImg: PropTypes.object.isRequired,
-    workIomandoInsightsCoverImg: PropTypes.object.isRequired,
-    workIomandoStoriesCoverImg: PropTypes.object.isRequired,
-    iomandoBlogPosts: PropTypes.shape({
+    posts: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({

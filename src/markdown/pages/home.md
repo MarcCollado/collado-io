@@ -3,6 +3,7 @@ title: 'Marc Collado'
 date: null
 path: '/'
 excerpt: 'Singularly curious'
+# seo: ''
 ---
 
 ## Me, in a bullet list
@@ -24,6 +25,6 @@ Family guy, born and raised in Barcelona.
 
 ### Other than that
 
-I lead a rather simple, uncomplicated life, and spend my days 📚 [reading](/tags/books), ✍️ [writing](/blog), 🚴‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work) things.
+I lead a rather simple, uncomplicated life, and spend my days 📚 [reading](/books), ✍️ [writing](/blog), 🚴‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work) things.
 
 If you want to know what I am currently up to, check out my [now page](/now), inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
