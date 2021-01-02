@@ -2,7 +2,7 @@
 title: 'Safareig'
 date: '2020-09-01'
 path: '/work/safareig'
-excerpt: 'El teu aperitiu tecnològic'
+excerpt: 'El teu aperitiu tecnològic setmanal'
 # seo: ''
 ---
 
