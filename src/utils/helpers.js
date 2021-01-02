@@ -1,6 +1,7 @@
 import React from 'react';
+
+// Components
 import { BlogCard } from '../components/BlogCard';
-import { EpisodeCard } from '../components/EpisodeCard';
 
 /**
  * Extracts page information from the corresponding markdown file
@@ -47,48 +48,6 @@ export function renderPosts(edges, tag = '') {
         date={edge.node.frontmatter?.date}
         path={edge.node.frontmatter?.path}
         excerpt={edge.node.frontmatter?.excerpt}
-      />
-    ));
-}
-
-// /**
-//  * Generates and renders a tag-filtered array of posts
-//  * @generator
-//  * @param {array} edges - allPosts from GraphQL query results
-//  * @param {string} tag — tag to filter posts
-//  * @returns {array} - list of cards w/o the html
-//  */
-// export function renderFilteredPosts(data, tag) {
-//   return data
-//     .filter((edge) => )
-//     .map((edge) => (
-//       <BlogCard
-//         key={edge.node.id}
-//         title={edge.node.frontmatter.title}
-//         date={edge.node.frontmatter.date}
-//         path={edge.node.frontmatter.path}
-//         excerpt={edge.node.frontmatter.excerpt}
-//       />
-//     ));
-// }
-
-/*
-Input:
-  - data: ...allRadioLanzaEpisodes GraphQL query results
-Output: generates an array of EpisodeCard
- */
-
-export function renderAllEpisodeCards(data) {
-  return data
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => (
-      <EpisodeCard
-        key={edge.node.id}
-        title={edge.node.frontmatter.title}
-        date={edge.node.frontmatter.date}
-        path={edge.node.frontmatter.path}
-        excerpt={edge.node.frontmatter.excerpt}
-        episode={edge.node.frontmatter.episode}
       />
     ));
 }
