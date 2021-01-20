@@ -6,25 +6,14 @@ excerpt: 'Singularly curious'
 # seo: ''
 ---
 
-## Me, in a bullet list
+Hello 👋 I'm Marc — a family guy, born and raised in Barcelona.
 
-Family guy, born and raised in Barcelona.
+An Industrial Engineer by trade, when I was pretty young, I unexpectedly [became an entrepreneur](/work/iomando). Which led me to learn how to code and a love for creating new things.
 
-- 🎓 Industrial engineer by trade, entrepreneur by accident.
-- 🤹‍♂️ Product enthusiast, data nerd, programmer aficionado.
-- 🤓 Lifelong learner, confessed minimalist.
-- 🏃‍♂️ Committed athlete, aspiring bicycle mechanic.
+I've since remained a programmer aficionado. However, curiosity has taken me [all over the place](/work).
 
-### Now, in a timeline
+Other than that, I lead a rather minimal life. Happiness is influenced by simple ideas: getting enough sleep, moving around, learning new things, eating well, connecting with people...
 
-- 2011: upon graduating from college, accidentally [co-founded iomando technologies](/work/iomando) — a tech startup pioneering access management for mobile that ended up acquired by [Citibox](https://citibox.com).
-- 2015: switched gears and [joined Ironhack](/work/ironhack) to change the way we learn about technology — [establishing the city operations](/blog/2015/hi-from-ironhack) from the ground up.
-- 2017: in my quest for starting things from scratch, took the challenge of [setting up the global product team at Ironhack](/blog/2017/back-to-product).
-- 2020: retreated back to the very definition of early stage and kickstarted [Gamestry](/work/gamestry) to build an educational product for the nascent Esports community.
-- Up next: lining up the next move, which might involve a 🏡 small cottage in the countryside, far from the city, 👨‍🌾 farming, and 🐮 livestock.
+When these habits become routine, days usually look like 📚 [reading](/books), ✍️ [writing](/blog), 🏃‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work/gamestry).
 
-### Other than that
-
-I lead a rather simple, uncomplicated life, and spend my days 📚 [reading](/books), ✍️ [writing](/blog), 🚴‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work) things.
-
-If you want to know what I am currently up to, check out my [now page](/now), inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
+To know more about what I am currently up to, check out my [now page](/now), inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
