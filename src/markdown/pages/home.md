@@ -12,7 +12,9 @@ An Industrial Engineer by trade, when I was pretty young, I unexpectedly [became
 
 I've since remained a programmer aficionado. However, curiosity has taken me [all over the place](/work).
 
-Other than that, I lead a rather minimal life. Happiness is influenced by simple ideas: getting enough sleep, moving around, learning new things, eating well, connecting with people...
+Other than that, I lead a rather minimal life. One that I strive — but not always succeed — to optimize for happiness.
+
+Happiness, I found, is influenced by simple ideas: getting enough sleep, moving around, learning new things, eating well, or connecting with people.
 
 When these habits become routine, days usually look like 📚 [reading](/books), ✍️ [writing](/blog), 🏃‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work/gamestry).
 
