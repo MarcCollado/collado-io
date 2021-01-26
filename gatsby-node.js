@@ -2,7 +2,7 @@ const path = require('path');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const blogPostPage = path.resolve(`src/components/BlogPost/BlogPost.js`);
+  const postPage = path.resolve(`src/components/post.js`);
   const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
 
   // Fetch all markdown posts
@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const next = index === 0 ? posts[index].node : posts[index - 1].node;
     createPage({
       path: post.node.frontmatter.path,
-      component: blogPostPage,
+      component: postPage,
       context: {
         prev,
         next,
