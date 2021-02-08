@@ -77,13 +77,6 @@ module.exports = {
       },
     },
     // UTILS & HELPERS
-    {
-      resolve: '@sentry/gatsby',
-      options: {
-        dsn: 'https://d5f01249b62045b8a9ae3a529b781008@sentry.io/1835268',
-        autoSessionTracking: true,
-      },
-    },
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
