@@ -22,9 +22,10 @@ Here you will find whatever I am currently doing, reading, learning, building...
 
 ## 💭 Pondering
 
-- [The Metaverse](https://en.wikipedia.org/wiki/Metaverse)
-- [How to enable the middle class of the creator economy](https://www.gamestry.com)
-- Health strategies that focus on enhancing lifespan instead of boosting performance
+- Are NFTs the first attempt to build the so-called Metaverse underlying infrastructure?
+- Is there a place for a flourishing middle class in the creator space? If so, how would you architect a platform to nurture it?
+  - Can models such as Brave w/ BAT be implemented to reward interaction while allowing creators to have a stake and vested interest in your platform?
+- With the rise of in-the-moment content (Locker Room, Clubhouse...), do in-depth, long-form, and insightful mediums still stand a chance?
 
 ## 🗃 Even more Now(s)
 
