@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { BlogCard } from '../components/BlogCard';
+import PostCard from '../components/post-card';
 
 /**
  * Extracts page information from the corresponding markdown file
@@ -42,7 +42,7 @@ export function renderPosts(edges, tag = '') {
     )
     .filter((edge) => !!edge.node.frontmatter?.date)
     .map((edge) => (
-      <BlogCard
+      <PostCard
         key={edge.node.id}
         title={edge.node.frontmatter?.title}
         date={edge.node.frontmatter?.date}

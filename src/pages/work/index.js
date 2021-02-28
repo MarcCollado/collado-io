@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
-import { BlogCard } from '../../components/BlogCard';
 import { Header } from '../../components/Header';
 import { Layout } from '../../components/Layout';
+import PostCard from '../../components/post-card';
 
 // Utils
 import styles from './work.module.css';
@@ -23,7 +23,7 @@ const WorkPage = ({ data, location }) => {
       const v = workmaps[k];
       const img = data[v].childImageSharp.fluid;
       return (
-        <BlogCard
+        <PostCard
           key={edge.node.id}
           image={img}
           title={k}

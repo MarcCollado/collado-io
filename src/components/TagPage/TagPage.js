@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../Layout';
 import { Header } from '../Header';
-import { BlogCard } from '../BlogCard';
+import PostCard from '../post-card';
 
 const TagPage = ({ pageContext, data }) => {
   const BlogData = data.allMarkdownRemark.edges;
@@ -18,7 +18,7 @@ const TagPage = ({ pageContext, data }) => {
     .filter((edge) => !!edge.node.frontmatter.date)
     .map((edge) => (
       // Generate a feed of BlogPosts
-      <BlogCard
+      <PostCard
         key={edge.node.id}
         path={edge.node.frontmatter.path}
         title={edge.node.frontmatter.title}
