@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Marc Collado' personal website`,
+    title: 'Marc Collado — collado.io',
     description:
-      'An opinionated blog about my personal experiences at iomando, Ironhack, or Radio Lanza — plus a miscellaneous discussion around entrepreneurship, technology, education, health, and great products in general.',
+      'Marc Collado personal website — iomando, Ironhack, Radio Lanza, Gamestry, Safareig.',
     siteUrl: 'https://www.collado.io',
     shortName: 'collado.io',
     author: 'Marc Collado',
