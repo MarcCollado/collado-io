@@ -1,14 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import 'normalize.css';
-import styles from './Layout.module.css';
-import { Navbar } from '../Navbar';
+
 import { Footer } from '../Footer';
+import { Navbar } from '../Navbar';
 import SEO from '../../utils/seo';
+
+// Styled Components
+
+const OutterContainer = styled.div`
+  min-width: 320px;
+`;
+
+const InnerContainer = styled.div`
+  max-width: 800px;
+  margin: 0em auto;
+  padding: 0 1em;
+  display: flex;
+  flex-flow: column;
+
+  @media (min-width: 576px) {
+    padding: 0 2em;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 3em;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 4em;
+  } ;
+`;
+
+// Main Components
 
 const Layout = ({ article, children, description, image, pathname, title }) => {
   return (
-    <div className={styles.out__container}>
+    <OutterContainer>
       <SEO
         title={title}
         description={description}
@@ -17,23 +45,10 @@ const Layout = ({ article, children, description, image, pathname, title }) => {
         article={article}
       />
       <Navbar />
-      <div className={styles.in__container}>{children}</div>
+      <InnerContainer>{children}</InnerContainer>
       <Footer />
-    </div>
+    </OutterContainer>
   );
-};
-
-Layout.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  pathname: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-};
-
-Layout.defaultProps = {
-  image: '',
-  article: false,
 };
 
 export default Layout;
