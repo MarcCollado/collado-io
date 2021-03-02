@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
@@ -64,6 +63,8 @@ const PostCardExcerpt = styled.p`
   font-size: smaller;
 `;
 
+// Main Components
+
 const PostCard = ({ date, excerpt, image, path, title }) => (
   <Link to={path}>
     <PostCardContainer>
@@ -80,19 +81,5 @@ const PostCard = ({ date, excerpt, image, path, title }) => (
     </PostCardContainer>
   </Link>
 );
-
-PostCard.propTypes = {
-  image: PropTypes.object,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string,
-  path: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
-};
-
-PostCard.defaultProps = {
-  image: null,
-  date: '',
-  excerpt: '',
-};
 
 export default PostCard;
