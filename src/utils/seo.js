@@ -27,7 +27,7 @@ const query = graphql`
   }
 `;
 
-const SEO = ({ title, description, pathname, image, article }) => (
+const SEO = ({ article, description, image, pathname, title }) => (
   <StaticQuery
     query={query}
     render={({
