@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styles from './EpisodePost.module.css';
 import { Layout } from '../Layout';
-import { Podcasts } from '../Podcasts';
 import { PublishedAt } from '../PublishedAt';
 
 const EpisodePost = ({ data }) => {
@@ -29,7 +28,6 @@ const EpisodePost = ({ data }) => {
       <hr />
       <div className={styles.meta}>
         <h1 className={styles.title}>Listen on</h1>
-        <Podcasts />
         <div className={styles.meta__date}>
           <PublishedAt date={date} />
         </div>
