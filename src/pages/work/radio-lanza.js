@@ -56,7 +56,7 @@ export const query = graphql`
     ) {
       ...allPosts
     }
-    coverImg: file(relativePath: { eq: "radio-lanza-cover.jpg" }) {
+    coverImg: file(relativePath: { eq: "pages/radio-lanza-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid

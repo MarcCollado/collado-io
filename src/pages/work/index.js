@@ -53,35 +53,35 @@ export const query = graphql`
     ) {
       ...pageInfo
     }
-    safareig: file(relativePath: { eq: "safareig.png" }) {
+    safareig: file(relativePath: { eq: "logos/safareig.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    gamestry: file(relativePath: { eq: "gamestry.png" }) {
+    gamestry: file(relativePath: { eq: "logos/gamestry.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    radioLanza: file(relativePath: { eq: "radio-lanza.png" }) {
+    radioLanza: file(relativePath: { eq: "logos/radio-lanza.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    ironhack: file(relativePath: { eq: "ironhack.png" }) {
+    ironhack: file(relativePath: { eq: "logos/ironhack.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    iomando: file(relativePath: { eq: "iomando.png" }) {
+    iomando: file(relativePath: { eq: "logos/iomando.png" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid

@@ -56,7 +56,7 @@ export const query = graphql`
     ) {
       ...allPosts
     }
-    coverImg: file(relativePath: { eq: "safareig-cover.jpg" }) {
+    coverImg: file(relativePath: { eq: "pages/safareig-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid

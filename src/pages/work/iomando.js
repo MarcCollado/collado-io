@@ -127,28 +127,28 @@ export const query = graphql`
     ) {
       ...allPosts
     }
-    coverImg: file(relativePath: { eq: "iomando-cover.jpg" }) {
+    coverImg: file(relativePath: { eq: "pages/iomando-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    productImg: file(relativePath: { eq: "iomando-updates.jpg" }) {
+    productImg: file(relativePath: { eq: "pages/iomando-updates.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    insightsImg: file(relativePath: { eq: "iomando-insights.jpg" }) {
+    insightsImg: file(relativePath: { eq: "pages/iomando-insights.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    storiesImg: file(relativePath: { eq: "iomando-stories.jpg" }) {
+    storiesImg: file(relativePath: { eq: "pages/iomando-stories.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid

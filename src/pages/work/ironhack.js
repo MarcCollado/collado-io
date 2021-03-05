@@ -111,21 +111,21 @@ export const query = graphql`
     ) {
       ...allPosts
     }
-    coverImg1: file(relativePath: { eq: "ironhack-cover.jpg" }) {
+    coverImg1: file(relativePath: { eq: "pages/ironhack-cover.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    coverImg2: file(relativePath: { eq: "ironhack-insights.jpg" }) {
+    coverImg2: file(relativePath: { eq: "pages/ironhack-insights.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    coverImg3: file(relativePath: { eq: "ironhack-barcelona.jpg" }) {
+    coverImg3: file(relativePath: { eq: "pages/ironhack-barcelona.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
