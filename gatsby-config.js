@@ -62,8 +62,7 @@ module.exports = {
         defaultQuality: 75,
       },
     },
-    // OFFLINE
-    `gatsby-plugin-offline`,
+    // UTILS & HELPERS
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -76,7 +75,6 @@ module.exports = {
         icon: `static/favicon/icon.png`,
       },
     },
-    // UTILS & HELPERS
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
