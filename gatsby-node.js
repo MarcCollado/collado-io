@@ -9,7 +9,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const fetchPosts = await graphql(`
     {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/markdown/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/src/content/md/posts/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -69,7 +69,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const fetchEpisodes = await graphql(`
     {
       radioLanzaEpisodes: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/markdown/episodes/" } }
+        filter: { fileAbsolutePath: { regex: "/src/content/md/episodes/" } }
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 10000
       ) {

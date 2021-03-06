@@ -42,14 +42,14 @@ export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/pages/radio-lanza.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/radio-lanza.md/" }
       }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: ["radio lanza"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

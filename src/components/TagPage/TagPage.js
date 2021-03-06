@@ -40,7 +40,7 @@ export const query = graphql`
   query tagPageQuery($tag: String) {
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: [$tag] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

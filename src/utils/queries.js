@@ -53,9 +53,9 @@ export const filterPosts = (tagsIn = [], tagsIni = []) => {
   const notInclude = tagsIni.length > 0;
 
   return !include && !notInclude
-    ? `{ fileAbsolutePath: { regex: "/src/markdown/posts/" } }`
+    ? `{ fileAbsolutePath: { regex: "/src/content/md/posts/" } }`
     : `{
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         ${include ? `frontmatter: { tags: { in: ${tagsIn} } }` : ''}
         ${notInclude ? `frontmatter: { tags: { ini: ${tagsIni} } }` : ''}
       }`;

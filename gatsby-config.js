@@ -15,14 +15,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
-        path: `${__dirname}/src/img`,
+        path: `${__dirname}/src/content/img`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'markdown',
-        path: `${__dirname}/src/markdown`,
+        path: `${__dirname}/src/content/md`,
       },
     },
     // MARKDOWN

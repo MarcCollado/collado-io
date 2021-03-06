@@ -28,13 +28,13 @@ const BooksPage = ({ data, location }) => {
 export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/books.md/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/books.md/" } }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: ["books"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

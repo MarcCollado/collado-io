@@ -42,14 +42,14 @@ export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/pages/safareig.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/safareig.md/" }
       }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: ["safareig"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

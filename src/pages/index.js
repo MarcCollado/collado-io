@@ -36,7 +36,7 @@ export const query = graphql`
       }
     }
     homePageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/home.md/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/home.md/" } }
       limit: 1
     ) {
       ...pageInfo

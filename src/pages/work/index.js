@@ -48,7 +48,7 @@ const WorkPage = ({ data, location }) => {
 export const query = graphql`
   {
     workPage: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...pageInfo

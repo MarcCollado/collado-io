@@ -97,14 +97,14 @@ export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/pages/ironhack.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/ironhack.md/" }
       }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: ["ironhack"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

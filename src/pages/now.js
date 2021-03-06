@@ -28,13 +28,13 @@ const NowPage = ({ data, location }) => {
 export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/now.md/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/now.md/" } }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { in: ["now"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

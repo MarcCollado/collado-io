@@ -26,7 +26,7 @@ export const query = graphql`
   {
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { nin: ["books", "now"] } }
       }
       limit: 1000
