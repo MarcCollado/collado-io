@@ -3,13 +3,13 @@ import { graphql } from 'gatsby';
 // import PropTypes from 'prop-types';
 
 // Components
-import { Header } from '../../components/Header';
-import { Layout } from '../../components/Layout';
+import { Header } from '../components/Header';
+import { Layout } from '../components/Layout';
 
 // Utils
-import { renderPosts, extractPageInfo } from '../../utils/helpers';
+import { renderPosts, extractPageInfo } from '../utils/helpers';
 
-const NowPage = ({ data, location }) => {
+const BooksPage = ({ data, location }) => {
   const pageInfo = extractPageInfo(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
@@ -28,14 +28,14 @@ const NowPage = ({ data, location }) => {
 export const query = graphql`
   {
     pageInfo: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/now.md/" } }
+      filter: { fileAbsolutePath: { regex: "/src/markdown/pages/books.md/" } }
     ) {
       ...pageInfo
     }
     posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
-        frontmatter: { tags: { in: ["now"] } }
+        frontmatter: { tags: { in: ["books"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -44,4 +44,4 @@ export const query = graphql`
   }
 `;
 
-export default NowPage;
+export default BooksPage;

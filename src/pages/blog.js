@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Layout } from '../../components/Layout';
-import { Header } from '../../components/Header';
-import { renderPosts } from '../../utils/helpers';
+import { Layout } from '../components/Layout';
+import { Header } from '../components/Header';
+import { renderPosts } from '../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
   const allPosts = data.allMarkdownRemark.edges;

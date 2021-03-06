@@ -1,6 +1,6 @@
 import React from 'react';
-import { Layout } from '../../components/Layout';
-import { Header } from '../../components/Header';
+import { Layout } from '../components/Layout';
+import { Header } from '../components/Header';
 
 const NotFoundPage = ({ location }) => (
   <Layout title="404" description="Page not found" pathname={location.pathname}>
