@@ -8,7 +8,7 @@ import { PublishedAt } from '../PublishedAt';
 const EpisodePost = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, date, path, tags, excerpt, show, playerURL } = frontmatter;
+  const { title, date, path, excerpt, show, playerURL } = frontmatter;
 
   return (
     <Layout title={title} description={`${show} — ${excerpt}`} pathname={path}>
