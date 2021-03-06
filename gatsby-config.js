@@ -72,7 +72,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#b3e4c8`,
         display: `standalone`,
-        icon: `static/favicon/icon.png`,
+        icon: `static/favicon.png`,
       },
     },
     `gatsby-plugin-styled-components`,
