@@ -9,12 +9,17 @@ import { Layout } from '../components/Layout';
 // Styled Components
 
 const PostTitle = styled.h1`
-  margin: 0.25em 0;
+  margin: 0.75em auto 1.25em;
+  font-size: 1.7em;
 `;
 
 const PostArticle = styled.div`
+  *:first-child {
+    margin-block-start: 0;
+  }
+
   hr {
-    margin: 1.5em 0;
+    margin: 2em 0;
   }
 
   div > hr {
