@@ -27,7 +27,6 @@ const EpisodePost = ({ data }) => {
       />
       <hr />
       <div className={styles.meta}>
-        <h1 className={styles.title}>Listen on</h1>
         <div className={styles.meta__date}>
           <PublishedAt date={date} />
         </div>
