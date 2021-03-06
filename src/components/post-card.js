@@ -55,7 +55,7 @@ const PostCardInnerContainer = styled.div`
 `;
 
 const PostCardTitle = styled.h2`
-  margin-top: 0.25em;
+  margin: 0.25em 0 0 0;
 `;
 
 const PostCardExcerpt = styled.p`
