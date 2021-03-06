@@ -9,8 +9,8 @@ import { Layout } from '../components/Layout';
 // Styled Components
 
 const PostTitle = styled.h1`
-  margin: 0.75em auto 1.25em;
-  font-size: 1.7em;
+  margin: 0.5em auto 0.75em;
+  font-size: 1.75em;
 `;
 
 const PostArticle = styled.div`
