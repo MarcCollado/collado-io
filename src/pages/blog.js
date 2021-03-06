@@ -1,8 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import { Layout } from '../components/Layout';
+
+// Components
 import { Header } from '../components/Header';
+import { Layout } from '../components/Layout';
+
+// Utils
 import { renderPosts } from '../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
@@ -26,7 +29,6 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/markdown/posts/" }
         frontmatter: { tags: { nin: ["books", "now"] } }
       }
-
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -34,28 +36,5 @@ export const query = graphql`
     }
   }
 `;
-
-BlogPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string,
-              date: PropTypes.string,
-              path: PropTypes.string,
-              tags: PropTypes.arrayOf(PropTypes.string),
-              featured: PropTypes.string,
-              excerpt: PropTypes.string,
-              source: PropTypes.string,
-            }),
-          }),
-        })
-      ),
-    }),
-  }).isRequired,
-};
 
 export default BlogPage;
