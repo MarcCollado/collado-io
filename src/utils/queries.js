@@ -10,6 +10,7 @@ export const allPostsQuery = graphql`
     edges {
       node {
         id
+        # html
         frontmatter {
           title
           date(formatString: "MMMM DD, YYYY")
@@ -26,31 +27,8 @@ export const allPostsQuery = graphql`
 `;
 
 /*
-Almost identical as allPosts, but also fetches the html
-*/
-export const allPostsWithHtmlQuery = graphql`
-  fragment allPostsWithHtml on MarkdownRemarkConnection {
-    edges {
-      node {
-        id
-        html
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          path
-          tags
-          featured
-          excerpt
-          # seo
-          source
-        }
-      }
-    }
-  }
-`;
-
-/*
-Retrieves the data to build a top-level page layout
+Used by: Home, Books, Now, Work(s)
+- Retrieves the data to build a top-level page layout
 */
 export const PageInfoQuery = graphql`
   fragment pageInfo on MarkdownRemarkConnection {
@@ -70,30 +48,15 @@ export const PageInfoQuery = graphql`
   }
 `;
 
-/* Used by: RadioLanza
-  - Fetch all markdowns for work posts at src/markdown/episodes/
-  - Generate the feed of EpisodeCard
-*/
-export const allRadioLanzaEpisodesQuery = graphql`
-  fragment allRadioLanzaEpisodes on MarkdownRemarkConnection {
-    edges {
-      node {
-        id
-        html
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          path
-          tags
-          featured
-          excerpt
-          show
-          episode
-          episodeURL
-          playerURL
-          iTunesURL
-        }
-      }
-    }
-  }
-`;
+export const filterPosts = (tagsIn = [], tagsIni = []) => {
+  const include = tagsIn.length > 0;
+  const notInclude = tagsIni.length > 0;
+
+  return !include && !notInclude
+    ? `{ fileAbsolutePath: { regex: "/src/markdown/posts/" } }`
+    : `{
+        fileAbsolutePath: { regex: "/src/markdown/posts/" }
+        ${include ? `frontmatter: { tags: { in: ${tagsIn} } }` : ''}
+        ${notInclude ? `frontmatter: { tags: { ini: ${tagsIni} } }` : ''}
+      }`;
+};
