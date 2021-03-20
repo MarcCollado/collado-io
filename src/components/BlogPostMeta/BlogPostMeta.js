@@ -37,8 +37,7 @@ const BlogPostMeta = ({ date, tags, next, prev }) => (
         </span>
       </div>
     </div>
-
-    <hr />
+    <hr className={styles.line} />
     <div className={styles.meta}>
       <PublishedAt date={date} />
       <div className={styles.tag__container}>

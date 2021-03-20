@@ -1,5 +1,10 @@
+.line {
+  margin: 1em 0em 0em;
+}
+
 .nav__container {
   /* Display & Box Model */
+  margin-block-start: 1em;
   padding: 0.75em 0em;
 }
 
