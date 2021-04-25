@@ -8,7 +8,7 @@ import { Layout } from '../../components/Layout';
 import PostCard from '../../components/post-card';
 
 // Utils
-import styles from './work.module.css';
+import * as styles from './work.module.css';
 import { extractPageInfo } from '../../utils/helpers';
 import { workmaps } from '../../utils/workmaps';
 

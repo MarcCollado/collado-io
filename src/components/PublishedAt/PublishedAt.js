@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './PublishedAt.module.css';
+import * as styles from './PublishedAt.module.css';
 
 const PublishedAt = ({ date }) => (
   <span>

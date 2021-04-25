@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import styles from './EpisodePost.module.css';
+import * as styles from './EpisodePost.module.css';
 import { Layout } from '../Layout';
 import { PublishedAt } from '../PublishedAt';
 

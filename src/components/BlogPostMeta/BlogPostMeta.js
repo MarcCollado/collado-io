@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import styles from './BlogPostMeta.module.css';
+import * as styles from './BlogPostMeta.module.css';
 import { PublishedAt } from '../PublishedAt';
 import { Tag } from '../Tag';
 

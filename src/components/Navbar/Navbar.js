@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styles from './Navbar.module.css';
+import * as styles from './Navbar.module.css';
 
 const navItems = ['home', 'blog', 'books', 'work', 'now'];
 

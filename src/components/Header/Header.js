@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Header.module.css';
+import * as styles from './Header.module.css';
 
 const Header = ({ tagline, title }) => (
   <div className={styles.header__container}>

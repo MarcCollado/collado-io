@@ -10,7 +10,7 @@ import { Layout } from '../../components/Layout';
 
 // Utils
 import '../../styles/tabs.css';
-import styles from './work.module.css';
+import * as styles from './work.module.css';
 import { renderPosts, extractPageInfo } from '../../utils/helpers';
 
 const iomando = ({ data, location }) => {
