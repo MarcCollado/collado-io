@@ -63,18 +63,6 @@ module.exports = {
       },
     },
     // UTILS & HELPERS
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Marc Collado's Personal Website`,
-        short_name: `collado.io`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#b3e4c8`,
-        display: `standalone`,
-        icon: `static/favicon.png`,
-      },
-    },
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
