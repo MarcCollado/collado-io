@@ -31,6 +31,15 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 800,
+              related: false,
+              noIframeBorder: true,
+            },
+          },
+          'gatsby-remark-responsive-iframe',
+          {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 800,
@@ -39,17 +48,8 @@ module.exports = {
               quality: 75,
             },
           },
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              width: 800,
-              related: false,
-              noIframeBorder: true,
-            },
-          },
           'gatsby-remark-autolink-headers',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-responsive-iframe',
         ],
       },
     },
