@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../Layout';
 import { Header } from '../Header';
-import PostCard from '../post-card';
+import PostCard from '../postCard';
 
 const TagPage = ({ pageContext, data }) => {
   const BlogData = data.allMarkdownRemark.edges;

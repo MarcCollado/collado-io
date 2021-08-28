@@ -15,7 +15,7 @@ const OutterContainer = styled.div`
 const InnerContainer = styled.div`
   max-width: 800px;
   margin: 0em auto;
-  padding: 0 1em;
+  padding: 0 1.5em;
   display: flex;
   flex-flow: column;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import PostCard from '../components/post-card';
+import PostCard from '../components/postCard';
 
 /**
  * Extracts page information from the corresponding markdown file
