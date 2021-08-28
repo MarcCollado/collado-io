@@ -6,16 +6,12 @@ excerpt: 'Singularly curious'
 # seo: ''
 ---
 
-Hello 👋 I'm Marc — a family guy, born and raised in Barcelona.
+Hello there, I'm Marc — family guy, born and raised in Barcelona, but also...
 
-An Industrial Engineer by trade, when I was pretty young, I unexpectedly [became an entrepreneur](/work/iomando). Which led me to learn how to code and a love for creating new things.
+- ✍️ [Aspiring writer](/blog) and 🎙 [irregular podcaster](https://www.safareig.fm)
+- 📚 [Book nerd](/books) and ⌨️ [programmer aficionado](https://github.com/marccollado)
+- 🎲 [Accidental enrepreneur](/work) and 🏗 [product enthusiast](https://linkedin.com/in/marccollado)
 
-I've since remained a programmer aficionado. However, curiosity has taken me [all over the place](/work).
+And as you might have guessed by now, 📑 list lover, 🔥 emoji maniac, and helpless minimalist.
 
-Other than that, I lead a rather minimal life. One that I strive — but not always succeed — to optimize for happiness.
-
-Happiness, I found, is influenced by simple ideas: getting enough sleep, moving around, learning new things, eating well, or connecting with people.
-
-When these habits become routine, days usually look like 📚 [reading](/books), ✍️ [writing](/blog), 🏃‍♂️ [exercising](https://www.strava.com/athletes/marccollado), and 🏗 [building](/work/gamestry).
-
-To know more about what I am currently up to, check out my [now page](/now), inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
+ℹ️ To know more about what I am currently up to, check out my [now page](/now). Inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
