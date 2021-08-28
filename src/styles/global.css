@@ -3,8 +3,8 @@
 :root {
   --hipBlack: #2a2e2e;
   --fakeAsbestos: #525555;
-  --fakeAsbestosAlpha22: #52555522;
-  --fakeAsbestosAlpha88: #52555588;
+  --fakeAsbestos22: #52555522;
+  --fakeAsbestos88: #52555588;
   --bianchiGreen: #b3e4c8;
   --bianchiGreenAlpha88: #b3e4c888;
   --codeRed: #eb5757;
@@ -12,7 +12,7 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 h1,
