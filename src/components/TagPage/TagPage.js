@@ -29,7 +29,7 @@ const TagPage = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <Header title={`Tag: ${tag}`} tagline="Like the blog, but filtered" />
+      <Header title={`Tag: ${tag}`} subtitle="Like the blog, but filtered" />
       <h3>{TagCount}</h3>
       {renderCards}
     </Layout>

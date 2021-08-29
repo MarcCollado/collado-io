@@ -13,7 +13,7 @@ const TagsPage = ({ data, location }) => {
       description="The blog, tagged"
       pathname={location.pathname}
     >
-      <Header title="All tags" tagline="The blog, tagged" />
+      <Header title="All tags" subtitle="The blog, tagged" />
       <ul>
         {group.map((tag) => (
           <li key={tag.fieldValue}>

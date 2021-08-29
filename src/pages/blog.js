@@ -16,7 +16,7 @@ const BlogPage = ({ data, location }) => {
       description="Things I've written"
       pathname={location.pathname}
     >
-      <Header title="Blog" tagline="Things I've written" />
+      <Header title="Blog" subtitle="Things I've written" />
       {renderPosts(allPosts)}
     </Layout>
   );
