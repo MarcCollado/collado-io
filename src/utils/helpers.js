@@ -1,11 +1,10 @@
 import React from 'react';
 
-// Components
 import PostCard from '../components/postCard';
 
 /**
  * Extracts page information from the corresponding markdown file
- * @param {array} edges - pageInfo from GraphQL query results
+ * @param {array} edges - pageMarkdown from GraphQL query results
  * @returns {object} - page information
  */
 export function extractMarkdown(edges) {

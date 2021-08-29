@@ -27,22 +27,22 @@ export const allPostsQuery = graphql`
 `;
 
 /*
-Used by: Home, Books, Now, Work(s)
-- Retrieves the data to build a top-level page layout
+Used by: Home, Books, Work(s), Now
+- Retrieves the markdown data to build a top-level pages
 */
-export const PageInfoQuery = graphql`
-  fragment pageInfo on MarkdownRemarkConnection {
+export const PageMarkdownQuery = graphql`
+  fragment pageMarkdown on MarkdownRemarkConnection {
     edges {
       node {
-        id
-        html
         frontmatter {
-          title
           date(formatString: "MMMM DD, YYYY")
-          path
           excerpt
+          path
           # seo
+          title
         }
+        html
+        id
       }
     }
   }
