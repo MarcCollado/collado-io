@@ -2,7 +2,7 @@ const path = require('path');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const postPage = path.resolve(`src/components/post.js`);
+  const postPage = path.resolve(`src/components/postPage.js`);
   const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
 
   // Fetch all markdown posts
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
     throw fetchPosts.errors;
   }
 
-  // [{ node }]
+  // posts -> [{ node }, { node }, ..., { node }]
   const posts = fetchPosts.data.posts.edges;
 
   // Create a page for each post through path
@@ -52,6 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
     allTags = [...allTags, ...node.frontmatter.tags];
   });
   const uniqueTags = [...new Set(allTags)];
+
   // Create a page for each tag
   uniqueTags.forEach((tag) => {
     createPage({
