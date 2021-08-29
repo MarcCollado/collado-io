@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 // Components
 import Header from '../../components/header';
-import { Layout } from '../../components/Layout';
+import Layout from '../../components/layout';
 
 // Utils
 import * as styles from './work.module.css';

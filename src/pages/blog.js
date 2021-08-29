@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 // Components
 import Header from '../components/header';
-import { Layout } from '../components/Layout';
+import Layout from '../components/layout';
 
 // Utils
 import { renderPosts } from '../utils/helpers';

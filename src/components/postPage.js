@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
-import { Layout } from './Layout';
+import Layout from './layout';
 
 // Styled Components
 

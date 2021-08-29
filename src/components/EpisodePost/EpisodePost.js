@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import * as styles from './EpisodePost.module.css';
-import { Layout } from '../Layout';
+import Layout from '../layout';
 import { PublishedAt } from '../PublishedAt';
 
 const EpisodePost = ({ data }) => {

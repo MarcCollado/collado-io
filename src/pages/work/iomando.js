@@ -6,7 +6,7 @@ import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 // Components
 import Header from '../../components/header';
-import { Layout } from '../../components/Layout';
+import Layout from '../../components/layout';
 
 // Utils
 import '../../styles/tabs.css';

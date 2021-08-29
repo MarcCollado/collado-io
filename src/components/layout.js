@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-
 import 'normalize.css';
 
-import { Footer } from '../Footer';
-import SEO from '../../utils/seo';
+import SEO from '../utils/seo';
 
 // Styled Components
 
@@ -98,7 +96,6 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
         </Link>
         {children}
       </InnerContainer>
-      <Footer />
     </OutterContainer>
   );
 };

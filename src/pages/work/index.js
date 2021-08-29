@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Header from '../../components/header';
-import { Layout } from '../../components/Layout';
+import Layout from '../../components/layout';
 import PostCard from '../../components/postCard';
 
 // Utils
