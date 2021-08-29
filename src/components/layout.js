@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import 'normalize.css';
 
-import SEO from '../utils/seo';
+import Seo from '../utils/seo';
 
 // Styled Components
 
@@ -88,12 +88,12 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
 
   return (
     <OutterContainer>
-      <SEO
-        title={title}
-        description={description}
+      <Seo
+        isArticle={article}
+        pageDescription={description}
+        pageIimage={image}
+        pageTitle={title}
         pathname={pathname}
-        image={image}
-        article={article}
       />
       <InnerContainer>
         <Link to="/">

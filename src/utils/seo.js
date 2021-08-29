@@ -1,89 +1,83 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
-import OpenGraph from './og';
+
 import marc from '../../static/marc-collado.jpg';
 import favicon from '../../static/favicon.png';
 
-const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        defaultTitle: title
-        defaultDescription: description
-        siteUrl
-        shortName
-        author
-        twitter
-        siteLanguage
+const Seo = ({
+  isArticle,
+  meta = [],
+  pageDescription,
+  pageImage,
+  pageTitle,
+  pathname,
+}) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            defaultTitle: title
+            defaultDescription: description
+            siteUrl
+            shortName
+            author
+            twitter
+            siteLanguage
+          }
+        }
       }
-    }
-  }
-`;
+    `
+  );
 
-const SEO = ({ article, description, image, pathname, title }) => (
-  <StaticQuery
-    query={query}
-    render={({
-      site: {
-        siteMetadata: {
-          defaultTitle,
-          defaultDescription,
-          siteUrl,
-          author,
-          shortName,
-          twitter,
-          siteLanguage,
+  const title = pageTitle || site.siteMetadata?.defaultTitle;
+  const description = pageDescription || site.siteMetadata?.defaultDescription;
+  const url = `${site.siteMetadata?.siteUrl}${pathname || '/'}`;
+  // const shortName = site.siteMetadata?.shortName;
+  const author = site.siteMetadata?.author;
+  // const email = site.siteMetadata?.email;
+  const twitter = site.siteMetadata?.twitter;
+  const language = site.siteMetadata?.siteLanguage || `en`;
+  const image = marc;
+
+  return (
+    <Helmet
+      title={title}
+      meta={[
+        // HTML TAGS — https://gist.github.com/whitingx/3840905
+        { name: `description`, content: description },
+        { name: `image`, content: image },
+        { name: `language`, content: language },
+        { name: `url`, content: url },
+        { name: `author`, content: author },
+        {
+          name: `google-site-verification`,
+          content: `vFwB-R5enzdQD5dGriZ1LWEt8Vs2gS9FPjXeeCg4LAI`,
         },
-      },
-    }) => {
-      const seo = {
-        // Composed attributes
-        title: `${defaultTitle} — ${title}`,
-        description: description || defaultDescription,
-        url: `${siteUrl}${pathname || '/'}`,
-        image: image || marc,
-        // Layout props attributes
-        article,
-        // GraphQL siteMetaData
-        author,
-        shortName,
-        twitter,
-        siteLanguage,
-      };
 
-      return (
-        <>
-          <Helmet title={seo.title}>
-            <meta name="description" content={seo.description} />
-            <meta
-              name="google-site-verification"
-              content="vFwB-R5enzdQD5dGriZ1LWEt8Vs2gS9FPjXeeCg4LAI"
-            />
-            <html lang={seo.siteLanguage} />
-            <link rel="icon" type="image/x-icon" href={favicon} />
-          </Helmet>
-          <OpenGraph
-            title={seo.title}
-            description={seo.description}
-            url={seo.url}
-            image={seo.image}
-            article={seo.article}
-            username={seo.twitter}
-          />
-        </>
-      );
-    }}
-  />
-);
+        // OG TAGS — https://opengraphprotocol.org
+        { property: `og:title`, content: title },
+        { property: `og:description`, content: description },
+        { property: `og:image`, content: image },
+        { property: `og:url`, content: url },
+        // { property: `og:email`, content: email },
+        {
+          property: `og:type`,
+          content: isArticle ? 'article' : 'website',
+        },
 
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  pathname: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  article: PropTypes.bool.isRequired,
+        // TWITTER CARD
+        { name: `twitter:title`, content: title },
+        { name: `twitter:description`, content: description },
+        { name: `twitter:image`, content: image },
+        { name: `twitter:creator`, content: twitter },
+        { name: `twitter:card`, content: `summary_large_image` },
+      ].concat(meta)}
+    >
+      <link rel="icon" type="image/x-icon" href={favicon} />
+    </Helmet>
+  );
 };
 
-export default SEO;
+export default Seo;
