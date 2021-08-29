@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../components/Layout';
-import { Header } from '../components/Header';
+import Header from '../components/header';
 
 const TagsPage = ({ data, location }) => {
   const { group } = data.allMarkdownRemark;

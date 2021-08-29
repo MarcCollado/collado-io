@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Header } from '../components/Header';
+import Header from '../components/header';
 import { Layout } from '../components/Layout';
 
 // Main Components
@@ -20,7 +20,7 @@ const HomePage = ({ data, location }) => {
       pathname={location.pathname}
       title={title}
     >
-      <Header title={title} tagline={excerpt} />
+      <Header title={title} subtitle={excerpt} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );

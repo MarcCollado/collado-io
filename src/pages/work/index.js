@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 // Components
-import { Header } from '../../components/Header';
+import Header from '../../components/header';
 import { Layout } from '../../components/Layout';
 import PostCard from '../../components/postCard';
 
@@ -38,7 +38,7 @@ const WorkPage = ({ data, location }) => {
       description={pageInfo.excerpt}
       pathname={location.pathname}
     >
-      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
+      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <div className={styles.container}>{renderWorkCards}</div>
     </Layout>

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout } from '../Layout';
-import { Header } from '../Header';
+import Header from '../header';
 import PostCard from '../postCard';
 
 const TagPage = ({ pageContext, data }) => {

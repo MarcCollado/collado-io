@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 // Components
-import { Header } from '../../components/Header';
+import Header from '../../components/header';
 import { Layout } from '../../components/Layout';
 
 // Utils
@@ -22,7 +22,7 @@ const Gamestry = ({ data, location }) => {
       pathname={location.pathname}
       image={seoImg}
     >
-      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
+      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
       <Img
         className={styles.image}
         title={pageInfo.title}

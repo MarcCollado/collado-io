@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 // import PropTypes from 'prop-types';
 
 // Components
-import { Header } from '../../components/Header';
+import Header from '../../components/header';
 import { Layout } from '../../components/Layout';
 
 // Utils
@@ -23,7 +23,7 @@ const RadioLanza = ({ data, location }) => {
       pathname={location.pathname}
       image={seoImg}
     >
-      <Header title={pageInfo.title} tagline={pageInfo.excerpt} />
+      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
       <a target="_blank" rel="noreferrer" href="https://www.radiolanza.com">
         <Img
           className={styles.image}
