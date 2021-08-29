@@ -1,26 +1,34 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import { Layout } from '../components/Layout';
+
 import { Header } from '../components/Header';
+import { Layout } from '../components/Layout';
+
+// Main Components
 
 const HomePage = ({ data, location }) => {
-  const homePageInfo = {
-    title: data.homePageInfo.edges[0].node.frontmatter.title,
-    excerpt: data.homePageInfo.edges[0].node.frontmatter.excerpt,
-    html: data.homePageInfo.edges[0].node.html,
-  };
+  // const { frontmatter, html, id } = data.md.edges[0].node;
+  const { frontmatter, html } = data.md.edges[0].node;
+  // const { date, excerpt, path, title } = frontmatter;
+  const { excerpt, title } = frontmatter;
+
   return (
-    <Layout title="Home" description="" pathname={location.pathname}>
-      <Header title={homePageInfo.title} tagline={homePageInfo.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: homePageInfo.html }} />
+    <Layout
+      article={false}
+      description={excerpt}
+      image={null}
+      pathname={location.pathname}
+      title={title}
+    >
+      <Header title={title} tagline={excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    homePageInfo: allMarkdownRemark(
+    md: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/home.md/" } }
       limit: 1
     ) {
@@ -28,26 +36,5 @@ export const query = graphql`
     }
   }
 `;
-
-HomePage.propTypes = {
-  data: PropTypes.shape({
-    homePageInfo: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string,
-            html: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string,
-              date: PropTypes.string,
-              path: PropTypes.string,
-              excerpt: PropTypes.string,
-            }),
-          }),
-        })
-      ),
-    }),
-  }).isRequired,
-};
 
 export default HomePage;
