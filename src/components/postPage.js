@@ -1,21 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import BlogPostMeta from '../components/BlogPostMeta/BlogPostMeta';
-import { Layout } from '../components/Layout';
+import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
+import { Layout } from './Layout';
 
 // Styled Components
 
 const PostTitle = styled.h1`
-  margin: 0.5em auto 0.75em;
-  font-size: 1.75em;
+  font-size: 1.5em;
+
+  @media (min-width: 768px) {
+    font-size: 1.75em;
+  }
 `;
 
 const PostArticle = styled.div`
   *:first-child {
-    margin-block-start: 0;
+    margin-block-start: 0.5em;
   }
 
   hr {
@@ -32,7 +34,7 @@ const PostArticle = styled.div`
     color: var(--bianchiGreen);
   }
 
-  // Images & GIFs
+  // Center GIFs
   p > img {
     display: block;
     margin: 0 auto;
@@ -42,19 +44,27 @@ const PostArticle = styled.div`
 // Main Components
 
 const PostPage = ({ data, pageContext }) => {
+  // const { frontmatter, html, id } = data.markdownRemark;
   const { frontmatter, html } = data.markdownRemark;
+  // const { date, excerpt, featured, path, source, tags, title } = frontmatter;
   const { date, excerpt, path, tags, title } = frontmatter;
-  const nextPostPath = pageContext.next.frontmatter.path;
-  const prevPostPath = pageContext.prev.frontmatter.path;
+  const next = pageContext.next.frontmatter.path;
+  const prev = pageContext.prev.frontmatter.path;
 
   return (
-    <Layout article={true} description={excerpt} pathname={path} title={title}>
+    <Layout
+      article={true}
+      description={excerpt}
+      image={null}
+      pathname={path}
+      title={title}
+    >
       <PostTitle>{title}</PostTitle>
       <PostArticle dangerouslySetInnerHTML={{ __html: html }} />
       <BlogPostMeta
         date={date}
-        next={nextPostPath === path ? null : nextPostPath}
-        prev={prevPostPath === path ? null : prevPostPath}
+        next={next === path ? null : next}
+        prev={prev === path ? null : prev}
         tags={tags}
       />
     </Layout>
@@ -66,43 +76,19 @@ const PostPage = ({ data, pageContext }) => {
 export const query = graphql`
   query PostPageQuery($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      id
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         excerpt
         featured
         path
         source
-        title
         tags
+        title
       }
       html
+      id
     }
   }
 `;
-
-// prop-types
-
-PostPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        date: PropTypes.string,
-        excerpt: PropTypes.string,
-        featured: PropTypes.string,
-        path: PropTypes.string,
-        source: PropTypes.string,
-        tags: PropTypes.arrayOf(PropTypes.string),
-        title: PropTypes.string,
-      }),
-      html: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  }),
-  pageContext: PropTypes.shape({
-    next: PropTypes.shape(),
-    prev: PropTypes.shape(),
-  }),
-};
 
 export default PostPage;
