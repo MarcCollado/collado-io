@@ -8,7 +8,7 @@ import SEO from '../utils/seo';
 
 // Styled Components
 
-// TODO: improve spacing between containers and titles
+// TODO: use fluid to improve spacing between containers and titles
 const OutterContainer = styled.div`
   width: clamp(375px, 100%, 960px);
   margin: 2em auto;
@@ -50,8 +50,12 @@ const StyledImg = styled(Img)`
   width: 4em;
   border-radius: 2.5em;
 
+  @media (min-width: 576px) {
+    margin: 0em auto 2em;
+  }
+
   @media (min-width: 768px) {
-    margin: 0em auto 3em;
+    margin: 0em auto 2.5em;
     transition: all 500ms ease;
 
     &:hover {
@@ -60,6 +64,9 @@ const StyledImg = styled(Img)`
           ? 'scale3d(1, 1, 1)'
           : 'scale3d(1.25, 1.25, 1.25)'};
     }
+  }
+  @media (min-width: 1024px) {
+    margin: 0em auto 3em;
   }
 `;
 
