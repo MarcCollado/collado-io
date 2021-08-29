@@ -9,12 +9,12 @@ import Layout from '../../components/layout';
 
 // Utils
 import * as styles from './work.module.css';
-import { renderPosts, extractPageInfo } from '../../utils/helpers';
+import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Safareig = ({ data, location }) => {
   const coverImg = data.coverImg.childImageSharp.fluid;
   const seoImg = data.coverImg.childImageSharp.fluid.src;
-  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
     <Layout
@@ -45,7 +45,7 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/content/md/pages/safareig.md/" }
       }
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
     posts: allMarkdownRemark(
       filter: {

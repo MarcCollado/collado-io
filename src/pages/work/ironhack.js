@@ -11,14 +11,14 @@ import Layout from '../../components/layout';
 // Utils
 import '../../styles/tabs.css';
 import * as styles from './work.module.css';
-import { renderPosts, extractPageInfo } from '../../utils/helpers';
+import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Ironhack = ({ data, location }) => {
   const coverImg1 = data.coverImg1.childImageSharp.fluid;
   const coverImg2 = data.coverImg2.childImageSharp.fluid;
   const coverImg3 = data.coverImg3.childImageSharp.fluid;
   const seoImg = data.coverImg1.childImageSharp.fluid.src;
-  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
 
   return (
@@ -100,7 +100,7 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/content/md/pages/ironhack.md/" }
       }
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
     posts: allMarkdownRemark(
       filter: {

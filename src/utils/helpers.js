@@ -8,21 +8,22 @@ import PostCard from '../components/postCard';
  * @param {array} edges - pageInfo from GraphQL query results
  * @returns {object} - page information
  */
-export function extractPageInfo(edges) {
+export function extractMarkdown(edges) {
   if (typeof edges !== 'object' || edges.length !== 1) {
     throw new Error('Expected an array with one item.');
   }
 
-  const pageInfo = {
-    title: edges[0].node.frontmatter?.title,
+  const md = {
     date: edges[0].node.frontmatter?.date,
-    path: edges[0].node.frontmatter?.path,
     excerpt: edges[0].node.frontmatter?.excerpt,
+    path: edges[0].node.frontmatter?.path,
     // seo: edges[0].node.frontmatter?.seo,
+    title: edges[0].node.frontmatter?.title,
     html: edges[0].node.html,
+    id: edges[0].node.id,
   };
 
-  return pageInfo;
+  return md;
 }
 
 /**

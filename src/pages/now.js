@@ -1,25 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// import PropTypes from 'prop-types';
 
-// Components
 import Header from '../components/header';
 import Layout from '../components/layout';
 
-// Utils
-import { renderPosts, extractPageInfo } from '../utils/helpers';
+import { renderPosts, extractMarkdown } from '../utils/helpers';
 
 const NowPage = ({ data, location }) => {
-  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const md = extractMarkdown(data.md.edges);
   const posts = data.posts.edges;
+
   return (
     <Layout
-      title={pageInfo.title}
-      description={pageInfo.excerpt}
+      article={false}
+      description={md.excerpt}
+      image={null}
       pathname={location.pathname}
+      title={md.title}
     >
-      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
+      <Header title={md.title} subtitle={md.excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: md.html }} />
       {renderPosts(posts)}
     </Layout>
   );
@@ -27,10 +27,11 @@ const NowPage = ({ data, location }) => {
 
 export const query = graphql`
   {
-    pageInfo: allMarkdownRemark(
+    md: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/now.md/" } }
+      limit: 1
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
     posts: allMarkdownRemark(
       filter: {

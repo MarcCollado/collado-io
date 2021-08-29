@@ -1,23 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-// Components
 import Header from '../components/header';
 import Layout from '../components/layout';
 
-// Utils
 import { renderPosts } from '../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
-  const allPosts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges;
+
   return (
     <Layout
-      title="Blog"
+      article={false}
       description="Things I've written"
+      image={null}
       pathname={location.pathname}
+      title="Blog"
     >
       <Header title="Blog" subtitle="Things I've written" />
-      {renderPosts(allPosts)}
+      {renderPosts(posts)}
     </Layout>
   );
 };

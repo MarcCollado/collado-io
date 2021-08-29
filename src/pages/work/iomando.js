@@ -11,7 +11,7 @@ import Layout from '../../components/layout';
 // Utils
 import '../../styles/tabs.css';
 import * as styles from './work.module.css';
-import { renderPosts, extractPageInfo } from '../../utils/helpers';
+import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const iomando = ({ data, location }) => {
   const coverImg = data.coverImg.childImageSharp.fluid;
@@ -19,7 +19,7 @@ const iomando = ({ data, location }) => {
   const productImg = data.productImg.childImageSharp.fluid;
   const insightsImg = data.insightsImg.childImageSharp.fluid;
   const storiesImg = data.storiesImg.childImageSharp.fluid;
-  const pageInfo = extractPageInfo(data.pageInfo.edges);
+  const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
     <Layout
@@ -118,7 +118,7 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/content/md/pages/iomando.md/" }
       }
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
     posts: allMarkdownRemark(
       filter: {

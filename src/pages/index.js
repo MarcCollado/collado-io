@@ -4,24 +4,21 @@ import { graphql } from 'gatsby';
 import Header from '../components/header';
 import Layout from '../components/layout';
 
-// Main Components
+import { extractMarkdown } from '../utils/helpers';
 
 const HomePage = ({ data, location }) => {
-  // const { frontmatter, html, id } = data.md.edges[0].node;
-  const { frontmatter, html } = data.md.edges[0].node;
-  // const { date, excerpt, path, title } = frontmatter;
-  const { excerpt, title } = frontmatter;
+  const md = extractMarkdown(data.md.edges);
 
   return (
     <Layout
       article={false}
-      description={excerpt}
+      description={md.excerpt}
       image={null}
       pathname={location.pathname}
-      title={title}
+      title={md.title}
     >
-      <Header title={title} subtitle={excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Header title={md.title} subtitle={md.excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: md.html }} />
     </Layout>
   );
 };
@@ -32,7 +29,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/home.md/" } }
       limit: 1
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
   }
 `;

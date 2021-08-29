@@ -9,11 +9,11 @@ import PostCard from '../../components/postCard';
 
 // Utils
 import * as styles from './work.module.css';
-import { extractPageInfo } from '../../utils/helpers';
+import { extractMarkdown } from '../../utils/helpers';
 import { workmaps } from '../../utils/workmaps';
 
 const WorkPage = ({ data, location }) => {
-  const pageInfo = extractPageInfo(
+  const pageInfo = extractMarkdown(
     data.workPage.edges.filter((edge) => edge.node.frontmatter.title === 'Work')
   );
   const renderWorkCards = data.workPage.edges
@@ -51,7 +51,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...pageInfo
+      ...pageMarkdown
     }
     safareig: file(relativePath: { eq: "logos/safareig.png" }) {
       childImageSharp {
