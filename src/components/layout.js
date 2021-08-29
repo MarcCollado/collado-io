@@ -56,13 +56,11 @@ const StyledImg = styled(Img)`
 
   @media (min-width: 768px) {
     margin: 0em auto 2.5em;
-    transition: all 500ms ease;
+    transition: all 300ms ease-in-out;
 
     &:hover {
       transform: ${(props) =>
-        props.pathname === '/'
-          ? 'scale3d(1, 1, 1)'
-          : 'scale3d(1.25, 1.25, 1.25)'};
+        props.pathname === '/' ? 'scale(1, 1)' : 'scale(1.15, 1.15)'};
     }
   }
   @media (min-width: 1024px) {
