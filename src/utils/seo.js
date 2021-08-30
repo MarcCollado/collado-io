@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
-import marc from '../../static/marc-collado.jpg';
+import marc from '../../static/marc-avatar.png';
 import favicon from '../../static/favicon.png';
 
 const Seo = ({
