@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import * as styles from './BlogPostMeta.module.css';
-import { PublishedAt } from '../PublishedAt';
+import Published from '../published';
 import Tag from '../tag';
 
 const BlogPostMeta = ({ date, tags, next, prev }) => (
@@ -39,7 +39,7 @@ const BlogPostMeta = ({ date, tags, next, prev }) => (
     </div>
     <hr className={styles.line} />
     <div className={styles.meta}>
-      <PublishedAt date={date} />
+      <Published date={date} />
       <div className={styles.tag__container}>
         {tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>

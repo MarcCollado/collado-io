@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { PublishedAt } from './PublishedAt';
+import Published from './published';
 
 // Styled Components
 
@@ -39,7 +39,7 @@ const PostCard = ({ date, excerpt, image, path, title }) => (
       <h2>{title}</h2>
       <PostCardExcerpt>{excerpt}</PostCardExcerpt>
     </Link>
-    {date && <PublishedAt date={date} />}
+    {date && <Published date={date} />}
   </PostCardContainer>
 );
 
