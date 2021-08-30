@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import * as styles from './BlogPostMeta.module.css';
 import { PublishedAt } from '../PublishedAt';
-import { Tag } from '../Tag';
+import Tag from '../tag';
 
 const BlogPostMeta = ({ date, tags, next, prev }) => (
   <>
