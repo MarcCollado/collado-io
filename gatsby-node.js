@@ -3,7 +3,7 @@ const path = require('path');
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const postPage = path.resolve(`src/components/postPage.js`);
-  const tagPage = path.resolve(`src/components/TagPage/TagPage.js`);
+  const tagPage = path.resolve(`src/components/tagPage.js`);
 
   // Fetch all markdown posts
   const fetchPosts = await graphql(`
