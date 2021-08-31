@@ -11,11 +11,13 @@ const FlexCenter = styled.div`
 
 const Title = styled.h1`
   margin: 0 auto;
+  text-align: center;
 `;
 
 const Subtitle = styled.p`
   margin-block-start: 0.25em;
   font-size: smaller;
+  text-align: center;
   text-transform: uppercase;
   color: var(--fakeAsbestos88);
 `;
