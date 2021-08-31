@@ -28,7 +28,7 @@ export const allPostsQuery = graphql`
 
 /*
 Used by: Home, Books, Work(s), Now
-- Retrieves the markdown data to build a top-level pages
+- Retrieves the markdown data to build top-level pages
 */
 export const PageMarkdownQuery = graphql`
   fragment pageMarkdown on MarkdownRemarkConnection {
@@ -47,16 +47,3 @@ export const PageMarkdownQuery = graphql`
     }
   }
 `;
-
-export const filterPosts = (tagsIn = [], tagsIni = []) => {
-  const include = tagsIn.length > 0;
-  const notInclude = tagsIni.length > 0;
-
-  return !include && !notInclude
-    ? `{ fileAbsolutePath: { regex: "/src/content/md/posts/" } }`
-    : `{
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        ${include ? `frontmatter: { tags: { in: ${tagsIn} } }` : ''}
-        ${notInclude ? `frontmatter: { tags: { ini: ${tagsIni} } }` : ''}
-      }`;
-};
