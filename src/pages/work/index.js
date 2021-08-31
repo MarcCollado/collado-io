@@ -9,8 +9,7 @@ import PostCard from '../../components/postCard';
 
 // Utils
 import * as styles from './work.module.css';
-import { extractMarkdown } from '../../utils/helpers';
-import { workmaps } from '../../utils/workmaps';
+import { extractMarkdown, workmaps } from '../../utils/helpers';
 
 const WorkPage = ({ data, location }) => {
   const pageInfo = extractMarkdown(
