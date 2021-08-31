@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../header';
-import Layout from '../layout';
+import Header from './header';
+import Layout from './layout';
 
-import { renderPosts } from '../../utils/helpers';
+import { renderPosts } from '../utils/helpers';
 
 const TagPage = ({ data, location, pageContext }) => {
   const { totalCount } = data.allMarkdownRemark;
