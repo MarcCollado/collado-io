@@ -33,7 +33,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
-              width: 800,
+              width: 960,
               related: false,
               noIframeBorder: true,
             },
@@ -42,10 +42,10 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 800,
+              maxWidth: 960,
               linkImagesToOriginal: false,
               showCaptions: false,
-              quality: 75,
+              quality: 80,
             },
           },
           'gatsby-remark-autolink-headers',
@@ -59,14 +59,14 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
         stripMetadata: true,
-        defaultQuality: 75,
+        defaultQuality: 80,
       },
     },
     // UTILS & HELPERS
-    `gatsby-plugin-styled-components`,
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-twitter',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-twitter',
   ],
 };
