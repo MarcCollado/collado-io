@@ -21,10 +21,14 @@ const Seo = ({
             defaultTitle: title
             defaultDescription: description
             siteUrl
-            shortName
-            author
-            twitter
             siteLanguage
+            author {
+              name
+            }
+            social {
+              email
+              twitter
+            }
           }
         }
       }
@@ -34,10 +38,9 @@ const Seo = ({
   const title = pageTitle || site.siteMetadata?.defaultTitle;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const url = `${site.siteMetadata?.siteUrl}${pathname || '/'}`;
-  // const shortName = site.siteMetadata?.shortName;
-  const author = site.siteMetadata?.author;
-  // const email = site.siteMetadata?.email;
-  const twitter = site.siteMetadata?.twitter;
+  const author = site.siteMetadata?.author.name;
+  // const email = site.siteMetadata?.social.email;
+  const twitter = site.siteMetadata?.social.twitter;
   const language = site.siteMetadata?.siteLanguage || `en`;
   const image = marc;
 
