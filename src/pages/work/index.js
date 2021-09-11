@@ -1,52 +1,58 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 
-// Components
 import Header from '../../components/header';
 import Layout from '../../components/layout';
 import PostCard from '../../components/postCard';
 
-// Utils
-import * as styles from './work.module.css';
 import { extractMarkdown, workmaps } from '../../utils/helpers';
 
 const WorkPage = ({ data, location }) => {
-  const pageInfo = extractMarkdown(
-    data.workPage.edges.filter((edge) => edge.node.frontmatter.title === 'Work')
-  );
-  const renderWorkCards = data.workPage.edges
+  const md = extractMarkdown(data.md.edges);
+  // Media card generator
+  const renderMediaCards = data.mediaCards.edges
     .filter((edge) => edge.node.frontmatter.title in workmaps)
     .map((edge) => {
       const k = edge.node.frontmatter.title;
       const v = workmaps[k];
       const img = data[v].childImageSharp.fluid;
+
       return (
         <PostCard
           key={edge.node.id}
+          date={null}
+          excerpt={edge.node.frontmatter?.excerpt}
           image={img}
+          path={edge.node.frontmatter?.path}
           title={k}
-          path={edge.node.frontmatter.path}
-          excerpt={edge.node.frontmatter.excerpt}
         />
       );
     });
+
   return (
     <Layout
-      title={pageInfo.title}
-      description={pageInfo.excerpt}
+      article={false}
+      description={md.excerpt}
+      image={null}
       pathname={location.pathname}
+      title={md.title}
     >
-      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
-      <div className={styles.container}>{renderWorkCards}</div>
+      <Header title={md.title} subtitle={md.excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: md.html }} />
+      {renderMediaCards}
     </Layout>
   );
 };
 
 export const query = graphql`
   {
-    workPage: allMarkdownRemark(
+    md: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/work.md/" } }
+      limit: 1
+    ) {
+      ...pageMarkdown
+    }
+    mediaCards: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -89,31 +95,5 @@ export const query = graphql`
     }
   }
 `;
-
-WorkPage.propTypes = {
-  data: PropTypes.shape({
-    workPageInfo: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string,
-              path: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-    iomando: PropTypes.object.isRequired,
-    ironhack: PropTypes.object.isRequired,
-    radioLanza: PropTypes.object.isRequired,
-    gamestry: PropTypes.object.isRequired,
-    safareig: PropTypes.object.isRequired,
-  }).isRequired,
-};
 
 export default WorkPage;
