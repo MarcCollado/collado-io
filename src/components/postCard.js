@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 import Published from './published';
@@ -13,16 +13,11 @@ const PostCardContainer = styled.div`
   border-bottom: 1px solid var(--fakeAsbestos22);
 `;
 
-const StyledImg = styled(Img)`
-  // TODO: find a more elegant and responsive solution
-  min-width: 4em;
-  border-radius: 2.5em;
-  margin: 2.25em 1.5em 1.25em 0;
-
-  @media (min-width: 576px) {
-    width: 5em;
-    margin: 1.5em 1.5em 0.25em 0;
-  }
+const StyledImg = styled(GatsbyImage)`
+  max-width: 4em;
+  max-height: 4em;
+  border-radius: 2em;
+  margin: 2.5em 1.5em 1em 0;
 `;
 
 const PostCardExcerpt = styled.p`
@@ -34,7 +29,7 @@ const PostCardExcerpt = styled.p`
 
 const PostCard = ({ date, excerpt, image, path, title }) => (
   <PostCardContainer image={!!image}>
-    {image && <StyledImg fluid={image} alt={title} />}
+    {image && <StyledImg image={image} alt={title} />}
     <Link to={path}>
       <h2>{title}</h2>
       <PostCardExcerpt>{excerpt}</PostCardExcerpt>

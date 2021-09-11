@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import 'normalize.css';
 
+import { FlexCenter } from '../styles/containers';
 import Seo from '../utils/seo';
 
 // Styled Components
@@ -32,6 +33,9 @@ const InnerContainer = styled.div`
   display: flex;
   flex-flow: column;
 
+  & > a > div.gatsby-image-wrapper > div {
+  }
+
   @media (min-width: 576px) {
     margin: auto 3em;
   }
@@ -45,7 +49,7 @@ const InnerContainer = styled.div`
   }
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   margin: 0em auto 1.5em;
   width: 4em;
   border-radius: 2.5em;
@@ -76,15 +80,13 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
     query AvatarQuery {
       file(relativePath: { eq: "logos/marc.png" }) {
         childImageSharp {
-          fluid(maxWidth: 144) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 256)
         }
       }
     }
   `);
 
-  const avatar = data.file.childImageSharp.fluid;
+  const avatar = data.file.childImageSharp.gatsbyImageData;
 
   return (
     <OutterContainer>
@@ -96,9 +98,11 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
         pathname={pathname}
       />
       <InnerContainer>
-        <Link to="/">
-          <StyledImg fluid={avatar} alt="Marc Collado" pathname={pathname} />
-        </Link>
+        <FlexCenter>
+          <Link to="/">
+            <StyledImg image={avatar} alt="Marc Collado" pathname={pathname} />
+          </Link>
+        </FlexCenter>
         {children}
       </InnerContainer>
     </OutterContainer>
