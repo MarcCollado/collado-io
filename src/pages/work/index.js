@@ -15,7 +15,7 @@ const WorkPage = ({ data, location }) => {
     .map((edge) => {
       const k = edge.node.frontmatter.title;
       const v = workmaps[k];
-      const img = data[v].childImageSharp.fluid;
+      const img = data[v].childImageSharp.gatsbyImageData;
 
       return (
         <PostCard
@@ -60,37 +60,27 @@ export const query = graphql`
     }
     safareig: file(relativePath: { eq: "logos/safareig.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 256)
       }
     }
     gamestry: file(relativePath: { eq: "logos/gamestry.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 256)
       }
     }
     radioLanza: file(relativePath: { eq: "logos/radio-lanza.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 256)
       }
     }
     ironhack: file(relativePath: { eq: "logos/ironhack.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 256)
       }
     }
     iomando: file(relativePath: { eq: "logos/iomando.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 256)
       }
     }
   }
