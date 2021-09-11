@@ -57,8 +57,16 @@ module.exports = {
       },
     },
     // IMAGES & ASSETS
-    // `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 100,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     // UTILS & HELPERS
     `gatsby-plugin-catch-links`,
