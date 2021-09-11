@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 // import PropTypes from 'prop-types';
 
 // Components
@@ -12,8 +12,8 @@ import * as styles from './work.module.css';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const RadioLanza = ({ data, location }) => {
-  const coverImg = data.coverImg.childImageSharp.fluid;
-  const seoImg = data.coverImg.childImageSharp.fluid.src;
+  const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
+  const seoImg = data.coverImg.childImageSharp.gatsbyImageData.src;
   const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
@@ -25,11 +25,11 @@ const RadioLanza = ({ data, location }) => {
     >
       <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
       <a target="_blank" rel="noreferrer" href="https://www.radiolanza.com">
-        <Img
+        <GatsbyImage
+          image={coverImg}
           className={styles.image}
           title={pageInfo.title}
           alt={pageInfo.excerpt}
-          fluid={coverImg}
         />
       </a>
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
@@ -58,9 +58,7 @@ export const query = graphql`
     }
     coverImg: file(relativePath: { eq: "pages/radio-lanza-cover.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
   }

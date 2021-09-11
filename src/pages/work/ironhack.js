@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
@@ -14,10 +14,10 @@ import * as styles from './work.module.css';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Ironhack = ({ data, location }) => {
-  const coverImg1 = data.coverImg1.childImageSharp.fluid;
-  const coverImg2 = data.coverImg2.childImageSharp.fluid;
-  const coverImg3 = data.coverImg3.childImageSharp.fluid;
-  const seoImg = data.coverImg1.childImageSharp.fluid.src;
+  const coverImg1 = data.coverImg1.childImageSharp.gatsbyImageData;
+  const coverImg2 = data.coverImg2.childImageSharp.gatsbyImageData;
+  const coverImg3 = data.coverImg3.childImageSharp.gatsbyImageData;
+  const seoImg = data.coverImg1.childImageSharp.gatsbyImageData.src;
   const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
 
@@ -29,11 +29,11 @@ const Ironhack = ({ data, location }) => {
       image={seoImg}
     >
       <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <Img
+      <GatsbyImage
+        image={coverImg1}
         className={styles.image}
         title={pageInfo.title}
         alt={pageInfo.excerpt}
-        fluid={coverImg1}
       />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <Tabs>
@@ -53,11 +53,11 @@ const Ironhack = ({ data, location }) => {
             create the tools for our students to boost their careers and become
             digital creators themselves.
           </p>
-          <Img
+          <GatsbyImage
+            image={coverImg2}
             className={styles.image}
             title="Ironhack insights"
             alt="Ironhack is changing education for the better."
-            fluid={coverImg2}
           />
           <p>
             Thousands of graduates across eleven locations have taught me a lot
@@ -74,11 +74,11 @@ const Ironhack = ({ data, location }) => {
             just two months sounded more of a wild dream rather than an
             attainable reality.
           </p>
-          <Img
+          <GatsbyImage
+            image={coverImg3}
             className={styles.image}
             title="Ironhack stories"
             alt="Recollection of posts that cover my story at Ironhack from a more confidential, idiosyncratic perspective."
-            fluid={coverImg3}
           />
           <p>
             After more than four years, I have accumulated thousands of stories,
@@ -113,23 +113,17 @@ export const query = graphql`
     }
     coverImg1: file(relativePath: { eq: "pages/ironhack-cover.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
     coverImg2: file(relativePath: { eq: "pages/ironhack-insights.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
     coverImg3: file(relativePath: { eq: "pages/ironhack-barcelona.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
   }

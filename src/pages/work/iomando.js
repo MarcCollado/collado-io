@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
@@ -14,11 +14,11 @@ import * as styles from './work.module.css';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const iomando = ({ data, location }) => {
-  const coverImg = data.coverImg.childImageSharp.fluid;
-  const seoImg = data.coverImg.childImageSharp.fluid.src;
-  const productImg = data.productImg.childImageSharp.fluid;
-  const insightsImg = data.insightsImg.childImageSharp.fluid;
-  const storiesImg = data.storiesImg.childImageSharp.fluid;
+  const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
+  const seoImg = data.coverImg.childImageSharp.gatsbyImageData.src;
+  const productImg = data.productImg.childImageSharp.gatsbyImageData;
+  const insightsImg = data.insightsImg.childImageSharp.gatsbyImageData;
+  const storiesImg = data.storiesImg.childImageSharp.gatsbyImageData;
   const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
@@ -29,11 +29,11 @@ const iomando = ({ data, location }) => {
       image={seoImg}
     >
       <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <Img
+      <GatsbyImage
+        image={coverImg}
         className={styles.image}
         title={pageInfo.title}
         alt={pageInfo.excerpt}
-        fluid={coverImg}
       />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <Tabs>
@@ -57,11 +57,11 @@ const iomando = ({ data, location }) => {
             eventually become a unique asset and the enabler of a thriving
             business.`}
           </p>
-          <Img
+          <GatsbyImage
+            image={productImg}
             className={styles.image}
             title="iomando updates"
             alt="iomando release notes and product updates."
-            fluid={productImg}
           />
           <p>
             Here is a recollection of all the release notes and product updates.
@@ -78,11 +78,11 @@ const iomando = ({ data, location }) => {
             amazing piece of technology in the midst of a market we knew nothing
             about.
           </p>
-          <Img
+          <GatsbyImage
+            image={insightsImg}
             className={styles.image}
             title="iomando insights"
             alt="iomando posts that uncover a naive journey of discovery."
-            fluid={insightsImg}
           />
           <p>
             Here is a recollection of posts that uncovers a naive journey of
@@ -95,11 +95,11 @@ const iomando = ({ data, location }) => {
           <p>
             {`iomando was also the first company I co-founded, right after graduating from college. Back then I was only 24 and barely knew what a P&L was. Besides developing a great product, iomando has taught me a far more valuable lesson: how to build a sustainable business.`}
           </p>
-          <Img
+          <GatsbyImage
+            image={storiesImg}
             className={styles.image}
             title="iomando stories"
             alt="iomando has taught me a valuable lesson: how to build a sustainable business."
-            fluid={storiesImg}
           />
           <p>
             {`Here's a recollection of stories, decisions, but most important, some the lessons learned along the way on how to manage and lead a startup from zero to acquisition.`}
@@ -131,30 +131,22 @@ export const query = graphql`
     }
     coverImg: file(relativePath: { eq: "pages/iomando-cover.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
     productImg: file(relativePath: { eq: "pages/iomando-updates.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
     insightsImg: file(relativePath: { eq: "pages/iomando-insights.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
     storiesImg: file(relativePath: { eq: "pages/iomando-stories.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
   }

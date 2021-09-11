@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 // Components
 import Header from '../../components/header';
@@ -11,8 +11,8 @@ import * as styles from './work.module.css';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Gamestry = ({ data, location }) => {
-  const coverImg = data.coverImg.childImageSharp.fluid;
-  const seoImg = data.coverImg.childImageSharp.fluid.src;
+  const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
+  const seoImg = data.coverImg.childImageSharp.gatsbyImageData.src;
   const pageInfo = extractMarkdown(data.pageInfo.edges);
   const posts = data.posts.edges;
   return (
@@ -23,11 +23,11 @@ const Gamestry = ({ data, location }) => {
       image={seoImg}
     >
       <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <Img
+      <GatsbyImage
+        image={coverImg}
         className={styles.image}
         title={pageInfo.title}
         alt={pageInfo.excerpt}
-        fluid={coverImg}
       />
       <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       {renderPosts(posts)}
@@ -55,9 +55,7 @@ export const query = graphql`
     }
     coverImg: file(relativePath: { eq: "pages/gamestry-cover.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 1024)
       }
     }
   }
