@@ -16,8 +16,11 @@ const PostCardContainer = styled.div`
 const StyledImg = styled(GatsbyImage)`
   max-width: 4em;
   max-height: 4em;
-  border-radius: 2em;
   margin: 2.5em 1.5em 1em 0;
+
+  & img {
+    border-radius: 2em;
+  }
 `;
 
 const PostCardExcerpt = styled.p`

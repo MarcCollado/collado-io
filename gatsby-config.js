@@ -62,7 +62,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `blurred`,
+          // placeholder: `blurred`,
           quality: 100,
         },
       },

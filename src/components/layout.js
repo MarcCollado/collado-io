@@ -50,9 +50,12 @@ const InnerContainer = styled.div`
 `;
 
 const StyledImg = styled(GatsbyImage)`
-  margin: 0em auto 1.5em;
   width: 4em;
-  border-radius: 2.5em;
+  margin: 0em auto 1.5em;
+
+  & img {
+    border-radius: 2em;
+  }
 
   @media (min-width: 576px) {
     margin: 0em auto 2em;
