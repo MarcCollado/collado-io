@@ -42,7 +42,7 @@ const Seo = ({
   // const email = site.siteMetadata?.social.email;
   const twitter = site.siteMetadata?.social.twitter;
   const language = site.siteMetadata?.siteLanguage || `en`;
-  const image = marc;
+  const image = pageImage || marc;
 
   return (
     <Helmet
