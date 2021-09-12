@@ -57,17 +57,33 @@ module.exports = {
       },
     },
     // IMAGES & ASSETS
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          // placeholder: `blurred`,
+          placeholder: `blurred`,
           quality: 100,
         },
       },
     },
     `gatsby-transformer-sharp`,
+    // OFFLINE
+    // To learn more, visit: https://gatsby.dev/offline
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Marc Collado`,
+        short_name: `Marc Collado`,
+        start_url: `/`,
+        background_color: `#FFFFFF`,
+        theme_color: `#B3E4C8`,
+        display: `minimal-ui`,
+        icon: `src/content/img/logos/marc.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
     // UTILS & HELPERS
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
