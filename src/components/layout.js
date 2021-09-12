@@ -96,7 +96,7 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
       <Seo
         isArticle={article}
         pageDescription={description}
-        pageIimage={image}
+        pageImage={image}
         pageTitle={title}
         pathname={pathname}
       />
