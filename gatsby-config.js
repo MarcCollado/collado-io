@@ -81,6 +81,7 @@ module.exports = {
         theme_color: `#B3E4C8`,
         display: `minimal-ui`,
         icon: `src/content/img/logos/marc.png`,
+        lang: `en`,
       },
     },
     `gatsby-plugin-offline`,
