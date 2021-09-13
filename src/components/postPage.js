@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
-import Layout from './layout';
+import Layoutt from './layoutt';
 
 // Styled Components
 
@@ -47,17 +47,17 @@ const PostPage = ({ data, pageContext }) => {
   // const { frontmatter, html, id } = data.markdownRemark;
   const { frontmatter, html } = data.markdownRemark;
   // const { date, excerpt, featured, path, source, tags, title } = frontmatter;
-  const { date, excerpt, path, tags, title } = frontmatter;
+  const { date, path, tags, title } = frontmatter;
   const next = pageContext.next.frontmatter.path;
   const prev = pageContext.prev.frontmatter.path;
 
   return (
-    <Layout
+    <Layoutt
       article={true}
-      description={excerpt}
-      image={null}
+      coverImage={false}
+      md={frontmatter}
       pathname={path}
-      title={title}
+      seoImage={false}
     >
       <PostTitle>{title}</PostTitle>
       <PostArticle dangerouslySetInnerHTML={{ __html: html }} />
@@ -67,7 +67,7 @@ const PostPage = ({ data, pageContext }) => {
         prev={prev === path ? null : prev}
         tags={tags}
       />
-    </Layout>
+    </Layoutt>
   );
 };
 
