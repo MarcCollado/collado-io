@@ -1,36 +1,32 @@
 import React from 'react';
-import Layout from '../components/layout';
-import Header from '../components/header';
+import { graphql } from 'gatsby';
 
-const NotFoundPage = ({ location }) => (
-  <Layout title="404" description="Page not found" pathname={location.pathname}>
-    <Header title="404" subtitle="Page not found" />
-    <div>
-      <h2>Oh, no! Page not found {'😓'}</h2>
-      <p>
-        Don't worry, happens to the best of us. Maybe you ended up here
-        because...
-      </p>
-      <ul>
-        <li>
-          <p>The page has been moved or deleted</p>
-        </li>
-        <li>
-          <p>A mistyped URL or a broken link</p>
-        </li>
-        <li>
-          <p>You just like 404 pages</p>
-        </li>
-      </ul>
-      <p>
-        Whatever reason is yours, you can always{' '}
-        <a href="https://twitter.com/marccollado">reach out</a> and tell me what
-        you were looking for or just <a href="/">go back to the home page</a>{' '}
-        and try again 🎰.
-      </p>
-    </div>
-    <div />
-  </Layout>
-);
+import Layoutt from '../components/layoutt';
+import { extractMarkdown } from '../utils/helpers';
+
+const NotFoundPage = ({ data, location }) => {
+  const md = extractMarkdown(data.md.edges);
+
+  return (
+    <Layoutt
+      article={false}
+      coverImage={false}
+      md={md}
+      pathname={location.pathname}
+      seoImage={false}
+    />
+  );
+};
+
+export const query = graphql`
+  {
+    md: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/404.md/" } }
+      limit: 1
+    ) {
+      ...pageMarkdown
+    }
+  }
+`;
 
 export default NotFoundPage;

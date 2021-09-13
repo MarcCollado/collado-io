@@ -1,36 +1,39 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../components/header';
-import Layout from '../components/layout';
-
-import { renderPosts } from '../utils/helpers';
+import Layoutt from '../components/layoutt';
+import { renderPosts, extractMarkdown } from '../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const md = extractMarkdown(data.md.edges);
+  const posts = data.posts.edges;
 
   return (
-    <Layout
+    <Layoutt
       article={false}
-      description="Things I've written"
-      image={null}
+      coverImage={false}
+      md={md}
       pathname={location.pathname}
-      title="Blog"
+      seoImage={false}
     >
-      <Header title="Blog" subtitle="Things I've written" />
       {renderPosts(posts)}
-    </Layout>
+    </Layoutt>
   );
 };
 
 export const query = graphql`
   {
-    allMarkdownRemark(
+    md: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/blog.md/" } }
+      limit: 1
+    ) {
+      ...pageMarkdown
+    }
+    posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/content/md/posts/" }
         frontmatter: { tags: { nin: ["books", "now"] } }
       }
-      limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...allPosts

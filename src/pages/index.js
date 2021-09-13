@@ -1,25 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../components/header';
-import Layout from '../components/layout';
-
+import Layoutt from '../components/layoutt';
 import { extractMarkdown } from '../utils/helpers';
 
 const HomePage = ({ data, location }) => {
   const md = extractMarkdown(data.md.edges);
 
   return (
-    <Layout
+    <Layoutt
       article={false}
-      description={md.excerpt}
-      image={null}
+      coverImage={false}
+      md={md}
       pathname={location.pathname}
-      title={md.title}
-    >
-      <Header title={md.title} subtitle={md.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: md.html }} />
-    </Layout>
+      seoImage={false}
+    />
   );
 };
 

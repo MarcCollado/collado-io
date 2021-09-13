@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from '../components/header';
-import Layout from '../components/layout';
-
+import Layoutt from '../components/layoutt';
 import { renderPosts, extractMarkdown } from '../utils/helpers';
 
 const NowPage = ({ data, location }) => {
@@ -11,17 +9,15 @@ const NowPage = ({ data, location }) => {
   const posts = data.posts.edges;
 
   return (
-    <Layout
+    <Layoutt
       article={false}
-      description={md.excerpt}
-      image={null}
+      coverImage={false}
+      md={md}
       pathname={location.pathname}
-      title={md.title}
+      seoImage={false}
     >
-      <Header title={md.title} subtitle={md.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: md.html }} />
       {renderPosts(posts)}
-    </Layout>
+    </Layoutt>
   );
 };
 
