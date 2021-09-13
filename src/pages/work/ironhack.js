@@ -1,48 +1,40 @@
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import PropTypes from 'prop-types';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
-// Components
-import Header from '../../components/header';
-import Layout from '../../components/layout';
-
-// Utils
-import '../../styles/tabs.css';
-import * as styles from './work.module.css';
+import Layoutt from '../../components/layoutt';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
+import '../../styles/tabs.css';
+
+const CoverImage = styled(GatsbyImage)`
+  margin: 1em 0em 0.5em;
+`;
 
 const Ironhack = ({ data, location }) => {
-  const coverImg1 = data.coverImg1.childImageSharp.gatsbyImageData;
-  const coverImg2 = data.coverImg2.childImageSharp.gatsbyImageData;
-  const coverImg3 = data.coverImg3.childImageSharp.gatsbyImageData;
-  const seoImg = data.coverImg1.childImageSharp.gatsbyImageData.src;
-  const pageInfo = extractMarkdown(data.pageInfo.edges);
+  const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
+  const seoImg = data.coverImg.childImageSharp.gatsbyImageData.src;
+  const insightsImg = data.insightsImg.childImageSharp.gatsbyImageData;
+  const storiesImg = data.storiesImg.childImageSharp.gatsbyImageData;
+  const md = extractMarkdown(data.md.edges);
   const posts = data.posts.edges;
 
   return (
-    <Layout
-      title={pageInfo.title}
-      description={pageInfo.excerpt}
+    <Layoutt
+      article={false}
+      coverImage={coverImg}
+      md={md}
       pathname={location.pathname}
-      image={seoImg}
+      seoImage={seoImg}
     >
-      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <GatsbyImage
-        image={coverImg1}
-        className={styles.image}
-        title={pageInfo.title}
-        alt={pageInfo.excerpt}
-      />
-      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <Tabs>
         <TabList>
           <Tab>
-            <p>Industry insights</p>
+            <p>Insights</p>
           </Tab>
           <Tab>
-            <p>Ironhack stories</p>
+            <p>Stories</p>
           </Tab>
         </TabList>
 
@@ -53,9 +45,8 @@ const Ironhack = ({ data, location }) => {
             create the tools for our students to boost their careers and become
             digital creators themselves.
           </p>
-          <GatsbyImage
-            image={coverImg2}
-            className={styles.image}
+          <CoverImage
+            image={insightsImg}
             title="Ironhack insights"
             alt="Ironhack is changing education for the better."
           />
@@ -74,9 +65,8 @@ const Ironhack = ({ data, location }) => {
             just two months sounded more of a wild dream rather than an
             attainable reality.
           </p>
-          <GatsbyImage
-            image={coverImg3}
-            className={styles.image}
+          <CoverImage
+            image={storiesImg}
             title="Ironhack stories"
             alt="Recollection of posts that cover my story at Ironhack from a more confidential, idiosyncratic perspective."
           />
@@ -89,16 +79,17 @@ const Ironhack = ({ data, location }) => {
           {renderPosts(posts, 'memoir')}
         </TabPanel>
       </Tabs>
-    </Layout>
+    </Layoutt>
   );
 };
 
 export const query = graphql`
   {
-    pageInfo: allMarkdownRemark(
+    md: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/content/md/pages/ironhack.md/" }
       }
+      limit: 1
     ) {
       ...pageMarkdown
     }
@@ -111,60 +102,22 @@ export const query = graphql`
     ) {
       ...allPosts
     }
-    coverImg1: file(relativePath: { eq: "pages/ironhack-cover.jpg" }) {
+    coverImg: file(relativePath: { eq: "pages/ironhack-cover.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 1024)
       }
     }
-    coverImg2: file(relativePath: { eq: "pages/ironhack-insights.jpg" }) {
+    insightsImg: file(relativePath: { eq: "pages/ironhack-insights.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 1024)
       }
     }
-    coverImg3: file(relativePath: { eq: "pages/ironhack-barcelona.jpg" }) {
+    storiesImg: file(relativePath: { eq: "pages/ironhack-barcelona.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 1024)
       }
     }
   }
 `;
-
-Ironhack.propTypes = {
-  data: PropTypes.shape({
-    coverImg1: PropTypes.object.isRequired,
-    coverImg3: PropTypes.object.isRequired,
-    coverImg2: PropTypes.object.isRequired,
-    pageInfo: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-    posts: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-  }).isRequired,
-};
 
 export default Ironhack;

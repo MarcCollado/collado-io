@@ -1,17 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import PropTypes from 'prop-types';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
-// Components
-import Header from '../../components/header';
-import Layout from '../../components/layout';
-
-// Utils
-import '../../styles/tabs.css';
-import * as styles from './work.module.css';
+import Layoutt from '../../components/layoutt';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
+import '../../styles/tabs.css';
+
+const CoverImage = styled(GatsbyImage)`
+  margin: 1em 0em 0.5em;
+`;
 
 const iomando = ({ data, location }) => {
   const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
@@ -19,33 +18,27 @@ const iomando = ({ data, location }) => {
   const productImg = data.productImg.childImageSharp.gatsbyImageData;
   const insightsImg = data.insightsImg.childImageSharp.gatsbyImageData;
   const storiesImg = data.storiesImg.childImageSharp.gatsbyImageData;
-  const pageInfo = extractMarkdown(data.pageInfo.edges);
+  const md = extractMarkdown(data.md.edges);
   const posts = data.posts.edges;
+
   return (
-    <Layout
-      title={pageInfo.title}
-      description={pageInfo.excerpt}
+    <Layoutt
+      article={false}
+      coverImage={coverImg}
+      md={md}
       pathname={location.pathname}
-      image={seoImg}
+      seoImage={seoImg}
     >
-      <Header title={pageInfo.title} subtitle={pageInfo.excerpt} />
-      <GatsbyImage
-        image={coverImg}
-        className={styles.image}
-        title={pageInfo.title}
-        alt={pageInfo.excerpt}
-      />
-      <div dangerouslySetInnerHTML={{ __html: pageInfo.html }} />
       <Tabs>
         <TabList>
           <Tab>
-            <p>Product releases</p>
+            <p>Releases</p>
           </Tab>
           <Tab>
-            <p>Industry insights</p>
+            <p>Insights</p>
           </Tab>
           <Tab>
-            <p>iomando stories</p>
+            <p>Stories</p>
           </Tab>
         </TabList>
 
@@ -57,9 +50,8 @@ const iomando = ({ data, location }) => {
             eventually become a unique asset and the enabler of a thriving
             business.`}
           </p>
-          <GatsbyImage
+          <CoverImage
             image={productImg}
-            className={styles.image}
             title="iomando updates"
             alt="iomando release notes and product updates."
           />
@@ -78,9 +70,8 @@ const iomando = ({ data, location }) => {
             amazing piece of technology in the midst of a market we knew nothing
             about.
           </p>
-          <GatsbyImage
+          <CoverImage
             image={insightsImg}
-            className={styles.image}
             title="iomando insights"
             alt="iomando posts that uncover a naive journey of discovery."
           />
@@ -95,9 +86,8 @@ const iomando = ({ data, location }) => {
           <p>
             {`iomando was also the first company I co-founded, right after graduating from college. Back then I was only 24 and barely knew what a P&L was. Besides developing a great product, iomando has taught me a far more valuable lesson: how to build a sustainable business.`}
           </p>
-          <GatsbyImage
+          <CoverImage
             image={storiesImg}
-            className={styles.image}
             title="iomando stories"
             alt="iomando has taught me a valuable lesson: how to build a sustainable business."
           />
@@ -107,16 +97,17 @@ const iomando = ({ data, location }) => {
           {renderPosts(posts, 'memoir')}
         </TabPanel>
       </Tabs>
-    </Layout>
+    </Layoutt>
   );
 };
 
 export const query = graphql`
   {
-    pageInfo: allMarkdownRemark(
+    md: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/content/md/pages/iomando.md/" }
       }
+      limit: 1
     ) {
       ...pageMarkdown
     }
@@ -151,44 +142,5 @@ export const query = graphql`
     }
   }
 `;
-
-iomando.propTypes = {
-  data: PropTypes.shape({
-    coverImg: PropTypes.object.isRequired,
-    productImg: PropTypes.object.isRequired,
-    insightsImg: PropTypes.object.isRequired,
-    storiesImg: PropTypes.object.isRequired,
-    pageInfo: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            html: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-    posts: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
-              tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-              excerpt: PropTypes.string.isRequired,
-            }),
-          }),
-        })
-      ),
-    }),
-  }).isRequired,
-};
 
 export default iomando;

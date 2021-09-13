@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import RenderPage from '../../components/renderPage';
-
+import Layoutt from '../../components/layoutt';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Gamestry = ({ data, location }) => {
@@ -12,7 +11,7 @@ const Gamestry = ({ data, location }) => {
   const posts = data.posts.edges;
 
   return (
-    <RenderPage
+    <Layoutt
       article={false}
       coverImage={coverImg}
       md={md}
@@ -20,7 +19,7 @@ const Gamestry = ({ data, location }) => {
       seoImage={seoImg}
     >
       {renderPosts(posts)}
-    </RenderPage>
+    </Layoutt>
   );
 };
 
