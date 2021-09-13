@@ -13,6 +13,8 @@
 
 html {
   font-size: 16px;
+  width: clamp(375px, 100%, 960px);
+  margin: 2em auto;
 }
 
 h1,
@@ -136,12 +138,14 @@ hr {
 @media (min-width: 576px) {
   html {
     font-size: 16px;
+    margin: 3em auto;
   }
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 17px;
+    margin: 4em auto;
   }
 
   a.anchor {
@@ -152,5 +156,6 @@ hr {
 @media (min-width: 1024px) {
   html {
     font-size: 18px;
+    margin: 5em auto;
   }
 }

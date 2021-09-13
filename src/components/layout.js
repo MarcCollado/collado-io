@@ -33,9 +33,6 @@ const InnerContainer = styled.div`
   display: flex;
   flex-flow: column;
 
-  & > a > div.gatsby-image-wrapper > div {
-  }
-
   @media (min-width: 576px) {
     margin: auto 3em;
   }
@@ -92,7 +89,7 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
   const avatar = data.file.childImageSharp.gatsbyImageData;
 
   return (
-    <OutterContainer>
+    <>
       <Seo
         isArticle={article}
         pageDescription={description}
@@ -108,7 +105,7 @@ const Layout = ({ children, article, description, image, pathname, title }) => {
         </FlexCenter>
         {children}
       </InnerContainer>
-    </OutterContainer>
+    </>
   );
 };
 
