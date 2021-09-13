@@ -1,19 +1,21 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import Layout from '../components/layout';
-import Header from '../components/header';
+import { Link, graphql } from 'gatsby';
+
+import Layoutt from '../components/layoutt';
+import { extractMarkdown } from '../utils/helpers';
 
 const TagsPage = ({ data, location }) => {
-  const { group } = data.allMarkdownRemark;
+  const md = extractMarkdown(data.md.edges);
+  const { group } = data.tags;
 
   return (
-    <Layout
-      title="All tags"
-      description="The blog, tagged"
+    <Layoutt
+      article={false}
+      coverImage={false}
+      md={md}
       pathname={location.pathname}
+      seoImage={false}
     >
-      <Header title="All tags" subtitle="The blog, tagged" />
       <ul>
         {group.map((tag) => (
           <li key={tag.fieldValue}>
@@ -23,13 +25,21 @@ const TagsPage = ({ data, location }) => {
           </li>
         ))}
       </ul>
-    </Layout>
+    </Layoutt>
   );
 };
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(markdown)/" } }) {
+    md: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/tags.md/" } }
+      limit: 1
+    ) {
+      ...pageMarkdown
+    }
+    tags: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/content/md/posts/" } }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
@@ -37,18 +47,5 @@ export const query = graphql`
     }
   }
 `;
-
-TagsPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      group: PropTypes.arrayOf(
-        PropTypes.shape({
-          fieldValue: PropTypes.string.isRequired,
-          totalCount: PropTypes.number.isRequired,
-        }).isRequired
-      ),
-    }),
-  }).isRequired,
-};
 
 export default TagsPage;
