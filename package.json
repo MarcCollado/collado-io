@@ -13,9 +13,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@fontsource/ibm-plex-mono": "^4.5.1",
-    "@fontsource/ibm-plex-sans": "^4.5.1",
-    "@fontsource/ibm-plex-serif": "^4.5.1",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.14.0",
     "gatsby-plugin-catch-links": "^3.14.0",
