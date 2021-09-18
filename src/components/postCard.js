@@ -3,13 +3,14 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
+import { fluid } from '../utils/fluid';
 import Published from './published';
 
 // Styled Components
 
 const PostCardContainer = styled.div`
   display: ${(props) => (props.image ? 'flex' : 'block')};
-  padding-bottom: 0.75em;
+  padding-bottom: ${fluid(12, 16)};
   border-bottom: 1px solid var(--fakeAsbestos22);
 `;
 
