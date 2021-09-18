@@ -9,24 +9,6 @@ import Seo from '../utils/seo';
 
 // Styled Components
 
-// TODO: use fluid to improve spacing between containers and titles
-const OutterContainer = styled.div`
-  width: clamp(375px, 100%, 960px);
-  margin: 2em auto;
-
-  @media (min-width: 576px) {
-    margin: 3em auto;
-  }
-
-  @media (min-width: 768px) {
-    margin: 4em auto;
-  }
-
-  @media (min-width: 1024px) {
-    margin: 5em auto;
-  }
-`;
-
 // TODO: get rid of this container by making outter flex
 const InnerContainer = styled.div`
   margin: auto 2em;
