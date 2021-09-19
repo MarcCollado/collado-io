@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Header from './header';
 import Layout from './layout';
-
 import { renderPosts } from '../utils/helpers';
 
 const TagPage = ({ data, location, pageContext }) => {
@@ -14,17 +12,21 @@ const TagPage = ({ data, location, pageContext }) => {
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
 
+  const md = {
+    title: `Tag: ${tag}`,
+    excerpt: 'Like the blog, but filtered',
+  };
+
   return (
     <Layout
       article={false}
-      description="Like the blog, but filtered"
-      image={null}
+      coverImage={false}
+      md={md}
       pathname={location.pathname}
-      title={`Tag: ${tag}`}
+      seoImage={false}
     >
-      <Header title={`Tag: ${tag}`} subtitle="Like the blog, but filtered" />
       <p>{TagCount}</p>
-      {renderPosts(posts)}{' '}
+      {renderPosts(posts)}
     </Layout>
   );
 };

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
 import { fluid } from '../utils/fluid';
-import Layoutt from './layoutt';
+import Layout from './layout';
 
 // Styled Components
 
@@ -53,7 +53,7 @@ const PostPage = ({ data, pageContext }) => {
   const prev = pageContext.prev.frontmatter.path;
 
   return (
-    <Layoutt
+    <Layout
       article={true}
       coverImage={false}
       md={frontmatter}
@@ -68,7 +68,7 @@ const PostPage = ({ data, pageContext }) => {
         prev={prev === path ? null : prev}
         tags={tags}
       />
-    </Layoutt>
+    </Layout>
   );
 };
 
