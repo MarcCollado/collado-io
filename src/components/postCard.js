@@ -21,7 +21,7 @@ const StyledImg = styled(GatsbyImage)`
   margin: 2.5em 1.5em 1em 0;
 
   & img {
-    margin: ${fluid(8, 16)} auto 0px;
+    border-radius: ${fluid(32, 40)};
   }
 `;
 
