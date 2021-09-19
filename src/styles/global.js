@@ -4,7 +4,7 @@ import { fluid } from '../utils/fluid';
 const GlobalStyles = createGlobalStyle`
 
   html {
-    margin: ${fluid(32, 80)} auto;
+    margin: ${fluid(36, 96)} auto;
     font-size: 16px;
 
     @media (min-width: 768px) {
@@ -36,11 +36,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   p, li {
     margin-block-end: ${fluid(4, 8)};
+    font-size: 1em;
   }
 
   ul,
@@ -50,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
 
   blockquote {
     margin: ${fluid(20, 24)} 0px;
-    padding-left: ${fluid(16, 18)};
+    padding-inline-start: ${fluid(16, 18)};
   }
 
   code {
