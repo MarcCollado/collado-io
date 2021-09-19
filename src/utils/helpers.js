@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Header from '../components/header';
-import Layout from '../components/layout';
 import PostCard from '../components/postCard';
 
 // Dictionary used by work.js to translate k/v pairs
@@ -68,43 +66,3 @@ export function renderPosts(edges, filterTag = '') {
       />
     ));
 }
-
-/**
- * Generates and renders a page layout
- * @generator
- * @param {object} md - data from a md page
- * @param {string} pathname — location.pathname page prop
- * @returns {object} - jsx for the layout + header
- */
-export const renderPageLayout = (md, pathname) => (
-  <Layout
-    article={false}
-    description={md.excerpt}
-    image={null}
-    pathname={pathname}
-    title={md.title}
-  >
-    <Header title={md.title} subtitle={md.excerpt} />
-    <div dangerouslySetInnerHTML={{ __html: md.html }} />
-  </Layout>
-);
-
-/**
- * Currently deprecated
- * @generator
- * @param {array} tagsIn - tags to be included
- * @param {array} tagsIni — tags to be excluded
- * @returns {string} - GraphQL query
- */
-export const filterPosts = (tagsIn = [], tagsIni = []) => {
-  const include = tagsIn.length > 0;
-  const notInclude = tagsIni.length > 0;
-
-  return !include && !notInclude
-    ? `{ fileAbsolutePath: { regex: "/src/content/md/posts/" } }`
-    : `{
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        ${include ? `frontmatter: { tags: { in: ${tagsIn} } }` : ''}
-        ${notInclude ? `frontmatter: { tags: { ini: ${tagsIni} } }` : ''}
-      }`;
-};
