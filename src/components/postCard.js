@@ -15,12 +15,13 @@ const PostCardContainer = styled.div`
 `;
 
 const StyledImg = styled(GatsbyImage)`
-  max-width: 4em;
-  max-height: 4em;
+  max-width: ${fluid(64, 80)};
+  max-height: ${fluid(64, 80)};
+  // TODO: fix the workaround to position the image
   margin: 2.5em 1.5em 1em 0;
 
   & img {
-    border-radius: 2em;
+    margin: ${fluid(8, 16)} auto 0px;
   }
 `;
 

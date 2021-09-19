@@ -16,15 +16,15 @@ import Seo from '../utils/seo';
 const Container = styled.div`
   display: flex;
   flex-flow: column;
-  margin-block-end: ${fluid(16, 32)};
+  margin-block-end: ${fluid(24, 48)};
 `;
 
 const StyledAvatar = styled(GatsbyImage)`
-  width: 4em;
-  margin: 0em auto ${fluid(24, 36)};
+  width: ${fluid(64, 80)};
+  margin: 0px auto ${fluid(16, 40)};
 
   & img {
-    border-radius: 2em;
+    border-radius: ${fluid(32, 40)};
   }
 
   @media (min-width: 768px) {
@@ -38,7 +38,7 @@ const StyledAvatar = styled(GatsbyImage)`
 `;
 
 const CoverImage = styled(GatsbyImage)`
-  margin: 1em 0em 0.5em;
+  margin: ${fluid(16, 20)} 0em ${fluid(8, 12)};
 `;
 
 // Main Components
