@@ -61,43 +61,4 @@ exports.createPages = async ({ actions, graphql }) => {
       context: { tag },
     });
   });
-
-  const episodePostPage = path.resolve(
-    `src/components/EpisodePost/EpisodePost.js`
-  );
-
-  // Fetch all md posts in the episodes folder
-  const fetchEpisodes = await graphql(`
-    {
-      radioLanzaEpisodes: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/content/md/episodes/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-        limit: 10000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (fetchEpisodes.errors) {
-    throw fetchEpisodes.errors;
-  }
-
-  // radioLanzaEpisodes is an array of objects { node }
-  const radioLanzaEpisodes = fetchEpisodes.data.radioLanzaEpisodes.edges;
-
-  // Create pages for each episode using `frontmatter.path`
-  radioLanzaEpisodes.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      component: episodePostPage,
-      context: {},
-    });
-  });
 };
