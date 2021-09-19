@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { fluid } from '../utils/fluid';
+
 // Styled Components
 
 const FlexCenter = styled.div`
@@ -10,7 +12,7 @@ const FlexCenter = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: 0 auto;
+  margin: ${fluid(8, 16)} auto 0px;
   text-align: center;
 `;
 

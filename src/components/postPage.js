@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
+import { fluid } from '../utils/fluid';
 import Layoutt from './layoutt';
 
 // Styled Components
@@ -21,7 +22,7 @@ const PostArticle = styled.div`
   }
 
   hr {
-    margin: 2em 0;
+    margin: ${fluid(32, 40)} 0px;
   }
 
   div > hr {
@@ -37,7 +38,7 @@ const PostArticle = styled.div`
   // Center GIFs
   p > img {
     display: block;
-    margin: 0 auto;
+    margin: 0px auto;
   }
 `;
 
