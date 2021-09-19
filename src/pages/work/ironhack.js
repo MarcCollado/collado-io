@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
-import Layoutt from '../../components/layoutt';
+import Layout from '../../components/layout';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 import '../../styles/tabs.css';
 
@@ -21,7 +21,7 @@ const Ironhack = ({ data, location }) => {
   const posts = data.posts.edges;
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={coverImg}
       md={md}
@@ -79,7 +79,7 @@ const Ironhack = ({ data, location }) => {
           {renderPosts(posts, 'memoir')}
         </TabPanel>
       </Tabs>
-    </Layoutt>
+    </Layout>
   );
 };
 

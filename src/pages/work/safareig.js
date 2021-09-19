@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layoutt from '../../components/layoutt';
+import Layout from '../../components/layout';
 import { renderPosts, extractMarkdown } from '../../utils/helpers';
 
 const Safareig = ({ data, location }) => {
@@ -11,7 +11,7 @@ const Safareig = ({ data, location }) => {
   const posts = data.posts.edges;
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={coverImg}
       md={md}
@@ -19,7 +19,7 @@ const Safareig = ({ data, location }) => {
       seoImage={seoImg}
     >
       {renderPosts(posts)}
-    </Layoutt>
+    </Layout>
   );
 };
 

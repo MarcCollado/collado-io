@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layoutt from '../components/layoutt';
+import Layout from '../components/layout';
 import { renderPosts, extractMarkdown } from '../utils/helpers';
 
 const BlogPage = ({ data, location }) => {
@@ -9,7 +9,7 @@ const BlogPage = ({ data, location }) => {
   const posts = data.posts.edges;
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={false}
       md={md}
@@ -17,7 +17,7 @@ const BlogPage = ({ data, location }) => {
       seoImage={false}
     >
       {renderPosts(posts)}
-    </Layoutt>
+    </Layout>
   );
 };
 

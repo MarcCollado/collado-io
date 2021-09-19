@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layoutt from '../components/layoutt';
+import Layout from '../components/layout';
 import { extractMarkdown } from '../utils/helpers';
 
 const TagsPage = ({ data, location }) => {
@@ -9,7 +9,7 @@ const TagsPage = ({ data, location }) => {
   const { group } = data.tags;
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={false}
       md={md}
@@ -25,7 +25,7 @@ const TagsPage = ({ data, location }) => {
           </li>
         ))}
       </ul>
-    </Layoutt>
+    </Layout>
   );
 };
 

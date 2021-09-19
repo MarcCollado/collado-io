@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layoutt from '../../components/layoutt';
+import Layout from '../../components/layout';
 import PostCard from '../../components/postCard';
 import { extractMarkdown, workmaps } from '../../utils/helpers';
 
@@ -28,7 +28,7 @@ const WorkPage = ({ data, location }) => {
     });
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={false}
       md={md}
@@ -36,7 +36,7 @@ const WorkPage = ({ data, location }) => {
       seoImage={false}
     >
       {renderMediaCards}
-    </Layoutt>
+    </Layout>
   );
 };
 

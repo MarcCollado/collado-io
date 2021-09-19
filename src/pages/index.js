@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layoutt from '../components/layoutt';
+import Layout from '../components/layout';
 import { extractMarkdown } from '../utils/helpers';
 
 const HomePage = ({ data, location }) => {
   const md = extractMarkdown(data.md.edges);
 
   return (
-    <Layoutt
+    <Layout
       article={false}
       coverImage={false}
       md={md}
