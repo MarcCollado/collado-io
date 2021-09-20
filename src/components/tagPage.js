@@ -14,7 +14,7 @@ const TagPage = ({ data, location, pageContext }) => {
 
   const md = {
     title: `Tag: ${tag}`,
-    excerpt: `TagCount`,
+    excerpt: `${TagCount}`,
   };
 
   return (
