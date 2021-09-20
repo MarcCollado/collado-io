@@ -8,13 +8,13 @@ const TagPage = ({ data, location, pageContext }) => {
   const { totalCount } = data.allMarkdownRemark;
   const posts = data.allMarkdownRemark.edges;
   const { tag } = pageContext;
-  const TagCount = `💡 ${totalCount} post${
+  const TagCount = `${totalCount} post${
     totalCount === 1 ? '' : 's'
-  } tagged with "${tag}"`;
+  } tagged with #${tag}`;
 
   const md = {
     title: `Tag: ${tag}`,
-    excerpt: 'Like the blog, but filtered',
+    excerpt: `TagCount`,
   };
 
   return (
