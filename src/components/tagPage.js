@@ -25,7 +25,6 @@ const TagPage = ({ data, location, pageContext }) => {
       pathname={location.pathname}
       seoImage={false}
     >
-      <p>{TagCount}</p>
       {renderPosts(posts)}
     </Layout>
   );
