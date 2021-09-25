@@ -13,18 +13,20 @@ Here you will find whatever I am currently doing, reading, learning, building...
 ## 👨‍🔧 The sidelines
 
 - Writing and podcasting at [Safareig](https://www.safareig.fm)
+- Building a tool that will help improve the Nutriscore rank of food products
+- Advising at Wizan Music' — a product that will directly connect music artists and their fans
 
 ## 👨‍🎓 Books and courses
 
 - 📖 Sapiens — drafting book notes
-- 🎧 Inspired — drafting book notes
 - 🎧 The Little Book of Stoicism
 - 🎧 Zero To One — drafting book notes
+- 🎧 Inspired — drafting book notes
 - 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
 
 ### 🎙 Now playing at "completion" mode
 
-- [Decoder](https://podcasts.apple.com/es/podcast/decoder-with-nilay-patel/id1011668648)
+- [Land of the Giants](https://podcasts.apple.com/es/podcast/land-of-the-giants/id1465767420)
 - [People I (Mostly) Admire](https://podcasts.apple.com/es/podcast/people-i-mostly-admire/id1525936566)
 
 ## 👨‍🔬 On-going thoughts and experiments
@@ -37,6 +39,7 @@ Here you will find whatever I am currently doing, reading, learning, building...
 - Human empathy and negotiation techniques
 - The Socratic method
 - How fundamental statistics play a part in our daily decisions
+- Math and cryptography
 
 ## 🗃 Even more Now(s)
 
