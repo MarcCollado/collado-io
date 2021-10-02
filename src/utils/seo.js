@@ -76,6 +76,9 @@ const Seo = ({
         { name: `twitter:image`, content: image },
         { name: `twitter:creator`, content: twitter },
         { name: `twitter:card`, content: `summary_large_image` },
+
+        // COLORED TABS
+        { name: `theme-color`, content: `#B3E4C8` },
       ].concat(meta)}
     >
       <link rel="icon" type="image/x-icon" href={favicon} />
