@@ -13,15 +13,14 @@ Here you will find whatever I am currently doing, reading, learning, building...
 ## 👨‍🔧 The sidelines
 
 - Writing and podcasting at [Safareig](https://www.safareig.fm)
+- Advising a product that aims to directly connect music artists and their fans
 - Building a tool that will help improve the Nutriscore rank of food products
-- Advising at Wizan Music — a product that will directly connect music artists and their fans
 
 ## 👨‍🎓 Books and courses
 
-- 📖 [Sapiens](/blog/2021/sapiens) — drafting book notes
-- 🎧 The Little Book of Stoicism
-- 🎧 Zero To One — drafting book notes
-- 🎧 Inspired — drafting book notes
+- 📖 [Sapiens](/blog/2021/sapiens)
+- 🎧 [The Little Book of Stoicism](/blog/2021/little-book-stoicism)
+- 🎧 [Zero To One](/blog/2021/zero-to-one)
 - 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
 
 ## 🎙 Playing at "completion" mode
