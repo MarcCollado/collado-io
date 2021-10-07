@@ -16,4 +16,4 @@ To know more about the podcast, you can subscribe through [Apple Podcasts](https
 
 Readers familiar with Radio Lanza know that I derive almost as much pleasure curating the show notes as I do recording the podcast. At the end of the day, maybe it is all an excuse to write down and organize our words in a bullet point fashion.
 
-You can read the show notes on our official website. Also below you'll find a series of posts covering announcements, ideas, and updates around the podcast itself.
+You can read the show notes on our [official website](https://www.radiolanza.com). Also below you'll find a series of posts covering announcements, ideas, and updates around the podcast itself.
