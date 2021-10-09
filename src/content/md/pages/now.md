@@ -13,7 +13,8 @@ Here you will find whatever I am currently doing, reading, learning, building...
 ## 👨‍🔧 The sidelines
 
 - Writing and podcasting at [Safareig](https://www.safareig.fm)
-- Advising a product that aims to directly connect music artists and their fans
+- Advising @ Wiz Music — a platform connecting music artists with their fans
+- Learning about [Gatsby 4](https://www.gatsbyjs.com/gatsby-4/)
 - Building a tool that will help improve the Nutriscore rank of food products
 
 ## 👨‍🎓 Books and courses
@@ -22,16 +23,6 @@ Here you will find whatever I am currently doing, reading, learning, building...
 - 🎧 [The Little Book of Stoicism](/blog/2021/little-book-stoicism)
 - 🎧 [Zero To One](/blog/2021/zero-to-one)
 - 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
-
-## 🎙 Playing at "completion" mode
-
-- [Land of the Giants](https://podcasts.apple.com/es/podcast/land-of-the-giants/id1465767420)
-- [People I (Mostly) Admire](https://podcasts.apple.com/es/podcast/people-i-mostly-admire/id1525936566)
-
-## 👨‍🔬 On-going thoughts
-
-- Sustainability and climate change are themes that have concerned me for a while. Recently, I've decided to "take action" by proactively adopting a more conscious approach to my (already minimal) lifestyle choices.
-- Along these lines, another recurrent topic has been artificial intelligence and the decisions we make around privacy. Becoming less dependent on big tech could be a start. However, I wanted to go deeper and learn fundamental, primary skills, such as growing my food.
 
 ## 🗃 Even more Now(s)
 
