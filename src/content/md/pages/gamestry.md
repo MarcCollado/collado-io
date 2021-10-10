@@ -6,13 +6,9 @@ excerpt: 'A video platform community for gamers'
 # seo: ''
 ---
 
-In 2020, [after almost five years](/blog/2020/thank-you-and-goodbye-ironhack) of pure Ironhack delight — first [establishing Barcelona' operations](/blog/2015/hi-from-ironhack) from the ground up; then later on, in 2017, [setting up the global product team](/blog/2017/back-to-product) — it was about time for me to retreat back to the very definition of early stage.
+In 2020, [after almost five years](/blog/2020/thank-you-and-goodbye-ironhack) at Ironhack — first [establishing Barcelona' operations](/blog/2015/hi-from-ironhack) from the ground up; then later on, in 2017, [setting up the global product team](/blog/2017/back-to-product) — it was about time to retreat to the early stage. On this occasion, the leap was even more daring. It was not only an industry I knew nothing about but also a product class I had never dealt with.
 
-This time around the leap was even more challenging: it was not only an industry (gaming) I knew nothing about but also a type of product (online video platform) that I had never dealt with.
-
-Kick-starting a product from "nada" is always a daring endeavor. However, building something that has never been tried before on top of
-emergent grounds — such as Esports — makes things even more
-exhilarating.
+Kick-starting a product from "nada" is always a challenging endeavor. However, building something that has never been tried before on top of emergent grounds — such as Esports — makes things even more exhilarating.
 
 ## ⚡️ Highlights
 
