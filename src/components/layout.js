@@ -4,10 +4,10 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import 'normalize.css';
 
-import { fluid } from '../utils/fluid';
-import Header from './header';
 import { FlexCenter } from '../styles/containers';
+import { fluid } from '../utils/fluid';
 import GlobalStyles from '../styles/global';
+import Header from './header';
 import Seo from '../utils/seo';
 
 // Styled Components
