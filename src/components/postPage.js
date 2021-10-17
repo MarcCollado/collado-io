@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import BlogPostMeta from './BlogPostMeta/BlogPostMeta';
 import { fluid } from '../utils/fluid';
 import Layout from './layout';
+import PostMeta from './postMeta';
 
 // Styled Components
 
@@ -62,7 +62,7 @@ const PostPage = ({ data, pageContext }) => {
     >
       <PostTitle>{title}</PostTitle>
       <PostArticle dangerouslySetInnerHTML={{ __html: html }} />
-      <BlogPostMeta
+      <PostMeta
         date={date}
         next={next === path ? null : next}
         prev={prev === path ? null : prev}
