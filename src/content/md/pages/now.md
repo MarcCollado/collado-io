@@ -20,7 +20,7 @@ Here you will find whatever I am currently doing, reading, learning, building...
 ## 👨‍🎓 Books and courses
 
 - 📖 [Sapiens](/blog/2021/sapiens)
-- 🎧 [The Little Book of Stoicism](/blog/2021/little-book-stoicism)
+- 🎧 How to Change Your Mind
 - 🎧 [Zero To One](/blog/2021/zero-to-one)
 - 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
 
