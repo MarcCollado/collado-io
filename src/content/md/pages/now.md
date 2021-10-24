@@ -10,19 +10,17 @@ This is a [/now page](https://nownownow.com/p/YAnl), inspired by [Derek Sivers](
 
 Here you will find whatever I am currently doing, reading, learning, building... and keeps me awake at night, timely updated every now and then.
 
-## 👨‍🔧 The sidelines
+## 👨‍🔧 Sidelines
 
-- Writing and podcasting at [Safareig](https://www.safareig.fm)
-- Advising @ Wiz Music — a platform connecting music artists with their fans
-- Learning about [Gatsby 4](https://www.gatsbyjs.com/gatsby-4/)
-- Building a tool that will help improve the Nutriscore rank of food products
+- ✍️ Writing and podcasting at [Safareig](https://www.safareig.fm)
+- 👨‍💻 Advising @ Wiz Music — a platform connecting music artists with their fans
+- 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
 
-## 👨‍🎓 Books and courses
+## 👨‍🎓 Books
 
 - 📖 [Sapiens](/blog/2021/sapiens)
 - 🎧 How to Change Your Mind
 - 🎧 [Zero To One](/blog/2021/zero-to-one)
-- 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
 
 ## 🗃 Even more Now(s)
 
