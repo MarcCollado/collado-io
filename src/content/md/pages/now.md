@@ -10,17 +10,30 @@ This is a [/now page](https://nownownow.com/p/YAnl), inspired by [Derek Sivers](
 
 Here you will find whatever I am currently doing, reading, learning, building... and keeps me awake at night, timely updated every now and then.
 
-## 👨‍🔧 Sidelines
+## 🪗 The sidelines
 
-- ✍️ Writing and podcasting at [Safareig](https://www.safareig.fm)
-- 👨‍💻 Advising @ Wiz Music — a platform connecting music artists with their fans
-- 🎓 [Product Manager Nanodegree](https://www.udacity.com/course/product-manager-nanodegree--nd036)
+Side projects and other things that I'm doing here and there, from time to time.
 
-## 👨‍🎓 Books
+- Writing and podcasting at [Safareig](https://www.safareig.fm).
+- Product advisor at Wizan Music — a platform connecting music artists with their fans through the blockchain.
 
-- 📖 [Sapiens](/blog/2021/sapiens)
-- 🎧 How to Change Your Mind
-- 🎧 [Zero To One](/blog/2021/zero-to-one)
+## 📚 Sitting on my desk
+
+From books, articles, or podcasts, that I'm actively focused on or just skimming through.
+
+- [Super Thinking](/blog/2021/super-thinking)
+- [The Feynman Lectures](https://www.feynmanlectures.caltech.edu)
+- [Sapiens](/blog/2021/sapiens)
+- [Zero To One](/blog/2021/zero-to-one)
+
+## 🤩 Current fixations
+
+Ideas, questions, or topics that I'm now thinking about.
+
+- The impact of [cognitive biases](/tags/psychology) in our day-to-day decisions.
+- The potential applications of blockchain technology for [privacy-minded products](/tags/privacy).
+- What we can do as individuals to prevent climate change and contribute to a more [sustainable future](/tags/minimalism).
+- A new approach to training, with less focus on [fitness performance](/tags/sub3), optimizing instead for a longer life span.
 
 ## 🗃 Even more Now(s)
 
