@@ -30,10 +30,10 @@ From books, articles, or podcasts, that I'm actively focused on or just skimming
 
 Ideas, questions, or topics that I'm now thinking about.
 
-- The impact of [cognitive biases](/tags/psychology) in our day-to-day decisions.
 - The potential applications of blockchain technology for [privacy-minded products](/tags/privacy).
-- What we can do as individuals to prevent climate change and contribute to a more [sustainable future](/tags/minimalism).
 - A new approach to training, with less focus on [fitness performance](/tags/sub3), optimizing instead for a longer life span.
+- What we can do as individuals to prevent climate change and contribute to a more [sustainable future](/tags/minimalism).
+- The impact of [cognitive biases](/tags/psychology) in our day-to-day decisions.
 
 ## 🗃 Even more Now(s)
 
