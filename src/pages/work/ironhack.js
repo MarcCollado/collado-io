@@ -87,7 +87,7 @@ export const query = graphql`
   {
     md: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/pages/ironhack.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/work/ironhack.md/" }
       }
       limit: 1
     ) {

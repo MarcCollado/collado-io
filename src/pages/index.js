@@ -21,7 +21,7 @@ const HomePage = ({ data, location }) => {
 export const query = graphql`
   {
     md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/home.md/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/index.md/" } }
       limit: 1
     ) {
       ...pageMarkdown

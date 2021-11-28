@@ -27,7 +27,9 @@ export const query = graphql`
   {
     md: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/pages/radio-lanza.md/" }
+        fileAbsolutePath: {
+          regex: "/src/content/md/pages/work/radio-lanza.md/"
+        }
       }
       limit: 1
     ) {

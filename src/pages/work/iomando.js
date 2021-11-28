@@ -105,7 +105,7 @@ export const query = graphql`
   {
     md: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/pages/iomando.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/work/iomando.md/" }
       }
       limit: 1
     ) {

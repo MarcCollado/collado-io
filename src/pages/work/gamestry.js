@@ -27,7 +27,7 @@ export const query = graphql`
   {
     md: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/pages/gamestry.md/" }
+        fileAbsolutePath: { regex: "/src/content/md/pages/work/gamestry.md/" }
       }
       limit: 1
     ) {

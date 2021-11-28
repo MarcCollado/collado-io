@@ -43,13 +43,15 @@ const WorkPage = ({ data, location }) => {
 export const query = graphql`
   {
     md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/work.md/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/src/content/md/pages/work/index.md/" }
+      }
       limit: 1
     ) {
       ...pageMarkdown
     }
     mediaCards: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/" } }
+      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/work/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       ...pageMarkdown
