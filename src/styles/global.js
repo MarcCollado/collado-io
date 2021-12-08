@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    margin: auto ${fluid(25, 112)};
+    margin: auto ${fluid(25, 128)};
   }
 
   h1,
