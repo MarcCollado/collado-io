@@ -6,12 +6,16 @@ excerpt: 'Singularly curious'
 # seo: ''
 ---
 
-Hello there, I'm Marc — family guy, born and raised in Barcelona, but also...
+👋 Hello there, I'm Marc.
 
-- ✍️ [Aspiring writer](/blog) and 🎙 [irregular podcaster](https://www.safareig.fm)
-- 📚 [Book nerd](/books) and ⌨️ [programmer aficionado](https://github.com/marccollado)
-- 🎲 [Accidental enrepreneur](/work) and 🏗 [product enthusiast](https://linkedin.com/in/marccollado)
+Family guy, born and raised in Barcelona.
 
-And as you might have guessed by now, 📑 list lover, 🔥 emoji maniac, and helpless minimalist.
+- [Aspiring writer](/blog) and [weekly podcaster](https://podcasts.apple.com/es/podcast/foc-a-terra/id1604172036)
+- [Book nerd](/books) and [avid runner](https://www.strava.com/athletes/marccollado)
+- [Accidental entrepreneur](/work) and [programmer aficionado](https://github.com/marccollado)
 
-ℹ️ To know more about what I am currently up to, check out my [now page](/now). Inspired by [Derek Sivers](https://twitter.com/sivers) and the [nownownow](https://nownownow.com/) project.
+And as you might have guessed by now, list lover and helpless minimalist.
+
+ℹ️ To know more about what I'm currently up to, check out my [now page](/now).
+
+📬 Get in touch. I'm not on social media, but I check [LinkedIn](https://linkedin.com/in/marccollado) now and then.
