@@ -12,12 +12,12 @@ const FlexCenter = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: ${fluid(8, 16)} auto 0px;
+  margin: ${fluid(8, 12)} auto 0px;
   text-align: center;
 `;
 
 const Subtitle = styled.p`
-  margin-block-start: 0.25em;
+  margin-block-start: ${fluid(4, 8)};
   font-size: smaller;
   text-align: center;
   text-transform: uppercase;
