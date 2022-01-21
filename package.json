@@ -1,7 +1,7 @@
 {
   "name": "collado.io",
-  "description": "Marc Collado — personal website",
-  "version": "21.10",
+  "description": "Marc Collado personal website",
+  "version": "22.01",
   "author": "Marc Collado <marc@collado.io>",
   "homepage": "https://www.collado.io",
   "repository": {
@@ -50,8 +50,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "prettier": {
-    "singleQuote": true
   }
 }
