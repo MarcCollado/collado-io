@@ -21,7 +21,7 @@ Late in 2017, the company ended up acquired by [Citibox](https://www.citibox.com
 - Brought the company to two successful funding rounds
 - Featured as 30 under 30 by Entrepreneur Magazine in 2015
 
-## 🗃 More on iomando
+## 🗃 (Even) more iomando
 
 If you want to learn more about iomando, below you'll find additional content that covers its story from a more personal perspective.
 

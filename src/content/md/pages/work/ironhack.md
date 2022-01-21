@@ -31,7 +31,7 @@ After more than 4 years, and a great deal of nostalgia, [I said goodbye](/blog/2
 - Went from idea to establishing the largest team in the entire organization
 - Led the cross-functional team that delivered the firsts foundational company-wide products
 
-## 🗃 More on Ironhack
+## 🗃 (Even) more Ironhack
 
 If you want to learn more about Ironhack, below you'll find additional content that covers its story from a more personal perspective.
 
