@@ -18,14 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/content/img`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown`,
-        path: `${__dirname}/src/content/md`,
+        path: `${__dirname}/src/content`,
       },
     },
     // MARKDOWN
@@ -59,19 +52,9 @@ module.exports = {
     },
     // IMAGES & ASSETS
     `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `blurred`,
-          quality: 100,
-        },
-      },
-    },
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    // OFFLINE
-    // To learn more, visit: https://gatsby.dev/offline
+    // OFFLINE -> https://gatsby.dev/offline
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
