@@ -1,18 +1,28 @@
 ---
-title: 'iomando'
 date: '2011-09-01'
-path: '/work/iomando'
 excerpt: 'Keyless access management for mobile devices'
-# seo: ''
+path: '/work/iomando'
+position: 'Co-founder and CPO'
+status: 'acquired'
+title: 'iomando'
+type: 'startup'
 ---
 
-In 2011, inadvertently, [I became an entrepreneur](/blog/2013/iomando-prologue). Upon graduating from college, a random idea led me to co-found iomando technologies — a startup pioneering keyless access management for mobile devices. Which in plain English means opening doors and other stuff with your phone.
+In 2011, at age 24, and right after finishing my [master's degree in Industrial Engineering](/blog/2013/industrial-engineer), inadvertently, [I became an entrepreneur](/blog/2013/iomando-prologue).
 
-Late in 2017, the company ended up acquired by [Citibox](https://www.citibox.com/), that integrated iomando's technology into their core product: parcel boxes to receive online purchases.
+A random idea led me to co-found iomando technologies — a startup pioneering keyless access management for mobile devices. A product that allowed users to open a wide range of locks with their smartphones. Becoming one of the first IoT projects to successfully integrate with the nascent mobile ecosystem.
+
+Late in 2017, the company ended up acquired by [Citibox](https://www.citibox.com/). Which utilized iomando's technology to digitize and power their parcel boxes to receive online purchases.
 
 ## ⚡️ Highlights
 
 - Built and launched the [first version of the product](/blog/2013/iomando-10)
-- Hired, scaled, and led both the product and engineering teams
-- Raised a seed round of 300.000€ with local angels and early-stage funds
+- Hired, scaled, and led the product and engineering teams
+- Brought the company to two successful funding rounds
 - Featured as 30 under 30 by Entrepreneur Magazine in 2015
+
+## 🗃 More on iomando
+
+If you want to learn more about iomando, below you'll find additional content about it.
+
+![iomando mobile app](../../../img/pages/iomando-app.jpg 'iomando mobile app')
