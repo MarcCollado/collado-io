@@ -23,6 +23,6 @@ Late in 2017, the company ended up acquired by [Citibox](https://www.citibox.com
 
 ## 🗃 More on iomando
 
-If you want to learn more about iomando, below you'll find additional content about it.
+If you want to learn more about iomando, below you'll find additional content that covers its story from a more personal perspective.
 
 ![iomando mobile app](../../../img/pages/iomando-app.jpg 'iomando mobile app')
