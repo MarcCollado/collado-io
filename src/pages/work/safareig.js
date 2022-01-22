@@ -2,13 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../../components/layout';
-import { renderPosts, extractMarkdown } from '../../utils/helpers';
+import { extractMarkdown } from '../../utils/helpers';
 
 const Safareig = ({ data, location }) => {
   const coverImg = data.coverImg.childImageSharp.gatsbyImageData;
   const seoImg = data.coverImg.childImageSharp.gatsbyImageData.src;
   const md = extractMarkdown(data.md.edges);
-  const posts = data.posts.edges;
+  // const posts = data.posts.edges;
 
   return (
     <Layout
@@ -18,7 +18,7 @@ const Safareig = ({ data, location }) => {
       pathname={location.pathname}
       seoImage={seoImg}
     >
-      {renderPosts(posts)}
+      {/* {renderPosts(posts)} */}
     </Layout>
   );
 };
@@ -33,15 +33,15 @@ export const query = graphql`
     ) {
       ...pageMarkdown
     }
-    posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        frontmatter: { tags: { in: ["safareig"] } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allPosts
-    }
+    # posts: allMarkdownRemark(
+    #   filter: {
+    #     fileAbsolutePath: { regex: "/src/content/md/posts/" }
+    #     frontmatter: { tags: { in: ["safareig"] } }
+    #   }
+    #   sort: { fields: [frontmatter___date], order: DESC }
+    # ) {
+    #   ...allPosts
+    # }
     coverImg: file(relativePath: { eq: "pages/safareig-cover.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 1024)
