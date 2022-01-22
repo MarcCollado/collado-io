@@ -59,7 +59,16 @@ module.exports = {
     },
     // IMAGES & ASSETS
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 100,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     // OFFLINE -> https://gatsby.dev/offline
     {
