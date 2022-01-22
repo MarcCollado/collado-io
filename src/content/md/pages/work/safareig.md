@@ -12,6 +12,4 @@ El teu aperitiu setmanal on analitzem com la tecnologia està canviant la societ
 
 <blockquote class="twitter-tweet"><p lang="ca" dir="ltr">🐣 Safareig és un podcast que neix de la mà del Marc i d&#39;en Ramon, dos apassionats de la tecnologia i del producte amb un fort interès en l&#39;anàlisi pragmàtic o idealista de com aquests estan afectant la societat. 🧶 <a href="https://t.co/FNUMTUwzCN">pic.twitter.com/FNUMTUwzCN</a></p>&mdash; Safareig (@safareigfm) <a href="https://twitter.com/safareigfm/status/1338754285169938432?ref_src=twsrc%5Etfw">December 15, 2020</a></blockquote>
 
-Per saber-ne més, pots visitar-nos a [safareig.fm](https://www.safareig.fm), o llegir [aquest artícle](/blog/2020/safareig) que t'explicarà la visió darrere del projecte. Finalment, no dubtis en [seguir-nos a Twitter](https://twitter.com/safareigfm) i subscriure't per ser el primer en escoltar-nos.
-
-## 🗃 (Encara) més Safareig
+Per saber-ne més, pots visitar a la nostra [web oficial](https://www.safareig.fm) o llegir [aquest artícle](/blog/2020/safareig) que t'explicarà la visió darrere del projecte. Finalment, no dubtis en [seguir-nos a Twitter](https://twitter.com/safareigfm) i [subscriure't](https://podcasts.apple.com/es/podcast/safareig/id1539383682) per ser el primer en escoltar-nos.
