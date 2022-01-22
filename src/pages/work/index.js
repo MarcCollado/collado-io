@@ -56,6 +56,11 @@ export const query = graphql`
     ) {
       ...pageMarkdown
     }
+    focATerra: file(relativePath: { eq: "logos/foc-a-terra.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 256)
+      }
+    }
     safareig: file(relativePath: { eq: "logos/safareig.png" }) {
       childImageSharp {
         gatsbyImageData(width: 256)
