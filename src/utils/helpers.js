@@ -3,12 +3,15 @@ import React from 'react';
 import PostCard from '../components/postCard';
 
 // Dictionary used by work.js to translate k/v pairs
+// key: matches the md title when rendering media cards
+// value: matches the label from the GQL query
 export const workmaps = {
   iomando: 'iomando',
   Ironhack: 'ironhack',
   'Radio Lanza': 'radioLanza',
   Gamestry: 'gamestry',
   Safareig: 'safareig',
+  'Foc a Terra': 'focATerra',
   Pansa: 'pansa',
   Sub3: 'sub3',
   '#TIL': 'til',
