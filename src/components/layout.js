@@ -46,7 +46,7 @@ const CoverImage = styled(GatsbyImage)`
 const Layout = ({ children, article, coverImage, md, pathname, seoImage }) => {
   // GraphQL
   const data = useStaticQuery(graphql`
-    query AvatarrQuery {
+    query AvatarQuery {
       file(relativePath: { eq: "logos/marc.png" }) {
         childImageSharp {
           gatsbyImageData(width: 256)
