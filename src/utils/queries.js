@@ -47,3 +47,27 @@ export const PageMarkdownQuery = graphql`
     }
   }
 `;
+
+/*
+Used by: Work to render WorkCards
+- Retrieves the markdown data to build top-level pages
+*/
+export const WorkMarkdownQuery = graphql`
+  fragment workMarkdown on MarkdownRemarkConnection {
+    edges {
+      node {
+        frontmatter {
+          date(formatString: "YYYY")
+          excerpt
+          path
+          position
+          status
+          title
+          type
+        }
+        html
+        id
+      }
+    }
+  }
+`;
