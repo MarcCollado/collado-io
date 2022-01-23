@@ -5,7 +5,7 @@ path: '/work/iomando'
 position: 'Co-founder and CPO'
 status: 'acquired'
 title: 'iomando'
-type: 'startup'
+type: '🏭 startup'
 ---
 
 In 2011, at age 24, and right after finishing my [master's degree in Industrial Engineering](/blog/2013/industrial-engineer), inadvertently, [I became an entrepreneur](/blog/2013/iomando-prologue).

@@ -5,7 +5,7 @@ path: '/work/gamestry'
 position: 'Co-founder and CPO'
 status: 'active'
 title: 'Gamestry'
-type: 'startup'
+type: '🏭 startup'
 ---
 
 In 2020, [after five years](/blog/2020/thank-you-and-goodbye-ironhack) at Ironhack and having scaled both [Barcelona campus](/blog/2015/hi-from-ironhack) and [product global product team](/blog/2017/back-to-product), I moved on to co-found Gamestry and become its Chief Product Officer.

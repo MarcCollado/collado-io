@@ -5,7 +5,7 @@ path: '/work/radio-lanza'
 position: 'Co-host'
 status: 'stopped'
 title: 'Radio Lanza'
-type: 'podcast'
+type: '🎙 podcast'
 ---
 
 [Radio Lanza](https://www.radiolanza.com) is a podcast co-hosted by Jimmy Flores and Marc Collado encouraging entrepreneurs to launch their projects. In each episode, we share personal experiences on how to turn ideas into products, creating a structured educational toolkit along the way.

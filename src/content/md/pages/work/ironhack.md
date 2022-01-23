@@ -5,7 +5,7 @@ path: '/work/ironhack'
 position: 'Campus Manager'
 status: 'active'
 title: 'Ironhack'
-type: 'startup'
+type: '🏭 startup'
 ---
 
 In 2015, [joined Ironhack as employee #5](https://www.ironhack.com/) motivated to change the way we learn about technology.
