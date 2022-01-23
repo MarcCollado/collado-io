@@ -1,11 +1,11 @@
 ---
-date: '2021-01-01'
+date: '2022-01-01'
 excerpt: 'Un podcast tecnològic de minories per a la majoria'
 path: '/work/foc-a-terra'
 position: 'Co-host'
-status: 'active'
+status: 'Active'
 title: 'Foc a Terra'
-type: '🎙 podcast'
+type: 'Podcast'
 ---
 
 Foc a Terra és un podcast amb [Àlex R. Bacardit](https://twitter.com/lexrodba) i [Marc Collado](https://twitter.com/MarcCollado).

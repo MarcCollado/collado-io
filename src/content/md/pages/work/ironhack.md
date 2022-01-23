@@ -3,9 +3,9 @@ date: '2015-09-01'
 excerpt: 'Empowering the next generation of digital creators'
 path: '/work/ironhack'
 position: 'Campus Manager'
-status: 'active'
+status: 'Active'
 title: 'Ironhack'
-type: '🏭 startup'
+type: 'Startup'
 ---
 
 In 2015, [joined Ironhack as employee #5](https://www.ironhack.com/) motivated to change the way we learn about technology.
