@@ -59,6 +59,7 @@ export const WorkMarkdownQuery = graphql`
         frontmatter {
           date(formatString: "YYYY")
           excerpt
+          link
           path
           position
           status

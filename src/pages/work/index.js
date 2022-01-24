@@ -21,7 +21,7 @@ const WorkPage = ({ data, location }) => {
           date={edge.node.frontmatter?.date}
           excerpt={edge.node.frontmatter?.excerpt}
           image={img}
-          path={edge.node.frontmatter?.path}
+          path={edge.node.frontmatter?.path || edge.node.frontmatter?.link}
           position={edge.node.frontmatter?.position}
           status={edge.node.frontmatter?.status}
           title={k}
