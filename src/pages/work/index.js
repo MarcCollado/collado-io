@@ -2,13 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../../components/layout';
-import PostCard from '../../components/postCard';
+import WorkCard from '../../components/workCard';
 import { extractMarkdown, workmaps } from '../../utils/helpers';
 
 const WorkPage = ({ data, location }) => {
   const md = extractMarkdown(data.md.edges);
-  // Media card generator
-  const renderMediaCards = data.mediaCards.edges
+  // WorkCard generator
+  const renderWorkCards = data.mediaCards.edges
     .filter((edge) => edge.node.frontmatter.title in workmaps)
     .map((edge) => {
       const k = edge.node.frontmatter.title;
@@ -16,13 +16,16 @@ const WorkPage = ({ data, location }) => {
       const img = data[v].childImageSharp.gatsbyImageData;
 
       return (
-        <PostCard
+        <WorkCard
           key={edge.node.id}
-          date={null}
+          date={edge.node.frontmatter?.date}
           excerpt={edge.node.frontmatter?.excerpt}
           image={img}
           path={edge.node.frontmatter?.path}
+          position={edge.node.frontmatter?.position}
+          status={edge.node.frontmatter?.status}
           title={k}
+          type={edge.node.frontmatter?.type}
         />
       );
     });
@@ -35,7 +38,7 @@ const WorkPage = ({ data, location }) => {
       pathname={location.pathname}
       seoImage={false}
     >
-      {renderMediaCards}
+      {renderWorkCards}
     </Layout>
   );
 };
@@ -54,7 +57,12 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "/src/content/md/pages/work/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...pageMarkdown
+      ...workMarkdown
+    }
+    wizMusic: file(relativePath: { eq: "logos/wiz-music.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 256)
+      }
     }
     focATerra: file(relativePath: { eq: "logos/foc-a-terra.jpg" }) {
       childImageSharp {
