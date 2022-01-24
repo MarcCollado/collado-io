@@ -2,7 +2,7 @@
 date: '2020-01-01'
 excerpt: 'A video platform community for gamers'
 path: '/work/gamestry'
-position: 'Co-founder and CPO'
+position: 'Co-founder & CPO'
 status: 'Active'
 title: 'Gamestry'
 type: 'Startup'

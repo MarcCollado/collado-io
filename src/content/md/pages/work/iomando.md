@@ -2,7 +2,7 @@
 date: '2011-09-01'
 excerpt: 'Keyless access management for mobile devices'
 path: '/work/iomando'
-position: 'Co-founder and CPO'
+position: 'Co-founder & CPO'
 status: 'Sold'
 title: 'iomando'
 type: 'Startup'
