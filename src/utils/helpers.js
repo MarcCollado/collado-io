@@ -12,6 +12,7 @@ export const workmaps = {
   Gamestry: 'gamestry',
   Safareig: 'safareig',
   'Foc a Terra': 'focATerra',
+  'Wiz Music': 'wizMusic',
   Pansa: 'pansa',
   Sub3: 'sub3',
   '#TIL': 'til',
