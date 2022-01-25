@@ -2,7 +2,8 @@ import { graphql } from 'gatsby';
 
 /*
 Used by: Blog, Books, Now, Work(s)
-- No html is requested since this query only generates cards
+- No `html` is requested since this query only generates cards
+- `html` is requested on postPage
 - Use in combination with render__Cards methods
 */
 export const allPostsQuery = graphql`
@@ -27,8 +28,9 @@ export const allPostsQuery = graphql`
 `;
 
 /*
-Used by: Home, Books, Work(s), Now
+Used by: Home, Books, Work (and 3x work pages), Now, Tags, 404
 - Retrieves the markdown data to build top-level pages
+- Work pages are later sourced by
 */
 export const PageMarkdownQuery = graphql`
   fragment pageMarkdown on MarkdownRemarkConnection {
@@ -50,7 +52,8 @@ export const PageMarkdownQuery = graphql`
 
 /*
 Used by: Work to render WorkCards
-- Retrieves the markdown data to build top-level pages
+- Retrieves the markdown data to build WorkCards
+- If the item has its own WorkPage, gets `path`, otherwise, gets `link`
 */
 export const WorkMarkdownQuery = graphql`
   fragment workMarkdown on MarkdownRemarkConnection {
@@ -59,10 +62,11 @@ export const WorkMarkdownQuery = graphql`
         frontmatter {
           date(formatString: "YYYY")
           excerpt
-          link
-          path
+          link # for pages that don't have a dedicated WorkPage
+          path # for pages that have a dedicated WorkPage
           position
-          status
+          # seo
+          status # [Active, Sold, Stopped]
           title
           type
         }
