@@ -7,11 +7,7 @@
 # [context.deploy-preview]
 # [context.branch-deploy]
 
-[[redirects]]
-  from = "https://collado-io.netlify.app/*"
-  to = "https://www.collado.io/:splat"
-
-  status = 301
+# [[redirects]]
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
