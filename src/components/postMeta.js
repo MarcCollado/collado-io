@@ -10,7 +10,6 @@ import Tag from './tag';
 // Styled Components
 
 const LinkContainer = styled.div`
-  display: ${(props) => (props.show ? 'inline' : 'none')};
   float: ${(props) => (props.isPrev ? 'left' : 'right')};
   margin: ${fluid(32, 64)} 1em 0em;
 `;
@@ -49,14 +48,18 @@ const StyledLink = styled(Link)`
 const PostMeta = ({ date, tags, next, prev }) => (
   <>
     <div>
-      <LinkContainer show={prev} isPrev={prev}>
-        <StyledSpan>{`—— `}</StyledSpan>
-        <StyledLink to={prev}>previous post</StyledLink>
-      </LinkContainer>
-      <LinkContainer show={next}>
-        <StyledLink to={next}>next post</StyledLink>
-        <StyledSpan>{` ——`}</StyledSpan>
-      </LinkContainer>
+      {!!prev && (
+        <LinkContainer isPrev={prev}>
+          <StyledSpan>{`—— `}</StyledSpan>
+          <StyledLink to={prev}>previous post</StyledLink>
+        </LinkContainer>
+      )}
+      {!!next && (
+        <LinkContainer>
+          <StyledLink to={next}>next post</StyledLink>
+          <StyledSpan>{` ——`}</StyledSpan>
+        </LinkContainer>
+      )}
     </div>
     <MetaContainer>
       <Published date={date} />
