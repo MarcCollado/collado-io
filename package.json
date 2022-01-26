@@ -40,7 +40,6 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@netlify/plugin-gatsby": "^2.0.0-beta",
     "gatsby-plugin-netlify": "^4.0.0",
     "prettier": "^2.5.1"
   },
