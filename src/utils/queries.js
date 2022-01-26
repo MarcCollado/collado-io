@@ -66,7 +66,7 @@ export const WorkMarkdownQuery = graphql`
           path # for pages that have a dedicated WorkPage
           position
           # seo
-          status # [Active, Sold, Stopped]
+          status # [Active, Idle, Stopped, Sold]
           title
           type
         }
