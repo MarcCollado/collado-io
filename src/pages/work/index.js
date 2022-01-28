@@ -59,7 +59,7 @@ export const query = graphql`
     ) {
       ...workMarkdown
     }
-    wizMusic: file(relativePath: { eq: "logos/wiz-music.png" }) {
+    wizMusic: file(relativePath: { eq: "logos/wiz-music.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 256)
       }
