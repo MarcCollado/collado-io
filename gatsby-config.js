@@ -87,7 +87,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     // UTILS & HELPERS
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
