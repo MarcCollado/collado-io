@@ -48,10 +48,18 @@ const CardExcerpt = styled.p`
 `;
 
 const StatusLight = styled.div`
+  background-color: ${(props) =>
+    props.status === 'Stopped'
+      ? 'OrangeRed'
+      : props.status === 'Idle'
+      ? 'Yellow'
+      : props.status === 'Sold'
+      ? 'GoldenRod'
+      : 'ForestGreen'};
   border-radius: ${fluid(2, 4)};
-  background-color: tomato;
   height: ${fluid(4, 8)};
   margin-inline-end: ${fluid(4, 6)};
+  opacity: 0.8;
   width: ${fluid(4, 8)};
 `;
 
@@ -96,7 +104,7 @@ const WorkCard = ({
         <CardPill>{date}</CardPill>
         <CardPill>
           <StatusPillContainer>
-            {/* <StatusLight /> */}
+            <StatusLight status={status} />
             {status}
           </StatusPillContainer>
         </CardPill>
