@@ -6,7 +6,7 @@
   "homepage": "https://www.collado.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarcCollado/collado-io"
+    "url": "git+https://github.com/MarcCollado/collado-io"
   },
   "keywords": [
     "gatsby"
