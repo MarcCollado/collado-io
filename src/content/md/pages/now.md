@@ -12,19 +12,20 @@ Here you will find whatever I am currently doing, reading, learning, building...
 
 ## 🪗 The sidelines
 
-Side projects and other things that I'm doing here and there, from time to time.
+Projects and other things that I'm doing here and there.
 
-- Writing and podcasting at [Safareig](https://www.safareig.fm).
-- Product advisor at Wizan Music — a platform connecting music artists with their fans through the blockchain.
+- Writing and podcasting at [Foc a Terra](https://rss.com/podcasts/focaterra/612160/).
+- Product at [Wiz Music](https://www.wizmusic.io/en) — a web3 platform connecting music artists with their fans.
 
 ## 📚 Sitting on my desk
 
 From books, articles, or podcasts, that I'm actively focused on or just skimming through.
 
+- [Reality Is Not What It Seems](https://www.amazon.com/dp/0141983213)
 - [Super Thinking](/blog/2021/super-thinking)
 - [The Feynman Lectures](https://www.feynmanlectures.caltech.edu)
 - [Sapiens](/blog/2021/sapiens)
-- [Zero To One](/blog/2021/zero-to-one)
+- [Principles](/blog/2021/principles)
 
 ## 🤩 Current fixations
 
