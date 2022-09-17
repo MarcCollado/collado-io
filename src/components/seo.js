@@ -1,12 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
-import marc from '../../static/marc-avatar.png';
-import favicon from '../../static/favicon.png';
+import favicon from '../../static/favicon.ico';
 
-const Seo = ({
-  isArticle,
+const SEO = ({
   meta = [],
   pageDescription,
   pageImage,
@@ -86,4 +84,4 @@ const Seo = ({
   );
 };
 
-export default Seo;
+export default SEO;
