@@ -3,7 +3,7 @@ const path = require('path');
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  const tagsPage = path.resolve(`src/templates/tags-page.js`);
+  const tagPage = path.resolve(`src/templates/tag-page.js`);
 
   // Fetch all markdown posts
   const fetchPosts = await graphql(`
@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   uniqueTags.forEach((tag) => {
     createPage({
       path: `/tags/${tag}`,
-      component: tagsPage,
+      component: tagPage,
       context: { tag },
     });
   });
