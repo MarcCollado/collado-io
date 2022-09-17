@@ -9,14 +9,29 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const fetchPosts = await graphql(`
     {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/content/md/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/src/media/markdown/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
+            id
             frontmatter {
               path
               tags
+            }
+          }
+          next {
+            id
+            frontmatter {
+              path
+              title
+            }
+          }
+          previous {
+            id
+            frontmatter {
+              path
+              title
             }
           }
         }
@@ -24,8 +39,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `);
 
-  if (fetchPosts.errors) {
-    throw fetchPosts.errors;
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors);
+    return;
   }
 
   // posts -> [{ node }, { node }, ..., { node }]
@@ -33,15 +49,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create a page for each post through path
   posts.forEach((post, index) => {
-    const prev =
-      index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
-    const next = index === 0 ? posts[index].node : posts[index - 1].node;
+    const next = post.edges.next;
+    const prev = post.edges.previous;
     createPage({
       path: post.node.frontmatter.path,
-      component: postPage,
+      component: blogPost,
       context: {
-        prev,
         next,
+        prev,
       },
     });
   });
@@ -57,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   uniqueTags.forEach((tag) => {
     createPage({
       path: `/tags/${tag}`,
-      component: tagPage,
+      component: tagsPage,
       context: { tag },
     });
   });
