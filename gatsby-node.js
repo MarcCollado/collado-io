@@ -1,9 +1,9 @@
 const path = require('path');
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const postPage = path.resolve(`src/components/postPage.js`);
-  const tagPage = path.resolve(`src/components/tagPage.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const tagsPage = path.resolve(`src/templates/tags-page.js`);
 
   // Fetch all markdown posts
   const fetchPosts = await graphql(`
