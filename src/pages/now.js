@@ -1,44 +1,24 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { renderPosts, extractMarkdown } from '../utils/helpers';
+import SEO from '../components/seo';
 
-const NowPage = ({ data, location }) => {
-  const md = extractMarkdown(data.md.edges);
-  const posts = data.posts.edges;
+const Now = ({ location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Now, now, now...`;
 
   return (
-    <Layout
-      article={false}
-      coverImage={false}
-      md={md}
-      pathname={location.pathname}
-      seoImage={false}
-    >
-      {renderPosts(posts)}
+    <Layout location={location} title={siteTitle}>
+      <Seo title="Now, now, now..." />
+      <p className="global-header">Welcome! To the,</p>
+      <h1 className="main-heading">About Page</h1>
+      <p>Lorem ipsum...</p>
+      <h2>Work</h2>
+      <p>Lorem ipsum...</p>
+      <h2>Side projects</h2>
+      <p>Lorem ipsum...</p>
     </Layout>
   );
 };
 
-export const query = graphql`
-  {
-    md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/now.md/" } }
-      limit: 1
-    ) {
-      ...pageMarkdown
-    }
-    posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        frontmatter: { tags: { in: ["now"], nin: ["drafts"] } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      ...allPosts
-    }
-  }
-`;
-
-export default NowPage;
+export default Now;
