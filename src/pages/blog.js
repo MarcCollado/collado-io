@@ -1,42 +1,83 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { renderPosts, extractMarkdown } from '../utils/helpers';
+import SEO from '../components/seo';
+import { extractMarkdown } from '../utils/helpers';
 
-const BlogPage = ({ data, location }) => {
-  const md = extractMarkdown(data.md.edges);
-  const posts = data.posts.edges;
+const Blog = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Blog`;
+  const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout
-      article={false}
-      coverImage={false}
-      md={md}
-      pathname={location.pathname}
-      seoImage={false}
-    >
-      {renderPosts(posts)}
+    <Layout location={location} title={siteTitle}>
+      <Seo title="All blog posts" />
+      <ol style={{ listStyle: `none` }}>
+        {posts.map((post) => {
+          const title = post.node.frontmatter.title;
+          return (
+            <li key={post.node.id}>
+              <article
+                className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
+              >
+                <header>
+                  <h2>
+                    <Link to={post.node.frontmatter.path} itemProp="url">
+                      <span itemProp="headline">{title}</span>
+                    </Link>
+                  </h2>
+                  <small>{post.node.frontmatter.date}</small>
+                </header>
+                {/* Some featured posts may feature its description inline
+                  <section>
+                   <p
+                     dangerouslySetInnerHTML={{
+                       __html: post.frontmatter.excerpt || post.excerpt,
+                     }}
+                     itemProp="description"
+                   />
+                 </section> */}
+              </article>
+            </li>
+          );
+        })}
+      </ol>
     </Layout>
   );
 };
 
-export const query = graphql`
-  {
-    md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/blog.md/" } }
-      limit: 1
-    ) {
-      ...pageMarkdown
+export const blogQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
     }
-    posts: allMarkdownRemark(
+    allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        frontmatter: { tags: { nin: ["drafts", "books"] } }
+        fileAbsolutePath: { regex: "/src/media/markdown/posts" }
+        frontmatter: { tags: { nin: ["drafts"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      ...allPosts
+      edges {
+        node {
+          id
+          # html
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+            tags
+            featured
+            excerpt
+            # seo
+            source
+          }
+        }
+      }
     }
   }
 `;
