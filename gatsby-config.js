@@ -1,34 +1,37 @@
 module.exports = {
   siteMetadata: {
-    title: `Marc Collado' personal website`,
-    description: `Thoughts on pretty much everything.`,
-    siteUrl: `https://www.collado.io`,
-    siteLanguage: `en`,
     author: {
       name: `Marc Collado`,
+      summary: `— homo full stack`,
     },
+    title: `Marc Collado's personal website`,
+    description: `Thoughts on pretty much everything.`,
+    siteLanguage: `en`,
+    siteUrl: `https://www.collado.io`,
     social: {
       email: `marc@collado.io`,
-      twitter: `@MarcCollado`,
+      github: `https://github.com/MarcCollado/`,
+      linkedin: `https://www.linkedin.com/in/MarcCollado/`,
+      reddit: `https://www.reddit.com/user/MarcCollado/`,
+      strava: `https://www.strava.com/athletes/MarcCollado/`,
+      twitter: `https://twitter.com/MarcCollado/`,
     },
   },
   plugins: [
-    // FILESYSTEM
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/content/img`,
+        path: `${__dirname}/src/media/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown`,
-        path: `${__dirname}/src/content/md`,
+        name: `posts`,
+        path: `${__dirname}/src/media/markdown`,
       },
     },
-    // MARKDOWN
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -36,60 +39,89 @@ module.exports = {
           {
             resolve: `gatsby-remark-embed-video`,
             options: {
-              width: 960,
+              maxWidth: 630,
               related: false,
               noIframeBorder: true,
               loadingStrategy: 'lazy',
             },
           },
-          `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 960,
-              linkImagesToOriginal: false,
-              showCaptions: false,
-              quality: 80,
+              maxWidth: 630,
             },
           },
-          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
           `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
-    // IMAGES & ASSETS
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.frontmatter.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.frontmatter.path,
+                  guid: site.siteMetadata.siteUrl + node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': node.html }],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: { fileAbsolutePath: { regex: "/media/blog/" } }
+                  sort: { fields: [frontmatter___date], order: DESC }
+                ) {
+                  nodes {
+                    frontmatter {
+                      date
+                      excerpt
+                      path
+                      tags
+                      title
+                    }
+                    html
+                    id
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Marc Collado',
+          },
+        ],
+      },
+    },
     `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `blurred`,
-          quality: 100,
-        },
-      },
-    },
-    `gatsby-transformer-sharp`,
-    // OFFLINE -> https://gatsby.dev/offline
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Marc Collado`,
-        short_name: `Marc Collado`,
-        start_url: `/`,
-        background_color: `#FFFFFF`,
-        theme_color: `#B3E4C8`,
-        display: `minimal-ui`,
-        icon: `static/favicon.png`,
-        lang: `en`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    // UTILS & HELPERS
-    `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-twitter`,
+    `gatsby-transformer-sharp`,
   ],
 };
