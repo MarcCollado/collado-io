@@ -1,91 +1,55 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import 'normalize.css';
+import * as React from 'react';
+import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import { FlexCenter } from '../styles/containers';
-import { fluid } from '../utils/fluid';
-import GlobalStyles from '../styles/global';
-import Header from './header';
 import Seo from '../utils/seo';
 
-// Styled Components
-
-// TODO: get rid of this container by making outter flex
-const Container = styled.div`
-  display: flex;
-  flex-flow: column;
-  margin-block-end: ${fluid(24, 48)};
-`;
-
-const StyledAvatar = styled(GatsbyImage)`
-  width: ${fluid(64, 80)};
-  margin: 0px auto ${fluid(16, 40)};
-
-  & img {
-    border-radius: ${fluid(32, 40)};
-  }
-
-  @media (min-width: 768px) {
-    transition: all 300ms ease-in-out;
-
-    &:hover {
-      transform: ${(props) =>
-        props.pathname === '/' ? 'scale(1, 1)' : 'scale(1.15, 1.15)'};
-    }
-  }
-`;
-
-const CoverImage = styled(GatsbyImage)`
-  margin: ${fluid(16, 20)} 0em ${fluid(8, 12)};
-`;
-
-// Main Components
-
-const Layout = ({ children, article, coverImage, md, pathname, seoImage }) => {
-  // GraphQL
-  const data = useStaticQuery(graphql`
-    query AvatarQuery {
-      file(relativePath: { eq: "logos/marc.png" }) {
-        childImageSharp {
-          gatsbyImageData(width: 256)
-        }
-      }
-    }
-  `);
-
-  const avatar = data.file.childImageSharp.gatsbyImageData;
-  const { excerpt, html, title } = md;
+const Layout = ({ children, location, title }) => {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isRootPath = location.pathname === rootPath;
 
   return (
-    <>
-      <GlobalStyles />
-      <Seo
-        isArticle={article}
-        pageDescription={excerpt}
-        pageImage={seoImage}
-        pageTitle={title}
-        pathname={pathname}
-      />
-      <Container>
-        <FlexCenter>
-          <Link to="/">
-            <StyledAvatar
-              image={avatar}
-              alt="Marc Collado"
-              pathname={pathname}
-            />
-          </Link>
-        </FlexCenter>
-        {!article && <Header title={title} subtitle={excerpt} />}
-        {!article && coverImage && (
-          <CoverImage image={coverImage} title={title} alt={excerpt} />
-        )}
-        {!article && <div dangerouslySetInnerHTML={{ __html: html }} />}
-        {children}
-      </Container>
-    </>
+    <div className="global-wrapper" data-is-root-path={isRootPath}>
+      <nav className="global-navbar">
+        <Link className="global-navbar-image-link" to="/">
+          <StaticImage
+            className="global-navbar-avatar"
+            layout="fixed"
+            formats={['auto', 'webp', 'avif']}
+            src="../../static/marc-avatar.png"
+            width={50}
+            height={50}
+            quality={80}
+            alt="Marc Collado — profile picture"
+          />
+        </Link>
+        <Link
+          className="global-navbar-link"
+          activeClassName={'active-global-navbar-link'}
+          to="/"
+        >
+          About
+        </Link>
+        <Link
+          className="global-navbar-link"
+          activeClassName={'active-global-navbar-link'}
+          to="/blog"
+        >
+          Blog
+        </Link>
+        <Link
+          className="global-navbar-link"
+          activeClassName={'active-global-navbar-link'}
+          to="/now"
+        >
+          Now
+        </Link>
+      </nav>
+      <main>{children}</main>
+      <footer className="footer">
+        © {new Date().getFullYear()} — Built from sunny Barcelona ☀️
+      </footer>
+    </div>
   );
 };
 
