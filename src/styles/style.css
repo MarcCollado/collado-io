@@ -364,7 +364,15 @@ a:focus {
 /* Media queries */
 
 /* Mobile */
-@media (max-width: 576px) {
+@media (max-width: 44rem) {
+  blockquote {
+    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
+    margin-left: var(--spacing-0);
+  }
+  ul,
+  ol {
+    list-style-position: inside;
+  }
   /* blog.js — move date below post link  */
   .post-list-item header {
     flex-direction: column;
@@ -375,14 +383,11 @@ a:focus {
   }
 }
 
-@media (max-width: 42rem) {
-  blockquote {
-    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
-    margin-left: var(--spacing-0);
-  }
-  ul,
-  ol {
-    list-style-position: inside;
+/* Tablet */
+@media (min-width: 44rem) {
+  .global-navbar-avatar:hover {
+    transition: all 300 ease-in-out;
+    transform: scale(1.15, 1.15);
   }
 }
 
