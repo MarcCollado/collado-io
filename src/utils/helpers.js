@@ -1,4 +1,21 @@
-import React from 'react';
+/**
+ * Extracts page information from the corresponding markdown file
+ * @param {array} edges with one object inside
+ * @returns {object} with the page information
+ */
+export function extractMarkdown(edges) {
+  if (typeof edges !== 'object' || edges.length !== 1) {
+    throw new Error('Expected an array with one item.');
+  }
+  const markdownFile = {
+    excerpt: edges[0].node?.frontmatter?.excerpt,
+    path: edges[0].node?.frontmatter?.path,
+    title: edges[0].node?.frontmatter?.title,
+    html: edges[0].node?.html,
+    id: edges[0].node?.id,
+  };
+  return markdownFile;
+}
 
 // import PostCard from '../components/postCard';
 
@@ -18,26 +35,6 @@ export const workmaps = {
   '#TIL': 'til',
   Udacity: 'udacity',
 };
-
-/**
- * Extracts page information from the corresponding markdown file
- * @param {array} edges -> markdown file from GraphQL query results
- * @returns {object} page information
- */
-export function extractMarkdown(edges) {
-  if (typeof edges !== 'object' || edges.length !== 1) {
-    throw new Error('Expected an array with one item.');
-  }
-  const markdownFile = {
-    date: edges[0].node.frontmatter?.date,
-    excerpt: edges[0].node.frontmatter?.excerpt,
-    path: edges[0].node.frontmatter?.path,
-    title: edges[0].node.frontmatter?.title,
-    html: edges[0].node.html,
-    id: edges[0].node.id,
-  };
-  return markdownFile;
-}
 
 // /**
 //  * Generates and renders a list of posts
