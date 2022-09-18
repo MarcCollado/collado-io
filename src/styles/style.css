@@ -275,7 +275,6 @@ a:focus {
 }
 
 .global-navbar-avatar {
-  min-width: 50px;
   border-radius: 100%;
   -webkit-border-radius: 100%; /* Safari */
 }
@@ -294,24 +293,6 @@ a:focus {
 
 .footer {
   text-align: center;
-}
-
-/* bio.js */
-
-.bio {
-  display: flex;
-  margin-bottom: var(--spacing-16);
-}
-
-.bio p {
-  margin-bottom: var(--spacing-0);
-}
-
-.bio-avatar {
-  margin-right: var(--spacing-4);
-  margin-bottom: var(--spacing-0);
-  min-width: 50px;
-  border-radius: 100%;
 }
 
 /* index.js */
@@ -384,7 +365,7 @@ a:focus {
 
 /* Tablet */
 @media (min-width: 44rem) {
-  .global-navbar-avatar:hover {
+  .global-navbar-image-link:hover {
     transition: all 300 ease-in-out;
     transform: scale(1.15, 1.15);
   }
