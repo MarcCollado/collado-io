@@ -1,9 +1,8 @@
 ---
 title: 'Marc Collado'
 date: null
+excerpt: 'Home page'
 path: '/'
-excerpt: 'Singularly curious'
-# seo: ''
 ---
 
 👋 Hello there, I'm Marc.
