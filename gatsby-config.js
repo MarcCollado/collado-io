@@ -94,7 +94,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  filter: { fileAbsolutePath: { regex: "/media/blog/" } }
+                  filter: { fileAbsolutePath: { regex: "/src/media/markdown/" } }
                   sort: { fields: [frontmatter___date], order: DESC }
                 ) {
                   nodes {

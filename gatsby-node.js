@@ -6,10 +6,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const tagPage = path.resolve(`src/templates/tag-page.js`);
 
   // Fetch all markdown posts
-  const fetchPosts = await graphql(`
+  const result = await graphql(`
     {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/media/markdown/" } }
+        filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -45,12 +45,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // posts -> [{ node }, { node }, ..., { node }]
-  const posts = fetchPosts.data.posts.edges;
+  const posts = result.data.posts.edges;
 
   // Create a page for each post through path
   posts.forEach((post, index) => {
-    const next = post.edges.next;
-    const prev = post.edges.previous;
+    const next = post.next;
+    const prev = post.previous;
     createPage({
       path: post.node.frontmatter.path,
       component: blogPost,
@@ -63,9 +63,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // List all unique tags
   let allTags = [];
-  posts.forEach(({ node }) => {
-    allTags = [...allTags, ...node.frontmatter.tags];
-  });
+  posts.forEach(
+    ({ node }) => (allTags = [...allTags, ...node.frontmatter.tags])
+  );
   const uniqueTags = [...new Set(allTags)];
 
   // Create a page for each tag
