@@ -2,16 +2,14 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { extractMarkdown } from '../utils/helpers';
+// import SEO from '../components/seo';
 
-const Blog = ({ data, location }) => {
+const Blog = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Blog`;
   const posts = data.allMarkdownRemark.edges;
-
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All blog posts" />
+    <Layout location={location}>
+      {/* <SEO title={siteTitle} /> */}
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
           const title = post.node.frontmatter.title;
@@ -19,8 +17,8 @@ const Blog = ({ data, location }) => {
             <li key={post.node.id}>
               <article
                 className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
+                // itemScope
+                // itemType="http://schema.org/Article"
               >
                 <header>
                   <h2>
@@ -57,15 +55,14 @@ export const blogQuery = graphql`
     }
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/media/markdown/posts" }
-        frontmatter: { tags: { nin: ["drafts"] } }
+        fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
+        frontmatter: { tags: { nin: ["drafts", "now"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           id
-          # html
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
@@ -73,7 +70,6 @@ export const blogQuery = graphql`
             tags
             featured
             excerpt
-            # seo
             source
           }
         }
@@ -82,4 +78,4 @@ export const blogQuery = graphql`
   }
 `;
 
-export default BlogPage;
+export default Blog;
