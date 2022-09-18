@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 // import SEO from '../components/seo';
 
 const Tags = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Tags`;
+  // const siteTitle = data.site.siteMetadata?.title || `Tags`;
   const { group: tags } = data.allMarkdownRemark;
   return (
     <Layout location={location}>
