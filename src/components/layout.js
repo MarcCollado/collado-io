@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import Seo from '../utils/seo';
 
-const Layout = ({ children, location, title }) => {
+const Layout = ({ children, location }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;
 
