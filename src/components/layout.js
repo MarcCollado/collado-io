@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import Seo from '../utils/seo';
+// import SEO from '';
 
 const Layout = ({ children, location }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
