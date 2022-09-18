@@ -40,7 +40,6 @@ export const PageMarkdownQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           excerpt
           path
-          # seo
           title
         }
         html
