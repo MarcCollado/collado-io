@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostCard from '../components/postCard';
+// import PostCard from '../components/postCard';
 
 // Dictionary used by work.js to translate k/v pairs
 // key: matches the md title when rendering media cards
@@ -39,31 +39,31 @@ export function extractMarkdown(edges) {
   return markdownFile;
 }
 
-/**
- * Generates and renders a list of posts
- * @generator
- * @param {array} edges -> allPosts from GraphQL query results
- * @param {string} filterTag -> render exclusively posts with that tag
- * @returns {array} -> list of cards w/o the html
- */
-export function renderPosts(edges, filterTag = '') {
-  if (typeof edges !== 'object') {
-    throw new Error('Expected an array of posts.');
-  }
+// /**
+//  * Generates and renders a list of posts
+//  * @generator
+//  * @param {array} edges -> allPosts from GraphQL query results
+//  * @param {string} filterTag -> render exclusively posts with that tag
+//  * @returns {array} -> list of cards w/o the html
+//  */
+// export function renderPosts(edges, filterTag = '') {
+//   if (typeof edges !== 'object') {
+//     throw new Error('Expected an array of posts.');
+//   }
 
-  return edges
-    .filter((edge) =>
-      filterTag !== '' ? edge.node.frontmatter?.tags.includes(filterTag) : edge
-    )
-    .filter((edge) => !!edge.node.frontmatter?.date)
-    .map((edge) => (
-      <PostCard
-        key={edge.node.id}
-        date={edge.node.frontmatter?.date}
-        excerpt={edge.node.frontmatter?.excerpt}
-        image={false}
-        path={edge.node.frontmatter?.path}
-        title={edge.node.frontmatter?.title}
-      />
-    ));
-}
+//   return edges
+//     .filter((edge) =>
+//       filterTag !== '' ? edge.node.frontmatter?.tags.includes(filterTag) : edge
+//     )
+//     .filter((edge) => !!edge.node.frontmatter?.date)
+//     .map((edge) => (
+//       <PostCard
+//         key={edge.node.id}
+//         date={edge.node.frontmatter?.date}
+//         excerpt={edge.node.frontmatter?.excerpt}
+//         image={false}
+//         path={edge.node.frontmatter?.path}
+//         title={edge.node.frontmatter?.title}
+//       />
+//     ));
+// }
