@@ -1,5 +1,23 @@
 import { graphql } from 'gatsby';
 
+// Used at index.js, about.js, 404.js
+// Sources markdown data from a file to populate top-level pages
+export const PageMarkdownQuery = graphql`
+  fragment pageMarkdown on MarkdownRemarkConnection {
+    edges {
+      node {
+        frontmatter {
+          excerpt
+          path
+          title
+        }
+        html
+        id
+      }
+    }
+  }
+`;
+
 /*
 Used by: Blog, Books, Now, Work(s)
 - No `html` is requested since this query only generates cards
@@ -22,28 +40,6 @@ export const allPostsQuery = graphql`
           # seo
           source
         }
-      }
-    }
-  }
-`;
-
-/*
-Used by: Home, Books, Work (and 3x work pages), Now, Tags, 404
-- Retrieves the markdown data to build top-level pages
-- Work pages are later sourced by
-*/
-export const PageMarkdownQuery = graphql`
-  fragment pageMarkdown on MarkdownRemarkConnection {
-    edges {
-      node {
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          excerpt
-          path
-          title
-        }
-        html
-        id
       }
     }
   }
