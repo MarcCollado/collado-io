@@ -14,7 +14,7 @@ const Home = ({ data, location }) => {
       {/* <SEO title={siteTitle}></SEO> */}
       <p className="global-header">Hola! I'm</p>
       <h1 className="main-heading">Marc Collado</h1>
-      <div>dangerouslySetInnerHTML={{ __html: markdownFile.html }}</div>
+      <div dangerouslySetInnerHTML={{ __html: markdownFile.html }} />
     </Layout>
   );
 };
