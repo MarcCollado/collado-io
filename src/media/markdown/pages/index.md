@@ -1,6 +1,5 @@
 ---
-title: 'Marc Collado'
-date: null
+title: 'Home'
 excerpt: 'Home page'
 path: '/'
 ---
@@ -15,6 +14,6 @@ Family guy, born and raised in Barcelona.
 
 And as you might have guessed by now, list lover and confessed minimalist.
 
-ℹ️ To know more about what I'm currently up to, check out my [now page](/now).
+ℹ️ To know more about what I'm currently up to, check out my [now page](/about).
 
 📬 Get in touch. I'm not on social media, but I check [LinkedIn](https://linkedin.com/in/marccollado) now and then.

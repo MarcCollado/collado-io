@@ -1,6 +1,5 @@
 ---
 title: 'About'
-date: null
 excerpt: 'About page'
 path: '/about'
 ---
