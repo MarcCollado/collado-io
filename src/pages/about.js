@@ -6,14 +6,15 @@ import Layout from '../components/layout';
 import { extractMarkdown } from '../utils/helpers';
 
 const About = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `About Marc`;
-  const markdownFile = extractMarkdown(data.allMarkdownRemark.edges);
+  // const siteTitle = data.site.siteMetadata?.title;
+  const authorName = data.site.siteMetadata?.author?.name;
+  const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle}></SEO> */}
-      <p className="global-header">About</p>
-      <h1 className="main-heading">Marc Collado</h1>
-      <div dangerouslySetInnerHTML={{ __html: markdownFile.html }} />
+      <p className="global-header">{markdownData.title}</p>
+      <h1 className="main-heading">{authorName}</h1>
+      <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
     </Layout>
   );
 };
@@ -22,6 +23,9 @@ export const query = graphql`
   {
     site {
       siteMetadata {
+        author {
+          name
+        }
         title
       }
     }

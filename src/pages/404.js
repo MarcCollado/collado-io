@@ -5,15 +5,15 @@ import Layout from '../components/layout';
 // import SEO from '../components/seo';
 import { extractMarkdown } from '../utils/helpers';
 
-const Home = ({ data, location }) => {
+const NotFound = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata?.title;
-  const authorName = data.site.siteMetadata?.author?.name;
+  // const authorName = data.site.siteMetadata?.author?.name;
   const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle}></SEO> */}
-      <p className="global-header">Hola! I'm</p>
-      <h1 className="main-heading">{authorName}</h1>
+      <p className="global-header">{markdownData.title}</p>
+      <h1 className="main-heading">{markdownData.excerpt}</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
     </Layout>
   );
@@ -31,7 +31,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/media/markdown/pages/index.md/" }
+        fileAbsolutePath: { regex: "/src/media/markdown/pages/404.md/" }
       }
       limit: 1
     ) {
@@ -40,4 +40,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default NotFound;
