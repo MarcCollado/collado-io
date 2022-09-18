@@ -1,26 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { extractMarkdown } from '../utils/helpers';
+// import SEO from '../components/seo';
 
-const TagsPage = ({ data, location }) => {
-  const md = extractMarkdown(data.md.edges);
-  const { group } = data.tags;
-
+const Tags = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Tags`;
+  const { group: tags } = data.allMarkdownRemark;
   return (
-    <Layout
-      article={false}
-      coverImage={false}
-      md={md}
-      pathname={location.pathname}
-      seoImage={false}
-    >
+    <Layout location={location}>
       <ul>
-        {group.map((tag) => (
+        {tags.map((tag) => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${tag.fieldValue}/`}>
-              {`${tag.fieldValue} (${tag.totalCount})`}
+              <span itemProp="tag">
+                {tag.fieldValue + ' ' + tag.totalCount}
+              </span>
             </Link>
           </li>
         ))}
@@ -31,14 +26,13 @@ const TagsPage = ({ data, location }) => {
 
 export const query = graphql`
   {
-    md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/tags.md/" } }
-      limit: 1
-    ) {
-      ...pageMarkdown
+    site {
+      siteMetadata {
+        title
+      }
     }
-    tags: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/posts/" } }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
     ) {
       group(field: frontmatter___tags) {
         fieldValue
@@ -48,4 +42,4 @@ export const query = graphql`
   }
 `;
 
-export default TagsPage;
+export default Tags;
