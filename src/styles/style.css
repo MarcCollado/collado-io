@@ -355,11 +355,11 @@ a:focus {
   }
   /* blog.js — move date below post link  */
   .post-list-item header {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .post-list-item header small {
-    margin-block-start: var(--spacing-1);
+    margin-block-end: var(--spacing-2);
   }
 }
 
