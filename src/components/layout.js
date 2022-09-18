@@ -26,13 +26,6 @@ const Layout = ({ children, location }) => {
         <Link
           className="global-navbar-link"
           activeClassName={'active-global-navbar-link'}
-          to="/"
-        >
-          About
-        </Link>
-        <Link
-          className="global-navbar-link"
-          activeClassName={'active-global-navbar-link'}
           to="/blog"
         >
           Blog
@@ -40,9 +33,9 @@ const Layout = ({ children, location }) => {
         <Link
           className="global-navbar-link"
           activeClassName={'active-global-navbar-link'}
-          to="/now"
+          to="/about"
         >
-          Now
+          About
         </Link>
       </nav>
       <main>{children}</main>
