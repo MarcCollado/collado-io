@@ -94,7 +94,10 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  filter: { fileAbsolutePath: { regex: "/src/media/markdown/" } }
+                  filter: {
+                    fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
+                    frontmatter: { tags: { nin: ["drafts", "now"] } }
+                  }
                   sort: { fields: [frontmatter___date], order: DESC }
                 ) {
                   nodes {
@@ -111,6 +114,7 @@ module.exports = {
                 }
               }
             `,
+            match: '^/blog/20',
             output: '/rss.xml',
             title: 'Marc Collado',
           },
