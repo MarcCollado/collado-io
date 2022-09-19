@@ -12,8 +12,8 @@ const NotFound = ({ data, location }) => {
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle}></SEO> */}
-      <p className="global-header">{markdownData.title}</p>
-      <h1 className="main-heading">{markdownData.excerpt}</h1>
+      <p className="heading-companion">{markdownData.title}</p>
+      <h1 className="heading">{markdownData.excerpt}</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
     </Layout>
   );
