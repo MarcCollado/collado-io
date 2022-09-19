@@ -100,8 +100,8 @@ h3,
 h4,
 h5 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
-  margin-bottom: var(--spacing-6);
+  margin-block-start: var(--spacing-12);
+  margin-block-end: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
 }
@@ -174,7 +174,7 @@ ol {
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
-  margin-bottom: var(--spacing-8);
+  margin-block-end: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
 }
@@ -182,20 +182,20 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-block-end: calc(var(--spacing-8) / 2);
 }
 
 li > p {
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-block-end: calc(var(--spacing-8) / 2);
 }
 
 li *:last-child {
-  margin-bottom: var(--spacing-0);
+  margin-block-end: var(--spacing-0);
 }
 
 li > ul {
   margin-left: var(--spacing-8);
-  margin-top: calc(var(--spacing-8) / 2);
+  margin-block-start: calc(var(--spacing-8) / 2);
 }
 
 blockquote {
@@ -206,11 +206,11 @@ blockquote {
   border-left: var(--spacing-1) solid var(--color-primary);
   font-size: var(--fontSize-2);
   font-style: italic;
-  margin-bottom: var(--spacing-8);
+  margin-block-end: var(--spacing-8);
 }
 
 blockquote > :last-child {
-  margin-bottom: var(--spacing-0);
+  margin-block-end: var(--spacing-0);
 }
 
 blockquote > ul,
@@ -220,7 +220,7 @@ blockquote > ol {
 
 table {
   width: 100%;
-  margin-bottom: var(--spacing-8);
+  margin-block-end: var(--spacing-8);
   border-collapse: collapse;
   border-spacing: 0.25rem;
 }
@@ -288,7 +288,7 @@ a:focus {
 /* index.js */
 
 .heading-companion {
-  margin-bottom: var(--spacing-0);
+  margin-block-end: var(--spacing-0);
   font-weight: var(--fontWeight-semibold);
   font-size: var(--fontSize-3);
   opacity: 0.95;
@@ -302,7 +302,7 @@ a:focus {
 /* blog.js */
 
 .post-list-item {
-  margin-top: var(--spacing-6);
+  margin-block-start: var(--spacing-6);
 }
 
 .post-list-item header {
@@ -317,6 +317,10 @@ a:focus {
 
 .post-list-item header small {
   color: var(--color-text-light);
+}
+
+.post-list-item section {
+  margin-block-start: var(--spacing-2);
 }
 
 /* post-page.js */
