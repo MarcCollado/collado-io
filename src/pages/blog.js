@@ -4,15 +4,18 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 // import SEO from '../components/seo';
 
-const Blog = ({ data, location, pageContext }) => {
-  // const siteTitle = data.site.siteMetadata?.title || `Blog`;
+const Blog = ({ data, location }) => {
+  // const siteTitle = data.site.siteMetadata?.title;
+  // const authorName = data.site.siteMetadata?.author?.name;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle} /> */}
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const title = post.node.frontmatter.title;
+          const { date, excerpt, featured, title, path } =
+            post.node.frontmatter;
+          const isFeatured = featured;
           return (
             <li key={post.node.id}>
               <article
@@ -22,21 +25,22 @@ const Blog = ({ data, location, pageContext }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.node.frontmatter.path} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                    <Link to={path} itemProp="url">
+                      <span itemProp="title">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.node.frontmatter.date}</small>
+                  <small itemProp="date">{date}</small>
                 </header>
-                {/* Some featured posts may feature its description inline
+                {isFeatured && (
                   <section>
-                   <p
-                     dangerouslySetInnerHTML={{
-                       __html: post.frontmatter.excerpt || post.excerpt,
-                     }}
-                     itemProp="description"
-                   />
-                 </section> */}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: excerpt || post.excerpt,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                )}
               </article>
             </li>
           );
@@ -50,6 +54,9 @@ export const blogQuery = graphql`
   query {
     site {
       siteMetadata {
+        author {
+          name
+        }
         title
       }
     }
@@ -64,13 +71,13 @@ export const blogQuery = graphql`
         node {
           id
           frontmatter {
-            title
             date(formatString: "MMMM DD, YYYY")
-            path
-            tags
-            featured
             excerpt
-            source
+            featured
+            path
+            # source
+            tags
+            title
           }
         }
       }
