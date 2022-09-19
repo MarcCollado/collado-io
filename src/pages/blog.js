@@ -33,7 +33,7 @@ const Blog = ({ data, location }) => {
                 </header>
                 {isFeatured && (
                   <section>
-                    <p
+                    <small
                       dangerouslySetInnerHTML={{
                         __html: excerpt || post.excerpt,
                       }}
@@ -75,7 +75,7 @@ export const blogQuery = graphql`
             excerpt
             featured
             path
-            # source
+            source
             tags
             title
           }
