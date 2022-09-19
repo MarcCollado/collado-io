@@ -43,7 +43,7 @@ const Layout = ({ children, location }) => {
         </Link>
       </nav>
       <main>{children}</main>
-      <footer className="footer">
+      <footer>
         © {new Date().getFullYear()} — Built from sunny Barcelona ☀️
       </footer>
     </div>
