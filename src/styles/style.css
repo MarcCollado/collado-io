@@ -165,15 +165,15 @@ p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
   padding: var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
 }
 
 ul,
 ol {
+  padding: var(--spacing-0);
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
-  padding: var(--spacing-0);
   margin-block-end: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
@@ -285,7 +285,7 @@ a:focus {
   border-bottom: 1px solid var(--color-primary);
 }
 
-/* index.js */
+/* static pages */
 
 .heading-companion {
   margin-block-end: var(--spacing-0);
