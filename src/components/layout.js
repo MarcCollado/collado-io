@@ -9,18 +9,22 @@ const Layout = ({ children, location }) => {
   const isRootPath = location.pathname === rootPath;
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
+    <div className="global-wrapper">
       <nav className="global-navbar">
-        <Link className="global-navbar-image-link" to="/">
+        <Link
+          className="global-navbar-image-link"
+          data-is-root-path={isRootPath}
+          to="/"
+        >
           <StaticImage
-            className="global-navbar-avatar"
+            className="global-navbar-image"
             layout="fixed"
             formats={['auto', 'webp', 'avif']}
             src="../../static/marc-avatar.png"
             width={50}
             height={50}
-            quality={80}
-            alt="Marc Collado — profile picture"
+            quality={100}
+            alt="Marc Collado's profile picture"
           />
         </Link>
         <Link
