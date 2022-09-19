@@ -35,4 +35,4 @@ After more than 4 years, and a great deal of nostalgia, [I said goodbye](/blog/2
 
 If you want to learn more about Ironhack, below you'll find additional content that covers its story from a more personal perspective.
 
-![Ironhack Barcelona](../../../img/pages/ironhack-barcelona.jpg 'Ironhack Barcelona')
+![Ironhack Barcelona](../../images/pages/ironhack-barcelona.jpg 'Ironhack Barcelona')
