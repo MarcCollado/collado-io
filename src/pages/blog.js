@@ -68,20 +68,7 @@ export const blogQuery = graphql`
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            excerpt
-            featured
-            path
-            source
-            tags
-            title
-          }
-        }
-      }
+      ...allPosts
     }
   }
 `;
