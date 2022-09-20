@@ -17,6 +17,12 @@ export function extractMarkdown(edges) {
   return markdownFile;
 }
 
+export function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
 // import PostCard from '../components/postCard';
 
 // Dictionary used by work.js to translate k/v pairs
