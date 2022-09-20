@@ -2,8 +2,8 @@ import { graphql } from 'gatsby';
 
 // Used at index.js, about.js, 404.js
 // Sources markdown data from a file to populate top-level pages
-export const PageMarkdownQuery = graphql`
-  fragment pageMarkdown on MarkdownRemarkConnection {
+export const StaticPageQuery = graphql`
+  fragment staticPage on MarkdownRemarkConnection {
     edges {
       node {
         frontmatter {
@@ -18,27 +18,20 @@ export const PageMarkdownQuery = graphql`
   }
 `;
 
-/*
-Used by: Blog, Books, Now, Work(s)
-- No `html` is requested since this query only generates cards
-- `html` is requested on postPage
-- Use in combination with render__Cards methods
-*/
+// Used at blog.js
 export const allPostsQuery = graphql`
   fragment allPosts on MarkdownRemarkConnection {
     edges {
       node {
         id
-        # html
         frontmatter {
-          title
           date(formatString: "MMMM DD, YYYY")
-          path
-          tags
-          featured
           excerpt
-          # seo
+          featured
+          path
           source
+          tags
+          title
         }
       }
     }

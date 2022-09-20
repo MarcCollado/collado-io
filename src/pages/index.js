@@ -36,7 +36,7 @@ export const query = graphql`
       }
       limit: 1
     ) {
-      ...pageMarkdown
+      ...staticPage
     }
   }
 `;
