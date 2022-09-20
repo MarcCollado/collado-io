@@ -2,7 +2,7 @@ const path = require('path');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const postPage = path.resolve(`./src/templates/post-page.js`);
   const tagPage = path.resolve(`src/templates/tag-page.js`);
 
   // Fetch all markdown posts
@@ -53,7 +53,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const prev = post.previous;
     createPage({
       path: post.node.frontmatter.path,
-      component: blogPost,
+      component: postPage,
       context: {
         next,
         prev,
