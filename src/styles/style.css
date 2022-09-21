@@ -57,7 +57,6 @@
   --color-text: #2e353f;
   --color-text-light: #7e7e7e;
   --color-heading: #1a202c;
-  --color-heading-black: #000000;
 }
 
 /* HTML elements */
@@ -117,7 +116,7 @@ h5 {
 h1 {
   font-size: var(--fontSize-6);
   font-weight: var(--fontWeight-bold);
-  color: var(--color-heading-black);
+  color: var(--color-heading);
 }
 
 h2 {
@@ -204,7 +203,6 @@ blockquote {
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
   border-left: var(--spacing-1) solid var(--color-primary);
-  font-size: var(--fontSize-2);
   font-style: italic;
   margin-block-end: var(--spacing-8);
 }
@@ -239,7 +237,7 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--color-heading-black);
+  color: var(--color-heading);
   text-decoration: none;
 }
 
@@ -281,7 +279,7 @@ a:focus {
 .global-navbar-link:hover,
 .global-navbar-link:focus,
 .global-navbar-link-active {
-  color: var(--color-heading-black);
+  color: var(--color-heading);
 }
 
 /* static pages */
@@ -321,7 +319,8 @@ a:focus {
   margin-block-start: var(--spacing-2);
 }
 
-.post-list-item header h2:hover {
+.post-list-item header h2:hover,
+.post-list-item header h2:focus {
   color: var(--color-text-light);
 }
 
@@ -331,8 +330,23 @@ a:focus {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
-.post-nav ul {
-  margin: var(--spacing-0);
+article small {
+  margin-inline-end: var(--spacing-2);
+  color: var(--color-text-light);
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.tag-box small a {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.tag-box small a:hover,
+.tag-box small a:focus {
+  border-bottom: none;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 /* Media queries */
@@ -342,7 +356,7 @@ a:focus {
   /* nest blockquote and list indentation */
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
-    margin-left: var(--spacing-0);
+    margin-inline-start: var(--spacing-0);
   }
   ul,
   ol {
@@ -360,10 +374,12 @@ a:focus {
 
 /* Tablet and Desktop */
 @media (min-width: 44rem) {
-  .global-navbar-image-link:hover {
+  .global-navbar-image-link:hover,
+  .global-navbar-image-link:focus {
     transform: scale(1.15, 1.15);
   }
-  .global-navbar-image-link:hover[data-is-root-path='true'] {
+  .global-navbar-image-link:hover[data-is-root-path='true'],
+  .global-navbar-image-link:focus[data-is-root-path='true'] {
     transform: none;
   }
 }
