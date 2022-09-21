@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 // import SEO from '../components/seo';
@@ -10,16 +10,24 @@ const Post = ({ data, pageContext }) => {
   const { date, excerpt, path, tags, title } = frontmatter;
   // const next = pageContext.next.frontmatter.path;
   // const prev = pageContext.prev.frontmatter.path;
-
   return (
     <Layout location={''}>
-      <>
+      <article>
         {/* <SEO title={siteTitle}></SEO> */}
         <h1>{toTitleCase(title)}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        <p>{date}</p>
-        <p>{tags}</p>
-      </>
+        <small>{date}</small>
+        <div className="tag-box">
+          {tags.map((tag) => {
+            const tagPath = `/tags/${tag}`;
+            return (
+              <small>
+                <Link to={tagPath}>{`#${tag}`}</Link>
+              </small>
+            );
+          })}
+        </div>
+      </article>
     </Layout>
   );
 };
