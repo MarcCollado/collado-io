@@ -6,15 +6,13 @@ import Layout from '../components/layout';
 import { toTitleCase } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
-  // const siteTitle = data.site.siteMetadata?.title;
-  // const authorName = data.site.siteMetadata?.author?.name;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle} /> */}
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, title, path } =
+          const { date, excerpt, featured, title, path, tags } =
             post.node.frontmatter;
           const isFeatured = featured;
           return (
@@ -53,14 +51,6 @@ const Blog = ({ data, location }) => {
 
 export const blogQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        author {
-          name
-        }
-        title
-      }
-    }
     allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
