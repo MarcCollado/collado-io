@@ -6,15 +6,12 @@ import Layout from '../components/layout';
 import { extractMarkdown } from '../utils/helpers';
 
 const Home = ({ data, location }) => {
-  // const siteTitle = data.site.siteMetadata?.title;
-  const authorName = data.site.siteMetadata?.author?.name;
   const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
-
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle}></SEO> */}
       <p className="heading-companion">Hola! I'm</p>
-      <h1 className="heading">{authorName}</h1>
+      <h1 className="heading">Marc Collado</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
     </Layout>
   );
@@ -22,14 +19,6 @@ const Home = ({ data, location }) => {
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        author {
-          name
-        }
-        title
-      }
-    }
     allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/media/markdown/pages/index.md/" }
