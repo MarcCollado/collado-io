@@ -3,27 +3,26 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 // import SEO from '../components/seo';
+import { toTitleCase } from '../utils/helpers';
 
 const Tag = ({ data, location, pageContext }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Tag`;
-  const { totalCount } = data.allMarkdownRemark;
   const posts = data.allMarkdownRemark.edges;
+  const { totalCount } = data.allMarkdownRemark;
   const { tag } = pageContext;
-  const TagCount = `${totalCount} post${
+  const tagCount = `${totalCount} post${
     totalCount === 1 ? '' : 's'
-  } tagged with #${tag}`;
-
-  const md = {
-    title: `Tag: ${tag}`,
-    excerpt: `${TagCount}`,
-  };
+  } tagged with`;
 
   return (
     <Layout location={location}>
       {/* <SEO title={siteTitle} /> */}
+      <p className="heading-companion">{tagCount}</p>
+      <h1 className="heading">{tag}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const title = post.node.frontmatter.title;
+          const { date, excerpt, featured, title, path, tags } =
+            post.node.frontmatter;
+          const isFeatured = featured;
           return (
             <li key={post.node.id}>
               <article
@@ -33,21 +32,22 @@ const Tag = ({ data, location, pageContext }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.node.frontmatter.path} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                    <Link to={path} itemProp="url">
+                      <span itemProp="title">{toTitleCase(title)}</span>
                     </Link>
                   </h2>
-                  <small>{post.node.frontmatter.date}</small>
+                  <small itemProp="date">{date}</small>
                 </header>
-                {/* Some featured posts may feature its description inline
+                {isFeatured && (
                   <section>
-                   <p
-                     dangerouslySetInnerHTML={{
-                       __html: post.frontmatter.excerpt || post.excerpt,
-                     }}
-                     itemProp="description"
-                   />
-                 </section> */}
+                    <small
+                      dangerouslySetInnerHTML={{
+                        __html: excerpt || post.excerpt,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                )}
               </article>
             </li>
           );
@@ -61,14 +61,9 @@ const Tag = ({ data, location, pageContext }) => {
 
 export const query = graphql`
   query tagPageQuery($tag: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
+        fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
         frontmatter: { tags: { in: [$tag] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
