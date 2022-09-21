@@ -29,14 +29,14 @@ const Layout = ({ children, location }) => {
         </Link>
         <Link
           className="global-navbar-link"
-          activeClassName={'active-global-navbar-link'}
+          activeClassName={'global-navbar-link-active'}
           to="/blog"
         >
           Blog
         </Link>
         <Link
           className="global-navbar-link"
-          activeClassName={'active-global-navbar-link'}
+          activeClassName={'global-navbar-link-active'}
           to="/about"
         >
           About
