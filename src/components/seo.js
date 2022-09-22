@@ -5,13 +5,7 @@ import { Helmet } from 'react-helmet';
 import favicon from '../../static/favicon.ico';
 import seoImage from '../../static/marc-avatar.png';
 
-const SEO = ({
-  meta = [],
-  pageDescription,
-  pageImage,
-  pageTitle,
-  location,
-}) => {
+const Seo = ({ pageDescription, pageTitle, pathname }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,12 +36,11 @@ const SEO = ({
   const authorEmail = site.siteMetadata?.social.email;
   const authorTwitter = site.siteMetadata?.social.twitter;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
-  const image = pageImage || seoImage;
+  const image = seoImage;
   const language = site.siteMetadata?.siteLanguage || `EN`;
   const title = pageTitle || site.siteMetadata?.defaultTitle;
   const url =
-    `${site.siteMetadata?.siteUrl}${location.pathname}` ||
-    site.siteMetadata?.siteUrl;
+    `${site.siteMetadata?.siteUrl}${pathname}` || site.siteMetadata?.siteUrl;
 
   return (
     <Helmet
@@ -76,11 +69,11 @@ const SEO = ({
 
         // COLORED TABS
         { name: `theme-color`, content: `#19e597` },
-      ].concat(meta)}
+      ]}
     >
       <link rel="icon" type="image/x-icon" href={favicon} />
     </Helmet>
   );
 };
 
-export default SEO;
+export default Seo;
