@@ -20,7 +20,7 @@ const Layout = ({ children, location }) => {
             className="global-navbar-image"
             layout="fixed"
             formats={['auto', 'webp', 'avif']}
-            src="../../static/marc-avatar.png"
+            src="../../static/favicon.ico"
             width={50}
             height={50}
             quality={100}
@@ -44,7 +44,13 @@ const Layout = ({ children, location }) => {
       </nav>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()} — Built from sunny Barcelona ☀️
+        <small>
+          {`© ${new Date().getFullYear()}`}
+          {` | `}
+          <a href="https://www.collado.io/rss.xml">RSS</a>
+          {` | `}
+          <a href="https://twitter.com/MarcCollado/">@MarcCollado</a>
+        </small>
       </footer>
     </div>
   );
