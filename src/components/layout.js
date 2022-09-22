@@ -2,11 +2,13 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-// import SEO from '';
+import Seo from './seo';
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, seoData = {} }) => {
+  const { pathname } = location;
+  const { pageDescription, pageTitle } = seoData;
   const rootPath = `${__PATH_PREFIX__}/`;
-  const isRootPath = location.pathname === rootPath;
+  const isRootPath = pathname === rootPath;
 
   return (
     <div className="global-wrapper">
@@ -42,6 +44,11 @@ const Layout = ({ children, location }) => {
           About
         </Link>
       </nav>
+      <Seo
+        pageDescription={pageDescription}
+        pageTitle={pageTitle}
+        pathname={pathname}
+      ></Seo>
       <main>{children}</main>
       <footer>
         <small>
