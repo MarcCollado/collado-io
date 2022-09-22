@@ -2,11 +2,10 @@ module.exports = {
   siteMetadata: {
     author: {
       name: `Marc Collado`,
-      summary: `— homo full stack`,
     },
     title: `Marc Collado's personal website`,
     description: `Thoughts on pretty much everything.`,
-    siteLanguage: `en`,
+    siteLanguage: `EN`,
     siteUrl: `https://www.collado.io`,
     social: {
       email: `marc@collado.io`,
