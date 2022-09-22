@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import SEO from '../components/seo';
 import { toTitleCase } from '../utils/helpers';
 
 const Tag = ({ data, location, pageContext }) => {
@@ -12,10 +11,13 @@ const Tag = ({ data, location, pageContext }) => {
   const tagCount = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with`;
+  const seoData = {
+    pageDescription: `${tagCount} ${tag}`,
+    pageTitle: `${tag} — tag page`,
+  };
 
   return (
-    <Layout location={location}>
-      {/* <SEO title={siteTitle} /> */}
+    <Layout location={location} seoData={seoData}>
       <p className="heading-companion">{tagCount}</p>
       <h1 className="heading">{tag}</h1>
       <ol style={{ listStyle: `none` }}>

@@ -2,14 +2,16 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import SEO from '../components/seo';
 import { toTitleCase } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
+  const seoData = {
+    pageDescription: `Blog page: all blog posts`,
+    pageTitle: ``,
+  };
   return (
-    <Layout location={location}>
-      {/* <SEO title={siteTitle} /> */}
+    <Layout location={location} seoData={seoData}>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
           const { date, excerpt, featured, title, path, tags } =

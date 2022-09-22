@@ -2,13 +2,15 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import SEO from '../components/seo';
 
 const Tags = ({ data, location }) => {
-  // const siteTitle = data.site.siteMetadata?.title || `Tags`;
   const { group: tags } = data.allMarkdownRemark;
+  const seoData = {
+    pageDescription: `Tags page: a list of all tags`,
+    pageTitle: ``,
+  };
   return (
-    <Layout location={location}>
+    <Layout location={location} seoData={seoData}>
       <ul>
         {tags.map((tag) => (
           <li key={tag.fieldValue}>

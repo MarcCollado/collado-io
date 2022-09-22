@@ -2,14 +2,16 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import SEO from '../components/seo';
 import { extractMarkdown } from '../utils/helpers';
 
 const About = ({ data, location }) => {
   const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
+  const seoData = {
+    pageDescription: `About Marc's work and side projects`,
+    pageTitle: ``,
+  };
   return (
-    <Layout location={location}>
-      {/* <SEO title={siteTitle}></SEO> */}
+    <Layout location={location} seoData={seoData}>
       <p className="heading-companion">About</p>
       <h1 className="heading">Marc Collado</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
