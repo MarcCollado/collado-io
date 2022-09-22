@@ -51,7 +51,6 @@
   --fontSize-3: 1.2rem;
   --fontSize-4: 1.3rem;
   --fontSize-5: 1.4rem;
-  --fontSize-6: 1.5rem;
   --color-primary: #19e597;
   --color-accent: #d1dce5;
   --color-text: #2e353f;
@@ -88,6 +87,7 @@ footer {
 hr {
   background: var(--color-accent);
   height: 1px;
+  margin: var(--spacing-8) var(--spacing-0);
   border: 0;
 }
 
@@ -114,24 +114,20 @@ h5 {
 }
 
 h1 {
-  font-size: var(--fontSize-6);
+  font-size: var(--fontSize-5);
   font-weight: var(--fontWeight-bold);
   color: var(--color-heading);
 }
 
 h2 {
-  font-size: var(--fontSize-5);
-}
-
-h3 {
   font-size: var(--fontSize-4);
 }
 
-h4 {
+h3 {
   font-size: var(--fontSize-3);
 }
 
-h5 {
+h4 {
   font-size: var(--fontSize-2);
 }
 
@@ -154,7 +150,7 @@ h4 > a:hover,
 h4 > a:focus,
 h5 > a:hover,
 h5 > a:focus {
-  color: var(--color-text);
+  color: var(--color-text-light);
   text-decoration: none;
 }
 
@@ -225,6 +221,24 @@ table {
 
 table thead tr th {
   border-bottom: 1px solid var(--color-accent);
+}
+
+small {
+  color: var(--color-text-light);
+  border-bottom: none;
+  text-decoration: none;
+}
+
+small a {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+small a:hover,
+small a:focus {
+  border-bottom: none;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 /* Link */
@@ -311,17 +325,8 @@ a:focus {
   font-size: var(--fontSize-1);
 }
 
-.post-list-item header small {
-  color: var(--color-text-light);
-}
-
 .post-list-item section {
   margin-block-start: var(--spacing-2);
-}
-
-.post-list-item header h2:hover,
-.post-list-item header h2:focus {
-  color: var(--color-text-light);
 }
 
 /* post-page.js */
@@ -330,23 +335,8 @@ a:focus {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
-article small {
+article .tag-box small {
   margin-inline-end: var(--spacing-2);
-  color: var(--color-text-light);
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.tag-box small a {
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.tag-box small a:hover,
-.tag-box small a:focus {
-  border-bottom: none;
-  text-decoration: none;
-  color: var(--color-heading);
 }
 
 /* Media queries */
@@ -386,10 +376,5 @@ article small {
 
 /* center embedded tweets */
 .twitter-tweet {
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-}
-
-.twitter-tweet > iframe {
-  margin: 16px auto;
+  margin: auto;
 }
