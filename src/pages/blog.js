@@ -14,7 +14,7 @@ const Blog = ({ data, location }) => {
     <Layout location={location} seoData={seoData}>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, title, path, tags } =
+          const { date, excerpt, featured, title, path } =
             post.node.frontmatter;
           const isFeatured = featured;
           return (

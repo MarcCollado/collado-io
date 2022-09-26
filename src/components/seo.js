@@ -34,7 +34,7 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
 
   const author = site.siteMetadata?.author.name;
   const authorEmail = site.siteMetadata?.social.email;
-  const authorTwitter = site.siteMetadata?.social.twitter;
+  // const authorTwitter = site.siteMetadata?.social.twitter;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const image = seoImage;
   const language = site.siteMetadata?.siteLanguage || `EN`;

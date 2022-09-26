@@ -22,7 +22,7 @@ const Tag = ({ data, location, pageContext }) => {
       <h1 className="heading">{tag}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, title, path, tags } =
+          const { date, excerpt, featured, title, path } =
             post.node.frontmatter;
           const isFeatured = featured;
           return (

@@ -6,7 +6,7 @@ import { toTitleCase } from '../utils/helpers';
 
 const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
-  const { date, excerpt, path, tags, title } = frontmatter;
+  const { date, excerpt, tags, title } = frontmatter;
   // const next = pageContext.next.frontmatter.path;
   // const prev = pageContext.prev.frontmatter.path;
   const seoData = {
