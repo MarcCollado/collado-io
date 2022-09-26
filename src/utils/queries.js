@@ -18,7 +18,7 @@ export const StaticPageQuery = graphql`
   }
 `;
 
-// Used at blog.js
+// Used at blog.js and tag-page.js
 export const allPostsQuery = graphql`
   fragment allPosts on MarkdownRemarkConnection {
     edges {
@@ -33,33 +33,6 @@ export const allPostsQuery = graphql`
           tags
           title
         }
-      }
-    }
-  }
-`;
-
-/*
-Used by: Work to render WorkCards
-- Retrieves the markdown data to build WorkCards
-- If the item has its own WorkPage, gets `path`, otherwise, gets `link`
-*/
-export const WorkMarkdownQuery = graphql`
-  fragment workMarkdown on MarkdownRemarkConnection {
-    edges {
-      node {
-        frontmatter {
-          date(formatString: "YYYY")
-          excerpt
-          link # for pages that don't have a dedicated WorkPage
-          path # for pages that have a dedicated WorkPage
-          position
-          # seo
-          status # [Active, Idle, Stopped, Sold]
-          title
-          type
-        }
-        html
-        id
       }
     }
   }
