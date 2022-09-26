@@ -1,38 +1,62 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { renderPosts, extractMarkdown } from '../utils/helpers';
+import { toTitleCase } from '../utils/helpers';
 
-const BlogPage = ({ data, location }) => {
-  const md = extractMarkdown(data.md.edges);
-  const posts = data.posts.edges;
-
+const Blog = ({ data, location }) => {
+  const posts = data.allMarkdownRemark.edges;
+  const seoData = {
+    pageDescription: `Blog page: all blog posts`,
+    pageTitle: ``,
+  };
   return (
-    <Layout
-      article={false}
-      coverImage={false}
-      md={md}
-      pathname={location.pathname}
-      seoImage={false}
-    >
-      {renderPosts(posts)}
+    <Layout location={location} seoData={seoData}>
+      <ol style={{ listStyle: `none` }}>
+        {posts.map((post) => {
+          const { date, excerpt, featured, title, path } =
+            post.node.frontmatter;
+          const isFeatured = featured;
+          return (
+            <li key={post.node.id}>
+              <article
+                className="post-list-item"
+                // itemScope
+                // itemType="http://schema.org/Article"
+              >
+                <header>
+                  <h2>
+                    <Link to={path} itemProp="url">
+                      <span itemProp="title">{toTitleCase(title)}</span>
+                    </Link>
+                  </h2>
+                  <small itemProp="date">{date}</small>
+                </header>
+                {isFeatured && (
+                  <section>
+                    <small
+                      dangerouslySetInnerHTML={{
+                        __html: excerpt || post.excerpt,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                )}
+              </article>
+            </li>
+          );
+        })}
+      </ol>
     </Layout>
   );
 };
 
-export const query = graphql`
-  {
-    md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/blog.md/" } }
-      limit: 1
-    ) {
-      ...pageMarkdown
-    }
-    posts: allMarkdownRemark(
+export const blogQuery = graphql`
+  query {
+    allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/content/md/posts/" }
-        frontmatter: { tags: { nin: ["drafts", "books"] } }
+        fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
+        frontmatter: { tags: { nin: ["drafts", "now"] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -41,4 +65,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPage;
+export default Blog;

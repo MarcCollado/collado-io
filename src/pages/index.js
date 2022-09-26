@@ -1,32 +1,35 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import { extractMarkdown } from '../utils/helpers';
 
-const HomePage = ({ data, location }) => {
-  const md = extractMarkdown(data.md.edges);
-
+const Home = ({ data, location }) => {
+  const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
+  const seoData = {
+    pageDescription: ``,
+    pageTitle: ``,
+  };
   return (
-    <Layout
-      article={false}
-      coverImage={false}
-      md={md}
-      pathname={location.pathname}
-      seoImage={false}
-    />
+    <Layout location={location} seoData={seoData}>
+      <p className="heading-companion">Hola! I'm</p>
+      <h1 className="heading">Marc Collado</h1>
+      <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
+    </Layout>
   );
 };
 
 export const query = graphql`
   {
-    md: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/content/md/pages/index.md/" } }
+    allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/src/media/markdown/pages/index.md/" }
+      }
       limit: 1
     ) {
-      ...pageMarkdown
+      ...staticPage
     }
   }
 `;
 
-export default HomePage;
+export default Home;

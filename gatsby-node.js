@@ -1,22 +1,37 @@
 const path = require('path');
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const postPage = path.resolve(`src/components/postPage.js`);
-  const tagPage = path.resolve(`src/components/tagPage.js`);
+  const postPage = path.resolve(`./src/templates/post-page.js`);
+  const tagPage = path.resolve(`src/templates/tag-page.js`);
 
   // Fetch all markdown posts
-  const fetchPosts = await graphql(`
+  const result = await graphql(`
     {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/content/md/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
+            id
             frontmatter {
               path
               tags
+            }
+          }
+          next {
+            id
+            frontmatter {
+              path
+              title
+            }
+          }
+          previous {
+            id
+            frontmatter {
+              path
+              title
             }
           }
         }
@@ -24,33 +39,33 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  if (fetchPosts.errors) {
-    throw fetchPosts.errors;
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors);
+    return;
   }
 
   // posts -> [{ node }, { node }, ..., { node }]
-  const posts = fetchPosts.data.posts.edges;
+  const posts = result.data.posts.edges;
 
   // Create a page for each post through path
   posts.forEach((post, index) => {
-    const prev =
-      index === posts.length - 1 ? posts[index].node : posts[index + 1].node;
-    const next = index === 0 ? posts[index].node : posts[index - 1].node;
+    const next = post.next;
+    const prev = post.previous;
     createPage({
       path: post.node.frontmatter.path,
       component: postPage,
       context: {
-        prev,
         next,
+        prev,
       },
     });
   });
 
   // List all unique tags
   let allTags = [];
-  posts.forEach(({ node }) => {
-    allTags = [...allTags, ...node.frontmatter.tags];
-  });
+  posts.forEach(
+    ({ node }) => (allTags = [...allTags, ...node.frontmatter.tags])
+  );
   const uniqueTags = [...new Set(allTags)];
 
   // Create a page for each tag
