@@ -1,23 +1,9 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Seo from './seo';
-
-const DarkMode = () => (
-  <ThemeToggler>
-    {({ theme, toggleTheme }) => (
-      <label>
-        <input
-          type="checkbox"
-          onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
-          checked={theme === 'dark'}
-        />
-      </label>
-    )}
-  </ThemeToggler>
-);
+import DarkMode from '../utils/dark';
 
 const Layout = ({ children, location, seoData = {} }) => {
   const { pathname } = location;
