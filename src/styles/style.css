@@ -79,6 +79,15 @@ body {
   color: var(--color-text);
 }
 
+body.dark {
+  background-color: #2e353f;
+  --color-primary: #19e597;
+  --color-accent: #d1dce5;
+  --color-text: #d1dce5;
+  --color-text-light: #d1dce5aa;
+  --color-heading: #fff;
+}
+
 footer {
   padding: var(--spacing-6) var(--spacing-0);
   text-align: center;
