@@ -80,12 +80,13 @@ body {
 }
 
 body.dark {
-  background-color: #2e353f;
+  -webkit-font-smoothing: antialiased;
+  background-color: #282c35;
   --color-primary: #19e597;
   --color-accent: #d1dce5;
-  --color-text: #d1dce5;
-  --color-text-light: #d1dce5aa;
-  --color-heading: #fff;
+  --color-text: #ffffffdd;
+  --color-text-light: #ffffff99;
+  --color-heading: #ffffff;
 }
 
 footer {
