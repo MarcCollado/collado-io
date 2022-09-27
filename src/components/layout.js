@@ -1,8 +1,23 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Seo from './seo';
+
+const DarkMode = () => (
+  <ThemeToggler>
+    {({ theme, toggleTheme }) => (
+      <label>
+        <input
+          type="checkbox"
+          onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
+          checked={theme === 'dark'}
+        />
+      </label>
+    )}
+  </ThemeToggler>
+);
 
 const Layout = ({ children, location, seoData = {} }) => {
   const { pathname } = location;
@@ -29,6 +44,7 @@ const Layout = ({ children, location, seoData = {} }) => {
             alt="Marc Collado's profile picture"
           />
         </Link>
+
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
@@ -36,6 +52,7 @@ const Layout = ({ children, location, seoData = {} }) => {
         >
           Blog
         </Link>
+
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
@@ -43,6 +60,7 @@ const Layout = ({ children, location, seoData = {} }) => {
         >
           About
         </Link>
+        <DarkMode />
       </nav>
       <Seo
         pageDescription={pageDescription}
