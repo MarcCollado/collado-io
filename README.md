@@ -4,6 +4,11 @@ In this README.md file you'll find some (nonessential) insights on the site's in
 
 ## Changelog
 
+### 🌙 v22.11
+
+- New: dark mode support.
+- Fixed: invalid RSS parsing token that broke the feed.
+
 ### 💅 v22.10
 
 This release is a very special one. It brings a major update to the site, not only to its design, but also to some of its features.
