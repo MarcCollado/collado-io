@@ -6,8 +6,9 @@ In this README.md file you'll find some (nonessential) insights on the site's in
 
 ### 🌙 v22.11
 
-- New: dark mode support.
-- Fixed: invalid RSS parsing token that broke the feed.
+- Feature: dark mode support.
+- Enhancement: expose different RSS endpoints depending on `NODE.ENV`.
+- Bug fix: invalid RSS parsing token that broke the feed.
 
 ### 💅 v22.10
 
