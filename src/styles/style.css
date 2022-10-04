@@ -31,7 +31,8 @@
     'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --fontFamily-serif: 'Georgia', 'Times New Roman', 'Palatino';
-  --fontFamily-mono: 'Monaco', 'Courier';
+  --fontFamily-mono: 'Menlo', 'Monaco', 'source-code-pro', 'Courier New',
+    'monospace';
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
