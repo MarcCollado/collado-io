@@ -30,7 +30,6 @@ const Layout = ({ children, location, seoData = {} }) => {
             alt="Marc Collado's profile picture"
           />
         </Link>
-
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
@@ -38,7 +37,6 @@ const Layout = ({ children, location, seoData = {} }) => {
         >
           Blog
         </Link>
-
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
