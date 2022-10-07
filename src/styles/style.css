@@ -382,3 +382,9 @@ article .tag-box small {
 .twitter-tweet {
   margin: auto;
 }
+
+/* Remove duplicate <hr> on top of the footnotes */
+
+div > .footnotes > hr {
+  display: none;
+}
