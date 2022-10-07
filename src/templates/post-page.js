@@ -25,7 +25,7 @@ const Post = ({ data, location, pageContext }) => {
             {tags.map((tag) => {
               const tagPath = `/tags/${tag}`;
               return (
-                <small>
+                <small key={tag}>
                   <Link to={tagPath}>{`#${tag}`}</Link>
                 </small>
               );
