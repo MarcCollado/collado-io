@@ -1,12 +1,66 @@
-# collado.io
+<p align="center">
+  <a href="#">
+    <img alt="Marc Collado" src="static/favicon.ico" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Marc Collado's personal website
+</h1>
+<p align="center">
+<a href="#">
+    <img width="125px" alt="Gatsby" src="https://api.netlify.com/api/v1/badges/29d00528-b389-4dc3-877c-f2c53532caee/deploy-status" width="60" />
+  </a>
+</p>
+
+collado.io is the place where I share random thoughts and conversations on pretty much everything.
+
+Topics ranging from [technology](https://collado.io/tags/tech) and [product](https://collado.io/tags/product); [psychology](https://collado.io/tags/psychology), and how humans behave; [physics](https://collado.io/tags/physics), and how the world works; [health](https://collado.io/tags/health); [engineering](#), particularly on [mobility](https://collado.io/tags/mobility) and supply chains; global [economics](https://collado.io/tags/economics)... and everything in between, you get the idea.
 
 In this README.md file you'll find some (nonessential) insights on the site's inner mechanics. I mostly keep it for myself, but since you're already here, please take a look.
 
+## 🏷 Tags
+
+The tag system labels posts' content according to its subject and aggregates them under its corresponding tag page.
+
+You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
+
+- AI
+- art
+- business
+- coding
+- creators
+- data
+- design
+- economics
+- education
+- gaming
+- growth
+- happiness
+- health
+- history
+- iot
+- mindfulness
+- minimalism
+- mobility
+- nutrition
+- philosophy
+- physics
+- podcasts
+- privacy
+- product
+- productivity
+- psychology
+- sleep
+- tech
+- vr
+
 ## Special tags
 
-The [tag system](https://www.collado.io/tags/) labels posts' content according to its subject and aggregates them under its corresponding tag page. However, there are a set of "special" tags — listed below — used to organize and structure the site.
+On the surface, all tags might look the same. However, there are a set of "special" tags used to organize and structure the site.
 
-### Project classifiers:
+Right below there's a quick breakdown of those.
+
+### Main projects
 
 - [`wiz music`](https://www.collado.io/tags/wiz%20music)
 - [`foc a terra`](https://www.collado.io/tags/foc%20a%20terra)
@@ -22,7 +76,7 @@ Project organizers — used in combination with `project classifiers` to filter
 - [`memoir`](https://www.collado.io/tags/memoir)
 - [`update`](https://www.collado.io/tags/update)
 
-### Side projects:
+### Side projects
 
 - [`books`](https://www.collado.io/tags/books): book summaries
 - [`meta`](https://www.collado.io/tags/meta): updates from [collado.io](http://www.collado.io/)
