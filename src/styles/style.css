@@ -339,7 +339,17 @@ a:focus {
 
 /* post-page.js */
 
-article .tag-box small {
+article .meta-container {
+  text-align: center;
+}
+
+article .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+article .meta-container .tag-container small {
   margin-inline-end: var(--spacing-2);
 }
 
