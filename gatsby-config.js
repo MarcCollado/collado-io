@@ -1,3 +1,5 @@
+require('dotenv').config({ path: `.env` });
+
 module.exports = {
   siteMetadata: {
     author: {
@@ -124,6 +126,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
   ],

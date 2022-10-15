@@ -1,2 +1,11 @@
 {
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#2e353f",
+    "titleBar.inactiveForeground": "#2e353fBB",
+    "titleBar.activeBackground": "#19e597",
+    "titleBar.inactiveBackground": "#19e597BB"
+  },
+  "markdown.validate.ignoredLinks": [
+    "**/blog/**"
+  ]
 }

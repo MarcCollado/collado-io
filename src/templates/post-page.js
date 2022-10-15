@@ -19,13 +19,13 @@ const Post = ({ data, location, pageContext }) => {
         {/* <SEO title={siteTitle}></SEO> */}
         <h1>{toTitleCase(title)}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        <div style={{ textAlign: 'center' }}>
+        <div className="meta-container">
           <small>{`First published on ${date}`}</small>
-          <div className="tag-box">
+          <div className="tag-container">
             {tags.map((tag) => {
               const tagPath = `/tags/${tag}`;
               return (
-                <small>
+                <small key={tag}>
                   <Link to={tagPath}>{`#${tag}`}</Link>
                 </small>
               );

@@ -27,10 +27,12 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
-  --fontFamily-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --fontFamily-sans: 'system-ui', '-apple-system', 'BlinkMacSystemFont',
+    'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --fontFamily-serif: 'Georgia', 'Times New Roman', 'Palatino';
+  --fontFamily-mono: 'Menlo', 'Monaco', 'source-code-pro', 'Courier New',
+    'monospace';
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
@@ -77,6 +79,16 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+  background-color: #282c35;
+  --color-primary: #19e597;
+  --color-accent: #d1dce5;
+  --color-text: #ffffffdd;
+  --color-text-light: #ffffff99;
+  --color-heading: #ffffff;
 }
 
 footer {
@@ -327,7 +339,17 @@ a:focus {
 
 /* post-page.js */
 
-article .tag-box small {
+article .meta-container {
+  text-align: center;
+}
+
+article .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+article .meta-container .tag-container small {
   margin-inline-end: var(--spacing-2);
 }
 
@@ -369,4 +391,10 @@ article .tag-box small {
 /* center embedded tweets */
 .twitter-tweet {
   margin: auto;
+}
+
+/* Remove duplicate <hr> on top of the footnotes */
+
+div > .footnotes > hr {
+  display: none;
 }

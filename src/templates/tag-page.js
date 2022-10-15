@@ -19,7 +19,7 @@ const Tag = ({ data, location, pageContext }) => {
   return (
     <Layout location={location} seoData={seoData}>
       <p className="heading-companion">{tagCount}</p>
-      <h1 className="heading">{tag}</h1>
+      <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
           const { date, excerpt, featured, title, path } =

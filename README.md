@@ -1,31 +1,66 @@
-# collado.io
+<p align="center">
+  <a href="#">
+    <img alt="Marc Collado" src="static/favicon.ico" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Marc Collado's personal website
+</h1>
+<p align="center">
+<a href="#">
+    <img width="125px" alt="Gatsby" src="https://api.netlify.com/api/v1/badges/29d00528-b389-4dc3-877c-f2c53532caee/deploy-status" width="60" />
+  </a>
+</p>
+
+collado.io is the place where I share random thoughts and conversations on pretty much everything.
+
+Topics ranging from [technology](https://collado.io/tags/tech) and [product](https://collado.io/tags/product); [psychology](https://collado.io/tags/psychology), and how humans behave; [physics](https://collado.io/tags/physics), and how the world works; [health](https://collado.io/tags/health); [engineering](#), particularly on [mobility](https://collado.io/tags/mobility) and supply chains; global [economics](https://collado.io/tags/economics)... and everything in between, you get the idea.
 
 In this README.md file you'll find some (nonessential) insights on the site's inner mechanics. I mostly keep it for myself, but since you're already here, please take a look.
 
-## Changelog
+## 🏷 Tags
 
-### 💅 v22.10
+The tag system labels posts' content according to its subject and aggregates them under its corresponding tag page.
 
-This release is a very special one. It brings a major update to the site, not only to its design, but also to some of its features.
+You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
 
-- Design: revamped — lighter — fonts, colors, and overall look and feel.
-- Features: `v22.10` can somehow be seen as the "less is more" update. Because, for the first time, it has fewer features than its predecessor. Among other things, the Work section and all the dedicated Work pages have been deprecated in favor of a simpler and unified About page. The Now page has followed a similar fate and is now part of the About page as well.
+- AI
+- art
+- business
+- coding
+- creators
+- data
+- design
+- economics
+- education
+- gaming
+- growth
+- happiness
+- health
+- history
+- iot
+- mindfulness
+- minimalism
+- mobility
+- nutrition
+- philosophy
+- physics
+- podcasts
+- privacy
+- product
+- productivity
+- psychology
+- sleep
+- tech
+- vr
 
-On top of that, internally, it has also removed a lot of tools and dependencies — such as Styled Components or legacy Gatsby plugins. All this reduction was a necessary intermediate step that will make room for new, upcoming features. Otherwise, with the old architecture and legacy code, it would have taken a lot more effort to build.
+## Special tags
 
-Enjoy 😎
+On the surface, all tags might look the same. However, there are a set of "special" tags used to organize and structure the site.
 
-### v22.9
+Right below there's a quick breakdown of those.
 
-This was the last release deployed under the "old design". It is still available at the [Wayback Machine](https://web.archive.org/web/20220926092650/https%3A%2F%2Fwww.collado.io%2F) for future reference.
-
-## Reference
-
-### Special tags
-
-The [tag system](https://www.collado.io/tags/) labels posts' content according to its subject and aggregates them under its corresponding tag page. However, there are a set of "special" tags — listed below — used to organize and structure the site.
-
-Project classifiers:
+### Main projects
 
 - [`wiz music`](https://www.collado.io/tags/wiz%20music)
 - [`foc a terra`](https://www.collado.io/tags/foc%20a%20terra)
@@ -41,7 +76,7 @@ Project organizers — used in combination with `project classifiers` to filter
 - [`memoir`](https://www.collado.io/tags/memoir)
 - [`update`](https://www.collado.io/tags/update)
 
-Side projects:
+### Side projects
 
 - [`books`](https://www.collado.io/tags/books): book summaries
 - [`meta`](https://www.collado.io/tags/meta): updates from [collado.io](http://www.collado.io/)

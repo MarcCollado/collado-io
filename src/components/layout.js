@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Seo from './seo';
+import DarkMode from '../utils/dark';
 
 const Layout = ({ children, location, seoData = {} }) => {
   const { pathname } = location;
@@ -43,6 +44,7 @@ const Layout = ({ children, location, seoData = {} }) => {
         >
           About
         </Link>
+        <DarkMode />
       </nav>
       <Seo
         pageDescription={pageDescription}
@@ -54,7 +56,11 @@ const Layout = ({ children, location, seoData = {} }) => {
         <small>
           {`© ${new Date().getFullYear()}`}
           {` | `}
-          <a href="https://www.collado.io/rss.xml">RSS</a>
+          {process.env.NODE_ENV === 'development' ? (
+            <a href="https://develop--collado-io.netlify.app/rss.xml">RSS</a>
+          ) : (
+            <a href="https://www.collado.io/rss.xml">RSS</a>
+          )}
           {` | `}
           <a href="https://twitter.com/MarcCollado/">@MarcCollado</a>
         </small>
