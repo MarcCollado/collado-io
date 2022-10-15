@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^4.24.2",
+    "gatsby": "^4.24.4",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-image": "^2.24.0",
