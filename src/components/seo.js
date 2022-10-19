@@ -6,41 +6,40 @@ import favicon from '../../static/favicon.ico';
 import seoImage from '../../static/marc-avatar.png';
 
 const Seo = ({ pageDescription, pageTitle, pathname }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            author {
-              name
-            }
-            defaultTitle: title
-            defaultDescription: description
-            siteLanguage
-            siteUrl
-            social {
-              email
-              github
-              linkedin
-              reddit
-              strava
-              twitter
-            }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author {
+            name
+          }
+          defaultTitle: title
+          defaultDescription: description
+          siteLanguage
+          siteUrl
+          social {
+            email
+            github
+            linkedin
+            reddit
+            strava
+            twitter
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   const author = site.siteMetadata?.author.name;
   const authorEmail = site.siteMetadata?.social.email;
   // const authorTwitter = site.siteMetadata?.social.twitter;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const image = seoImage;
-  const language = site.siteMetadata?.siteLanguage || `EN`;
+  const language = site.siteMetadata?.siteLanguage;
   const title = pageTitle || site.siteMetadata?.defaultTitle;
-  const url =
-    `${site.siteMetadata?.siteUrl}${pathname}` || site.siteMetadata?.siteUrl;
+  const url = pathname
+    ? `${site.siteMetadata?.siteUrl}${pathname}`
+    : site.siteMetadata?.siteUrl;
 
   return (
     <Helmet
@@ -61,11 +60,11 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
         { property: `og:email`, content: authorEmail },
 
         // TWITTER CARD
-        // { name: `twitter:title`, content: title },
-        // { name: `twitter:description`, content: description },
-        // { name: `twitter:image`, content: image },
-        // { name: `twitter:creator`, content: twitter },
-        // { name: `twitter:card`, content: `summary_large_image` },
+        { name: `twitter:title`, content: title },
+        { name: `twitter:description`, content: description },
+        { name: `twitter:image`, content: image },
+        { name: `twitter:creator`, content: `@MarcCollado` },
+        { name: `twitter:card`, content: `summary_large_image` },
 
         // COLORED TABS
         { name: `theme-color`, content: `#19e597` },
