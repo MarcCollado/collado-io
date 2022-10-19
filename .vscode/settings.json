@@ -5,7 +5,12 @@
     "titleBar.activeBackground": "#19e597",
     "titleBar.inactiveBackground": "#19e597BB"
   },
-  "markdown.validate.ignoredLinks": [
-    "**/blog/**"
-  ]
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "markdown.validate.ignoredLinks": ["**/blog/**"]
 }
