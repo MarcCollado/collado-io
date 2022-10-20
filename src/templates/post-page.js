@@ -11,7 +11,7 @@ const Post = ({ data, location, pageContext }) => {
   // const prev = pageContext.prev.frontmatter.path;
   const seoData = {
     pageDescription: `${excerpt}`,
-    pageTitle: `${title}`,
+    pageTitle: `${title} — by Marc Collado`,
   };
   return (
     <Layout location={location} seoData={seoData}>

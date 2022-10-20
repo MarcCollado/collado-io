@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 const Tags = ({ data, location }) => {
   const { group: tags } = data.allMarkdownRemark;
   const seoData = {
-    pageDescription: `Tags page: a list of all tags`,
+    pageDescription: `All tags.`,
     pageTitle: ``,
   };
   return (
