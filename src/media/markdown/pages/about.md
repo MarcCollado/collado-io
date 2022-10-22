@@ -6,14 +6,14 @@ path: '/about'
 
 Over the last years, I created a few things. Some have worked, others have not.
 
-## Work
+## Main projects
 
-- 2022 — [Wiz Music](https://www.wizmusic.com/): a web3 platform for music artists to connect with their fans.
-- 2019 — [Gamestry](https://www.gamestry.com/): the largest video gaming community in Spain and South America.
-- 2015 — [Ironhack](https://www.ironhack.com/) BCN: one of the main coding bootcamp across Europe and America.
+- 2022 — [Wiz Music](https://www.wizmusic.com/): a web3 platform for music artists to engage with their fans.
+- 2019 — [Gamestry](https://www.gamestry.com/): the largest video gaming community in Spain and Latin America.
+- 2015 — [Ironhack](https://www.ironhack.com/): one of the leading coding bootcamp across Europe and America.
 - 2011 — [iomando](https://www.iomando.com/): a keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
 
-## Side projects
+## Side gigs
 
 - 🎙 [Foc a Terra](https://rss.com/podcasts/focaterra/): a weekly discussion around the current technological landscape.
 - 💻 [Nutri-Score Auditor](https://nutriscore.app/): a web-based tool to optimize Nutri-Score ratings.
@@ -22,6 +22,11 @@ Over the last years, I created a few things. Some have worked, others have not.
 - 🎙 [Radio Lanza](https://www.radiolanza.com): an educational series on how to launch a tech startup.
 - 🎓 [Udacity Data Analyst Nanodegree](/blog/2018/udacity-dand)
 - 🎓 [Ironhack's Web Development Bootcamp](/blog/2016/ironhack-experience) — Dev Squad #23
+
+## Lectures
+
+- [Stage2](https://stage2.cc/): an acceleration program for early-stage industrial tech startups.
+- [Elisava](https://www.elisava.net/): visiting lecturer for graduate programs in product development.
 
 Besides these side projects, I sometimes blog my thoughts on pretty much everything. If you enjoy these lines, consider subscribing to [the RSS feed](https://www.collado.io/rss.xml) to stay up-to-date with my latest developments.
 
