@@ -32,7 +32,6 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
 
   const author = site.siteMetadata?.author.name;
   const authorEmail = site.siteMetadata?.social.email;
-  // const authorTwitter = site.siteMetadata?.social.twitter;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const image = seoImage;
   const language = site.siteMetadata?.siteLanguage;
@@ -58,13 +57,6 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
         { property: `og:image`, content: image },
         { property: `og:url`, content: url },
         { property: `og:email`, content: authorEmail },
-
-        // TWITTER CARD
-        { name: `twitter:title`, content: title },
-        { name: `twitter:description`, content: description },
-        { name: `twitter:image`, content: image },
-        { name: `twitter:creator`, content: `@MarcCollado` },
-        { name: `twitter:card`, content: `summary_large_image` },
 
         // COLORED TABS
         { name: `theme-color`, content: `#19e597` },

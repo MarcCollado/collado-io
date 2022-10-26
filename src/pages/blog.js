@@ -7,7 +7,7 @@ import { toTitleCase } from '../utils/helpers';
 const Blog = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
   const seoData = {
-    pageDescription: `Blog page: all blog posts`,
+    pageDescription: `All blog posts.`,
     pageTitle: ``,
   };
   return (

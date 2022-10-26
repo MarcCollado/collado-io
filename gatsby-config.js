@@ -5,8 +5,8 @@ module.exports = {
     author: {
       name: `Marc Collado`,
     },
-    title: `Marc's website`,
-    description: `Thoughts on pretty much everything`,
+    title: `Personal website — by Marc Collado`,
+    description: `The place where I ramble on pretty much everything.`,
     siteLanguage: `en`,
     siteUrl: `https://www.collado.io`,
     social: {

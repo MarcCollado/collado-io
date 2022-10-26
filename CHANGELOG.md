@@ -14,6 +14,7 @@
 ### Fixed
 
 - Invalid RSS parsing token that broke the feed.
+- Tags in the meta description properly wrap at the max width.
 
 ## 💅 22.10
 
