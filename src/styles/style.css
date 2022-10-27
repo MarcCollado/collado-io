@@ -345,6 +345,14 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
 
 /* post-page.js */
 
+article .excerpt {
+  border-radius: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  /* var(--color-primary) — aplha #0c */
+  background-color: #19e5970c;
+  opacity: 0.75;
+}
+
 article .meta-container {
   text-align: center;
 }
