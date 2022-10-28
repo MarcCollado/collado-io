@@ -9,21 +9,20 @@ const Post = ({ data, location, pageContext }) => {
   const { date, excerpt, tags, title } = frontmatter;
   // const next = pageContext.next.frontmatter.path;
   // const prev = pageContext.prev.frontmatter.path;
+
   const seoData = {
     pageDescription: `${excerpt}`,
     pageTitle: `${title} — by Marc Collado`,
   };
   const excludedTags = ['books', 'til'];
+
   return (
     <Layout location={location} seoData={seoData}>
       <article>
         {/* <SEO title={siteTitle}></SEO> */}
         <h1>{toTitleCase(title)}</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
-          <>
-            <p className="excerpt">{excerpt}</p>
-            <hr></hr>
-          </>
+          <p className="excerpt">{excerpt}</p>
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <div className="meta-container">
