@@ -348,9 +348,9 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
 article .excerpt {
   border-radius: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-4);
-  /* var(--color-primary) — aplha #0c */
-  background-color: #19e5970c;
-  opacity: 0.75;
+  background-color: #e6f4ef;
+  color: #43524c;
+  opacity: 0.6;
 }
 
 article .meta-container {
