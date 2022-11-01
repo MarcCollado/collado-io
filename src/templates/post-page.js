@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { toTitleCase } from '../utils/helpers';
+// import { toTitleCase } from '../utils/helpers';
 
 const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
@@ -20,7 +20,7 @@ const Post = ({ data, location, pageContext }) => {
     <Layout location={location} seoData={seoData}>
       <article>
         {/* <SEO title={siteTitle}></SEO> */}
-        <h1>{toTitleCase(title)}</h1>
+        <h1>title</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
           <p className="excerpt">{excerpt}</p>
         )}
