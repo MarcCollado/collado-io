@@ -267,6 +267,12 @@ a:focus {
   text-decoration: none;
 }
 
+/* Markdown image */
+
+span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
+  border-radius: var(--spacing-2);
+}
+
 /* layout.js */
 
 .global-wrapper {
@@ -338,6 +344,14 @@ a:focus {
 }
 
 /* post-page.js */
+
+article .excerpt {
+  border-radius: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: #e6f4ef;
+  color: #43524c;
+  opacity: 0.6;
+}
 
 article .meta-container {
   text-align: center;
