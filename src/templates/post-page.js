@@ -20,7 +20,7 @@ const Post = ({ data, location, pageContext }) => {
     <Layout location={location} seoData={seoData}>
       <article>
         {/* <SEO title={siteTitle}></SEO> */}
-        <h1>title</h1>
+        <h1>{title}</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
           <p className="excerpt">{excerpt}</p>
         )}
