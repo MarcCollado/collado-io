@@ -5,12 +5,7 @@
     "titleBar.activeBackground": "#19e597",
     "titleBar.inactiveBackground": "#19e597BB"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "markdown.validate.ignoredLinks": ["**/blog/**"]
+  "markdown.validate.ignoredLinks": ["**/blog/**"],
+  "spellright.language": ["en", "es"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
 }
