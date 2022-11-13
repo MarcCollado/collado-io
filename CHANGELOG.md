@@ -6,6 +6,7 @@
 
 - Dark mode support.
 - Dedicated file for [CHANGELOG](https://keepachangelog.com/en/1.0.0/).
+- Featured article excerpt inside the post page.
 
 ### Changed
 
