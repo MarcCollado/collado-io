@@ -36,7 +36,7 @@ export const query = graphql`
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
     ) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
