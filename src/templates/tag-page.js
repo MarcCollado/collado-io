@@ -68,7 +68,7 @@ export const query = graphql`
         fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
         frontmatter: { tags: { in: [$tag] } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       totalCount
       ...allPosts

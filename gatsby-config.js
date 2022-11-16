@@ -99,7 +99,7 @@ module.exports = {
                     fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
                     frontmatter: { tags: { nin: ["drafts", "now"] } }
                   }
-                  sort: { fields: [frontmatter___date], order: DESC }
+                  sort: { frontmatter: { date: DESC } }
                 ) {
                   nodes {
                     frontmatter {

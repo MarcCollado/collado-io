@@ -58,7 +58,7 @@ export const blogQuery = graphql`
         fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
         frontmatter: { tags: { nin: ["drafts", "now"] } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       ...allPosts
     }

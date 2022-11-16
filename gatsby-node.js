@@ -10,7 +10,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       posts: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
       ) {
         edges {
           node {
