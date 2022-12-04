@@ -4,12 +4,12 @@ excerpt: 'Home page'
 path: '/'
 ---
 
-I'm a family guy, born, raised, and based in Barcelona. I'm currently working on [Wiz Music](https://www.wizmusic.io). Other than that ...
+Product enthusiast. Jack-of-all-trades, master of none.
 
-- [Aspiring writer](/blog) and [weekly podcaster](https://podcasts.apple.com/es/podcast/foc-a-terra/id1604172036)
-- [Book nerd](/tags/books) and [avid runner](https://www.strava.com/athletes/marccollado)
-- [Helpless builder](/about) and [programmer aficionado](https://github.com/marccollado)
+Industrial Engineer by trade. I've been a [podcaster](https://rss.com/podcasts/focaterra), [writer](/blog), [programmer](https://github.com/marccollado), [entrepreneur](https://www.linkedin.com/in/MarcCollado), and [long-distance runner](https://www.strava.com/athletes/marccollado).
 
-And as you might have guessed by now, list lover and confessed minimalist.
+Curious, perseverant, rational, optimist, introverted, and minimalist.
 
-To know more about me and what I'm currently up to, [head over here](/about).
+Born and raised in Barcelona.
+
+To know more about me and what I'm up to, [head over here](/about).
