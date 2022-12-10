@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import { toTitleCase } from '../utils/helpers';
+import { toTitleCase } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -27,7 +27,7 @@ const Blog = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={path} itemProp="url">
-                      <span itemProp="title">{title}</span>
+                      <span itemProp="title">{toTitleCase(title)}</span>
                     </Link>
                   </h2>
                   <small itemProp="date">{date}</small>
