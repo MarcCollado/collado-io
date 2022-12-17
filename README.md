@@ -7,10 +7,6 @@
   Marc Collado's personal website
 </h1>
 <p align="center">
-<a href="#">
-    <img width="125px" alt="Gatsby" src="https://api.netlify.com/api/v1/badges/29d00528-b389-4dc3-877c-f2c53532caee/deploy-status" width="60" />
-  </a>
-</p>
 
 collado.io is the place where I share random thoughts and conversations on pretty much everything.
 
