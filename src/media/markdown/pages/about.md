@@ -8,9 +8,9 @@ I build products for a living. Over the last years, I created a few things. Some
 
 ## 🏗️ Main projects
 
-- 2022 — [Wiz Music](https://www.wizmusic.com/): a web3 platform for music artists to engage with their fans.
-- 2019 — [Gamestry](https://www.gamestry.com/): the largest video gaming community in Spain and Latin America.
-- 2015 — [Ironhack](https://www.ironhack.com/): one of the leading coding bootcamp across Europe and America.
+- 2022 — [Wiz Music](https://wizmusic.com/): a web3 platform for music artists to engage with their fans.
+- 2019 — [Gamestry](https://gamestry.com/): the largest video gaming community in Spain and Latin America.
+- 2015 — [Ironhack](https://ironhack.com/): one of the leading coding bootcamp across Europe and America.
 - 2011 — [iomando](https://www.iomando.com/): a keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
 
 ## 🎙️ Podcasts
