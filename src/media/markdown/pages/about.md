@@ -37,8 +37,8 @@ Besides these side projects, I sometimes blog my thoughts on pretty much everyth
 
 This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [Derek Sivers](https://sivers.org) and the [nownownow](https://nownownow.com) project. Here you will find whatever I am currently doing, reading, learning, building... and keeps me awake at night — timely updated every now and then.
 
-- Book: [The Order of Time](https://www.amazon.com/dp/0141984961) by Carlo Rovelli.
-- Audiobook: [Do Nothing](https://www.amazon.com/dp/1984824732) by Celeste Headlee.
+- Book: When Coffee and Kale Compete
+- Audiobook: The Rational Optimist
 
 ## Contact
 
