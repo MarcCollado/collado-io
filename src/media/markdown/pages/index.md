@@ -6,9 +6,9 @@ path: '/'
 
 Product enthusiast. Jack-of-all-trades, master of none.
 
-Industrial Engineer by trade. I've been a [podcaster](/blog/2022/foc-a-terra), [writer](/blog), [programmer](https://github.com/marccollado), [entrepreneur](https://www.linkedin.com/in/MarcCollado), [lifelong learner](/blog/2019/til), and [long-distance runner](/blog/2018/going-sub3).
+Industrial Engineer by trade. I've been an [entrepreneur](https://www.linkedin.com/in/MarcCollado), [podcaster](/blog/2022/foc-a-terra), [writer](/blog), and [programmer](https://github.com/marccollado).
 
-Curious, perseverant, rational, optimist, introverted, and minimalist.
+[Lifelong learner](/blog/2019/til), curious, perseverant; rational, optimist, introverted, [long-distance runner](/blog/2018/going-sub3), and minimalist.
 
 Born and raised in Barcelona.
 
