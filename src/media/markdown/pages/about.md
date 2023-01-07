@@ -8,6 +8,7 @@ I build products for a living. Over the last years, I created a few things. Some
 
 ## 🏗️ Main projects
 
+- 2023 — [RSS.com](https://rss.com/): a podcast hosting and distribution platform empowering podcasters worldwide.
 - 2022 — [Wiz Music](https://wizmusic.com/): a web3 platform for music artists to engage with their fans.
 - 2019 — [Gamestry](https://gamestry.com/): the largest video gaming community in Spain and Latin America.
 - 2015 — [Ironhack](https://ironhack.com/): one of the leading coding bootcamp across Europe and America.
