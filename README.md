@@ -75,7 +75,7 @@ Project organizers — used in combination with `project classifiers` to filter
 ### Side projects
 
 - [`books`](https://www.collado.io/tags/books): book summaries
-- [`meta`](https://www.collado.io/tags/meta): updates from [collado.io](http://www.collado.io/)
+- [`meta`](https://www.collado.io/tags/meta): updates from [collado.io](http://www.collado.io/) and lists that are updated over time
 - [`now`](https://www.collado.io/tags/now): posts from the "now" page (deprecated since v22.10)
 - [`pansa`](https://www.collado.io/tags/pansa)
 - [`sub3`](https://www.collado.io/tags/sub3)
