@@ -6,7 +6,7 @@ path: '/about'
 
 I build products for a living. Over the last years, I created a few things. Some have worked, others have not.
 
-## 🏗️ Main projects
+## Projects
 
 - 2023 — [RSS.com](https://rss.com/): the podcast distribution platform empowering creators worldwide.
 - 2022 — [Wiz Music](https://wizmusic.com/): a web3 platform for music artists to engage with their fans.
@@ -14,18 +14,18 @@ I build products for a living. Over the last years, I created a few things. Some
 - 2015 — [Ironhack](https://ironhack.com/): one of the leading coding bootcamp across Europe and America.
 - 2011 — [iomando](https://www.iomando.com/): a keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
 
-## 🎙️ Podcasts
+## Podcasts
 
 - [Foc a Terra](https://rss.com/podcasts/focaterra/): a weekly discussion around the current technological landscape.
 - [Safareig](https://www.safareig.fm): conversations about how technology is changing society.
 - [Radio Lanza](https://www.radiolanza.com): an educational series on how to deliver a product to the market.
 
-## 🎓 Lectures
+## Lectures
 
 - [Stage2](https://stage2.cc/): an acceleration program for early-stage industrial tech startups.
 - [Elisava](https://www.elisava.net/): visiting lecturer for graduate programs in product development.
 
-## 🔮 Side gigs
+## Side gigs
 
 - [Nutri-Score Auditor](https://nutriscore.app/): a web-based tool to optimize Nutri-Score ratings.
 - [Udacity React Developer Nanodegree](/blog/2018/udacity-rdnd)
