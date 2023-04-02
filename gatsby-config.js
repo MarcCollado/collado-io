@@ -64,6 +64,7 @@ module.exports = {
         ],
       },
     },
+    // RSS FEED — BLOG
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -120,6 +121,24 @@ module.exports = {
             title: 'Marc Collado',
           },
         ],
+      },
+    },
+    // IMPORT EXTERNAL RSS FEED
+    // https://github.com/mottox2/gatsby-source-rss-feed
+    // FOC A TERRA
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://media.rss.com/focaterra/feed.xml`,
+        name: `FocATerra`,
+      },
+    },
+    // SAFAREIG
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://media.rss.com/safareig/feed.xml`,
+        name: `Safareig`,
       },
     },
     `gatsby-plugin-image`,
