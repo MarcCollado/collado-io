@@ -30,6 +30,7 @@
     "gatsby-remark-responsive-iframe": "^6.7.0",
     "gatsby-remark-smartypants": "^6.7.0",
     "gatsby-source-filesystem": "^5.7.0",
+    "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-transformer-remark": "^6.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
     "prismjs": "^1.29.0",
