@@ -39,19 +39,34 @@ export const allPostsQuery = graphql`
 `;
 
 // Used at blog.js
-export const allEpisodesQuery = graphql`
-  fragment allEpisodes on MarkdownRemarkConnection {
+export const allSafareigEpisodesQuery = graphql`
+  fragment allSafareigEpisodes on FeedSafareigConnection {
     edges {
       node {
         content
-        enclosure {
-          url
-        }
         id
         isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }
+        link
+        title
+      }
+    }
+  }
+`;
+
+export const allFocATerraEpisodesQuery = graphql`
+  fragment allFocATerraEpisodes on FeedFocATerraConnection {
+    edges {
+      node {
+        content
+        id
+        isoDate(formatString: "MMMM DD, YYYY")
+        itunes {
+          episode
+        }
+        link
         title
       }
     }
