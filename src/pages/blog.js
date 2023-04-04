@@ -22,7 +22,7 @@ export const blogQuery = graphql`
     posts: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
-        frontmatter: { tags: { nin: ["drafts", "now"] } }
+        frontmatter: { tags: { nin: ["drafts"] } }
       }
       sort: { frontmatter: { date: DESC } }
     ) {
