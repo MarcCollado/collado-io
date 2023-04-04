@@ -58,6 +58,14 @@ module.exports = {
               wrapperStyle: `margin-block-end: 1.0725rem`,
             },
           },
+          {
+            resolve: 'gatsby-plugin-react-svg',
+            options: {
+              rule: {
+                include: /icons/,
+              },
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
@@ -125,7 +133,7 @@ module.exports = {
     },
     // IMPORT EXTERNAL RSS FEED
     // https://github.com/mottox2/gatsby-source-rss-feed
-    // FOC A TERRA
+    // FEED: FOC A TERRA
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
@@ -133,7 +141,7 @@ module.exports = {
         name: `FocATerra`,
       },
     },
-    // SAFAREIG
+    // FEED: SAFAREIG
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
