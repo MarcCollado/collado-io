@@ -12,7 +12,7 @@ const Post = ({ data, location, pageContext }) => {
 
   const seoData = {
     pageDescription: `${excerpt}`,
-    pageTitle: `${title} — by Marc Collado`,
+    pageTitle: `${title} — by Marc Collado`,
   };
   const excludedTags = ['books', 'til'];
 
