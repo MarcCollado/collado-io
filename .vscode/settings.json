@@ -5,7 +5,5 @@
     "titleBar.activeBackground": "#19e597",
     "titleBar.inactiveBackground": "#19e597BB"
   },
-  "markdown.validate.ignoredLinks": ["**/blog/**"],
-  "spellright.language": ["en", "es"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+  "markdown.validate.ignoredLinks": ["**/blog/**"]
 }
