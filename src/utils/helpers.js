@@ -34,6 +34,7 @@ export function toTitleCase(str) {
     'for',
     'if',
     'in',
+    'is',
     'of',
     'on',
     'or',
