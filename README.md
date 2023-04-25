@@ -38,7 +38,6 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - mindfulness
 - minimalism
 - mobility
-- nutrition
 - philosophy
 - physics
 - podcasts
@@ -46,7 +45,6 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - product
 - productivity
 - psychology
-- sleep
 - tech
 - vr
 
