@@ -38,8 +38,9 @@ Besides these side projects, I sometimes blog my thoughts on pretty much everyth
 
 This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [Derek Sivers](https://sivers.org) and the [nownownow](https://nownownow.com) project. Here you will find whatever I am currently doing, reading, learning, building... and keeps me awake at night — timely updated every now and then.
 
-- Book: When Coffee and Kale Compete
-- Audiobook: The Rational Optimist
+- Reading Tim Urban's book: [What's Our Problem?](https://waitbutwhy.com/2023/02/last-six-years.html)
+- Curious about the latest advancements in artificial intelligence and their implications for society. Maybe that's the reason why I started to brush up on my Python skills.
+- Working on a small side-project: a notification system for when someone you follow appears on a podcast.
 
 ## Contact
 
