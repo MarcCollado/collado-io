@@ -149,6 +149,14 @@ module.exports = {
         name: `Safareig`,
       },
     },
+    // FEED: BUGADA
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.safareig.fm/rss.xml`,
+        name: `Bugada`,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
