@@ -34,6 +34,9 @@ export const blogQuery = graphql`
     fatEpisodes: allFeedFocATerra(sort: { isoDate: DESC }) {
       ...allFocATerraEpisodes
     }
+    bugadaPosts: allFeedBugada(sort: { isoDate: DESC }) {
+      ...allBugadaPosts
+    }
   }
 `;
 
