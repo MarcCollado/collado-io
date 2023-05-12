@@ -72,3 +72,16 @@ export const allFocATerraEpisodesQuery = graphql`
     }
   }
 `;
+
+export const allBugadaPostsQuery = graphql`
+  fragment allBugadaPosts on FeedBugadaConnection {
+    edges {
+      node {
+        id
+        isoDate(formatString: "MMMM DD, YYYY")
+        link
+        title
+      }
+    }
+  }
+`;
