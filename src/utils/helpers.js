@@ -78,12 +78,14 @@ export function createFeed(data) {
   data.posts.edges.map((e) => (e.node['project'] = 'collado.io'));
   data.safareigEpisodes.edges.map((e) => (e.node['project'] = 'safareig.fm'));
   data.fatEpisodes.edges.map((e) => (e.node['project'] = 'focaterra.com'));
+  data.bugadaPosts.edges.map((e) => (e.node['project'] = 'bugada.blog'));
 
   // Create unified feed
   const blogPosts = data.posts.edges;
   const podcastEpisodes = [
     ...data.safareigEpisodes.edges,
     ...data.fatEpisodes.edges,
+    ...data.bugadaPosts.edges,
   ];
   const feed = [...blogPosts, ...podcastEpisodes];
 
@@ -135,7 +137,10 @@ export function createFeed(data) {
                 <h2 className="external-link">
                   <a href={link} itemProp="url">
                     <span itemProp="title">
-                      {`${itunes.episode}: ${title}`} <ExternalLinkIcon />
+                      {itunes?.episode
+                        ? `${itunes.episode}: ${title}`
+                        : `${title}`}{' '}
+                      <ExternalLinkIcon />
                     </span>
                   </a>
                 </h2>
