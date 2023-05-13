@@ -4,7 +4,7 @@ excerpt: 'About page'
 path: '/about'
 ---
 
-I build products for a living. Over the last years, I created a few things. Some have worked, others have not.
+Industrial Engineer by trade. I build products for a living. Over the last years, I created a few things. Some have worked, others have not.
 
 My days revolve around products, technology, design, and podcasting. However, as a helpless [generalist](/blog/2020/generalists), I've also developed a deep curiosity about health, engineering, physics, and minimalism — which have become the main themes of this blog.
 
