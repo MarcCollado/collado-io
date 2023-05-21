@@ -157,6 +157,14 @@ module.exports = {
         name: `Bugada`,
       },
     },
+    // FEED: RADIO LANZA
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://feeds.simplecast.com/lR0q9QeN`,
+        name: `RadioLanza`,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
