@@ -79,6 +79,9 @@ export function createFeed(data) {
   data.safareigEpisodes.edges.map((e) => (e.node['project'] = 'safareig.fm'));
   data.fatEpisodes.edges.map((e) => (e.node['project'] = 'focaterra.com'));
   data.bugadaPosts.edges.map((e) => (e.node['project'] = 'bugada.blog'));
+  data.radioLanzaEpisodes.edges.map(
+    (e) => (e.node['project'] = 'radiolanza.com')
+  );
 
   // Create unified feed
   const blogPosts = data.posts.edges;
@@ -86,6 +89,7 @@ export function createFeed(data) {
     ...data.safareigEpisodes.edges,
     ...data.fatEpisodes.edges,
     ...data.bugadaPosts.edges,
+    ...data.radioLanzaEpisodes.edges,
   ];
   const feed = [...blogPosts, ...podcastEpisodes];
 
