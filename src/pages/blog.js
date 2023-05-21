@@ -37,6 +37,9 @@ export const blogQuery = graphql`
     bugadaPosts: allFeedBugada(sort: { isoDate: DESC }) {
       ...allBugadaPosts
     }
+    radioLanzaEpisodes: allFeedRadioLanza(sort: { isoDate: DESC }) {
+      ...allRadioLanzaEpisodes
+    }
   }
 `;
 
