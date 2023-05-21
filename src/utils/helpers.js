@@ -73,7 +73,7 @@ export function toTitleCase(str) {
   });
 }
 
-export function createFeed(data) {
+export function feedGenerator(data) {
   // Append "project" property to each collection
   data.posts.edges.map((e) => (e.node['project'] = 'collado.io'));
   data.safareigEpisodes.edges.map((e) => (e.node['project'] = 'safareig.fm'));

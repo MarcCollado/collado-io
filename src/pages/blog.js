@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { createFeed } from '../utils/helpers';
+import { feedGenerator } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
   const seoData = {
@@ -12,7 +12,7 @@ const Blog = ({ data, location }) => {
 
   return (
     <Layout location={location} seoData={seoData}>
-      <ol style={{ listStyle: `none` }}>{createFeed(data)}</ol>
+      <ol style={{ listStyle: `none` }}>{feedGenerator(data)}</ol>
     </Layout>
   );
 };
