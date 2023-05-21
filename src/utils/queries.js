@@ -85,3 +85,19 @@ export const allBugadaPostsQuery = graphql`
     }
   }
 `;
+
+export const allRadioLanzaEpisodesQuery = graphql`
+  fragment allRadioLanzaEpisodes on FeedRadioLanzaConnection {
+    edges {
+      node {
+        id
+        isoDate(formatString: "MMMM DD, YYYY")
+        itunes {
+          episode
+        }
+        link
+        title
+      }
+    }
+  }
+`;
