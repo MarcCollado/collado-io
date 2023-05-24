@@ -344,11 +344,6 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
   font-size: var(--fontSize-1);
 }
 
-.post-list-item header h2.external-link svg {
-  position: absolute;
-  margin: 4px 0px 0px 8px;
-}
-
 /* post-page.js */
 
 article .excerpt {
