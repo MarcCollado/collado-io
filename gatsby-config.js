@@ -58,14 +58,6 @@ module.exports = {
               wrapperStyle: `margin-block-end: 1.0725rem`,
             },
           },
-          {
-            resolve: 'gatsby-plugin-react-svg',
-            options: {
-              rule: {
-                include: /icons/,
-              },
-            },
-          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
