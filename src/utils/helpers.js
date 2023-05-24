@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import ExternalLinkIcon from './../media/icons/external-link.svg';
-
 /**
  * Extracts page information from the corresponding markdown file
  * @param {array} edges with one object inside
@@ -143,8 +141,8 @@ export function feedGenerator(data) {
                     <span itemProp="title">
                       {itunes?.episode
                         ? `${itunes.episode}: ${title}`
-                        : `${title}`}{' '}
-                      <ExternalLinkIcon />
+                        : `${title}`}
+                      {' ↗'}
                     </span>
                   </a>
                 </h2>
