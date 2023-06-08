@@ -42,6 +42,7 @@ export function toTitleCase(str) {
     // Català
     'de',
     'des',
+    'part',
     // Ad-hoc
     'collado.io',
     'ebay',
