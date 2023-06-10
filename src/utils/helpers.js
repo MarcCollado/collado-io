@@ -42,6 +42,8 @@ export function toTitleCase(str) {
     // Català
     'de',
     'des',
+    'el',
+    'la',
     'part',
     // Ad-hoc
     'collado.io',
@@ -49,7 +51,7 @@ export function toTitleCase(str) {
     'iomando',
     'v2',
   ];
-  const upperCaseFilter = ['AI', 'API', 'II', 'III', 'IV', 'V'];
+  const upperCaseFilter = ['AI', 'API', 'II', 'III', 'IV', 'V', 'WWDC'];
   let isFirstWord = true;
   return str.replace(/\w\S*/g, function (txt) {
     // Ignore the first word
