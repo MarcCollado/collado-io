@@ -354,17 +354,18 @@ article .excerpt {
   opacity: 0.6;
 }
 
-article .meta-container {
+article > .meta-container {
   text-align: center;
 }
 
-article .tag-container {
+article > .meta-container .tag-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-article .meta-container .tag-container small {
+/* also applies to tag-page.js @ dev */
+article .tag-container small {
   margin-inline-end: var(--spacing-2);
 }
 
