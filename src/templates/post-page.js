@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { toTitleCase } from '../utils/helpers';
+import { toTitleCase, tagListGenerator } from '../utils/helpers';
 
 const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { date, excerpt, tags, title } = frontmatter;
+
+  // next and previous posts are available from frontmatter
   // const next = pageContext.next.frontmatter.path;
   // const prev = pageContext.prev.frontmatter.path;
 
@@ -14,6 +16,8 @@ const Post = ({ data, location, pageContext }) => {
     pageDescription: `${excerpt}`,
     pageTitle: `${title} — by Marc Collado`,
   };
+
+  // prevent posts tagged with `excludedTags` from rendering excerpts
   const excludedTags = ['books', 'til'];
 
   return (
@@ -27,16 +31,7 @@ const Post = ({ data, location, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <div className="meta-container">
           <small>{`First published on ${date}`}</small>
-          <div className="tag-container">
-            {tags.map((tag) => {
-              const tagPath = `/tags/${tag}`;
-              return (
-                <small key={tag}>
-                  <Link to={tagPath}>{`#${tag}`}</Link>
-                </small>
-              );
-            })}
-          </div>
+          {tagListGenerator(tags)}
         </div>
       </article>
     </Layout>
@@ -52,6 +47,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         excerpt
         # featured
+        # language
         path
         # source
         tags
