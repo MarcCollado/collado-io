@@ -157,3 +157,18 @@ export function feedGenerator(data) {
       })
   );
 }
+
+export function tagListGenerator(tags) {
+  return (
+    <div className="tag-container">
+      {tags.map((tag) => {
+        const tagPath = `/tags/${tag}`;
+        return (
+          <small key={tag}>
+            <Link to={tagPath}>{`#${tag}`}</Link>
+          </small>
+        );
+      })}
+    </div>
+  );
+}
