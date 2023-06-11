@@ -27,7 +27,7 @@ const Layout = ({ children, location, seoData = {} }) => {
             width={50}
             height={50}
             quality={100}
-            alt="Marc Collado's profile picture"
+            alt="Marc Collado's profile picture"
           />
         </Link>
         <Link

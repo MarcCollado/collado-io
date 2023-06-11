@@ -10,11 +10,11 @@ My days revolve around products, technology, design, and podcasting. However, as
 
 ## Projects
 
-- 2023 — [RSS.com](https://rss.com/): podcast distribution platform empowering creators worldwide.
-- 2022 — [Wiz Music](https://wizmusic.com/): web3 platform for music artists to engage with their fans.
-- 2019 — [Gamestry](https://gamestry.com/): video gaming community for Spain and Latin America.
+- 2023 — [RSS.com](https://rss.com/): podcast distribution platform empowering creators worldwide.
+- 2022 — [Wiz Music](https://wizmusic.com/): web3 platform for music artists to engage with their fans.
+- 2019 — [Gamestry](https://gamestry.com/): video gaming community for Spain and Latin America.
 - 2015 — [Ironhack](https://ironhack.com/): leading coding bootcamp across Europe and America.
-- 2011 — [iomando](https://www.iomando.com/): keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
+- 2011 — [iomando](https://www.iomando.com/): keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
 
 ## Podcasts
 
@@ -46,4 +46,4 @@ This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [D
 
 ## Contact
 
-Finally, feel free to [reach out](mailto:maroon_05_midway@icloud.com), or follow me at [Twitter](https://twitter.com/MarcCollado/) or [LinkedIn](https://www.linkedin.com/in/MarcCollado/) — where I seldom post random ideas or share updates on new projects I'll be working on.
+Finally, feel free to [reach out](mailto:maroon_05_midway@icloud.com), or follow me at [Twitter](https://twitter.com/MarcCollado/) or [LinkedIn](https://www.linkedin.com/in/MarcCollado/) — where I seldom post random ideas or share updates on new projects I'll be working on.

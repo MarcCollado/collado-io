@@ -18,7 +18,7 @@ In this README.md file you'll find some (nonessential) insights on the site's in
 
 The tag system labels posts' content according to its subject and aggregates them under its corresponding tag page.
 
-You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
+You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
 
 - AI
 - art
@@ -64,7 +64,7 @@ Right below there's a quick breakdown of those.
 - [`ironhack`](https://www.collado.io/tags/ironhack)
 - [`iomando`](https://www.collado.io/tags/iomando)
 
-Project organizers — used in combination with `project classifiers` to filter React Tabs (deprecated since v22.10).
+Project organizers — used in combination with `project classifiers` to filter React Tabs (deprecated since v22.10).
 
 - [`idea`](https://www.collado.io/tags/idea)
 - [`memoir`](https://www.collado.io/tags/memoir)

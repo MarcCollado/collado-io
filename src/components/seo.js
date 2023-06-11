@@ -51,7 +51,7 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
         { name: `author`, content: author },
         { name: `language`, content: language },
 
-        // OG TAGS — https://opengraphprotocol.org
+        // OG TAGS — https://opengraphprotocol.org
         { property: `og:title`, content: title },
         { property: `og:description`, content: description },
         { property: `og:image`, content: image },

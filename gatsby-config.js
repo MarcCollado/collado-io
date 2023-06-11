@@ -64,7 +64,7 @@ module.exports = {
         ],
       },
     },
-    // RSS FEED — BLOG
+    // RSS FEED — BLOG
     {
       resolve: `gatsby-plugin-feed`,
       options: {
