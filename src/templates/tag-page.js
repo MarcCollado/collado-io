@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { toTitleCase } from '../utils/helpers';
+import { toTitleCase, tagListGenerator } from '../utils/helpers';
 
 const Tag = ({ data, location, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -13,7 +13,7 @@ const Tag = ({ data, location, pageContext }) => {
   } tagged with`;
   const seoData = {
     pageDescription: `${tagCount} ${tag}`,
-    pageTitle: `${tag} — tag page`,
+    pageTitle: `${tag} — tag page`,
   };
 
   return (
@@ -22,7 +22,7 @@ const Tag = ({ data, location, pageContext }) => {
       <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, title, path } =
+          const { date, excerpt, featured, title, tags, path } =
             post.node.frontmatter;
           const isFeatured = featured;
           return (
@@ -38,6 +38,8 @@ const Tag = ({ data, location, pageContext }) => {
                       <span itemProp="title">{toTitleCase(title)}</span>
                     </Link>
                   </h2>
+                  {process.env.NODE_ENV === 'development' &&
+                    tagListGenerator(tags)}
                   <small itemProp="date">{date}</small>
                 </header>
                 {isFeatured && (
