@@ -46,4 +46,4 @@ This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [D
 
 ## Contact
 
-Finally, feel free to [reach out](mailto:maroon_05_midway@icloud.com), or follow me at [Twitter](https://twitter.com/MarcCollado/) or [LinkedIn](https://www.linkedin.com/in/MarcCollado/) — where I seldom post random ideas or share updates on new projects I'll be working on.
+Finally, feel free to [reach out](mailto:maroon_05_midway@icloud.com) or follow me at [Twitter](https://twitter.com/MarcCollado/) — where I seldom post random ideas or share updates on new projects I'll be working on.
