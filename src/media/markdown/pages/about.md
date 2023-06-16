@@ -29,7 +29,7 @@ My days revolve around products, technology, design, and podcasting. However, as
 
 ## Side gigs
 
-- [Nutri-Score Auditor](https://nutriscore.app/): web-based tool to optimize Nutri-Score ratings.
+- [Nutri-Score Auditor](https://nutriscore-app.netlify.app): web-based tool to optimize Nutri-Score ratings.
 - [Udacity React Developer Nanodegree](/blog/2018/udacity-rdnd)
 - [Udacity Data Analyst Nanodegree](/blog/2018/udacity-dand)
 - [Ironhack's Web Development Bootcamp](/blog/2016/ironhack-experience) — Dev Squad #23
@@ -46,4 +46,4 @@ This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [D
 
 ## Contact
 
-Finally, feel free to [reach out](mailto:maroon_05_midway@icloud.com) or follow me at [Twitter](https://twitter.com/MarcCollado/) — where I seldom post random ideas or share updates on new projects I'll be working on.
+Feel free to [reach out](mailto:maroon_05_midway@icloud.com) or follow me at [Twitter](https://twitter.com/MarcCollado/), where I seldom post random ideas or share updates on new projects I'll be working on.
