@@ -12,7 +12,7 @@
   --maxWidth-4xl: 56rem;
   --maxWidth-full: '100%';
   --maxWidth-wrapper: var(--maxWidth-2xl);
-  --spacing-px: '1px';
+  --spacing-px: 1px;
   --spacing-0: 0;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
@@ -268,6 +268,11 @@ a:focus {
   text-decoration: none;
 }
 
+/* Anchor links */
+a.anchor-link.before {
+  padding: var(--spacing-px) var(--spacing-1) 0px 0px;
+}
+
 /* Markdown image */
 
 span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
@@ -315,7 +320,7 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
   color: var(--color-heading);
 }
 
-/* static pages */
+/* Static pages */
 
 .heading-companion {
   margin-block-end: var(--spacing-0);
@@ -364,7 +369,7 @@ article > .meta-container .tag-container {
   justify-content: center;
 }
 
-/* also applies to tag-page.js @ dev */
+/* Also applies to tag-page.js @ dev */
 article .tag-container small {
   margin-inline-end: var(--spacing-2);
 }
@@ -373,7 +378,7 @@ article .tag-container small {
 
 /* Mobile */
 @media (max-width: 44rem) {
-  /* nest blockquote and list indentation */
+  /* Nest blockquote and list indentation */
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-inline-start: var(--spacing-0);
@@ -381,6 +386,11 @@ article .tag-container small {
   ul,
   ol {
     list-style-position: inside;
+  }
+
+  /* Hide anchor links */
+  a.anchor-link.before {
+    display: none;
   }
 
   /* blog.js — move date below post link  */
@@ -404,7 +414,7 @@ article .tag-container small {
   }
 }
 
-/* center embedded tweets */
+/* Center embedded tweets */
 .twitter-tweet {
   margin: auto;
 }
