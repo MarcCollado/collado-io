@@ -269,8 +269,12 @@ a:focus {
 }
 
 /* Anchor links */
-a.anchor-link.before {
-  padding: var(--spacing-px) var(--spacing-1) 0px 0px;
+a.anchor-link.after {
+  margin-inline-start: var(--spacing-1);
+}
+
+a.anchor-link.after svg {
+  fill: var(--color-heading);
 }
 
 /* Markdown image */
