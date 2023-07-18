@@ -19,7 +19,7 @@ My days revolve around products, technology, design, and podcasting. However, as
 ## Podcasts
 
 - [Foc a Terra](https://rss.com/podcasts/focaterra/): weekly discussions around the current technological landscape.
-- [Safareig](https://www.safareig.fm): conversations about how technology is changing society.
+- [Safareig](https://rss.com/podcasts/safareig/): conversations about how technology is changing society.
 - [Radio Lanza](https://www.radiolanza.com): educational series on how to deliver a product to the market.
 
 ## Lectures
