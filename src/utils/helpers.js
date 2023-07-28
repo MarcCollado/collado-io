@@ -81,7 +81,7 @@ export function feedGenerator(data) {
   data.fatEpisodes.edges.map((e) => (e.node['project'] = 'focaterra.com'));
   data.bugadaPosts.edges.map((e) => (e.node['project'] = 'bugada.blog'));
   data.radioLanzaEpisodes.edges.map(
-    (e) => (e.node['project'] = 'radiolanza.com')
+    (e) => (e.node['project'] = 'radiolanza.com'),
   );
 
   // Create unified feed
