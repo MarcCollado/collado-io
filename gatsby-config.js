@@ -157,7 +157,7 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://www.safareig.fm/rss.xml`,
+        url: `https://safareig.netlify.app/rss.xml`,
         name: `Bugada`,
       },
     },
