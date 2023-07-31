@@ -24,8 +24,7 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - art
 - business
 - coding
-- creators
-- data
+- creator econonmy
 - design
 - economics
 - education
@@ -41,6 +40,7 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - philosophy
 - physics
 - podcasts
+- postmodernity
 - privacy
 - product
 - productivity
@@ -54,9 +54,8 @@ On the surface, all tags might look the same. However, there are a set of "speci
 
 Right below there's a quick breakdown of those.
 
-### Main projects
+### Work
 
-- [`wiz music`](https://www.collado.io/tags/wiz%20music)
 - [`foc a terra`](https://www.collado.io/tags/foc%20a%20terra)
 - [`safareig`](https://www.collado.io/tags/safareig)
 - [`gamestry`](https://www.collado.io/tags/gamestry)
@@ -64,7 +63,7 @@ Right below there's a quick breakdown of those.
 - [`ironhack`](https://www.collado.io/tags/ironhack)
 - [`iomando`](https://www.collado.io/tags/iomando)
 
-Project organizers — used in combination with `project classifiers` to filter React Tabs (deprecated since v22.10).
+Work organizers: used in combination with `project classifiers` to filter React Tabs (deprecated since v22.10).
 
 - [`idea`](https://www.collado.io/tags/idea)
 - [`memoir`](https://www.collado.io/tags/memoir)
@@ -73,7 +72,7 @@ Project organizers — used in combination with `project classifiers` to filter 
 ### Side projects
 
 - [`books`](https://www.collado.io/tags/books): book summaries
-- [`meta`](https://www.collado.io/tags/meta): updates from [collado.io](http://www.collado.io/) and lists that are updated over time
+- [`meta`](https://www.collado.io/tags/meta): content related to [collado.io](http://www.collado.io/) and lists that are updated over time
 - [`now`](https://www.collado.io/tags/now): posts from the "now" page (deprecated since v22.10)
 - [`pansa`](https://www.collado.io/tags/pansa)
 - [`sub3`](https://www.collado.io/tags/sub3)
