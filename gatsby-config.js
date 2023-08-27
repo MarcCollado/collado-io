@@ -177,5 +177,5 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
   ],
-  trailingSlash: `never`,
+  trailingSlash: `always`,
 };
