@@ -43,7 +43,7 @@
     "prettier": "^3.0.2"
   },
   "scripts": {
-    "build": "gatsby clean && npm run format && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json}\" ",
     "start": "gatsby clean && npm run format && gatsby build && gatsby develop",
