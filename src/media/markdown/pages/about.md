@@ -1,15 +1,15 @@
 ---
 title: 'About'
 excerpt: 'About page'
-path: '/about'
+path: '/about/'
 ---
 
-I build products for a living. Over the last years, I created a few things. Some have worked, others have not.
+Over the last years, I created a few things. Some have worked, others have not.
 
 ## Projects
 
 - 2023 — [RSS.com](https://rss.com/): podcast distribution platform empowering creators worldwide.
-- 2022 — [Wiz Music](https://wizmusic.com/): web3 platform for music artists to engage with their fans.
+- 2022 — Wiz Music: web3 platform for music artists to engage with their fans.
 - 2019 — [Gamestry](https://gamestry.com/): video gaming community for Spain and Latin America.
 - 2015 — [Ironhack](https://ironhack.com/): leading coding bootcamp across Europe and America.
 - 2011 — [iomando](https://www.iomando.com/): keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
@@ -18,7 +18,7 @@ I build products for a living. Over the last years, I created a few things. Some
 
 - [Foc a Terra](https://rss.com/podcasts/focaterra/): weekly discussions around the current technological landscape.
 - [Safareig](https://rss.com/podcasts/safareig/): conversations about how technology is changing society.
-- [Radio Lanza](https://www.radiolanza.com): educational series on how to deliver a product to the market.
+- [Radio Lanza](https://radiolanza.simplecast.com): educational series on how to deliver a product to the market.
 
 ## Side gigs
 
@@ -46,7 +46,7 @@ This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [D
 - Curious about the latest advancements in AI and their implications for society.
 - Working on a small side-project: a notification system for when someone you follow appears on a podcast.
 
-Last updated on 8.8.23.
+Last updated on August 8. You can also revisit past editions of the [/now project](/tags/now), back when it still was a standalone page.
 
 ## Contact
 
