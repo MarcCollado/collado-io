@@ -416,10 +416,21 @@ article .tag-container small {
   .global-navbar-image-link:focus[data-is-root-path='true'] {
     transform: none;
   }
+
+  /* Fix embedded RSS player */
+  article > div > iframe {
+    height: 126px;
+  }
+}
+
+/* Fix embedded RSS player */
+article > div > iframe {
+  border-radius: var(--spacing-3);
+  margin-block-end: var(--spacing-5);
 }
 
 /* Center embedded tweets */
-.twitter-tweet {
+article > div > div.twitter-tweet {
   margin: auto;
 }
 
