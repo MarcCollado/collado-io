@@ -8,7 +8,7 @@ Over the last years, I created a few things. Some have worked, others have not.
 
 ## Projects
 
-- 2023 — [RSS.com](https://rss.com/): podcast distribution platform empowering creators worldwide.
+- 2023 — [RSS.com](https://rss.com/): podcast publishing platform empowering creators worldwide.
 - 2022 — Wiz Music: web3 platform for music artists to engage with their fans.
 - 2019 — [Gamestry](https://gamestry.com/): video gaming community for Spain and Latin America.
 - 2015 — [Ironhack](https://ironhack.com/): leading coding bootcamp across Europe and America.
