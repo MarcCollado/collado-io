@@ -47,7 +47,6 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - philosophy 10
 - physics 2
 - podcasts 10
-- privacy 3
 - psychology 35
 - vr 4
 
