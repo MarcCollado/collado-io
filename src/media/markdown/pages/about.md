@@ -42,11 +42,11 @@ Besides these side projects, I sometimes blog my thoughts on pretty much everyth
 
 This last section is a [/now page](https://nownownow.com/p/YAnl), inspired by [Derek Sivers](https://sivers.org). Here you will find whatever I am currently doing, reading, learning, building... and keeps me awake at night — timely updated every now and then.
 
-- Reading: [Una pequeña historia de la filosofía](https://www.amazon.com/dp/8415472366/)
+- Reading: [Novacene](https://www.amazon.com/dp/B08BT4MM18/) and [Infocracy](https://www.amazon.com/dp/B09SVTP9RS/)
 - Curious about the latest advancements in AI and their implications for society.
-- Working on a small side-project: a notification system for when someone you follow appears on a podcast.
+- Working on a notification system for when someone you follow appears on a podcast.
 
-Last updated on August 8. You can also revisit past editions of the [/now project](/tags/now), back when it still was a standalone page.
+Last updated on October 27. You can also revisit past editions of the [/now project](/tags/now), back when it still was a standalone page.
 
 ## Contact
 
