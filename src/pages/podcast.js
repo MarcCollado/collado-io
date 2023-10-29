@@ -4,10 +4,10 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { podcastFeedGenerator } from '../utils/helpers';
 
-const Podcasts = ({ data, location }) => {
+const Podcast = ({ data, location }) => {
   const seoData = {
     pageDescription: `All podcast episodes.`,
-    pageTitle: `Podcasts`,
+    pageTitle: `Podcast`,
   };
 
   return (
@@ -17,7 +17,7 @@ const Podcasts = ({ data, location }) => {
   );
 };
 
-export const podcastsQuery = graphql`
+export const episodesQuery = graphql`
   query {
     fatEpisodes: allFeedFocATerra(sort: { isoDate: DESC }) {
       ...allFocATerraEpisodes
@@ -31,4 +31,4 @@ export const podcastsQuery = graphql`
   }
 `;
 
-export default Podcasts;
+export default Podcast;

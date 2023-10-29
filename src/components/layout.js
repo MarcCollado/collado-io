@@ -40,9 +40,9 @@ const Layout = ({ children, location, seoData = {} }) => {
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
-          to="/podcasts"
+          to="/podcast"
         >
-          Podcasts
+          Podcast
         </Link>
         <Link
           className="global-navbar-link"
