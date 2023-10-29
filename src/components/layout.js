@@ -40,6 +40,13 @@ const Layout = ({ children, location, seoData = {} }) => {
         <Link
           className="global-navbar-link"
           activeClassName={'global-navbar-link-active'}
+          to="/podcasts"
+        >
+          Podcasts
+        </Link>
+        <Link
+          className="global-navbar-link"
+          activeClassName={'global-navbar-link-active'}
           to="/about"
         >
           About
@@ -55,13 +62,13 @@ const Layout = ({ children, location, seoData = {} }) => {
       <footer>
         <small>
           {`© ${new Date().getFullYear()}`}
-          {` | `}
+          {` · `}
           {process.env.NODE_ENV === 'development' ? (
             <a href="https://develop--collado-io.netlify.app/rss.xml">RSS</a>
           ) : (
             <a href="https://www.collado.io/rss.xml">RSS</a>
           )}
-          {` | `}
+          {` · `}
           <a href="https://twitter.com/MarcCollado/">@MarcCollado</a>
         </small>
       </footer>
