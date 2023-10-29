@@ -2,17 +2,17 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import { feedGenerator } from '../utils/helpers';
+import { blogFeedGenerator } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
   const seoData = {
     pageDescription: `All blog posts.`,
-    pageTitle: ``,
+    pageTitle: `Blog`,
   };
 
   return (
     <Layout location={location} seoData={seoData}>
-      <ol style={{ listStyle: `none` }}>{feedGenerator(data)}</ol>
+      <ol style={{ listStyle: `none` }}>{blogFeedGenerator(data)}</ol>
     </Layout>
   );
 };
@@ -28,17 +28,8 @@ export const blogQuery = graphql`
     ) {
       ...allPosts
     }
-    safareigEpisodes: allFeedSafareig(sort: { isoDate: DESC }) {
-      ...allSafareigEpisodes
-    }
-    fatEpisodes: allFeedFocATerra(sort: { isoDate: DESC }) {
-      ...allFocATerraEpisodes
-    }
     bugadaPosts: allFeedBugada(sort: { isoDate: DESC }) {
       ...allBugadaPosts
-    }
-    radioLanzaEpisodes: allFeedRadioLanza(sort: { isoDate: DESC }) {
-      ...allRadioLanzaEpisodes
     }
   }
 `;
