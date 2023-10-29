@@ -17,7 +17,7 @@ const Blog = ({ data, location }) => {
   );
 };
 
-export const blogQuery = graphql`
+export const postsQuery = graphql`
   query {
     posts: allMarkdownRemark(
       filter: {
