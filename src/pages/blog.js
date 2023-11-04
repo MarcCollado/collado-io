@@ -6,7 +6,7 @@ import { blogFeedGenerator } from '../utils/helpers';
 
 const Blog = ({ data, location }) => {
   const seoData = {
-    pageDescription: `All blog posts.`,
+    pageDescription: `Blog posts`,
     pageTitle: `Blog`,
   };
 

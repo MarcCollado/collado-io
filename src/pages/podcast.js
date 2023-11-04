@@ -6,7 +6,7 @@ import { podcastFeedGenerator } from '../utils/helpers';
 
 const Podcast = ({ data, location }) => {
   const seoData = {
-    pageDescription: `All podcast episodes.`,
+    pageDescription: `Podcast episodes`,
     pageTitle: `Podcast`,
   };
 

@@ -7,8 +7,8 @@ import { extractMarkdown } from '../utils/helpers';
 const About = ({ data, location }) => {
   const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
   const seoData = {
-    pageDescription: `Work and side projects.`,
-    pageTitle: ``,
+    pageDescription: `Work and side-projects`,
+    pageTitle: `About`,
   };
   return (
     <Layout location={location} seoData={seoData}>
