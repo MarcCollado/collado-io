@@ -36,7 +36,7 @@ Over the last years, I created a few things. Some have worked, others have not.
 - [Ironhack's Web Development Bootcamp](/blog/2016/ironhack-experience) — Dev Squad #23
 - [BSc and MSc in Industrial Technologies Engineering](/blog/2013/industrial-engineer)
 
-Besides these side projects, I sometimes blog my thoughts on pretty much everything. If you enjoy these lines, consider subscribing to [the RSS feed](https://www.collado.io/rss.xml) to stay up-to-date with my latest developments.
+Besides these side-projects, I sometimes blog my thoughts on pretty much everything. If you enjoy these lines, consider subscribing to [the RSS feed](https://www.collado.io/rss.xml) to stay up-to-date with my latest developments.
 
 ## Now
 
