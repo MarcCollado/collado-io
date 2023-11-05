@@ -73,7 +73,7 @@ export const query = graphql`
       sort: { frontmatter: { date: DESC } }
     ) {
       totalCount
-      ...allPosts
+      ...allBlogPosts
     }
   }
 `;
