@@ -17,7 +17,7 @@ const Blog = ({ data, location }) => {
   );
 };
 
-export const postsQuery = graphql`
+export const allBlogPostsQuery = graphql`
   query {
     posts: allMarkdownRemark(
       filter: {
@@ -26,7 +26,7 @@ export const postsQuery = graphql`
       }
       sort: { frontmatter: { date: DESC } }
     ) {
-      ...allPosts
+      ...allBlogPosts
     }
     bugadaPosts: allFeedBugada(sort: { isoDate: DESC }) {
       ...allBugadaPosts
