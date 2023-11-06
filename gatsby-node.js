@@ -9,7 +9,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/src/media/posts/" } }
         sort: { frontmatter: { date: DESC } }
       ) {
         edges {
@@ -64,7 +64,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // List all unique tags
   let allTags = [];
   posts.forEach(
-    ({ node }) => (allTags = [...allTags, ...node.frontmatter.tags])
+    ({ node }) => (allTags = [...allTags, ...node.frontmatter.tags]),
   );
   const uniqueTags = [...new Set(allTags)];
 

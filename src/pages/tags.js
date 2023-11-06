@@ -34,7 +34,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/media/markdown/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/src/media/posts/" } }
     ) {
       group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue

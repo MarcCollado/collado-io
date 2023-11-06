@@ -30,9 +30,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/media/markdown/pages/404.md/" }
-      }
+      filter: { fileAbsolutePath: { regex: "/src/media/pages/404.md/" } }
       limit: 1
     ) {
       ...staticPage

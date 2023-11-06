@@ -21,7 +21,7 @@ export const allBlogPostsQuery = graphql`
   query {
     posts: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
+        fileAbsolutePath: { regex: "/src/media/posts/" }
         frontmatter: { tags: { nin: ["drafts"] } }
       }
       sort: { frontmatter: { date: DESC } }

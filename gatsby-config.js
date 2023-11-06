@@ -29,8 +29,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown`,
-        path: `${__dirname}/src/media/markdown`,
+        name: `static pages`,
+        path: `${__dirname}/src/media/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/media/posts`,
       },
     },
     {
@@ -109,7 +116,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   filter: {
-                    fileAbsolutePath: { regex: "/src/media/markdown/posts/" }
+                    fileAbsolutePath: { regex: "/src/media/posts/" }
                   }
                   sort: { frontmatter: { date: DESC } }
                 ) {
@@ -136,6 +143,14 @@ module.exports = {
     },
     // IMPORT EXTERNAL RSS FEED
     // https://github.com/mottox2/gatsby-source-rss-feed
+    // FEED: BUGADA
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://safareig.netlify.app/rss.xml`,
+        name: `Bugada`,
+      },
+    },
     // FEED: FOC A TERRA
     {
       resolve: `gatsby-source-rss-feed`,
@@ -150,14 +165,6 @@ module.exports = {
       options: {
         url: `https://media.rss.com/safareig/feed.xml`,
         name: `Safareig`,
-      },
-    },
-    // FEED: BUGADA
-    {
-      resolve: `gatsby-source-rss-feed`,
-      options: {
-        url: `https://safareig.netlify.app/rss.xml`,
-        name: `Bugada`,
       },
     },
     // FEED: RADIO LANZA
