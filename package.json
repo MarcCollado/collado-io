@@ -1,7 +1,7 @@
 {
   "name": "collado.io",
   "description": "Marc Collado's personal website",
-  "version": "23.8",
+  "version": "23.12",
   "author": "Marc Collado <marc@collado.io>",
   "homepage": "https://www.collado.io",
   "repository": {
@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^5.12.9",
+    "gatsby": "^5.12.11",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.12.3",
     "gatsby-plugin-image": "^3.12.3",
@@ -40,7 +40,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.1.0"
   },
   "scripts": {
     "build": "gatsby build",
