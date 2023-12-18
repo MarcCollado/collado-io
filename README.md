@@ -54,30 +54,25 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 
 On the surface, all tags might look the same. However, there are a set of "special" tags used to organize and structure the site.
 
-Right below there's a quick breakdown of those.
-
-### Project classifiers
-
-- [`foc a terra`](https://www.collado.io/tags/foc%20a%20terra)
-- [`safareig`](https://www.collado.io/tags/safareig)
-- [`gamestry`](https://www.collado.io/tags/gamestry)
-- [`radio lanza`](https://www.collado.io/tags/radio%20lanza)
-- [`ironhack`](https://www.collado.io/tags/ironhack)
-- [`iomando`](https://www.collado.io/tags/iomando)
-
 ### Organizers
 
-Used in combination with `project classifiers` to filter React Tabs (deprecated since v22.10).
+- [`changelog`](https://collado.io/tags/changelog): product updates or personal announcements
+- [`editorial`](https://collado.io/tags/editorial): random thoughts of mine
+- [`now`](https://collado.io/tags/now): posts from the "now" page (deprecated since v22.10)
+- [`til`](https://collado.io/tags/til): what I learned today and amateurish research about personal interests
 
-- [`idea`](https://www.collado.io/tags/idea)
-- [`memoir`](https://www.collado.io/tags/memoir)
+### Projects
+
+- [`foc a terra`](https://collado.io/tags/foc%20a%20terra)
+- [`safareig`](https://collado.io/tags/safareig)
+- [`gamestry`](https://collado.io/tags/gamestry)
+- [`radio lanza`](https://collado.io/tags/radio%20lanza)
+- [`ironhack`](https://collado.io/tags/ironhack)
+- [`iomando`](https://collado.io/tags/iomando)
 
 ### Side projects
 
-- [`books`](https://www.collado.io/tags/books): book summaries
-- [`changelog`](https://www.collado.io/tags/meta): product launches, announcements, content related to [collado.io](http://www.collado.io/) and lists that are updated over time
-- [`now`](https://www.collado.io/tags/now): posts from the "now" page (deprecated since v22.10)
-- [`pansa`](https://www.collado.io/tags/pansa): a note-taking app to organize your thoughts and build long-lasting wisdom
-- [`sub3`](https://www.collado.io/tags/sub3): running a marathon in less than 3 hours
-- [`til`](https://www.collado.io/tags/til): what I learned today and random research about personal interests
-- [`udacity`](https://www.collado.io/tags/udacity): documenting the experience of completing a Udacity Nanodegree
+- [`books`](https://collado.io/tags/books): book summaries
+- [`pansa`](https://collado.io/tags/pansa): a note-taking app to organize your thoughts and build long-lasting wisdom
+- [`sub3`](https://collado.io/tags/sub3): running a marathon in less than 3 hours
+- [`udacity`](https://collado.io/tags/udacity): documenting the experience of completing a Udacity Nanodegree
