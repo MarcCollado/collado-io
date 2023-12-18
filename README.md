@@ -26,11 +26,12 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 
 ---
 
-- ai 17
+- ai 18
 - art 4
 - coding 9
 - creator economy 8
-- design 14
+- crypto 1
+- design 15
 - economics 9
 - education 21
 - existentialism 5
@@ -46,7 +47,7 @@ You can check the entire list of topics (or tags) on [this page](https://collado
 - mobility 5
 - philosophy 10
 - physics 2
-- podcasts 10
+- podcasting 9
 - psychology 35
 - vr 4
 
@@ -63,16 +64,10 @@ On the surface, all tags might look the same. However, there are a set of "speci
 
 ### Projects
 
-- [`foc a terra`](https://collado.io/tags/foc%20a%20terra)
-- [`safareig`](https://collado.io/tags/safareig)
-- [`gamestry`](https://collado.io/tags/gamestry)
-- [`radio lanza`](https://collado.io/tags/radio%20lanza)
-- [`ironhack`](https://collado.io/tags/ironhack)
-- [`iomando`](https://collado.io/tags/iomando)
-
-### Side projects
-
 - [`books`](https://collado.io/tags/books): book summaries
+- [`iomando`](https://collado.io/tags/iomando)
+- [`ironhack`](https://collado.io/tags/ironhack)
+- [`gamestry`](https://collado.io/tags/gamestry)
 - [`pansa`](https://collado.io/tags/pansa): a note-taking app to organize your thoughts and build long-lasting wisdom
 - [`sub3`](https://collado.io/tags/sub3): running a marathon in less than 3 hours
 - [`udacity`](https://collado.io/tags/udacity): documenting the experience of completing a Udacity Nanodegree
