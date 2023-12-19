@@ -20,54 +20,38 @@ The tag system labels posts' content according to its subject and aggregates the
 
 You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
 
-- business 21
-- product 48
-- tech 23
-
----
-
-- ai 18
-- art 4
-- coding 9
-- creator economy 8
-- crypto 1
-- design 15
-- economics 9
-- education 21
-- existentialism 5
-- gaming 8
-- happiness 32
-- health 11
-- history 6
-- iot 5
-- life hacks 9
-- marketing 4
-- mindfulness 5
-- minimalism 19
-- mobility 5
-- philosophy 10
-- physics 2
-- podcasting 9
-- psychology 35
-- vr 4
+ai 18
+art 2
+economics 8
+education 7
+happiness 29
+health 7
+history 5
+insight 16
+minimalism 10
+mobility 4
+philosophy 13
+physics 2
+product 21
+psychology 32
+vr 5
 
 ## Special tags
 
 On the surface, all tags might look the same. However, there are a set of "special" tags used to organize and structure the site.
 
-### Organizers
-
 - [`changelog`](https://collado.io/tags/changelog): product updates or personal announcements
 - [`editorial`](https://collado.io/tags/editorial): random thoughts of mine
-- [`now`](https://collado.io/tags/now): posts from the "now" page (deprecated since v22.10)
-- [`til`](https://collado.io/tags/til): what I learned today and amateurish research about personal interests
 
-### Projects
+---
 
-- [`books`](https://collado.io/tags/books): book summaries
-- [`iomando`](https://collado.io/tags/iomando)
-- [`ironhack`](https://collado.io/tags/ironhack)
-- [`gamestry`](https://collado.io/tags/gamestry)
-- [`pansa`](https://collado.io/tags/pansa): a note-taking app to organize your thoughts and build long-lasting wisdom
-- [`sub3`](https://collado.io/tags/sub3): running a marathon in less than 3 hours
-- [`udacity`](https://collado.io/tags/udacity): documenting the experience of completing a Udacity Nanodegree
+- [`iomando`](https://collado.io/tags/iomando) (23)
+- [`ironhack`](https://collado.io/tags/ironhack) (12)
+- [`gamestry`](https://collado.io/tags/gamestry) (9)
+- [`pansa`](https://collado.io/tags/pansa) (3): a note-taking app to organize your thoughts and build long-lasting wisdom
+- [`podcasting`](https://collado.io/tags/podcasting) (10)
+- [`sub3`](https://collado.io/tags/sub3) (3): running a marathon in less than 3 hours
+- [`udacity`](https://collado.io/tags/udacity) (5): documenting the experience of completing a Udacity Nanodegree
+- [`books`](https://collado.io/tags/books) (37): book summaries
+- [`til`](https://collado.io/tags/til) (20): what I learned today and amateurish research about personal interests
+- [`now`](https://collado.io/tags/now) (7): posts from the "now" page (deprecated since v22.10)
