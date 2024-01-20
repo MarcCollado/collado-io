@@ -13,7 +13,6 @@ module.exports = {
       email: `marc@collado.io`,
       github: `https://github.com/MarcCollado/`,
       linkedin: `https://www.linkedin.com/in/MarcCollado/`,
-      reddit: `https://www.reddit.com/user/MarcCollado/`,
       strava: `https://www.strava.com/athletes/MarcCollado/`,
       twitter: `https://twitter.com/MarcCollado/`,
     },

@@ -21,7 +21,6 @@ const Seo = ({ pageDescription, pageTitle, pathname }) => {
             email
             github
             linkedin
-            reddit
             strava
             twitter
           }
