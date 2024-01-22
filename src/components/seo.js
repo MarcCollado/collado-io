@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import favicon from '../../static/favicon.ico';
 import seoImage from '../../static/marc-avatar.png';
 
-const SEO = ({ pageTitle, pageDescription, location, children }) => {
+const Seo = ({ pageTitle, pageDescription, location, children }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -72,4 +72,4 @@ const SEO = ({ pageTitle, pageDescription, location, children }) => {
   );
 };
 
-export default SEO;
+export default Seo;
