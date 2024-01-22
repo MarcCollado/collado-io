@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import DarkMode from '../utils/dark';
 
-const Layout = ({ children, location }) => {
+const Layout = ({ location, children }) => {
   const { pathname } = location;
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = pathname === rootPath;
