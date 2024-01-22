@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { extractMarkdown } from '../utils/helpers';
 
 const Home = ({ data, location }) => {
@@ -28,7 +28,11 @@ export const query = graphql`
 `;
 
 export const Head = ({ location }) => (
-  <SEO pageTitle="" pageDescription="" location={location} />
+  <Seo
+    pageTitle="Home — Marc Collado"
+    pageDescription="Marc's home page"
+    location={location}
+  />
 );
 
 export default Home;
