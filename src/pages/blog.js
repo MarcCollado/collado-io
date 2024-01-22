@@ -2,16 +2,14 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { blogFeedGenerator } from '../utils/helpers';
 
-const Blog = ({ data, location }) => {
-  return (
-    <Layout location={location}>
-      <ol style={{ listStyle: `none` }}>{blogFeedGenerator(data)}</ol>
-    </Layout>
-  );
-};
+const Blog = ({ data, location }) => (
+  <Layout location={location}>
+    <ol style={{ listStyle: `none` }}>{blogFeedGenerator(data)}</ol>
+  </Layout>
+);
 
 export const allBlogPostsQuery = graphql`
   query {
@@ -30,14 +28,12 @@ export const allBlogPostsQuery = graphql`
   }
 `;
 
-export const Head = ({ location }) => {
-  return (
-    <SEO
-      pageTitle="Marc's Blog"
-      pageDescription="All Marc's blog posts"
-      location={location}
-    />
-  );
-};
+export const Head = ({ location }) => (
+  <Seo
+    pageTitle="Blog — Marc Collado"
+    pageDescription="Marc's blog posts"
+    location={location}
+  />
+);
 
 export default Blog;
