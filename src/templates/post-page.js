@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 import { toTitleCase, tagListGenerator } from '../utils/helpers';
 
 const Post = ({ data, location, pageContext }) => {
@@ -12,18 +13,12 @@ const Post = ({ data, location, pageContext }) => {
   // const next = pageContext.next.frontmatter.path;
   // const prev = pageContext.prev.frontmatter.path;
 
-  const seoData = {
-    pageDescription: `${excerpt}`,
-    pageTitle: `${title} — by Marc Collado`,
-  };
-
   // prevent posts tagged with `excludedTags` from rendering excerpts
   const excludedTags = ['books', 'til'];
 
   return (
-    <Layout location={location} seoData={seoData}>
+    <Layout location={location}>
       <article>
-        {/* <SEO title={siteTitle}></SEO> */}
         <h1>{toTitleCase(title)}</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
           <p className="excerpt">{excerpt}</p>
@@ -37,8 +32,6 @@ const Post = ({ data, location, pageContext }) => {
     </Layout>
   );
 };
-
-// GraphQL
 
 export const query = graphql`
   query PostQuery($path: String!) {
@@ -58,5 +51,12 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data, location }) => {
+  const { title, excerpt } = data.markdownRemark.frontmatter;
+  return (
+    <Seo pageTitle={title} pageDescription={excerpt} location={location} />
+  );
+};
 
 export default Post;
