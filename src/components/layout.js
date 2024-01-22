@@ -2,12 +2,10 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import Seo from './seo';
 import DarkMode from '../utils/dark';
 
-const Layout = ({ children, location, seoData = {} }) => {
+const Layout = ({ children, location }) => {
   const { pathname } = location;
-  const { pageDescription, pageTitle } = seoData;
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = pathname === rootPath;
 
@@ -53,11 +51,6 @@ const Layout = ({ children, location, seoData = {} }) => {
         </Link>
         <DarkMode />
       </nav>
-      <Seo
-        pageDescription={pageDescription}
-        pageTitle={pageTitle}
-        pathname={pathname}
-      ></Seo>
       <main>{children}</main>
       <footer>
         <small>
