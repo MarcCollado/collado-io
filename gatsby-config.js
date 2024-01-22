@@ -5,17 +5,15 @@ module.exports = {
     author: {
       name: `Marc Collado`,
     },
-    title: `Personal website — by Marc Collado`,
-    description: `The place where I ramble on pretty much everything.`,
+    title: `Marc's personal website`,
+    description: `Thoughts on pretty much everything`,
     siteLanguage: `en`,
     siteUrl: `https://www.collado.io`,
     social: {
       email: `marc@collado.io`,
-      github: `https://github.com/MarcCollado/`,
-      linkedin: `https://www.linkedin.com/in/MarcCollado/`,
-      strava: `https://www.strava.com/athletes/MarcCollado/`,
-      twitter: `https://twitter.com/MarcCollado/`,
+      twitter: `@MarcCollado`,
     },
+    image: `/marc.jpg`,
   },
   plugins: [
     {
