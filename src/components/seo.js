@@ -38,14 +38,14 @@ const Seo = ({ pageTitle, pageDescription, location, children }) => {
 
   return (
     <>
+      <html lang={language} />
       <title>{title}</title>
 
-      {/* HTML TAGS */}
+      {/* META TAGS */}
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="url" content={url} />
       <meta name="author" content={author} />
-      <meta name="language" content={language} />
 
       {/* OG TAGS */}
       <meta name="og:title" content={title} />
