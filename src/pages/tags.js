@@ -2,15 +2,12 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 const Tags = ({ data, location }) => {
   const { group: tags } = data.allMarkdownRemark;
-  const seoData = {
-    pageDescription: ``,
-    pageTitle: `Tags`,
-  };
   return (
-    <Layout location={location} seoData={seoData}>
+    <Layout location={location}>
       <ul>
         {tags.map((tag) => (
           <li key={tag.fieldValue}>
@@ -28,11 +25,6 @@ const Tags = ({ data, location }) => {
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/media/posts/" } }
     ) {
@@ -43,5 +35,13 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ location }) => (
+  <Seo
+    pageTitle="Tags — Marc Collado"
+    pageDescription="Marc's tags"
+    location={location}
+  />
+);
 
 export default Tags;

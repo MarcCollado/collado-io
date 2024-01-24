@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 import { toTitleCase, tagListGenerator } from '../utils/helpers';
 
 const Tag = ({ data, location, pageContext }) => {
@@ -11,13 +12,9 @@ const Tag = ({ data, location, pageContext }) => {
   const tagCount = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with`;
-  const seoData = {
-    pageDescription: `${tagCount} ${tag}`,
-    pageTitle: `${tag} — tag page`,
-  };
 
   return (
-    <Layout location={location} seoData={seoData}>
+    <Layout location={location}>
       <p className="heading-companion">{tagCount}</p>
       <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
@@ -61,8 +58,6 @@ const Tag = ({ data, location, pageContext }) => {
   );
 };
 
-// GraphQL
-
 export const query = graphql`
   query tagPageQuery($tag: String) {
     allMarkdownRemark(
@@ -77,5 +72,20 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data, location, pageContext }) => {
+  const { totalCount } = data.allMarkdownRemark;
+  const { tag } = pageContext;
+  const tagCount = `${totalCount} post${
+    totalCount === 1 ? '' : 's'
+  } tagged with`;
+  return (
+    <Seo
+      pageTitle={`${tag} — tag page`}
+      pageDescription={`${tagCount} ${tag}`}
+      location={location}
+    />
+  );
+};
 
 export default Tag;

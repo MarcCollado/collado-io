@@ -6,6 +6,7 @@ const DarkMode = () => (
     {({ theme, toggleTheme }) =>
       process.env.NODE_ENV === 'development' ? (
         <label>
+          {/* Dark mode toggle */}
           <input
             type="checkbox"
             onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}

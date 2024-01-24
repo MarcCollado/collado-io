@@ -87,15 +87,15 @@ export function blogFeedGenerator(data) {
         const { date, excerpt, featured, title, path } = e.node.frontmatter;
         return (
           <li key={e.node.id}>
-            <article
+            <div
               className="post-list-item"
-              // itemScope
-              // itemType="http://schema.org/Article"
+              itemScope
+              itemType="http://schema.org/Article"
             >
               <header>
                 <h2>
                   <Link to={path} itemProp="url">
-                    <span itemProp="title">{toTitleCase(title)}</span>
+                    <span itemProp="headline">{toTitleCase(title)}</span>
                   </Link>
                 </h2>
                 <small itemProp="date">{date}</small>
@@ -110,7 +110,7 @@ export function blogFeedGenerator(data) {
                   />
                 </section>
               )}
-            </article>
+            </div>
           </li>
         );
       } else {
@@ -120,7 +120,7 @@ export function blogFeedGenerator(data) {
             <header>
               <h2 className="external-link">
                 <a href={link} itemProp="url">
-                  <span itemProp="title">
+                  <span itemProp="headline">
                     {title}
                     {' ↗'}
                   </span>
@@ -150,7 +150,7 @@ export function podcastFeedGenerator(data) {
           <header>
             <h2 className="external-link">
               <a href={link} itemProp="url">
-                <span itemProp="title">
+                <span itemProp="headline">
                   {itunes.episode ? `${itunes.episode}: ${title}` : title}
                 </span>
               </a>
