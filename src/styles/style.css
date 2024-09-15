@@ -378,6 +378,24 @@ article .tag-container small {
   margin-inline-end: var(--spacing-2);
 }
 
+/* Fix embedded RSS player */
+article > div > iframe {
+  height: 152px;
+  border-radius: var(--spacing-3);
+  margin-block-end: var(--spacing-5);
+}
+
+/* Center embedded tweets */
+article > div > div.twitter-tweet {
+  margin: auto;
+}
+
+/* Remove duplicate <hr> on top of the footnotes */
+
+div > .footnotes > hr {
+  display: none;
+}
+
 /* Media queries */
 
 /* Mobile */
@@ -419,23 +437,6 @@ article .tag-container small {
 
   /* Fix embedded RSS player */
   article > div > iframe {
-    height: 126px;
+    height: 133px;
   }
-}
-
-/* Fix embedded RSS player */
-article > div > iframe {
-  border-radius: var(--spacing-3);
-  margin-block-end: var(--spacing-5);
-}
-
-/* Center embedded tweets */
-article > div > div.twitter-tweet {
-  margin: auto;
-}
-
-/* Remove duplicate <hr> on top of the footnotes */
-
-div > .footnotes > hr {
-  display: none;
 }
