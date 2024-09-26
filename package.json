@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^5.13.5",
+    "gatsby": "^5.13.7",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
@@ -18,11 +18,11 @@
     "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-plugin-twitter": "^5.13.1",
     "gatsby-remark-autolink-headers": "^6.13.1",
-    "gatsby-remark-copy-linked-files": "^6.13.1",
+    "gatsby-remark-copy-linked-files": "^6.13.2",
     "gatsby-remark-embed-video": "^3.2.1",
-    "gatsby-remark-images": "^7.13.1",
-    "gatsby-remark-prismjs": "^7.13.1",
-    "gatsby-remark-responsive-iframe": "^6.13.1",
+    "gatsby-remark-images": "^7.13.2",
+    "gatsby-remark-prismjs": "^7.13.2",
+    "gatsby-remark-responsive-iframe": "^6.13.2",
     "gatsby-remark-smartypants": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-source-rss-feed": "^1.2.2",
@@ -33,7 +33,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.3.3"
   },
   "scripts": {
     "build": "gatsby build",
