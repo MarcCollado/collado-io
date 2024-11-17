@@ -1,13 +1,8 @@
 {
-  "name": "collado.io",
+  "name": "collado-io",
   "description": "Marc Collado's personal website",
-  "version": "24.1",
   "author": "Marc Collado <marc@collado.io>",
-  "homepage": "https://www.collado.io",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MarcCollado/collado-io"
-  },
+  "homepage": "https://collado.io",
   "license": "MIT",
   "dependencies": {
     "gatsby": "^5.14.0",
@@ -38,7 +33,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json}\" ",
+    "format": "prettier --write \"**/*.{js,jsx,css,md,json}\" ",
     "start": "gatsby clean && npm run format && gatsby build && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

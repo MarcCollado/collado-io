@@ -1,7 +1,8 @@
 .cache
 .npm
-.vscode
 node_modules
 public
-
 .DS_Store
+
+# Local Netlify folder
+.netlify
