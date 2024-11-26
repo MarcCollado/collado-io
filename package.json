@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "gatsby": "^5.14.0",
+    "gatsby-adapter-netlify": "^1.2.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
@@ -34,7 +35,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,css,md,json}\" ",
-    "start": "gatsby clean && npm run format && gatsby build && gatsby develop",
+    "start": "gatsby clean && npm run format && netlify build && netlify dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

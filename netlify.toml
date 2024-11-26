@@ -1,0 +1,7 @@
+[context.production]
+command = "gatsby build"
+environment = { NODE_ENV = "production" }
+
+[context.development]
+command = "gatsby develop"
+environment = { NODE_ENV = "development" }
