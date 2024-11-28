@@ -1,8 +1,7 @@
 {
   "name": "collado-io",
   "description": "Marc Collado's personal website",
-  "author": "Marc Collado <marc@collado.io>",
-  "homepage": "https://collado.io",
+  "author": "Marc Collado",
   "license": "MIT",
   "dependencies": {
     "gatsby": "^5.14.0",
@@ -29,18 +28,15 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "^3.4.1"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,css,md,json}\" ",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,css}\" ",
     "start": "gatsby clean && npm run format && netlify build && netlify dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "prettier": {
-    "singleQuote": true
   }
 }
