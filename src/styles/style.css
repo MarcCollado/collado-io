@@ -27,12 +27,12 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: 'system-ui', '-apple-system', 'BlinkMacSystemFont',
-    'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --fontFamily-sans:
+    'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --fontFamily-serif: 'Georgia', 'Times New Roman', 'Palatino';
-  --fontFamily-mono: 'Menlo', 'Monaco', 'source-code-pro', 'Courier New',
-    'monospace';
+  --fontFamily-mono:
+    'Menlo', 'Monaco', 'source-code-pro', 'Courier New', 'monospace';
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
