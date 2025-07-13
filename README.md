@@ -55,3 +55,7 @@ On the surface, all tags might look the same. However, there are a set of "speci
 - [`books`](https://collado.io/tags/books) (37): book summaries
 - [`til`](https://collado.io/tags/til) (20): what I learned today and amateurish research about personal interests
 - [`now`](https://collado.io/tags/now) (7): posts from the "now" page (deprecated since v22.10)
+
+## Formatting
+
+Pull requests run `npx prettier -c` to verify code style. Run `npm run format` to fix files locally.
