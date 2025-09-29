@@ -3,6 +3,7 @@
   "description": "Marc Collado's personal website",
   "author": "Marc Collado",
   "dependencies": {
+    "@gatsbyjs/reach-router": "^2.0.1",
     "gatsby": "^5.15.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.15.0",
