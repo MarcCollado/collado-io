@@ -55,7 +55,12 @@ export const query = graphql`
 export const Head = ({ data, location }) => {
   const { title, excerpt } = data.markdownRemark.frontmatter;
   return (
-    <Seo pageTitle={title} pageDescription={excerpt} location={location} />
+    <Seo
+      pageTitle={title}
+      pageDescription={excerpt}
+      location={location}
+      type="article"
+    />
   );
 };
 
