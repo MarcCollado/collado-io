@@ -10,7 +10,7 @@ module.exports = {
     siteLanguage: `en`,
     siteUrl: `https://www.collado.io`,
     social: {
-      email: `marc@collado.io`,
+      email: `maroon_05_midway@icloud.com`,
       twitter: `@MarcCollado`,
     },
     image: `/marc.jpg`,
