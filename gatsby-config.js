@@ -1,4 +1,9 @@
+const cheerio = require('cheerio');
+const { createFeedSanitizer } = require('./src/utils/feedSanitizer');
+
 require('dotenv').config({ path: `.env` });
+
+const sanitizeFeedHtml = createFeedSanitizer(cheerio);
 
 module.exports = {
   siteMetadata: {
@@ -99,13 +104,17 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
+              const { siteUrl } = site.siteMetadata;
+
               return allMarkdownRemark.nodes.map((node) => {
+                const sanitizedHtml = sanitizeFeedHtml(node.html, siteUrl);
+
                 return Object.assign({}, node.frontmatter, {
                   description: node.frontmatter.excerpt,
                   date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  guid: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  custom_elements: [{ 'content:encoded': node.html }],
+                  url: siteUrl + node.frontmatter.path,
+                  guid: siteUrl + node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': sanitizedHtml }],
                 });
               });
             },
