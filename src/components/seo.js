@@ -40,8 +40,7 @@ const Seo = ({
   const language = site.siteMetadata?.siteLanguage;
   const defaultTitle = site.siteMetadata?.defaultTitle;
   const title = pageTitle || defaultTitle;
-  const description =
-    pageDescription || site.siteMetadata?.defaultDescription;
+  const description = pageDescription || site.siteMetadata?.defaultDescription;
   const url = pathname ? `${siteUrl}${pathname}` : siteUrl;
   const social = site.siteMetadata?.social || {};
 
@@ -54,7 +53,7 @@ const Seo = ({
   const socialProfiles = [];
   if (social.twitter) {
     socialProfiles.push(
-      `https://twitter.com/${social.twitter.replace(/^@/, '')}`
+      `https://twitter.com/${social.twitter.replace(/^@/, '')}`,
     );
   }
   if (social.email) {
@@ -101,7 +100,8 @@ const Seo = ({
     ...(modifiedTime ? { dateModified: modifiedTime } : {}),
   };
 
-  const structuredData = type === 'article' ? articleStructuredData : personStructuredData;
+  const structuredData =
+    type === 'article' ? articleStructuredData : personStructuredData;
 
   return (
     <>
