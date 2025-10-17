@@ -26,7 +26,7 @@ Over the last years, I created a few things. Some have worked, others have not.
 
 ## Lectures
 
-- [Stage2](https://stage2.cc/): acceleration program for early-stage industrial tech startups.
+- [s2xpeed](https://s2xpeed.com/): acceleration program for early-stage industrial tech startups.
 - [Elisava](https://www.elisava.net/): visiting lecturer for graduate programs in product development.
 
 ## Education
