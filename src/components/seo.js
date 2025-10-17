@@ -9,6 +9,9 @@ const Seo = ({
   pageDescription,
   location,
   type = 'website',
+  publishedTime,
+  modifiedTime,
+  articleSection,
   children,
 }) => {
   const { site } = useStaticQuery(graphql`
@@ -58,7 +61,7 @@ const Seo = ({
     socialProfiles.push(`mailto:${social.email}`);
   }
 
-  const structuredData = {
+  const personStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: author,
@@ -67,6 +70,38 @@ const Seo = ({
     image,
     ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
   };
+
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    image: [image],
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    author: {
+      '@type': 'Person',
+      name: author,
+      url: siteUrl,
+      ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
+    },
+    publisher: {
+      '@type': 'Person',
+      name: author,
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: image,
+      },
+    },
+    ...(articleSection ? { articleSection } : {}),
+    ...(publishedTime ? { datePublished: publishedTime } : {}),
+    ...(modifiedTime ? { dateModified: modifiedTime } : {}),
+  };
+
+  const structuredData = type === 'article' ? articleStructuredData : personStructuredData;
 
   return (
     <>
@@ -91,6 +126,15 @@ const Seo = ({
         <meta property="og:locale" content={language.replace('-', '_')} />
       )}
       <meta property="og:image:alt" content={title} />
+      {type === 'article' && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {type === 'article' && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )}
+      {type === 'article' && articleSection && (
+        <meta property="article:section" content={articleSection} />
+      )}
 
       {/* TWITTER TAGS */}
       <meta name="twitter:card" content="summary_large_image" />

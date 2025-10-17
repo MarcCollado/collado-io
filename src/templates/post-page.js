@@ -7,7 +7,7 @@ import { toTitleCase, tagListGenerator } from '../utils/helpers';
 
 const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
-  const { date, excerpt, tags, title } = frontmatter;
+  const { displayDate, excerpt, tags, title } = frontmatter;
 
   // next and previous posts are available from frontmatter
   // const next = pageContext.next.frontmatter.path;
@@ -25,7 +25,7 @@ const Post = ({ data, location, pageContext }) => {
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <div className="meta-container">
-          <small>{`First published on ${date}`}</small>
+          <small>{`First published on ${displayDate}`}</small>
           {tagListGenerator(tags)}
         </div>
       </article>
@@ -37,7 +37,11 @@ export const query = graphql`
   query PostQuery($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        # Keep the raw value for SEO/structured data while exposing a formatted
+        # label for the UI so we only have to source the canonical timestamp
+        # from this template.
+        isoDate: date
+        displayDate: date(formatString: "MMMM DD, YYYY")
         excerpt
         # featured
         # language
@@ -53,13 +57,17 @@ export const query = graphql`
 `;
 
 export const Head = ({ data, location }) => {
-  const { title, excerpt } = data.markdownRemark.frontmatter;
+  const { title, excerpt, tags, isoDate } = data.markdownRemark.frontmatter;
+  // The first tag is used as the article section for structured data/meta tags.
+  const primarySection = tags?.length ? tags[0] : undefined;
   return (
     <Seo
       pageTitle={title}
       pageDescription={excerpt}
       location={location}
       type="article"
+      publishedTime={isoDate}
+      articleSection={primarySection}
     />
   );
 };
