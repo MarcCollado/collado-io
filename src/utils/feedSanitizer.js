@@ -7,7 +7,9 @@ const isRelativeUrl = (value = '') => {
     return false;
   }
 
-  return value.startsWith('/') || value.startsWith('./') || value.startsWith('../');
+  return (
+    value.startsWith('/') || value.startsWith('./') || value.startsWith('../')
+  );
 };
 
 const toAbsoluteUrl = (value, siteUrl) => {
@@ -20,7 +22,9 @@ const toAbsoluteUrl = (value, siteUrl) => {
 
 const createFeedSanitizer = (domUtility) => {
   if (!domUtility || typeof domUtility.load !== 'function') {
-    throw new Error('A DOM parser with a load function is required to sanitize feed HTML.');
+    throw new Error(
+      'A DOM parser with a load function is required to sanitize feed HTML.',
+    );
   }
 
   return (html, siteUrl) => {
@@ -30,13 +34,28 @@ const createFeedSanitizer = (domUtility) => {
 
     const $ = domUtility.load(html, { decodeEntities: false });
 
+    // Remove problematic elements
     $('.anchor-link').remove();
     $('svg').remove();
+    $('script').remove();
+    $('style').remove();
 
+    // Remove inline styles
     $('[style]').each((_, element) => {
       $(element).removeAttr('style');
     });
 
+    // Remove event handlers
+    $('[onclick], [onload], [onerror], [onmouseover]').each((_, element) => {
+      const $element = $(element);
+      $element
+        .removeAttr('onclick')
+        .removeAttr('onload')
+        .removeAttr('onerror')
+        .removeAttr('onmouseover');
+    });
+
+    // Convert iframes to links
     $('iframe').each((_, element) => {
       const $element = $(element);
       const source = $element.attr('src');
@@ -46,11 +65,14 @@ const createFeedSanitizer = (domUtility) => {
         return;
       }
 
-      const absoluteSource = isRelativeUrl(source) ? toAbsoluteUrl(source, siteUrl) : source;
+      const absoluteSource = isRelativeUrl(source)
+        ? toAbsoluteUrl(source, siteUrl)
+        : source;
       const replacement = `<p><a href="${absoluteSource}">${absoluteSource}</a></p>`;
       $element.replaceWith(replacement);
     });
 
+    // Fix relative URLs in href and src attributes
     ['href', 'src'].forEach((attribute) => {
       $(`[${attribute}]`).each((_, element) => {
         const $element = $(element);
@@ -60,10 +82,12 @@ const createFeedSanitizer = (domUtility) => {
           return;
         }
 
+        // Skip fragment-only links
         if (value.startsWith('#')) {
           return;
         }
 
+        // Convert relative URLs to absolute
         if (isRelativeUrl(value)) {
           $element.attr(attribute, toAbsoluteUrl(value, siteUrl));
         }
