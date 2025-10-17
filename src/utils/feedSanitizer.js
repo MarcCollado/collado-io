@@ -94,7 +94,12 @@ const createFeedSanitizer = (domUtility) => {
       });
     });
 
-    return $.root().html();
+    // Return only the sanitized fragment without HTML document wrappers
+    return $('body')
+      .contents()
+      .map((_, el) => $.html(el))
+      .get()
+      .join('');
   };
 };
 

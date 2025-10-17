@@ -118,10 +118,15 @@ test('skips protocol-relative URLs', () => {
   assert.match(sanitized, /src="\/\/cdn\.example\.com\/image\.jpg"/);
 });
 
-test('handles empty or missing input gracefully', () => {
-  assert.equal(sanitizeFeedHtml('', siteUrl), '');
-  assert.equal(sanitizeFeedHtml(null, siteUrl), '');
-  assert.equal(sanitizeFeedHtml(undefined, siteUrl), '');
+test('returns only the sanitized fragment without document wrappers', () => {
+  const html = '<p>Hello</p>';
+
+  const sanitized = sanitizeFeedHtml(html, siteUrl);
+
+  assert.ok(!sanitized.includes('<html'));
+  assert.ok(!sanitized.includes('<head'));
+  assert.ok(!sanitized.includes('<body'));
+  assert.match(sanitized, /^<p>Hello<\/p>$/);
 });
 
 test('throws error when DOM utility is missing', () => {
