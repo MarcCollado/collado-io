@@ -154,8 +154,8 @@ module.exports = {
                 const sanitizedHtml = sanitizeFeedHtml(node.html, siteUrl);
 
                 return Object.assign({}, node.frontmatter, {
-                  description: node.frontmatter.excerpt,
                   date: node.frontmatter.date,
+                  description: node.frontmatter.excerpt,
                   url: siteUrl + node.frontmatter.path,
                   guid: siteUrl + node.frontmatter.path,
                   custom_elements: [{ 'content:encoded': sanitizedHtml }],

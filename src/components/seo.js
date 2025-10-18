@@ -12,6 +12,7 @@ const Seo = ({
   publishedTime,
   modifiedTime,
   articleSection,
+  pageLanguage,
   children,
 }) => {
   const { site } = useStaticQuery(graphql`
@@ -37,7 +38,8 @@ const Seo = ({
   const pathname = location?.pathname;
   const siteUrl = site.siteMetadata?.siteUrl || '';
   const author = site.siteMetadata?.author.name;
-  const language = site.siteMetadata?.siteLanguage;
+  const defaultLanguage = (site.siteMetadata?.siteLanguage || '').trim();
+  const language = pageLanguage || defaultLanguage;
   const defaultTitle = site.siteMetadata?.defaultTitle;
   const title = pageTitle || defaultTitle;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
@@ -73,6 +75,7 @@ const Seo = ({
   const articleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    inLanguage: language,
     headline: title,
     description,
     image: [image],

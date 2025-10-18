@@ -44,7 +44,7 @@ export const query = graphql`
         displayDate: date(formatString: "MMMM DD, YYYY")
         excerpt
         # featured
-        # language
+        language
         path
         # source
         tags
@@ -57,9 +57,12 @@ export const query = graphql`
 `;
 
 export const Head = ({ data, location }) => {
-  const { title, excerpt, tags, isoDate } = data.markdownRemark.frontmatter;
+  const { title, excerpt, tags, isoDate, language } =
+    data.markdownRemark.frontmatter;
   // The first tag is used as the article section for structured data/meta tags.
   const primarySection = tags?.length ? tags[0] : undefined;
+  const normalizedLanguage = (language || '').trim();
+  const pageLanguage = normalizedLanguage || 'en';
   return (
     <Seo
       pageTitle={title}
@@ -68,6 +71,7 @@ export const Head = ({ data, location }) => {
       type="article"
       publishedTime={isoDate}
       articleSection={primarySection}
+      pageLanguage={pageLanguage}
     />
   );
 };
