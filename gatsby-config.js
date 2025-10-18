@@ -103,21 +103,26 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              const { siteUrl } = site.siteMetadata;
+            output: '/rss.xml',
+            title: 'Marc Collado',
 
-              return allMarkdownRemark.nodes.map((node) => {
-                const sanitizedHtml = sanitizeFeedHtml(node.html, siteUrl);
-
-                return Object.assign({}, node.frontmatter, {
-                  description: node.frontmatter.excerpt,
-                  date: node.frontmatter.date,
-                  url: siteUrl + node.frontmatter.path,
-                  guid: siteUrl + node.frontmatter.path,
-                  custom_elements: [{ 'content:encoded': sanitizedHtml }],
-                });
-              });
+            // Add Atom namespace + self link
+            custom_namespaces: {
+              atom: 'http://www.w3.org/2005/Atom',
             },
+            custom_elements: [
+              {
+                'atom:link': {
+                  _attr: {
+                    href: 'https://www.collado.io/rss.xml',
+                    rel: 'self',
+                    type: 'application/rss+xml',
+                  },
+                },
+              },
+            ],
+
+            // Query Markdown posts
             query: `
               {
                 allMarkdownRemark(
@@ -140,13 +145,28 @@ module.exports = {
                 }
               }
             `,
-            match: '^/blog/20',
-            output: '/rss.xml',
-            title: 'Marc Collado',
+
+            // Build feed items
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              const { siteUrl } = site.siteMetadata;
+
+              return allMarkdownRemark.nodes.map((node) => {
+                const sanitizedHtml = sanitizeFeedHtml(node.html, siteUrl);
+
+                return Object.assign({}, node.frontmatter, {
+                  description: node.frontmatter.excerpt,
+                  date: node.frontmatter.date,
+                  url: siteUrl + node.frontmatter.path,
+                  guid: siteUrl + node.frontmatter.path,
+                  custom_elements: [{ 'content:encoded': sanitizedHtml }],
+                });
+              });
+            },
           },
         ],
       },
     },
+
     // IMPORT EXTERNAL RSS FEED
     // https://github.com/mottox2/gatsby-source-rss-feed
     // FEED: BUGADA
