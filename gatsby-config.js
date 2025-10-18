@@ -105,7 +105,7 @@ module.exports = {
           {
             output: '/rss.xml',
             title: 'Marc Collado',
-
+            language: 'en',
             // Add Atom namespace + self link
             custom_namespaces: {
               atom: 'http://www.w3.org/2005/Atom',
