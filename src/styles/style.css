@@ -380,9 +380,8 @@ article .tag-container small {
 
 /* Fix embedded RSS player */
 article > div > iframe {
-  height: 152px;
-  border-radius: var(--spacing-3);
-  margin-block-end: var(--spacing-5);
+  border-radius: var(--spacing-2);
+  margin-block-end: var(--spacing-4);
 }
 
 /* Center embedded tweets */
@@ -433,10 +432,5 @@ div > .footnotes > hr {
   .global-navbar-image-link:hover[data-is-root-path='true'],
   .global-navbar-image-link:focus[data-is-root-path='true'] {
     transform: none;
-  }
-
-  /* Fix embedded RSS player */
-  article > div > iframe {
-    height: 133px;
   }
 }
