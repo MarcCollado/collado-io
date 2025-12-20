@@ -20,21 +20,27 @@ The tag system labels posts' content according to its subject and aggregates the
 
 You can check the entire list of topics (or tags) on [this page](https://collado.io/tags/) — also listed below:
 
-- ai 18
-- art 2
-- economics 8
-- education 7
-- happiness 29
-- health 7
-- history 5
-- insight 16
-- minimalism 10
-- mobility 4
-- philosophy 13
-- physics 2
-- product 21
-- psychology 32
-- vr 5
+- ai
+- art
+- business
+- economics
+- education
+- happiness
+- health
+- history
+- minimalism
+- mobility
+- philosophy
+- physics
+- politics [`updated`]
+- product
+- psychology
+- religion [`updated`]
+- science [`updated`]
+- self-help [`updated`]
+- society [`updated`]
+- technology
+- vr
 
 ## Special tags
 
@@ -42,6 +48,7 @@ On the surface, all tags might look the same. However, there are a set of "speci
 
 - [`changelog`](https://collado.io/tags/changelog): product updates or personal announcements
 - [`editorial`](https://collado.io/tags/editorial): random thoughts of mine
+- `insight`
 
 ---
 
