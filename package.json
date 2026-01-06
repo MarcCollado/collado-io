@@ -4,6 +4,7 @@
   "author": "Marc Collado",
   "dependencies": {
     "@gatsbyjs/reach-router": "^2.0.1",
+    "cheerio": "^1.1.2",
     "gatsby": "^5.15.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.15.0",
@@ -23,12 +24,12 @@
     "gatsby-transformer-remark": "^6.15.0",
     "gatsby-transformer-sharp": "^5.15.0",
     "prismjs": "^1.30.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "cheerio": "^1.0.0-rc.12"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "ajv": "^8.17.1",
+    "prettier": "^3.7.4"
   },
   "scripts": {
     "build": "gatsby build",
