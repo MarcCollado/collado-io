@@ -6,3 +6,4 @@
 /.npm
 /node_modules
 /public
+deno.lock
