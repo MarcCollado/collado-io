@@ -38,25 +38,6 @@ export const allBlogPostsQuery = graphql`
   }
 `;
 
-// notebook.js
-export const allNotesQuery = graphql`
-  fragment allNotes on MarkdownRemarkConnection {
-    edges {
-      node {
-        id
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          media
-          path
-          source
-          tags
-          title
-        }
-      }
-    }
-  }
-`;
-
 // blog.js
 export const allBugadaPostsQuery = graphql`
   fragment allBugadaPosts on FeedBugadaConnection {

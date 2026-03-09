@@ -48,7 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.posts.edges;
 
   // Create a page for each post through path
-  posts.forEach((post, index) => {
+  posts.forEach((post) => {
     const next = post.next;
     const prev = post.previous;
     createPage({
@@ -62,10 +62,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 
   // List all unique tags
-  let allTags = [];
-  posts.forEach(
-    ({ node }) => (allTags = [...allTags, ...node.frontmatter.tags]),
-  );
+  const allTags = posts.flatMap(({ node }) => node.frontmatter.tags);
   const uniqueTags = [...new Set(allTags)];
 
   // Create a page for each tag

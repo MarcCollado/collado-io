@@ -24,7 +24,7 @@ const Layout = ({ location, children }) => {
             src="../../static/favicon.ico"
             width={50}
             height={50}
-            quality={100}
+            quality={80}
             alt="Marc Collado's profile picture"
           />
         </Link>

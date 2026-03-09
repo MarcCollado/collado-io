@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 
-const DarkMode = () => (
-  <ThemeToggler>
-    {({ theme, toggleTheme }) =>
-      process.env.NODE_ENV === 'development' ? (
+const DarkMode = () => {
+  if (process.env.NODE_ENV !== 'development') return null;
+
+  return (
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
         <label>
           {/* Dark mode toggle */}
           <input
@@ -13,10 +15,8 @@ const DarkMode = () => (
             checked={theme === 'dark'}
           />
         </label>
-      ) : (
-        <></>
-      )
-    }
-  </ThemeToggler>
-);
+      )}
+    </ThemeToggler>
+  );
+};
 export default DarkMode;
