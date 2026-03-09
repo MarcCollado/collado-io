@@ -207,7 +207,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
   ],

@@ -1,10 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(wc -l /Users/marc/Developer/collado-io/src/styles/*.css)",
       "Bash(pkill -f \"netlify\")",
       "Bash(pkill -f \"gatsby\")",
-      "Bash(xargs kill -9)"
     ]
   }
 }

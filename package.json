@@ -6,7 +6,6 @@
     "@gatsbyjs/reach-router": "^2.0.1",
     "cheerio": "^1.2.0",
     "gatsby": "^5.16.0",
-    "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-feed": "^5.16.0",
     "gatsby-plugin-image": "^3.16.0",
     "gatsby-plugin-sharp": "^5.16.0",
