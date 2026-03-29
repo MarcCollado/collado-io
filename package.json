@@ -12,7 +12,6 @@
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-plugin-twitter": "^5.16.0",
     "gatsby-remark-autolink-headers": "^6.16.0",
-    "gatsby-remark-copy-linked-files": "^6.16.0",
     "gatsby-remark-embed-video": "^3.2.1",
     "gatsby-remark-images": "^7.16.0",
     "gatsby-remark-prismjs": "^7.16.0",
@@ -34,8 +33,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/**/**/*.{js,jsx,css,md,json}\" ",
-    "start": "gatsby clean && netlify build && netlify dev",
-    "serve": "gatsby serve",
+    "preview": "gatsby build && gatsby serve",
     "clean": "gatsby clean",
     "test": "node --test"
   }
