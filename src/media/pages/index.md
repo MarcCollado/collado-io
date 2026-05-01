@@ -4,7 +4,7 @@ excerpt: 'Home page'
 path: '/'
 ---
 
-Human being, born and raised in Barcelona, who makes things for a living.
+Human being, born and raised in Barcelona, who makes things for a living. Currently Head of Product at [RSS.com](https://rss.com) and co-host of [Foc a Terra](https://focaterra.cat), the weekly Catalan podcast on technology, AI, and society.
 
 Industrial Engineer by trade, I've been an [entrepreneur](https://linkedin.com/in/MarcCollado), [podcaster](/podcast), [writer](/blog), [programmer](https://github.com/MarcCollado), and [fitness aficionado](https://www.strava.com/athletes/1113999).
 

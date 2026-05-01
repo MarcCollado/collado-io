@@ -59,7 +59,7 @@ const Layout = ({ location, children }) => {
           {process.env.NODE_ENV === 'development' ? (
             <a href="https://develop--collado-io.netlify.app/rss.xml">RSS</a>
           ) : (
-            <a href="https://www.collado.io/rss.xml">RSS</a>
+            <a href="https://collado.io/rss.xml">RSS</a>
           )}
           {` · `}
           <a href="https://twitter.com/MarcCollado/">@MarcCollado</a>

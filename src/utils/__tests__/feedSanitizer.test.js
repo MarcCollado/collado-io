@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const { createFeedSanitizer } = require('../feedSanitizer');
 
 const sanitizeFeedHtml = createFeedSanitizer(cheerio);
-const siteUrl = 'https://www.collado.io';
+const siteUrl = 'https://collado.io';
 
 test('removes anchor icons and inline styles', () => {
   const html = `
@@ -61,7 +61,7 @@ test('replaces iframes with hyperlinks using absolute URLs', () => {
   assert.ok(!sanitized.includes('<iframe'));
   assert.match(
     sanitized,
-    /<p><a href="https:\/\/www\.collado\.io\/embed\/video\/123">https:\/\/www\.collado\.io\/embed\/video\/123<\/a><\/p>/,
+    /<p><a href="https:\/\/collado\.io\/embed\/video\/123">https:\/\/collado\.io\/embed\/video\/123<\/a><\/p>/,
   );
 });
 
@@ -83,11 +83,8 @@ test('rewrites relative media sources to absolute URLs', () => {
 
   const sanitized = sanitizeFeedHtml(html, siteUrl);
 
-  assert.match(
-    sanitized,
-    /src="https:\/\/www\.collado\.io\/images\/photo\.jpg"/,
-  );
-  assert.match(sanitized, /href="https:\/\/www\.collado\.io\/about"/);
+  assert.match(sanitized, /src="https:\/\/collado\.io\/images\/photo\.jpg"/);
+  assert.match(sanitized, /href="https:\/\/collado\.io\/about"/);
 });
 
 test('preserves absolute URLs unchanged', () => {

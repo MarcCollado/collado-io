@@ -4,12 +4,14 @@ excerpt: 'About page'
 path: '/about/'
 ---
 
+I'm Head of Product at [RSS.com](https://rss.com), a global podcast hosting platform. I co-host [Foc a Terra](https://focaterra.cat) — a weekly Catalan podcast on technology, AI, and society, 220+ episodes since 2022. Industrial Engineer by training; I also advise startups and VC firms on product strategy and growth.
+
 Over the last years, I created a few things. Some have worked, others have not.
 
 ## Projects
 
-- 2023 — [RSS.com](https://rss.com/): podcast publishing platform empowering creators worldwide.
-- 2022 — Wiz Music: web3 platform for music artists to engage with their fans.
+- 2022 — [RSS.com](https://rss.com/): Head of Product at the global podcast hosting platform.
+- 2021 — Wiz Music: web3 platform for music artists to engage with their fans.
 - 2019 — [Gamestry](https://gamestry.com/): video gaming community for Spain and Latin America.
 - 2015 — [Ironhack](https://ironhack.com/): leading coding bootcamp across Europe and America.
 - 2011 — [iomando](https://www.iomando.com/): keyless access management for mobile; acquired by [Citibox](https://citibox.com/).
@@ -36,7 +38,7 @@ Over the last years, I created a few things. Some have worked, others have not.
 - [Ironhack's Web Development Bootcamp](/blog/2016/ironhack-experience) — Dev Squad #23
 - [BSc and MSc in Industrial Technologies Engineering](/blog/2013/industrial-engineer)
 
-Besides these side-projects, I sometimes blog my thoughts on pretty much everything. If you enjoy these lines, consider subscribing to [the RSS feed](https://www.collado.io/rss.xml) to stay up-to-date with my latest developments.
+Besides these side-projects, I sometimes blog my thoughts on pretty much everything. If you enjoy these lines, consider subscribing to [the RSS feed](https://collado.io/rss.xml) to stay up-to-date with my latest developments.
 
 ## Now
 

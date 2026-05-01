@@ -13,10 +13,32 @@ module.exports = {
     title: `Marc's personal website`,
     description: `Thoughts on pretty much everything`,
     siteLanguage: `en`,
-    siteUrl: `https://www.collado.io`,
+    siteUrl: `https://collado.io`,
     social: {
       email: `maroon_05_midway@icloud.com`,
       twitter: `@MarcCollado`,
+      // Full URLs for sameAs (entity-graph disambiguation).
+      // Empty strings are skipped by seo.js — fill in or leave blank.
+      github: `https://github.com/MarcCollado`,
+      linkedin: `https://linkedin.com/in/MarcCollado/`,
+      focaterra: `https://focaterra.cat`,
+      rssCom: `https://rss.com`,
+    },
+    person: {
+      jobTitle: `Head of Product`,
+      worksFor: {
+        name: `RSS.com`,
+        url: `https://rss.com`,
+      },
+      address: {
+        addressLocality: `Barcelona`,
+        addressRegion: `Catalonia`,
+        addressCountry: `ES`,
+      },
+      knowsLanguage: [`ca`, `es`, `en`],
+      // Stable identifier so other schemas can reference this Person via @id.
+      // The fragment makes it unique per page-with-person while pointing back to the canonical URL.
+      id: `https://collado.io/#marc-collado`,
     },
     image: `/marc.jpg`,
   },
@@ -116,7 +138,7 @@ module.exports = {
               {
                 'atom:link': {
                   _attr: {
-                    href: 'https://www.collado.io/rss.xml',
+                    href: 'https://collado.io/rss.xml',
                     rel: 'self',
                     type: 'application/rss+xml',
                   },

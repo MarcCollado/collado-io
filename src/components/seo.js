@@ -29,6 +29,24 @@ const Seo = ({
           social {
             email
             twitter
+            github
+            linkedin
+            focaterra
+            rssCom
+          }
+          person {
+            jobTitle
+            worksFor {
+              name
+              url
+            }
+            address {
+              addressLocality
+              addressRegion
+              addressCountry
+            }
+            knowsLanguage
+            id
           }
         }
       }
@@ -45,6 +63,7 @@ const Seo = ({
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const url = pathname ? `${siteUrl}${pathname}` : siteUrl;
   const social = site.siteMetadata?.social || {};
+  const person = site.siteMetadata?.person || {};
 
   const imagePath = seoImage || '';
   const image = imagePath.startsWith('http')
@@ -58,17 +77,51 @@ const Seo = ({
       `https://twitter.com/${social.twitter.replace(/^@/, '')}`,
     );
   }
+  if (social.github) socialProfiles.push(social.github);
+  if (social.linkedin) socialProfiles.push(social.linkedin);
+  if (social.focaterra) socialProfiles.push(social.focaterra);
+  if (social.rssCom) socialProfiles.push(social.rssCom);
   if (social.email) {
     socialProfiles.push(`mailto:${social.email}`);
   }
 
+  const personId = person.id || `${siteUrl}/#person`;
+
   const personStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': personId,
     name: author,
     url: siteUrl,
     description,
     image,
+    ...(person.jobTitle ? { jobTitle: person.jobTitle } : {}),
+    ...(person.worksFor?.name
+      ? {
+          worksFor: {
+            '@type': 'Organization',
+            name: person.worksFor.name,
+            ...(person.worksFor.url ? { url: person.worksFor.url } : {}),
+          },
+        }
+      : {}),
+    ...(person.address?.addressLocality
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: person.address.addressLocality,
+            ...(person.address.addressRegion
+              ? { addressRegion: person.address.addressRegion }
+              : {}),
+            ...(person.address.addressCountry
+              ? { addressCountry: person.address.addressCountry }
+              : {}),
+          },
+        }
+      : {}),
+    ...(person.knowsLanguage?.length
+      ? { knowsLanguage: person.knowsLanguage }
+      : {}),
     ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
   };
 
@@ -83,28 +136,22 @@ const Seo = ({
       '@type': 'WebPage',
       '@id': url,
     },
-    author: {
-      '@type': 'Person',
-      name: author,
-      url: siteUrl,
-      ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
-    },
-    publisher: {
-      '@type': 'Person',
-      name: author,
-      url: siteUrl,
-      logo: {
-        '@type': 'ImageObject',
-        url: image,
-      },
-    },
+    author: { '@id': personId },
+    publisher: { '@id': personId },
     ...(articleSection ? { articleSection } : {}),
     ...(publishedTime ? { datePublished: publishedTime } : {}),
     ...(modifiedTime ? { dateModified: modifiedTime } : {}),
   };
 
+  // For article pages, emit a graph so the BlogPosting can resolve its @id
+  // reference to the canonical Person on the same page.
   const structuredData =
-    type === 'article' ? articleStructuredData : personStructuredData;
+    type === 'article'
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [personStructuredData, articleStructuredData],
+        }
+      : personStructuredData;
 
   return (
     <>
