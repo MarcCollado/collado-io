@@ -33,6 +33,7 @@ const Seo = ({
             linkedin
             focaterra
             rssCom
+            wikidata
           }
           person {
             jobTitle
@@ -81,6 +82,7 @@ const Seo = ({
   if (social.linkedin) socialProfiles.push(social.linkedin);
   if (social.focaterra) socialProfiles.push(social.focaterra);
   if (social.rssCom) socialProfiles.push(social.rssCom);
+  if (social.wikidata) socialProfiles.push(social.wikidata);
   if (social.email) {
     socialProfiles.push(`mailto:${social.email}`);
   }

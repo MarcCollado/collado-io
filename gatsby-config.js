@@ -23,6 +23,7 @@ module.exports = {
       linkedin: `https://linkedin.com/in/MarcCollado/`,
       focaterra: `https://focaterra.cat`,
       rssCom: `https://rss.com`,
+      wikidata: `https://www.wikidata.org/wiki/Q139658833`,
     },
     person: {
       jobTitle: `Head of Product`,
