@@ -84,6 +84,10 @@ export const Head = ({ data, location, pageContext }) => {
       pageTitle={`${tag} — tag page`}
       pageDescription={`${tagCount} ${tag}`}
       location={location}
+      // Tag archives are thin index pages — let Google follow the links to
+      // posts (link equity) but keep these listings out of the index so they
+      // don't compete with the canonical post URLs.
+      pageRobots="noindex,follow"
     />
   );
 };

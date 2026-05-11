@@ -13,6 +13,7 @@ const Seo = ({
   modifiedTime,
   articleSection,
   pageLanguage,
+  pageRobots = 'index,follow',
   children,
 }) => {
   const { site } = useStaticQuery(graphql`
@@ -165,7 +166,7 @@ const Seo = ({
       <meta name="image" content={image} />
       <meta name="url" content={url} />
       <meta name="author" content={author} />
-      <meta name="robots" content="index,follow" />
+      <meta name="robots" content={pageRobots} />
 
       {/* OG TAGS (Open Graph requires the `property` attribute; others use `name`) */}
       <meta property="og:title" content={title} />

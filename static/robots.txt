@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.collado.io/sitemap-0.xml
+# Legacy Squarespace query-param URLs that still surface in old crawl results.
+# These were the URL format before this site migrated to Gatsby — they no
+# longer correspond to real content. Disallow keeps them out of the index.
+Disallow: /*?source=
+Disallow: /*?tag=
+Disallow: /*?category=
+Disallow: /*?author=
+
+Sitemap: https://collado.io/sitemap-0.xml
