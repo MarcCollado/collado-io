@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Strategic context (why this site exists, the personal-SEO goal) lives in the
+**marcOS hub**, not here:
+- `~/Documents/Claude/Code/marcOS/work/collado-io.md` — purpose, stack, scripts
+- `~/Documents/Claude/Code/marcOS/work/wikidata-brief.md` — Wikidata Q-item / sameAs work
+
 ## Commands
 
 ```bash
