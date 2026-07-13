@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import favicon from '../../static/favicon.ico';
-import seoImage from '../../static/marc-avatar.png';
+import seoImage from '../../static/marc-avatar.jpg';
 
 const Seo = ({
   pageTitle,
