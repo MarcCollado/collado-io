@@ -20,36 +20,29 @@ const Tag = ({ data, location, pageContext }) => {
       <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, language, title, tags, path } =
-            post.node.frontmatter;
-          const isFeatured = featured;
+          const {
+            displayDate,
+            excerpt,
+            featured,
+            language,
+            title,
+            tags,
+            path,
+          } = post.node.frontmatter;
           return (
             <li key={post.node.id}>
-              <article
-                className="post-list-item"
-                // itemScope
-                // itemType="http://schema.org/Article"
-              >
+              <article className="post-list-item">
                 <header>
                   <h2>
-                    <Link to={path} itemProp="url">
-                      <span itemProp="title">
-                        {toTitleCase(title, language)}
-                      </span>
-                    </Link>
+                    <Link to={path}>{toTitleCase(title, language)}</Link>
                   </h2>
                   {process.env.NODE_ENV === 'development' &&
                     tagListGenerator(tags)}
-                  <small itemProp="date">{date}</small>
+                  <small>{displayDate}</small>
                 </header>
-                {isFeatured && (
+                {featured && excerpt && (
                   <section>
-                    <small
-                      dangerouslySetInnerHTML={{
-                        __html: excerpt || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
+                    <small>{excerpt}</small>
                   </section>
                 )}
               </article>

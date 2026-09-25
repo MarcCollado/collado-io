@@ -1,5 +1,7 @@
 import { graphql } from 'gatsby';
 
+// Dates come twice: `isoDate` (raw) for sorting and `displayDate` for the UI.
+
 // index.js, about.js, 404.js
 // Sources markdown data from a file to populate top-level pages
 export const StaticPageQuery = graphql`
@@ -25,7 +27,8 @@ export const allBlogPostsQuery = graphql`
       node {
         id
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          isoDate: date
+          displayDate: date(formatString: "MMMM DD, YYYY")
           excerpt
           featured
           language
@@ -45,7 +48,8 @@ export const allBugadaPostsQuery = graphql`
     edges {
       node {
         id
-        isoDate(formatString: "MMMM DD, YYYY")
+        isoDate
+        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         link
         title
       }
@@ -60,7 +64,8 @@ export const allSafareigEpisodesQuery = graphql`
       node {
         content
         id
-        isoDate(formatString: "MMMM DD, YYYY")
+        isoDate
+        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }
@@ -78,7 +83,8 @@ export const allFocATerraEpisodesQuery = graphql`
       node {
         content
         id
-        isoDate(formatString: "MMMM DD, YYYY")
+        isoDate
+        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }
@@ -95,7 +101,8 @@ export const allRadioLanzaEpisodesQuery = graphql`
     edges {
       node {
         id
-        isoDate(formatString: "MMMM DD, YYYY")
+        isoDate
+        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }

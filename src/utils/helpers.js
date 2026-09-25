@@ -22,67 +22,50 @@ export function extractMarkdown(edges) {
   return markdownFile;
 }
 
+// Newest first, comparing raw ISO dates (posts keep theirs in frontmatter)
+const byNewest = (a, b) => {
+  const dateA = a.node.frontmatter?.isoDate || a.node.isoDate;
+  const dateB = b.node.frontmatter?.isoDate || b.node.isoDate;
+  return new Date(dateB) - new Date(dateA);
+};
+
 export function blogFeedGenerator(data) {
   const feed = [...data.posts.edges, ...data.bugadaPosts.edges];
-  return feed
-    .sort((a, b) => {
-      const dateA = new Date(a.node.frontmatter?.date || a.node.isoDate);
-      const dateB = new Date(b.node.frontmatter?.date || b.node.isoDate);
-      return dateB - dateA;
-    })
-    .map((e) => {
-      if (e.node.frontmatter?.date) {
-        const { date, excerpt, featured, language, title, path } =
-          e.node.frontmatter;
-        return (
-          <li key={e.node.id}>
-            <div
-              className="post-list-item"
-              itemScope
-              itemType="http://schema.org/Article"
-            >
-              <header>
-                <h2>
-                  <Link to={path} itemProp="url">
-                    <span itemProp="headline">
-                      {toTitleCase(title, language)}
-                    </span>
-                  </Link>
-                </h2>
-                <small itemProp="date">{date}</small>
-              </header>
-              {featured && (
-                <section>
-                  <small
-                    dangerouslySetInnerHTML={{
-                      __html: excerpt || e.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              )}
-            </div>
-          </li>
-        );
-      } else {
-        const { link, id, isoDate: date, title } = e.node;
-        return (
-          <li key={id} className="post-list-item">
+  return feed.sort(byNewest).map((e) => {
+    if (e.node.frontmatter) {
+      const { displayDate, excerpt, featured, language, path, title } =
+        e.node.frontmatter;
+      return (
+        <li key={e.node.id}>
+          <div className="post-list-item">
             <header>
-              <h2 className="external-link">
-                <a href={link} itemProp="url">
-                  <span itemProp="headline">
-                    {title}
-                    {' ↗'}
-                  </span>
-                </a>
+              <h2>
+                <Link to={path}>{toTitleCase(title, language)}</Link>
               </h2>
-              <small itemProp="date">{date}</small>
+              <small>{displayDate}</small>
             </header>
-          </li>
-        );
-      }
-    });
+            {featured && excerpt && (
+              <section>
+                <small>{excerpt}</small>
+              </section>
+            )}
+          </div>
+        </li>
+      );
+    } else {
+      const { displayDate, id, link, title } = e.node;
+      return (
+        <li key={id} className="post-list-item">
+          <header>
+            <h2 className="external-link">
+              <a href={link}>{`${title} ↗`}</a>
+            </h2>
+            <small>{displayDate}</small>
+          </header>
+        </li>
+      );
+    }
+  });
 }
 
 export function podcastFeedGenerator(data) {
@@ -92,25 +75,21 @@ export function podcastFeedGenerator(data) {
     ...data.radioLanzaEpisodes.edges,
   ];
 
-  return feed
-    .sort((a, b) => new Date(b.node.isoDate) - new Date(a.node.isoDate))
-    .map((e) => {
-      const { link, id, itunes, isoDate: date, title } = e.node;
-      return (
-        <li key={id} className="post-list-item">
-          <header>
-            <h2 className="external-link">
-              <a href={link} itemProp="url">
-                <span itemProp="headline">
-                  {itunes.episode ? `${itunes.episode}: ${title}` : title}
-                </span>
-              </a>
-            </h2>
-            <small itemProp="date">{date}</small>
-          </header>
-        </li>
-      );
-    });
+  return feed.sort(byNewest).map((e) => {
+    const { displayDate, id, itunes, link, title } = e.node;
+    return (
+      <li key={id} className="post-list-item">
+        <header>
+          <h2 className="external-link">
+            <a href={link}>
+              {itunes.episode ? `${itunes.episode}: ${title}` : title}
+            </a>
+          </h2>
+          <small>{displayDate}</small>
+        </header>
+      </li>
+    );
+  });
 }
 
 export function tagListGenerator(tags) {

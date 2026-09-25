@@ -12,9 +12,7 @@ const Tags = ({ data, location }) => {
         {tags.map((tag) => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${tag.fieldValue}/`}>
-              <span itemProp="tag">
-                {tag.fieldValue + ' ' + tag.totalCount}
-              </span>
+              {tag.fieldValue + ' ' + tag.totalCount}
             </Link>
           </li>
         ))}
