@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const { createFeedSanitizer } = require('./src/utils/feedSanitizer');
+const { toTitleCase } = require('./src/utils/titleCase');
 
 require('dotenv').config({ path: `.env` });
 
@@ -160,6 +161,7 @@ module.exports = {
                     frontmatter {
                       date
                       excerpt
+                      language
                       path
                       tags
                       title
@@ -179,6 +181,11 @@ module.exports = {
                 const sanitizedHtml = sanitizeFeedHtml(node.html, siteUrl);
 
                 return Object.assign({}, node.frontmatter, {
+                  // Same casing as the on-page <h1>
+                  title: toTitleCase(
+                    node.frontmatter.title,
+                    node.frontmatter.language,
+                  ),
                   date: node.frontmatter.date,
                   description: node.frontmatter.excerpt,
                   url: siteUrl + node.frontmatter.path,

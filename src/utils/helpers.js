@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import { toTitleCase } from './titleCase';
+
 /**
  * Extracts page information from the corresponding markdown file
  * @param {array} edges with one object inside
@@ -20,60 +22,6 @@ export function extractMarkdown(edges) {
   return markdownFile;
 }
 
-export function toTitleCase(str) {
-  const lowerCaseFilter = [
-    'a',
-    'an',
-    'and',
-    'as',
-    'at',
-    'but',
-    'by',
-    'for',
-    'if',
-    'in',
-    'is',
-    'of',
-    'on',
-    'or',
-    'the',
-    'to',
-    'vs.',
-    // Català
-    'de',
-    'des',
-    'el',
-    'la',
-    'part',
-    // Ad-hoc
-    'collado.io',
-    'ebay',
-    'iomando',
-    'v2',
-  ];
-  const upperCaseFilter = ['AI', 'API', 'II', 'III', 'IV', 'V', 'WWDC'];
-  let isFirstWord = true;
-  return str.replace(/\w\S*/g, function (txt) {
-    // Ignore the first word
-    if (isFirstWord) {
-      isFirstWord = false;
-      return txt;
-    }
-
-    // Return these words lowercase
-    if (lowerCaseFilter.includes(txt.toLowerCase())) {
-      return txt.toLowerCase();
-    }
-
-    // Return these words upperCase
-    if (upperCaseFilter.includes(txt.toUpperCase())) {
-      return txt.toUpperCase();
-    }
-
-    return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
-  });
-}
-
 export function blogFeedGenerator(data) {
   const feed = [...data.posts.edges, ...data.bugadaPosts.edges];
   return feed
@@ -84,7 +32,8 @@ export function blogFeedGenerator(data) {
     })
     .map((e) => {
       if (e.node.frontmatter?.date) {
-        const { date, excerpt, featured, title, path } = e.node.frontmatter;
+        const { date, excerpt, featured, language, title, path } =
+          e.node.frontmatter;
         return (
           <li key={e.node.id}>
             <div
@@ -95,7 +44,9 @@ export function blogFeedGenerator(data) {
               <header>
                 <h2>
                   <Link to={path} itemProp="url">
-                    <span itemProp="headline">{toTitleCase(title)}</span>
+                    <span itemProp="headline">
+                      {toTitleCase(title, language)}
+                    </span>
                   </Link>
                 </h2>
                 <small itemProp="date">{date}</small>

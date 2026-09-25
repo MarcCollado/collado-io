@@ -28,6 +28,7 @@ export const allBlogPostsQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           excerpt
           featured
+          language
           path
           source
           tags

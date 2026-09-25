@@ -3,7 +3,8 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import { toTitleCase, tagListGenerator } from '../utils/helpers';
+import { tagListGenerator } from '../utils/helpers';
+import { toTitleCase } from '../utils/titleCase';
 
 const Tag = ({ data, location, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
@@ -19,7 +20,7 @@ const Tag = ({ data, location, pageContext }) => {
       <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const { date, excerpt, featured, title, tags, path } =
+          const { date, excerpt, featured, language, title, tags, path } =
             post.node.frontmatter;
           const isFeatured = featured;
           return (
@@ -32,7 +33,9 @@ const Tag = ({ data, location, pageContext }) => {
                 <header>
                   <h2>
                     <Link to={path} itemProp="url">
-                      <span itemProp="title">{toTitleCase(title)}</span>
+                      <span itemProp="title">
+                        {toTitleCase(title, language)}
+                      </span>
                     </Link>
                   </h2>
                   {process.env.NODE_ENV === 'development' &&

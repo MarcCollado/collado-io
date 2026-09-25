@@ -3,11 +3,12 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import { toTitleCase, tagListGenerator } from '../utils/helpers';
+import { tagListGenerator } from '../utils/helpers';
+import { toTitleCase } from '../utils/titleCase';
 
 const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
-  const { displayDate, excerpt, tags, title } = frontmatter;
+  const { displayDate, excerpt, language, tags, title } = frontmatter;
 
   // next and previous posts are available from frontmatter
   // const next = pageContext.next.frontmatter.path;
@@ -19,7 +20,7 @@ const Post = ({ data, location, pageContext }) => {
   return (
     <Layout location={location}>
       <article>
-        <h1>{toTitleCase(title)}</h1>
+        <h1>{toTitleCase(title, language)}</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
           <p className="excerpt">{excerpt}</p>
         )}
@@ -65,7 +66,8 @@ export const Head = ({ data, location }) => {
   const pageLanguage = normalizedLanguage || 'en';
   return (
     <Seo
-      pageTitle={title}
+      // Same casing as the on-page <h1>
+      pageTitle={toTitleCase(title, language)}
       pageDescription={excerpt}
       location={location}
       type="article"
