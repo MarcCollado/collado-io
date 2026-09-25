@@ -148,7 +148,8 @@ module.exports = {
               },
             ],
 
-            // Query Markdown posts
+            // Query the latest Markdown posts: full content makes every item
+            // heavy, and readers keep the items they've already fetched
             query: `
               {
                 allMarkdownRemark(
@@ -156,6 +157,7 @@ module.exports = {
                     fileAbsolutePath: { regex: "/src/media/posts/" }
                   }
                   sort: { frontmatter: { date: DESC } }
+                  limit: 20
                 ) {
                   nodes {
                     frontmatter {

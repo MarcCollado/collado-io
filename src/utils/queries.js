@@ -33,7 +33,6 @@ export const allBlogPostsQuery = graphql`
           featured
           language
           path
-          source
           tags
           title
         }
@@ -62,7 +61,6 @@ export const allSafareigEpisodesQuery = graphql`
   fragment allSafareigEpisodes on FeedSafareigConnection {
     edges {
       node {
-        content
         id
         isoDate
         displayDate: isoDate(formatString: "MMMM DD, YYYY")
@@ -81,7 +79,6 @@ export const allFocATerraEpisodesQuery = graphql`
   fragment allFocATerraEpisodes on FeedFocATerraConnection {
     edges {
       node {
-        content
         id
         isoDate
         displayDate: isoDate(formatString: "MMMM DD, YYYY")
