@@ -247,7 +247,6 @@ module.exports = {
         excludes: [`/tags/*/`],
       },
     },
-    `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
   ],
   trailingSlash: `always`,
