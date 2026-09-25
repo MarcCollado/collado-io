@@ -59,7 +59,6 @@ export const query = graphql`
         isoDate: date
         displayDate: date(formatString: "MMMM DD, YYYY")
         excerpt
-        # featured
         language
         path
         # source

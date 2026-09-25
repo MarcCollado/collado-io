@@ -36,7 +36,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 
 ### Content pipeline
 
-- Blog posts live in `src/media/posts/` as Markdown files with YAML frontmatter (`title`, `date`, `path`, `tags`, `excerpt`, `featured`, `language`). The frontmatter types are declared in `gatsby-node.js`
+- Blog posts live in `src/media/posts/` as Markdown files with YAML frontmatter (`title`, `date`, `path`, `tags`, `excerpt`, `language`). The frontmatter types are declared in `gatsby-node.js`
 - `gatsby-node.js` reads all posts via GraphQL, creates individual post pages (template: `src/templates/post-page.js`) and one page per unique tag (template: `src/templates/tag-page.js`)
 - Drafts live in `src/media/drafts/`, which isn't sourced, so they never build. Move a file into `posts/` to publish it
 - Internal links in Markdown use the trailing slash (`/blog/2021/learning-framework/`); without it every link is a 301

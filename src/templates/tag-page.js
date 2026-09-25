@@ -20,15 +20,8 @@ const Tag = ({ data, location, pageContext }) => {
       <h1 className="heading">{`# ${tag}`}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
-          const {
-            displayDate,
-            excerpt,
-            featured,
-            language,
-            title,
-            tags,
-            path,
-          } = post.node.frontmatter;
+          const { displayDate, language, title, tags, path } =
+            post.node.frontmatter;
           return (
             <li key={post.node.id}>
               <article className="post-list-item">
@@ -40,11 +33,6 @@ const Tag = ({ data, location, pageContext }) => {
                     tagListGenerator(tags)}
                   <small>{displayDate}</small>
                 </header>
-                {featured && excerpt && (
-                  <section>
-                    <small>{excerpt}</small>
-                  </section>
-                )}
               </article>
             </li>
           );

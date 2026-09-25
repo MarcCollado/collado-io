@@ -56,8 +56,7 @@ export function blogFeedGenerator(data) {
         {edges.map((e) => {
           const date = monthDay.format(new Date(isoDateOf(e)));
           if (e.node.frontmatter) {
-            const { excerpt, featured, language, path, title } =
-              e.node.frontmatter;
+            const { language, path, title } = e.node.frontmatter;
             return (
               <li key={e.node.id}>
                 <div className="post-list-item">
@@ -67,11 +66,6 @@ export function blogFeedGenerator(data) {
                     </h3>
                     <small>{date}</small>
                   </header>
-                  {featured && excerpt && (
-                    <section>
-                      <small>{excerpt}</small>
-                    </section>
-                  )}
                 </div>
               </li>
             );

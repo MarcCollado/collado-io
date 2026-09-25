@@ -1,7 +1,7 @@
 const path = require('path');
 
 // Declare the frontmatter fields instead of letting Gatsby infer them, so
-// queries keep working even if no post sets a field (e.g. `featured`).
+// queries keep working even if no post sets a field (most skip `language`).
 // Static pages share the type but have no date or tags, hence nullable.
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
@@ -15,7 +15,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       tags: [String]
       excerpt: String
-      featured: Boolean
       language: String
       source: String
     }

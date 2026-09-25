@@ -29,8 +29,6 @@ export const allBlogPostsQuery = graphql`
         frontmatter {
           isoDate: date
           displayDate: date(formatString: "MMMM DD, YYYY")
-          excerpt
-          featured
           language
           path
           tags
