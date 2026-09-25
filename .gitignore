@@ -7,3 +7,4 @@
 /node_modules
 /public
 deno.lock
+/.claude/settings.local.json
