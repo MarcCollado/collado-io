@@ -8,6 +8,7 @@ const Tags = ({ data, location }) => {
   const { group: tags } = data.allMarkdownRemark;
   return (
     <Layout location={location}>
+      <h1 className="visually-hidden">Tags</h1>
       <ul>
         {tags.map((tag) => (
           <li key={tag.fieldValue}>

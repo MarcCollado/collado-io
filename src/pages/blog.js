@@ -7,6 +7,7 @@ import { blogFeedGenerator } from '../utils/helpers';
 
 const Blog = ({ data, location }) => (
   <Layout location={location}>
+    <h1 className="visually-hidden">Blog</h1>
     <ol style={{ listStyle: `none` }}>{blogFeedGenerator(data)}</ol>
   </Layout>
 );
