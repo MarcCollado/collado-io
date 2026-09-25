@@ -43,14 +43,16 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 - English titles are title-cased at render time (`src/utils/titleCase.js`); set `language: 'ca'` on Catalan posts so their titles keep sentence case
 - External RSS feeds are aggregated at build time via `gatsby-source-rss-feed`: Bugada on the blog page; Safareig, FocATerra and RadioLanza on the podcast page
 - The outgoing feed (`/rss.xml`) carries the latest 20 posts with full content
+- Each post gets a 1200×630 social card at `<path>og.png` (its `og:image`), rendered after the build, so it doesn't exist in `gatsby develop`
 
 ### Key source files
 
 - `gatsby-config.js` — all plugin configuration, site metadata, RSS feed definitions
-- `gatsby-node.js` — frontmatter schema, dynamic page generation (posts + tag pages); each post gets its older/newer neighbours for the links at its end
+- `gatsby-node.js` — frontmatter schema, dynamic page generation (posts + tag pages); each post gets its older/newer neighbours for the links at its end; `onPostBuild` renders the social cards
 - `gatsby-ssr.js` — dev-only: restores the dark-mode toggle's choice from `localStorage` before render
 - `src/utils/titleCase.js` — title casing for English titles (keeps words with inner capitals like eBay; skips other languages)
 - `src/utils/helpers.js` — blog and podcast lists (grouped by year), tag renderer
+- `src/utils/socialCard.js` — social card layout and rendering (satori with the Inter font from `@fontsource/inter`, then sharp), so cards look the same on any machine
 - `src/utils/feedSanitizer.js` — normalizes the site's own post HTML for the outgoing RSS feed (drops anchor icons, scripts, styles and responsive image sources; turns iframes into links; makes URLs absolute). It works on trusted input and isn't a security boundary
 - `src/components/seo.js` — schema.org JSON-LD (Person on every page; WebSite on the home page; ProfilePage on `/about/`; BlogPosting on posts), Open Graph, Twitter cards
 

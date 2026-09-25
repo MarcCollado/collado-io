@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 
 // Declare the frontmatter fields instead of letting Gatsby infer them, so
@@ -96,4 +97,67 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: { tag },
     });
   });
+};
+
+// One social card per post, written next to its page (/blog/2021/foo/og.png)
+// and used as its og:image. Runs after the build, so not in `gatsby develop`.
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const { data, errors } = await graphql(`
+    {
+      site {
+        siteMetadata {
+          author {
+            name
+          }
+          siteUrl
+        }
+      }
+      posts: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/src/media/posts/" } }
+      ) {
+        nodes {
+          frontmatter {
+            language
+            path
+            title
+          }
+        }
+      }
+    }
+  `);
+  if (errors) {
+    reporter.panicOnBuild(errors);
+    return;
+  }
+
+  const {
+    avatarDataUri,
+    loadFonts,
+    renderSocialCard,
+  } = require('./src/utils/socialCard');
+  const { toTitleCase } = require('./src/utils/titleCase');
+
+  const activity = reporter.activityTimer('Render social cards');
+  activity.start();
+  const fonts = loadFonts();
+  const avatar = await avatarDataUri(
+    path.resolve('src/media/images/avatar.png'),
+  );
+  const author = data.site.siteMetadata.author.name;
+  const host = new URL(data.site.siteMetadata.siteUrl).host;
+  for (const { frontmatter } of data.posts.nodes) {
+    const png = await renderSocialCard({
+      title: toTitleCase(frontmatter.title, frontmatter.language),
+      author,
+      host,
+      avatar,
+      fonts,
+    });
+    fs.writeFileSync(
+      path.resolve('public', `.${frontmatter.path}`, 'og.png'),
+      png,
+    );
+  }
+  activity.setStatus(`${data.posts.nodes.length} cards`);
+  activity.end();
 };

@@ -72,7 +72,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ data, location }) => {
-  const { title, excerpt, tags, isoDate, language } =
+  const { title, excerpt, tags, isoDate, language, path } =
     data.markdownRemark.frontmatter;
   // The first tag is used as the article section for structured data/meta tags.
   const primarySection = tags?.length ? tags[0] : undefined;
@@ -88,6 +88,8 @@ export const Head = ({ data, location }) => {
       publishedTime={isoDate}
       articleSection={primarySection}
       pageLanguage={pageLanguage}
+      // Rendered by onPostBuild in gatsby-node.js
+      socialImage={`${path}og.png`}
     />
   );
 };

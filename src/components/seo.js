@@ -13,6 +13,8 @@ const Seo = ({
   articleSection,
   pageLanguage,
   pageRobots = 'index,follow',
+  // Site path of a 1200×630 card (posts); other pages share the avatar
+  socialImage,
   children,
 }) => {
   const { site } = useStaticQuery(graphql`
@@ -72,9 +74,10 @@ const Seo = ({
   const person = site.siteMetadata?.person || {};
 
   const imagePath = seoImage || '';
-  const image = imagePath.startsWith('http')
+  const avatar = imagePath.startsWith('http')
     ? imagePath
     : `${siteUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
+  const image = socialImage ? `${siteUrl}${socialImage}` : avatar;
   const canonicalUrl = url || siteUrl;
 
   // sameAs lists profiles that identify the person, not related sites
@@ -97,7 +100,7 @@ const Seo = ({
     url: siteUrl,
     // A fixed bio, so every page describes the person the same way
     ...(person.description ? { description: person.description } : {}),
-    image,
+    image: avatar,
     ...(social.email ? { email: social.email } : {}),
     ...(person.jobTitle ? { jobTitle: person.jobTitle } : {}),
     ...(person.worksFor?.name
@@ -191,6 +194,8 @@ const Seo = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      {socialImage && <meta property="og:image:width" content="1200" />}
+      {socialImage && <meta property="og:image:height" content="630" />}
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={siteName} />
@@ -208,8 +213,11 @@ const Seo = ({
         <meta property="article:section" content={articleSection} />
       )}
 
-      {/* TWITTER TAGS (`summary` fits the square avatar without cropping) */}
-      <meta name="twitter:card" content="summary" />
+      {/* TWITTER TAGS (large card for a post's image; `summary` fits the square avatar) */}
+      <meta
+        name="twitter:card"
+        content={socialImage ? 'summary_large_image' : 'summary'}
+      />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />

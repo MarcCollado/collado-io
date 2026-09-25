@@ -3,6 +3,7 @@
   "description": "Marc Collado's personal website",
   "author": "Marc Collado",
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
     "@gatsbyjs/reach-router": "^2.0.1",
     "cheerio": "^1.2.0",
     "gatsby": "^5.16.0",
@@ -24,7 +25,9 @@
     "gatsby-transformer-sharp": "^5.16.0",
     "prismjs": "^1.30.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "satori": "^0.33.5",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
