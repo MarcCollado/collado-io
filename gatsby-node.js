@@ -1,5 +1,27 @@
 const path = require('path');
 
+// Declare the frontmatter fields instead of letting Gatsby infer them, so
+// queries keep working even if no post sets a field (e.g. `featured`).
+// Static pages share the type but have no date or tags, hence nullable.
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+
+    type MarkdownRemarkFrontmatter {
+      title: String!
+      path: String!
+      date: Date @dateformat
+      tags: [String]
+      excerpt: String
+      featured: Boolean
+      language: String
+      source: String
+    }
+  `);
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postPage = path.resolve(`./src/templates/post-page.js`);
