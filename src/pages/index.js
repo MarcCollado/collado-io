@@ -29,7 +29,6 @@ export const query = graphql`
 
 export const Head = ({ location }) => (
   <Seo
-    pageTitle="Home"
     pageDescription="Head of Product at RSS.com, co-host of Foc a Terra. Industrial Engineer turned product operator. Writes on product, technology, and how things work."
     location={location}
   />

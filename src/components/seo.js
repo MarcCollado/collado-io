@@ -23,6 +23,7 @@ const Seo = ({
             name
           }
           siteName: title
+          tagline
           defaultDescription: description
           siteLanguage
           siteUrl
@@ -59,8 +60,12 @@ const Seo = ({
   const siteName = site.siteMetadata?.siteName;
   const defaultLanguage = (site.siteMetadata?.siteLanguage || '').trim();
   const language = pageLanguage || defaultLanguage;
-  // Every page carries the name: "Blog — Marc Collado"
-  const title = pageTitle ? `${pageTitle} — ${siteName}` : siteName;
+  // Every page carries the name: "Blog — Marc Collado"; the home page
+  // leads with it: "Marc Collado — product, podcasts and writing"
+  const tagline = site.siteMetadata?.tagline;
+  const title = pageTitle
+    ? `${pageTitle} — ${siteName}`
+    : [siteName, tagline].filter(Boolean).join(' — ');
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const url = pathname ? `${siteUrl}${pathname}` : siteUrl;
   const social = site.siteMetadata?.social || {};

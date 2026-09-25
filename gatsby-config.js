@@ -11,6 +11,8 @@ module.exports = {
     },
     // Site name for og:site_name, WebSite structured data and page titles
     title: `Marc Collado`,
+    // Home page title: "Marc Collado — product, podcasts and writing"
+    tagline: `product, podcasts and writing`,
     description: `Thoughts on pretty much everything`,
     siteLanguage: `en`,
     siteUrl: `https://collado.io`,
