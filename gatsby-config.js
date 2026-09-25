@@ -236,6 +236,8 @@ module.exports = {
         name: `RadioLanza`,
       },
     },
+    // Client-side navigation for internal links inside Markdown content
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     {
