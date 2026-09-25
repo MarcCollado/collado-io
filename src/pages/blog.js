@@ -15,10 +15,7 @@ const Blog = ({ data, location }) => (
 export const allBlogPostsQuery = graphql`
   query {
     posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/src/media/posts/" }
-        frontmatter: { tags: { nin: ["drafts"] } }
-      }
+      filter: { fileAbsolutePath: { regex: "/src/media/posts/" } }
       sort: { frontmatter: { date: DESC } }
     ) {
       ...allBlogPosts

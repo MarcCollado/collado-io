@@ -2,8 +2,6 @@ const cheerio = require('cheerio');
 const { createFeedSanitizer } = require('./src/utils/feedSanitizer');
 const { toTitleCase } = require('./src/utils/titleCase');
 
-require('dotenv').config({ path: `.env` });
-
 const sanitizeFeedHtml = createFeedSanitizer(cheerio);
 
 module.exports = {
