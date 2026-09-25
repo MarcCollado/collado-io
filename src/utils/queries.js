@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 
-// Dates come twice: `isoDate` (raw) for sorting and `displayDate` for the UI.
+// `isoDate` is the raw date, for sorting and grouping by year. Posts also
+// carry `displayDate` for the tag pages; the year lists format their own.
 
 // index.js, about.js, 404.js
 // Sources markdown data from a file to populate top-level pages
@@ -46,7 +47,6 @@ export const allBugadaPostsQuery = graphql`
       node {
         id
         isoDate
-        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         link
         title
       }
@@ -61,7 +61,6 @@ export const allSafareigEpisodesQuery = graphql`
       node {
         id
         isoDate
-        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }
@@ -79,7 +78,6 @@ export const allFocATerraEpisodesQuery = graphql`
       node {
         id
         isoDate
-        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }
@@ -97,7 +95,6 @@ export const allRadioLanzaEpisodesQuery = graphql`
       node {
         id
         isoDate
-        displayDate: isoDate(formatString: "MMMM DD, YYYY")
         itunes {
           episode
         }

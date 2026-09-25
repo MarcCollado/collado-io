@@ -8,7 +8,7 @@ import { podcastFeedGenerator } from '../utils/helpers';
 const Podcast = ({ data, location }) => (
   <Layout location={location}>
     <h1 className="visually-hidden">Podcast</h1>
-    <ol style={{ listStyle: `none` }}>{podcastFeedGenerator(data)}</ol>
+    {podcastFeedGenerator(data)}
   </Layout>
 );
 

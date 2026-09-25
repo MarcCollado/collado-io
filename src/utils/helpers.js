@@ -36,12 +36,16 @@ const monthDay = new Intl.DateTimeFormat('en-US', {
   timeZone: 'UTC',
 });
 
-export function blogFeedGenerator(data) {
-  const feed = [...data.posts.edges, ...data.bugadaPosts.edges].sort(byNewest);
-
-  // The feed is sorted, so each year's items are consecutive
+/**
+ * Renders a feed newest first, one section per year: the year as <h2>,
+ * then each item as a list row with its title (<h3>) and month and day
+ * @param {array} edges posts and/or external feed items
+ * @param {function} rowTitle returns the title link for an edge
+ */
+function yearSections(edges, rowTitle) {
+  // Sorted, so each year's items are consecutive
   const years = [];
-  feed.forEach((e) => {
+  [...edges].sort(byNewest).forEach((e) => {
     const year = isoDateOf(e).slice(0, 4);
     if (years[years.length - 1]?.year !== year) {
       years.push({ year, edges: [] });
@@ -53,62 +57,55 @@ export function blogFeedGenerator(data) {
     <section key={year}>
       <h2 className="post-list-year">{year}</h2>
       <ol className="post-list">
-        {edges.map((e) => {
-          const date = monthDay.format(new Date(isoDateOf(e)));
-          if (e.node.frontmatter) {
-            const { language, path, title } = e.node.frontmatter;
-            return (
-              <li key={e.node.id}>
-                <div className="post-list-item">
-                  <header>
-                    <h3>
-                      <Link to={path}>{toTitleCase(title, language)}</Link>
-                    </h3>
-                    <small>{date}</small>
-                  </header>
-                </div>
-              </li>
-            );
-          }
-          const { id, link, title } = e.node;
-          return (
-            <li key={id} className="post-list-item">
-              <header>
-                <h3 className="external-link">
-                  <a href={link}>{`${title} ↗`}</a>
-                </h3>
-                <small>{date}</small>
-              </header>
-            </li>
-          );
-        })}
+        {edges.map((e) => (
+          <li key={e.node.id} className="post-list-item">
+            <header>
+              {rowTitle(e)}
+              <small>{monthDay.format(new Date(isoDateOf(e)))}</small>
+            </header>
+          </li>
+        ))}
       </ol>
     </section>
   ));
 }
 
-export function podcastFeedGenerator(data) {
-  const feed = [
-    ...data.safareigEpisodes.edges,
-    ...data.fatEpisodes.edges,
-    ...data.radioLanzaEpisodes.edges,
-  ];
+export function blogFeedGenerator(data) {
+  return yearSections(
+    [...data.posts.edges, ...data.bugadaPosts.edges],
+    ({ node }) => {
+      if (node.frontmatter) {
+        const { language, path, title } = node.frontmatter;
+        return (
+          <h3>
+            <Link to={path}>{toTitleCase(title, language)}</Link>
+          </h3>
+        );
+      }
+      return (
+        <h3 className="external-link">
+          <a href={node.link}>{`${node.title} ↗`}</a>
+        </h3>
+      );
+    },
+  );
+}
 
-  return feed.sort(byNewest).map((e) => {
-    const { displayDate, id, itunes, link, title } = e.node;
-    return (
-      <li key={id} className="post-list-item">
-        <header>
-          <h2 className="external-link">
-            <a href={link}>
-              {itunes.episode ? `${itunes.episode}: ${title}` : title}
-            </a>
-          </h2>
-          <small>{displayDate}</small>
-        </header>
-      </li>
-    );
-  });
+export function podcastFeedGenerator(data) {
+  return yearSections(
+    [
+      ...data.safareigEpisodes.edges,
+      ...data.fatEpisodes.edges,
+      ...data.radioLanzaEpisodes.edges,
+    ],
+    ({ node: { itunes, link, title } }) => (
+      <h3 className="external-link">
+        <a href={link}>
+          {itunes.episode ? `${itunes.episode}: ${title}` : title}
+        </a>
+      </h3>
+    ),
+  );
 }
 
 export function tagListGenerator(tags) {
