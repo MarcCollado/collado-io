@@ -45,6 +45,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           next {
             id
             frontmatter {
+              language
               path
               title
             }
@@ -52,6 +53,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           previous {
             id
             frontmatter {
+              language
               path
               title
             }

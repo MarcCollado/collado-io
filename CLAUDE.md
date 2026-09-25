@@ -47,7 +47,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 ### Key source files
 
 - `gatsby-config.js` — all plugin configuration, site metadata, RSS feed definitions
-- `gatsby-node.js` — frontmatter schema, dynamic page generation (posts + tag pages, with next/prev navigation context)
+- `gatsby-node.js` — frontmatter schema, dynamic page generation (posts + tag pages); each post gets its older/newer neighbours for the links at its end
 - `gatsby-ssr.js` — dev-only: restores the dark-mode toggle's choice from `localStorage` before render
 - `src/utils/titleCase.js` — title casing for English titles (keeps words with inner capitals like eBay; skips other languages)
 - `src/utils/helpers.js` — blog list (grouped by year) and podcast list generators, tag renderer

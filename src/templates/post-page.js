@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -10,9 +10,8 @@ const Post = ({ data, location, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { displayDate, excerpt, language, tags, title } = frontmatter;
 
-  // next and previous posts are available from frontmatter
-  // const next = pageContext.next.frontmatter.path;
-  // const prev = pageContext.prev.frontmatter.path;
+  // Posts are sorted newest first, so `next` is the older neighbour
+  const { next: older, prev: newer } = pageContext;
 
   // prevent posts tagged with `excludedTags` from rendering excerpts
   const excludedTags = ['books', 'til'];
@@ -30,6 +29,22 @@ const Post = ({ data, location, pageContext }) => {
           {tagListGenerator(tags)}
         </div>
       </article>
+      {(older || newer) && (
+        <nav className="post-nav" aria-label="Older and newer posts">
+          {older && (
+            <Link className="post-nav-older" to={older.frontmatter.path}>
+              <small>← Older</small>
+              {toTitleCase(older.frontmatter.title, older.frontmatter.language)}
+            </Link>
+          )}
+          {newer && (
+            <Link className="post-nav-newer" to={newer.frontmatter.path}>
+              <small>Newer →</small>
+              {toTitleCase(newer.frontmatter.title, newer.frontmatter.language)}
+            </Link>
+          )}
+        </nav>
+      )}
     </Layout>
   );
 };

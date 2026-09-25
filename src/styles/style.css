@@ -435,6 +435,42 @@ article > div > div.twitter-tweet {
   margin: auto;
 }
 
+/* Older and newer posts */
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+  margin-block-start: var(--spacing-12);
+  padding-block-start: var(--spacing-6);
+  border-top: 1px solid var(--color-accent);
+}
+
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  border-bottom: none;
+  padding-bottom: var(--spacing-0);
+  color: var(--color-heading);
+  font-weight: var(--fontWeight-semibold);
+  line-height: var(--lineHeight-tight);
+}
+
+.post-nav a:hover,
+.post-nav a:focus {
+  color: var(--color-text-light);
+}
+
+.post-nav small {
+  font-weight: var(--fontWeight-normal);
+}
+
+.post-nav-newer {
+  grid-column: 2;
+  text-align: right;
+}
+
 /* Remove duplicate <hr> on top of the footnotes */
 
 div > .footnotes > hr {
@@ -466,6 +502,15 @@ div > .footnotes > hr {
   }
   .post-list-item header small {
     margin-block-end: var(--spacing-2);
+  }
+
+  /* post-page.js — stack older and newer posts */
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+  .post-nav-newer {
+    grid-column: auto;
+    text-align: left;
   }
 }
 
