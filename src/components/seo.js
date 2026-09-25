@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import favicon from '../../static/favicon.ico';
 import seoImage from '../../static/marc-avatar.jpg';
 
 const Seo = ({
@@ -199,8 +198,9 @@ const Seo = ({
       <meta name="twitter:creator" content={social.twitter} />
       <meta name="twitter:image:alt" content={title} />
 
-      {/* FAVICON */}
-      <link rel="icon" type="image/x-icon" href={favicon} />
+      {/* ICONS (plain paths: small files would otherwise be inlined as data URIs) */}
+      <link rel="icon" href="/favicon.ico" sizes="48x48" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* COLOR TABS */}

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#">
-    <img alt="Marc Collado" src="static/favicon.ico" width="60" />
+    <img alt="Marc Collado" src="src/media/images/avatar.png" width="60" />
   </a>
 </p>
 <h1 align="center">

@@ -21,7 +21,9 @@ const Layout = ({ location, children }) => {
             className="global-navbar-image"
             layout="fixed"
             formats={['auto', 'webp', 'avif']}
-            src="../../static/favicon.ico"
+            src="../media/images/avatar.png"
+            // Above the fold on every page: don't wait for lazy-loading
+            loading="eager"
             width={50}
             height={50}
             quality={80}
