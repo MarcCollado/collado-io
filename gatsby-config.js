@@ -238,7 +238,13 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // Tag archives are noindex (see tag-page.js), so keep them out
+        excludes: [`/tags/*/`],
+      },
+    },
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
   ],

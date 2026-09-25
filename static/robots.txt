@@ -1,12 +1,9 @@
 User-agent: *
 Allow: /
 
-# Legacy Squarespace query-param URLs that still surface in old crawl results.
-# These were the URL format before this site migrated to Gatsby — they no
-# longer correspond to real content. Disallow keeps them out of the index.
-Disallow: /*?source=
-Disallow: /*?tag=
-Disallow: /*?category=
-Disallow: /*?author=
+# Legacy Squarespace query URLs (?source=, ?tag=, ?category=, ?author=) are
+# deliberately not disallowed: they serve pages whose canonical drops the
+# query string, and Google can only merge them into the canonical URL if it
+# is allowed to crawl them. Blocking would keep them indexed as bare URLs.
 
 Sitemap: https://collado.io/sitemap-0.xml
