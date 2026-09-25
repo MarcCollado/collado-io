@@ -45,6 +45,11 @@ const createFeedSanitizer = (domUtility) => {
       $(element).removeAttr('style');
     });
 
+    // Keep one image source: feed readers don't reliably resolve relative
+    // srcset URLs, while <img src> is made absolute below
+    $('picture source').remove();
+    $('[srcset]').removeAttr('srcset').removeAttr('sizes');
+
     // Remove event handlers
     $('[onclick], [onload], [onerror], [onmouseover]').each((_, element) => {
       const $element = $(element);

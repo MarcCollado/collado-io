@@ -87,6 +87,30 @@ test('rewrites relative media sources to absolute URLs', () => {
   assert.match(sanitized, /href="https:\/\/collado\.io\/about"/);
 });
 
+test('drops responsive sources so readers load the absolute img src', () => {
+  const html = `
+    <picture>
+      <source srcset="/static/a/photo.webp 158w, /static/b/photo.webp 315w" sizes="(max-width: 630px) 100vw, 630px" type="image/webp" />
+      <img src="/static/c/photo.jpg" srcset="/static/c/photo.jpg 1x" sizes="630px" alt="Photo" />
+    </picture>
+  `;
+
+  const sanitized = sanitizeFeedHtml(html, siteUrl);
+
+  assert.ok(!sanitized.includes('<source'));
+  assert.ok(!sanitized.includes('srcset='));
+  assert.ok(!sanitized.includes('sizes='));
+  assert.match(sanitized, /src="https:\/\/collado\.io\/static\/c\/photo\.jpg"/);
+});
+
+test('keeps video sources', () => {
+  const html = '<video><source src="/clip.mp4" type="video/mp4" /></video>';
+
+  const sanitized = sanitizeFeedHtml(html, siteUrl);
+
+  assert.match(sanitized, /<source src="https:\/\/collado\.io\/clip\.mp4"/);
+});
+
 test('preserves absolute URLs unchanged', () => {
   const html = `
     <img src="https://example.com/image.jpg" />
