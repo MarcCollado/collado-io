@@ -22,50 +22,75 @@ export function extractMarkdown(edges) {
   return markdownFile;
 }
 
-// Newest first, comparing raw ISO dates (posts keep theirs in frontmatter)
-const byNewest = (a, b) => {
-  const dateA = a.node.frontmatter?.isoDate || a.node.isoDate;
-  const dateB = b.node.frontmatter?.isoDate || b.node.isoDate;
-  return new Date(dateB) - new Date(dateA);
-};
+// Raw ISO date of a post (kept in frontmatter) or of an external feed item
+const isoDateOf = ({ node }) => node.frontmatter?.isoDate || node.isoDate;
+
+// Newest first, comparing raw ISO dates
+const byNewest = (a, b) => new Date(isoDateOf(b)) - new Date(isoDateOf(a));
+
+// "September 05": the year is already in the group heading. UTC, so the
+// server render and the browser agree on the day
+const monthDay = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: '2-digit',
+  timeZone: 'UTC',
+});
 
 export function blogFeedGenerator(data) {
-  const feed = [...data.posts.edges, ...data.bugadaPosts.edges];
-  return feed.sort(byNewest).map((e) => {
-    if (e.node.frontmatter) {
-      const { displayDate, excerpt, featured, language, path, title } =
-        e.node.frontmatter;
-      return (
-        <li key={e.node.id}>
-          <div className="post-list-item">
-            <header>
-              <h2>
-                <Link to={path}>{toTitleCase(title, language)}</Link>
-              </h2>
-              <small>{displayDate}</small>
-            </header>
-            {featured && excerpt && (
-              <section>
-                <small>{excerpt}</small>
-              </section>
-            )}
-          </div>
-        </li>
-      );
-    } else {
-      const { displayDate, id, link, title } = e.node;
-      return (
-        <li key={id} className="post-list-item">
-          <header>
-            <h2 className="external-link">
-              <a href={link}>{`${title} ↗`}</a>
-            </h2>
-            <small>{displayDate}</small>
-          </header>
-        </li>
-      );
+  const feed = [...data.posts.edges, ...data.bugadaPosts.edges].sort(byNewest);
+
+  // The feed is sorted, so each year's items are consecutive
+  const years = [];
+  feed.forEach((e) => {
+    const year = isoDateOf(e).slice(0, 4);
+    if (years[years.length - 1]?.year !== year) {
+      years.push({ year, edges: [] });
     }
+    years[years.length - 1].edges.push(e);
   });
+
+  return years.map(({ year, edges }) => (
+    <section key={year}>
+      <h2 className="post-list-year">{year}</h2>
+      <ol className="post-list">
+        {edges.map((e) => {
+          const date = monthDay.format(new Date(isoDateOf(e)));
+          if (e.node.frontmatter) {
+            const { excerpt, featured, language, path, title } =
+              e.node.frontmatter;
+            return (
+              <li key={e.node.id}>
+                <div className="post-list-item">
+                  <header>
+                    <h3>
+                      <Link to={path}>{toTitleCase(title, language)}</Link>
+                    </h3>
+                    <small>{date}</small>
+                  </header>
+                  {featured && excerpt && (
+                    <section>
+                      <small>{excerpt}</small>
+                    </section>
+                  )}
+                </div>
+              </li>
+            );
+          }
+          const { id, link, title } = e.node;
+          return (
+            <li key={id} className="post-list-item">
+              <header>
+                <h3 className="external-link">
+                  <a href={link}>{`${title} ↗`}</a>
+                </h3>
+                <small>{date}</small>
+              </header>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  ));
 }
 
 export function podcastFeedGenerator(data) {

@@ -366,6 +366,19 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
 
 /* blog.js */
 
+.post-list {
+  list-style: none;
+}
+
+.post-list-year {
+  margin-block: var(--spacing-12) var(--spacing-0);
+  font-size: var(--fontSize-3);
+}
+
+section:first-of-type > .post-list-year {
+  margin-block-start: var(--spacing-0);
+}
+
 .post-list-item {
   margin-block-start: var(--spacing-6);
 }
@@ -375,7 +388,8 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
   justify-content: space-between;
 }
 
-.post-list-item header h2 {
+.post-list-item header h2,
+.post-list-item header h3 {
   margin: var(--spacing-0);
   font-size: var(--fontSize-1);
 }
