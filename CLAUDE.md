@@ -40,6 +40,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 - `gatsby-node.js` reads all posts via GraphQL, creates individual post pages (template: `src/templates/post-page.js`) and one page per unique tag (template: `src/templates/tag-page.js`)
 - Drafts live in `src/media/drafts/`, which isn't sourced, so they never build. Move a file into `posts/` to publish it
 - Tweets are shown as static quotes (no X script): paste X's `<blockquote class="twitter-tweet">` markup without its `<script>` tag. A tweet's photo goes in `static/` as a raw `<img>` inside the quote (see the 2020 Safareig post)
+- Animations are MP4 videos in `static/`, played like a GIF with `<video autoplay loop muted playsinline>` plus a `poster` (see the 2014 iomando post); GIFs are far heavier
 - Internal links in Markdown use the trailing slash (`/blog/2021/learning-framework/`); without it every link is a 301
 - English titles are title-cased at render time (`src/utils/titleCase.js`); set `language: 'ca'` on Catalan posts so their titles keep sentence case
 - External RSS feeds are aggregated at build time via `gatsby-source-rss-feed`: Bugada on the blog page; Safareig, FocATerra and RadioLanza on the podcast page
