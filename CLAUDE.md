@@ -34,6 +34,12 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 
 **Gatsby 5 static site** (Jamstack) deployed to Netlify (site ID: `ed2f968d-f2c4-48b1-a35a-bffa34b75e32`). Content is Markdown files; data is queried via Gatsby's GraphQL layer at build time.
 
+### Deploys
+
+- Every push to `master` builds and deploys (about 1–2 minutes)
+- A Netlify scheduled function (`netlify/functions/weekly-rebuild.mjs`) rebuilds every Monday at 06:00 UTC through the build hook in the `BUILD_HOOK_URL` environment variable, so the external feeds refresh without a push
+- Netlify restores the previous build's `public/` on each build, so files deleted from `static/` keep being served until a **Clear cache and deploy site** deploy
+
 ### Content pipeline
 
 - Blog posts live in `src/media/posts/` as Markdown files with YAML frontmatter (`title`, `date`, `path`, `tags`, `excerpt`, `language`). The frontmatter types are declared in `gatsby-node.js`

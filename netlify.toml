@@ -1,3 +1,6 @@
 [context.production]
 command = "gatsby build"
 environment = { NODE_ENV = "production" }
+
+[functions]
+directory = "netlify/functions"
