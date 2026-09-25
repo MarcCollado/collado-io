@@ -28,11 +28,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ location }) => (
-  <Seo
-    pageTitle="404 — Marc Collado"
-    pageDescription="Page not found"
-    location={location}
-  />
+  <Seo pageTitle="404" pageDescription="Page not found" location={location} />
 );
 
 export default NotFound;

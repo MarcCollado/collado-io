@@ -35,11 +35,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ location }) => (
-  <Seo
-    pageTitle="Tags — Marc Collado"
-    pageDescription="Marc's tags"
-    location={location}
-  />
+  <Seo pageTitle="Tags" pageDescription="Marc's tags" location={location} />
 );
 
 export default Tags;

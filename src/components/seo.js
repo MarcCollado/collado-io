@@ -22,7 +22,7 @@ const Seo = ({
           author {
             name
           }
-          defaultTitle: title
+          siteName: title
           defaultDescription: description
           siteLanguage
           siteUrl
@@ -31,11 +31,10 @@ const Seo = ({
             twitter
             github
             linkedin
-            focaterra
-            rssCom
             wikidata
           }
           person {
+            description
             jobTitle
             worksFor {
               name
@@ -57,10 +56,11 @@ const Seo = ({
   const pathname = location?.pathname;
   const siteUrl = site.siteMetadata?.siteUrl || '';
   const author = site.siteMetadata?.author.name;
+  const siteName = site.siteMetadata?.siteName;
   const defaultLanguage = (site.siteMetadata?.siteLanguage || '').trim();
   const language = pageLanguage || defaultLanguage;
-  const defaultTitle = site.siteMetadata?.defaultTitle;
-  const title = pageTitle || defaultTitle;
+  // Every page carries the name: "Blog — Marc Collado"
+  const title = pageTitle ? `${pageTitle} — ${siteName}` : siteName;
   const description = pageDescription || site.siteMetadata?.defaultDescription;
   const url = pathname ? `${siteUrl}${pathname}` : siteUrl;
   const social = site.siteMetadata?.social || {};
@@ -72,6 +72,7 @@ const Seo = ({
     : `${siteUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
   const canonicalUrl = url || siteUrl;
 
+  // sameAs lists profiles that identify the person, not related sites
   const socialProfiles = [];
   if (social.twitter) {
     socialProfiles.push(
@@ -80,23 +81,19 @@ const Seo = ({
   }
   if (social.github) socialProfiles.push(social.github);
   if (social.linkedin) socialProfiles.push(social.linkedin);
-  if (social.focaterra) socialProfiles.push(social.focaterra);
-  if (social.rssCom) socialProfiles.push(social.rssCom);
   if (social.wikidata) socialProfiles.push(social.wikidata);
-  if (social.email) {
-    socialProfiles.push(`mailto:${social.email}`);
-  }
 
   const personId = person.id || `${siteUrl}/#person`;
 
   const personStructuredData = {
-    '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': personId,
     name: author,
     url: siteUrl,
-    description,
+    // A fixed bio, so every page describes the person the same way
+    ...(person.description ? { description: person.description } : {}),
     image,
+    ...(social.email ? { email: social.email } : {}),
     ...(person.jobTitle ? { jobTitle: person.jobTitle } : {}),
     ...(person.worksFor?.name
       ? {
@@ -127,11 +124,28 @@ const Seo = ({
     ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
   };
 
+  // Home page only: tells Google which name to show for the site
+  const websiteStructuredData = {
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    name: siteName,
+    url: `${siteUrl}/`,
+    inLanguage: defaultLanguage,
+    publisher: { '@id': personId },
+  };
+
+  const profileStructuredData = {
+    '@type': 'ProfilePage',
+    url,
+    name: title,
+    inLanguage: language,
+    mainEntity: { '@id': personId },
+  };
+
   const articleStructuredData = {
-    '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     inLanguage: language,
-    headline: title,
+    headline: pageTitle,
     description,
     image: [image],
     mainEntityOfPage: {
@@ -145,15 +159,16 @@ const Seo = ({
     ...(modifiedTime ? { dateModified: modifiedTime } : {}),
   };
 
-  // For article pages, emit a graph so the BlogPosting can resolve its @id
-  // reference to the canonical Person on the same page.
-  const structuredData =
-    type === 'article'
-      ? {
-          '@context': 'https://schema.org',
-          '@graph': [personStructuredData, articleStructuredData],
-        }
-      : personStructuredData;
+  // One graph per page, so the other nodes can reference the Person by @id
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      personStructuredData,
+      ...(pathname === '/' ? [websiteStructuredData] : []),
+      ...(type === 'profile' ? [profileStructuredData] : []),
+      ...(type === 'article' ? [articleStructuredData] : []),
+    ],
+  };
 
   return (
     <>
@@ -173,7 +188,7 @@ const Seo = ({
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content={defaultTitle} />
+      <meta property="og:site_name" content={siteName} />
       {language && (
         <meta property="og:locale" content={language.replace('-', '_')} />
       )}
@@ -188,8 +203,8 @@ const Seo = ({
         <meta property="article:section" content={articleSection} />
       )}
 
-      {/* TWITTER TAGS */}
-      <meta name="twitter:card" content="summary_large_image" />
+      {/* TWITTER TAGS (`summary` fits the square avatar without cropping) */}
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />

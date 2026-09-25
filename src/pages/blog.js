@@ -30,7 +30,7 @@ export const allBlogPostsQuery = graphql`
 
 export const Head = ({ location }) => (
   <Seo
-    pageTitle="Blog — Marc Collado"
+    pageTitle="Blog"
     pageDescription="Marc's blog posts"
     location={location}
   />

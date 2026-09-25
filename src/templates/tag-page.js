@@ -77,7 +77,7 @@ export const Head = ({ data, location, pageContext }) => {
   } tagged with`;
   return (
     <Seo
-      pageTitle={`${tag} — tag page`}
+      pageTitle={`#${tag}`}
       pageDescription={`${tagCount} ${tag}`}
       location={location}
       // Tag archives are thin index pages — let Google follow the links to

@@ -29,9 +29,10 @@ export const query = graphql`
 
 export const Head = ({ location }) => (
   <Seo
-    pageTitle="About — Marc Collado"
+    pageTitle="About"
     pageDescription="Head of Product at RSS.com, co-host of Foc a Terra (Catalan tech podcast). Industrial Engineer turned product operator. Based in Barcelona."
     location={location}
+    type="profile"
   />
 );
 

@@ -27,7 +27,7 @@ export const episodesQuery = graphql`
 
 export const Head = ({ location }) => (
   <Seo
-    pageTitle="Podcast — Marc Collado"
+    pageTitle="Podcast"
     pageDescription="Marc's podcast episodes"
     location={location}
   />
