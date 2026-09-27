@@ -394,6 +394,8 @@ section:first-of-type > .post-list-year {
 .post-list-item header h3 {
   margin: var(--spacing-0);
   font-size: var(--fontSize-1);
+  /* Even lines, instead of a full line and a leftover word */
+  text-wrap: balance;
 }
 
 /* A long title wraps, never the date */
