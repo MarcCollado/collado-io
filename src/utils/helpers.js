@@ -98,10 +98,12 @@ export function podcastFeedGenerator(data) {
       ...data.fatEpisodes.edges,
       ...data.radioLanzaEpisodes.edges,
     ],
+    // The number sits in its own column (empty for the few specials without
+    // one); the space keeps it apart from the title for screen readers
     ({ node: { itunes, link, title } }) => (
       <h3 className="external-link">
-        <a href={link}>
-          {itunes.episode ? `${itunes.episode}: ${title}` : title}
+        <a className="episode-link" href={link}>
+          <span className="episode-number">{itunes.episode}</span> {title}
         </a>
       </h3>
     ),
