@@ -386,12 +386,19 @@ section:first-of-type > .post-list-year {
 .post-list-item header {
   display: flex;
   justify-content: space-between;
+  /* Keeps a wrapped title off the date (horizontal only: mobile stacks them) */
+  column-gap: var(--spacing-4);
 }
 
 .post-list-item header h2,
 .post-list-item header h3 {
   margin: var(--spacing-0);
   font-size: var(--fontSize-1);
+}
+
+/* A long title wraps, never the date */
+.post-list-item header small {
+  white-space: nowrap;
 }
 
 /* post-page.js */
