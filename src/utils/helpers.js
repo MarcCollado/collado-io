@@ -91,6 +91,18 @@ export function blogFeedGenerator(data) {
   );
 }
 
+// "Title, amb Guest": the guest part is kept whole (see .episode-guest), so a
+// title too long for one line breaks before the guest, not inside their name
+function episodeTitle(title) {
+  const [, head, guest] = title.match(/^(.+[,?!]) (amb .+)$/) ?? [];
+  if (!guest) return title;
+  return (
+    <>
+      {head} <span className="episode-guest">{guest}</span>
+    </>
+  );
+}
+
 export function podcastFeedGenerator(data) {
   return yearSections(
     [
@@ -103,7 +115,8 @@ export function podcastFeedGenerator(data) {
     ({ node: { itunes, link, title } }) => (
       <h3 className="external-link">
         <a className="episode-link" href={link}>
-          <span className="episode-number">{itunes.episode}</span> {title}
+          <span className="episode-number">{itunes.episode}</span>{' '}
+          <span>{episodeTitle(title)}</span>
         </a>
       </h3>
     ),
