@@ -3,6 +3,8 @@ on:
   push:
     branches: [master]
   pull_request:
+  # Run by hand: gh workflow run checks.yml
+  workflow_dispatch:
 jobs:
   checks:
     runs-on: ubuntu-latest

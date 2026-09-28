@@ -27,6 +27,7 @@ npm run test          # Run tests with Node's built-in test runner
 
 CI (`.github/workflows/checks.yml`) runs `prettier --check .` and `npm test` on
 every push to `master` and on PRs — run `npm run format` before committing.
+Start it without a push with `gh workflow run checks.yml`.
 
 Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 
