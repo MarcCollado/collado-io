@@ -4,3 +4,24 @@ environment = { NODE_ENV = "production" }
 
 [functions]
 directory = "netlify/functions"
+
+# Retired tags: `editorial` posts moved to `insight` or their project, and
+# `physics` and `technology` have no successor. `force` also covers the stale
+# pages Netlify restores from the previous build
+[[redirects]]
+from = "/tags/editorial/"
+to = "/tags/insight/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/tags/physics/"
+to = "/tags/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/tags/technology/"
+to = "/tags/"
+status = 301
+force = true

@@ -44,6 +44,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 
 - Blog posts live in `src/media/posts/` as Markdown files with YAML frontmatter (`title`, `date`, `path`, `tags`, `excerpt`, `language`). The frontmatter types are declared in `gatsby-node.js`
 - `gatsby-node.js` reads all posts via GraphQL, creates individual post pages (template: `src/templates/post-page.js`) and one page per unique tag (template: `src/templates/tag-page.js`)
+- Tags follow the rule in `README.md` § Tags: one shelf first (a project, a series, or `insight` when neither applies), then `changelog` for milestones, then up to three topics in alphabetical order. The first tag becomes the post's `articleSection`. A new tag needs two posts; `src/utils/__tests__/tags.test.js` fails when a post breaks the rule
 - Drafts live in `src/media/drafts/`, which isn't sourced, so they never build. Move a file into `posts/` to publish it
 - Tweets are shown as static quotes (no X script): paste X's `<blockquote class="twitter-tweet">` markup without its `<script>` tag. A tweet's photo goes in `static/` as a raw `<img>` inside the quote (see the 2020 Safareig post)
 - Animations are MP4 videos in `static/`, played like a GIF with `<video autoplay loop muted playsinline>` plus a `poster` (see the 2014 iomando post); GIFs are far heavier
@@ -60,6 +61,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 - `gatsby-ssr.js` — dev-only: restores the dark-mode toggle's choice from `localStorage` before render
 - `src/utils/titleCase.js` — title casing for English titles (keeps words with inner capitals like eBay; skips other languages)
 - `src/utils/helpers.js` — blog and podcast lists (grouped by year), tag renderer
+- `src/utils/tags.js` — the tag list (projects, series, topics) and `tagProblems`, which checks a post's tags against the rule
 - `src/utils/socialCard.js` — social card layout and rendering (satori with the Inter font from `@fontsource/inter`, then sharp), so cards look the same on any machine
 - `src/utils/feedSanitizer.js` — normalizes the site's own post HTML for the outgoing RSS feed (drops anchor icons, scripts, styles and responsive image sources; turns iframes into links; makes URLs absolute). It works on trusted input and isn't a security boundary
 - `src/components/seo.js` — schema.org JSON-LD (Person on every page; WebSite on the home page; ProfilePage on `/about/`; BlogPosting on posts), Open Graph, Twitter cards
