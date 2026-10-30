@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import { safeHref } from './safeHref';
 import { toTitleCase } from './titleCase';
 
 /**
@@ -84,7 +85,7 @@ export function blogFeedGenerator(data) {
       }
       return (
         <h3 className="external-link">
-          <a href={node.link}>{`${node.title} ↗`}</a>
+          <a href={safeHref(node.link)}>{`${node.title} ↗`}</a>
         </h3>
       );
     },
@@ -114,7 +115,7 @@ export function podcastFeedGenerator(data) {
     // one); the space keeps it apart from the title for screen readers
     ({ node: { itunes, link, title } }) => (
       <h3 className="external-link">
-        <a className="episode-link" href={link}>
+        <a className="episode-link" href={safeHref(link)}>
           <span className="episode-number">{itunes.episode}</span>{' '}
           <span>{episodeTitle(title)}</span>
         </a>
