@@ -5,6 +5,9 @@ on:
   pull_request:
   # Run by hand: gh workflow run checks.yml
   workflow_dispatch:
+# Read-only token: the checks only read the repo, and a push to master deploys
+permissions:
+  contents: read
 jobs:
   checks:
     runs-on: ubuntu-latest
