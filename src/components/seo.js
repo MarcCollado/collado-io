@@ -34,7 +34,6 @@ const Seo = ({
             twitter
             github
             linkedin
-            wikidata
           }
           person {
             description
@@ -89,7 +88,6 @@ const Seo = ({
   }
   if (social.github) socialProfiles.push(social.github);
   if (social.linkedin) socialProfiles.push(social.linkedin);
-  if (social.wikidata) socialProfiles.push(social.wikidata);
 
   const personId = person.id || `${siteUrl}/#person`;
 

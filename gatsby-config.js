@@ -20,14 +20,13 @@ module.exports = {
       email: `maroon_05_midway@icloud.com`,
       twitter: `@MarcCollado`,
       // Full URLs for sameAs (entity-graph disambiguation): only profiles
-      // that identify the person, matching the Wikidata identifiers.
+      // that identify the person.
       // Empty strings are skipped by seo.js — fill in or leave blank.
       github: `https://github.com/MarcCollado`,
       linkedin: `https://linkedin.com/in/MarcCollado/`,
-      wikidata: `https://www.wikidata.org/wiki/Q139658833`,
     },
     person: {
-      // Same positioning string as the Wikidata description
+      // One-line positioning string for the Person entity
       description: `Catalan entrepreneur and podcaster, Head of Product at RSS.com, co-host of Foc a Terra`,
       jobTitle: `Head of Product`,
       worksFor: {
