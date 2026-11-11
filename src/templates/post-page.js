@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { tagListGenerator } from '../utils/helpers';
 import { toTitleCase } from '../utils/titleCase';
 
-const Post = ({ data, location, pageContext }) => {
+const Post = ({ data, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { displayDate, excerpt, language, tags, title } = frontmatter;
 
@@ -17,7 +16,7 @@ const Post = ({ data, location, pageContext }) => {
   const excludedTags = ['books', 'til'];
 
   return (
-    <Layout location={location}>
+    <>
       <article>
         <h1>{toTitleCase(title, language)}</h1>
         {tags.some((t) => excludedTags.includes(t)) || (
@@ -45,7 +44,7 @@ const Post = ({ data, location, pageContext }) => {
           )}
         </nav>
       )}
-    </Layout>
+    </>
   );
 };
 

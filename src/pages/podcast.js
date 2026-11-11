@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { podcastFeedGenerator } from '../utils/helpers';
 
-const Podcast = ({ data, location }) => (
-  <Layout location={location}>
+const Podcast = ({ data }) => (
+  <>
     <h1 className="visually-hidden">Podcast</h1>
     {podcastFeedGenerator(data)}
-  </Layout>
+  </>
 );
 
 export const episodesQuery = graphql`

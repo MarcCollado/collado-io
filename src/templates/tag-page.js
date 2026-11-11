@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { tagListGenerator } from '../utils/helpers';
 import { toTitleCase } from '../utils/titleCase';
 
-const Tag = ({ data, location, pageContext }) => {
+const Tag = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   const { totalCount } = data.allMarkdownRemark;
   const { tag } = pageContext;
@@ -15,10 +14,10 @@ const Tag = ({ data, location, pageContext }) => {
   } tagged with`;
 
   return (
-    <Layout location={location}>
+    <>
       <p className="heading-companion">{tagCount}</p>
       <h1 className="heading">{`# ${tag}`}</h1>
-      <ol style={{ listStyle: `none` }}>
+      <ol className="post-list">
         {posts.map((post) => {
           const { displayDate, language, title, tags, path } =
             post.node.frontmatter;
@@ -38,7 +37,7 @@ const Tag = ({ data, location, pageContext }) => {
           );
         })}
       </ol>
-    </Layout>
+    </>
   );
 };
 

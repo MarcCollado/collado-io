@@ -1,24 +1,34 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
+import { tagGroups } from '../utils/tags';
 
-const Tags = ({ data, location }) => {
-  const { group: tags } = data.allMarkdownRemark;
+const Tags = ({ data }) => {
+  // Only the tags in use, with their post counts
+  const counts = new Map(
+    data.allMarkdownRemark.group.map((tag) => [tag.fieldValue, tag.totalCount]),
+  );
   return (
-    <Layout location={location}>
+    <>
       <h1 className="visually-hidden">Tags</h1>
-      <ul>
-        {tags.map((tag) => (
-          <li key={tag.fieldValue}>
-            <Link to={`/tags/${tag.fieldValue}/`}>
-              {tag.fieldValue + ' ' + tag.totalCount}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Layout>
+      {tagGroups.map(({ title, tags }) => (
+        <section key={title}>
+          <h2 className="post-list-year">{title}</h2>
+          <ul className="tag-index">
+            {[...tags]
+              .sort()
+              .filter((tag) => counts.has(tag))
+              .map((tag) => (
+                <li key={tag}>
+                  <Link to={`/tags/${tag}/`}>{`#${tag}`}</Link>{' '}
+                  <small>{counts.get(tag)}</small>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))}
+    </>
   );
 };
 

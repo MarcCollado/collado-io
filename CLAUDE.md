@@ -5,8 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Strategic context (why this site exists, the personal-SEO goal) lives in the
 **marcOS hub**, not here:
 
-- `~/Documents/Claude/Code/marcOS/work/collado-io.md` — purpose, stack, scripts
-- `~/Documents/Claude/Code/marcOS/work/wikidata-brief.md` — Wikidata Q-item / sameAs work
+- `~/Documents/Claude/Code/marcOS/work/collado-io.md` — purpose, stack, scripts, and the closed Wikidata / sameAs work
 
 ## Commands
 
@@ -59,17 +58,21 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 
 - `gatsby-config.js` — all plugin configuration, site metadata, RSS feed definitions
 - `gatsby-node.js` — frontmatter schema, dynamic page generation (posts + tag pages); each post gets its older/newer neighbours for the links at its end; `onPostBuild` renders the social cards
-- `gatsby-ssr.js` — dev-only: restores the dark-mode toggle's choice from `localStorage` before render
+- `gatsby-browser.js` / `gatsby-ssr.js` — both wrap every page in the layout (`src/components/wrapPage.js`), so pages don't import it; `gatsby-ssr.js` also adds the `color-scheme` meta tag and, in dev only, restores the dark-mode toggle's choice from `localStorage` before render
 - `src/utils/titleCase.js` — title casing for English titles (keeps words with inner capitals like eBay; skips other languages)
 - `src/utils/helpers.js` — blog and podcast lists (grouped by year), tag renderer
-- `src/utils/tags.js` — the tag list (projects, series, topics) and `tagProblems`, which checks a post's tags against the rule
+- `src/utils/tags.js` — the tag list (projects, series, topics), `tagProblems`, which checks a post's tags against the rule, and `tagGroups`, the sections of the `/tags/` page
 - `src/utils/socialCard.js` — social card layout and rendering (satori with the Inter font from `@fontsource/inter`, then sharp), so cards look the same on any machine
 - `src/utils/feedSanitizer.js` — normalizes the site's own post HTML for the outgoing RSS feed (drops anchor icons, scripts, styles and responsive image sources; turns iframes into links; makes URLs absolute). It works on trusted input and isn't a security boundary
 - `src/components/seo.js` — schema.org JSON-LD (Person on every page; WebSite on the home page; ProfilePage on `/about/`; BlogPosting on posts), Open Graph, Twitter cards
 
 ### Styling
 
-Plain CSS with CSS variables — no preprocessor. In production, dark mode is CSS-only via `@media (prefers-color-scheme: dark)`. The checkbox toggle (a `dark` class on `<body>`, persisted in `localStorage`) only exists in `gatsby develop`. Styles live in `src/styles/style.css`.
+Plain CSS with CSS variables — no preprocessor, and no separate reset file. Styles live in `src/styles/style.css`.
+
+Dark mode is CSS-only and follows the OS: `color-scheme: light dark` on `:root`, with each color defined once as `light-dark(<light>, <dark>)`. Browsers from before `light-dark()` (2024) get the light palette from the `@supports not` block, so a new color token goes in both places. The checkbox toggle only exists in `gatsby develop`: it pins a scheme by rewriting the `color-scheme` meta tag (persisted in `localStorage`).
+
+Code blocks are styled in `style.css` for both schemes; Prism's own theme isn't loaded.
 
 ### Testing
 

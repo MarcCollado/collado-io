@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { blogFeedGenerator } from '../utils/helpers';
 
-const Blog = ({ data, location }) => (
-  <Layout location={location}>
+const Blog = ({ data }) => (
+  <>
     <h1 className="visually-hidden">Blog</h1>
     {blogFeedGenerator(data)}
-  </Layout>
+  </>
 );
 
 export const allBlogPostsQuery = graphql`

@@ -1,16 +1,7 @@
 /* Global CSS definitions */
 
 :root {
-  --maxWidth-xs: 20rem;
-  --maxWidth-sm: 24rem;
-  --maxWidth-md: 28rem;
-  --maxWidth-lg: 32rem;
-  --maxWidth-xl: 36rem;
-  --maxWidth-2xl: 42rem;
-  --maxWidth-3xl: 48rem;
-  --maxWidth-4xl: 56rem;
-  --maxWidth-wrapper: var(--maxWidth-2xl);
-  --spacing-px: 1px;
+  --maxWidth-wrapper: 42rem;
   --spacing-0: 0;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
@@ -22,21 +13,17 @@
   --spacing-10: 2.5rem;
   --spacing-12: 3rem;
   --spacing-16: 4rem;
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
   /* Generic families (system-ui, sans-serif) are keywords: never quote them */
   --fontFamily-sans:
     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --fontWeight-normal: 400;
-  --fontWeight-medium: 500;
   --fontWeight-semibold: 600;
   --fontWeight-bold: 700;
   --fontSize-root: 16px;
-  --lineHeight-none: 1;
   --lineHeight-tight: 1.15;
   --lineHeight-normal: 1.5;
   --lineHeight-relaxed: 1.625;
@@ -48,15 +35,48 @@
   --fontSize-4: 1.5rem;
   /* 28px on phones up to 32px on wide screens */
   --fontSize-5: clamp(1.75rem, 1.4rem + 1.5vw, 2rem);
+  /* Follows the OS: light-dark() picks each color's light or dark value, and
+     scrollbars and form controls match */
+  color-scheme: light dark;
   --color-primary: #19e597;
   --color-accent: #d1dce5;
-  --color-text: #2e353f;
-  --color-text-light: #737373;
-  --color-heading: #1a202c;
-  --color-excerpt-background: #f0f8f5;
-  --color-excerpt-text: #5f6b67;
-  /* Dark scrollbars and form controls when the OS is in dark mode */
-  color-scheme: light dark;
+  --color-background: light-dark(#fff, #282c35);
+  --color-text: light-dark(#2e353f, #ffffffdd);
+  --color-text-light: light-dark(#737373, #ffffff99);
+  --color-heading: light-dark(#1a202c, #fff);
+  --color-excerpt-background: light-dark(#f0f8f5, #273b3d);
+  --color-excerpt-text: light-dark(#5f6b67, #ffffff99);
+  --color-code-background: light-dark(#f5f2f0, #1e222a);
+  --color-code-keyword: light-dark(#07a, #7cc7ff);
+  --color-code-string: light-dark(#4d7300, #b5e07a);
+  --color-code-value: light-dark(#905, #ff9ec4);
+}
+
+/* Browsers from before light-dark() (2024) stay on the light palette */
+@supports not (color: light-dark(#fff, #000)) {
+  :root {
+    color-scheme: light;
+    --color-background: #fff;
+    --color-text: #2e353f;
+    --color-text-light: #737373;
+    --color-heading: #1a202c;
+    --color-excerpt-background: #f0f8f5;
+    --color-excerpt-text: #5f6b67;
+    --color-code-background: #f5f2f0;
+    --color-code-keyword: #07a;
+    --color-code-string: #4d7300;
+    --color-code-value: #905;
+  }
+}
+
+/* The dark-mode toggle (gatsby develop only) pins a scheme through the
+   color-scheme meta tag */
+:root:has(> head > meta[name='color-scheme'][content='dark']) {
+  color-scheme: dark;
+}
+
+:root:has(> head > meta[name='color-scheme'][content='light']) {
+  color-scheme: light;
 }
 
 /* HTML elements */
@@ -72,38 +92,34 @@ html {
   font-size: var(--fontSize-root);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Keeps iOS from enlarging text in landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  margin: var(--spacing-0);
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    background-color: #282c35;
-    --color-primary: #19e597;
-    --color-accent: #d1dce5;
-    --color-text: #ffffffdd;
-    --color-text-light: #ffffff99;
-    --color-heading: #ffffff;
-    --color-excerpt-background: #273b3d;
-    --color-excerpt-text: #ffffff99;
-  }
+/* Footnote markers don't push their line apart */
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
 }
 
-body.dark {
-  -webkit-font-smoothing: antialiased;
-  background-color: #282c35;
-  --color-primary: #19e597;
-  --color-accent: #d1dce5;
-  --color-text: #ffffffdd;
-  --color-text-light: #ffffff99;
-  --color-heading: #ffffff;
-  --color-excerpt-background: #273b3d;
-  --color-excerpt-text: #ffffff99;
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
 }
 
 footer {
@@ -186,7 +202,7 @@ h5 > a:focus {
 p {
   line-height: var(--lineHeight-relaxed);
   padding: var(--spacing-0);
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);
 }
 
 ul,
@@ -194,7 +210,7 @@ ol {
   padding: var(--spacing-0);
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
-  margin-block-end: var(--spacing-8);
+  margin-block-end: var(--spacing-6);
   list-style-position: outside;
   list-style-image: none;
 }
@@ -202,11 +218,11 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-block-end: calc(var(--spacing-8) / 2);
+  margin-block-end: var(--spacing-3);
 }
 
 li > p {
-  margin-block-end: calc(var(--spacing-8) / 2);
+  margin-block-end: var(--spacing-3);
 }
 
 li *:last-child {
@@ -215,7 +231,7 @@ li *:last-child {
 
 li > ul {
   margin-left: var(--spacing-8);
-  margin-block-start: calc(var(--spacing-8) / 2);
+  margin-block-start: var(--spacing-3);
 }
 
 blockquote {
@@ -225,7 +241,7 @@ blockquote {
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
   border-left: var(--spacing-1) solid var(--color-primary);
   font-style: italic;
-  margin-block-end: var(--spacing-8);
+  margin-block-end: var(--spacing-6);
 }
 
 blockquote > :last-child {
@@ -239,7 +255,7 @@ blockquote > ol {
 
 table {
   width: 100%;
-  margin-block-end: var(--spacing-8);
+  margin-block-end: var(--spacing-6);
   border-collapse: collapse;
   border-spacing: 0.25rem;
 }
@@ -249,6 +265,7 @@ table thead tr th {
 }
 
 small {
+  font-size: 80%;
   color: var(--color-text-light);
   border-bottom: none;
   text-decoration: none;
@@ -279,6 +296,64 @@ a:hover,
 a:focus {
   color: var(--color-heading);
   text-decoration: none;
+}
+
+/* Code: one palette for both color schemes. gatsby-remark-prismjs adds the
+   language-* classes and the tokens */
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: var(--spacing-1);
+  background-color: var(--color-code-background);
+}
+
+pre {
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6);
+  padding: var(--spacing-4);
+  overflow: auto;
+  border-radius: var(--spacing-2);
+  background-color: var(--color-code-background);
+  line-height: var(--lineHeight-normal);
+  tab-size: 2;
+}
+
+pre > code {
+  font-size: inherit;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-text-light);
+}
+
+.token.keyword,
+.token.tag,
+.token.selector,
+.token.property {
+  color: var(--color-code-keyword);
+}
+
+.token.string,
+.token.attr-value,
+.token.inserted {
+  color: var(--color-code-string);
+}
+
+.token.number,
+.token.boolean,
+.token.function,
+.token.deleted {
+  color: var(--color-code-value);
 }
 
 /* Anchor links */
@@ -367,6 +442,7 @@ span.gatsby-resp-image-wrapper > img.gatsby-resp-image-image {
 /* blog.js */
 
 .post-list {
+  padding-inline-start: var(--spacing-0);
   list-style: none;
 }
 
@@ -399,6 +475,32 @@ section:first-of-type > .post-list-year {
 /* A long title wraps, never the date */
 .post-list-item header small {
   white-space: nowrap;
+}
+
+/* tags.js — each group's tags flow in a row, with their post counts */
+.tag-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-6);
+  margin-block: var(--spacing-6) var(--spacing-0);
+  padding-inline-start: var(--spacing-0);
+  list-style: none;
+}
+
+.tag-index li {
+  margin: var(--spacing-0);
+}
+
+.tag-index a {
+  border-bottom: none;
+  padding-bottom: var(--spacing-0);
+  color: var(--color-heading);
+  font-weight: var(--fontWeight-semibold);
+}
+
+.tag-index a:hover,
+.tag-index a:focus {
+  color: var(--color-text-light);
 }
 
 /* podcast.js — episode numbers in a three-digit column, so a wrapped title
@@ -540,9 +642,10 @@ div > .footnotes > hr {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-inline-start: var(--spacing-0);
   }
+  /* Room for the bullets, which would otherwise hang off the screen edge */
   ul,
   ol {
-    list-style-position: inside;
+    padding-inline-start: var(--spacing-5);
   }
 
   /* Hide anchor links */

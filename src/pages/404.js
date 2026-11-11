@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { extractMarkdown } from '../utils/helpers';
 
-const NotFound = ({ data, location }) => {
+const NotFound = ({ data }) => {
   const markdownData = extractMarkdown(data.allMarkdownRemark.edges);
   return (
-    <Layout location={location}>
+    <>
       <p className="heading-companion">{markdownData.title}</p>
       <h1 className="heading">{markdownData.excerpt}</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownData.html }} />
-    </Layout>
+    </>
   );
 };
 

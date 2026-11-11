@@ -42,6 +42,13 @@ const topics = [
 
 const allTags = [...projects, ...series, 'insight', 'changelog', ...topics];
 
+// The sections of the tags page; every tag sits in exactly one
+const tagGroups = [
+  { title: 'Projects', tags: projects },
+  { title: 'Series', tags: [...series, 'insight', 'changelog'] },
+  { title: 'Topics', tags: topics },
+];
+
 // Shelves rank first, then `changelog`, then topics
 const rank = (tag) => (topics.includes(tag) ? 2 : tag === 'changelog' ? 1 : 0);
 
@@ -73,6 +80,7 @@ module.exports = {
   allTags,
   projects,
   series,
+  tagGroups,
   tagProblems,
   topics,
 };

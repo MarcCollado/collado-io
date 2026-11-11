@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { allTags, tagProblems } = require('../tags');
+const { allTags, tagGroups, tagProblems } = require('../tags');
 
 const postsDir = path.join(__dirname, '../../media/posts');
 
@@ -64,4 +64,9 @@ test('explains how tags break the rule', () => {
     tagProblems(['books', 'art', 'habits', 'health', 'history']),
     ['more than three topics'],
   );
+});
+
+test('the tags page lists every tag once', () => {
+  const grouped = tagGroups.flatMap(({ tags }) => tags);
+  assert.deepEqual([...grouped].sort(), [...allTags].sort());
 });

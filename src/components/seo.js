@@ -183,8 +183,6 @@ const Seo = ({
 
       {/* META TAGS */}
       <meta name="description" content={description} />
-      <meta name="image" content={image} />
-      <meta name="url" content={url} />
       <meta name="author" content={author} />
       <meta name="robots" content={pageRobots} />
 
@@ -219,7 +217,6 @@ const Seo = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:url" content={url} />
       <meta name="twitter:site" content={social.twitter} />
       <meta name="twitter:creator" content={social.twitter} />
       <meta name="twitter:image:alt" content={title} />
