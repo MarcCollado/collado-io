@@ -7,6 +7,10 @@ Strategic context (why this site exists, the personal-SEO goal) lives in the
 
 - `~/Documents/Claude/Code/marcOS/work/collado-io.md` — purpose, stack, scripts, and the closed Wikidata / sameAs work
 
+## Tools
+
+The `gh` (GitHub, account `MarcCollado`) and `netlify` CLIs are installed and logged in to Marc's personal accounts — use them directly. This folder is linked to its Netlify site (`netlify status`, `netlify env:list`, `netlify logs`). Claude's connectors (Gmail, Drive, Notion, Sentry…) belong to the RSS.com work account: don't use them here.
+
 ## Commands
 
 ```bash
