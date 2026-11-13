@@ -8,3 +8,4 @@
 /public
 deno.lock
 /.claude/settings.local.json
+/src/media/drafts/

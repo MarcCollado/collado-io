@@ -49,7 +49,7 @@ Node is pinned in `.nvmrc` (24, LTS). Gatsby 5.16 supports Node `>=18 <26`.
 - Blog posts live in `src/media/posts/` as Markdown files with YAML frontmatter (`title`, `date`, `path`, `tags`, `excerpt`, `language`). The frontmatter types are declared in `gatsby-node.js`
 - `gatsby-node.js` reads all posts via GraphQL, creates individual post pages (template: `src/templates/post-page.js`) and one page per unique tag (template: `src/templates/tag-page.js`)
 - Tags follow the rule in `README.md` § Tags: one shelf first (a project, a series, or `insight` when neither applies), then `changelog` for milestones, then up to three topics in alphabetical order. The first tag becomes the post's `articleSection`. A new tag needs two posts; `src/utils/__tests__/tags.test.js` fails when a post breaks the rule
-- Drafts live in `src/media/drafts/`, which isn't sourced, so they never build. Move a file into `posts/` to publish it
+- Drafts live in `src/media/drafts/`, which isn't sourced, so they never build. The folder is gitignored, so drafts stay on this machine and aren't backed up by git. Move a file into `posts/` to publish it
 - Tweets are shown as static quotes (no X script): paste X's `<blockquote class="twitter-tweet">` markup without its `<script>` tag. A tweet's photo goes in `static/` as a raw `<img>` inside the quote (see the 2020 Safareig post)
 - Animations are MP4 videos in `static/`, played like a GIF with `<video autoplay loop muted playsinline>` plus a `poster` (see the 2014 iomando post); GIFs are far heavier
 - Internal links in Markdown use the trailing slash (`/blog/2021/learning-framework/`); without it every link is a 301
