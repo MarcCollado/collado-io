@@ -1,20 +1,28 @@
-<p align="center">
-  <a href="#">
-    <img alt="Marc Collado" src="src/media/images/avatar.png" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Marc Collado's personal website
-</h1>
-<p align="center">
+# collado.io
 
-collado.io is the place where I share random thoughts and conversations on pretty much everything.
+Marc Collado's personal website: random thoughts and conversations on [product](https://collado.io/tags/product/), [psychology](https://collado.io/tags/psychology/), [health](https://collado.io/tags/health/), [economics](https://collado.io/tags/economics/) and everything in between. Live at **https://collado.io**.
 
-Topics ranging from [product](https://collado.io/tags/product/), [psychology](https://collado.io/tags/psychology/), and how humans behave, [health](https://collado.io/tags/health/), [mobility](https://collado.io/tags/mobility/) and supply chains, global [economics](https://collado.io/tags/economics/)... and everything in between, you get the idea.
+## Stack
 
-In this README.md file you'll find some (nonessential) insights on the site's inner mechanics. I mostly keep it for myself, but since you're already here, please take a look.
+Gatsby 5 + React 18. Posts are Markdown files; RSS feeds in and out.
 
-## 🏷 Tags
+## Run
+
+```bash
+npm install
+npm run develop   # dev server at localhost:8000
+npm run preview   # production build, served at localhost:9000
+npm test          # includes the tag rules below
+npm run format    # Prettier; CI fails on unformatted files
+```
+
+Node version: `.nvmrc`.
+
+## Deploy
+
+Netlify builds and deploys every push to `master`, and rebuilds weekly to refresh the external feeds. CI (`.github/workflows/checks.yml`) runs Prettier and the tests on every push and pull request.
+
+## Tags
 
 Every post gets its tags by answering three questions, in order. The [tags page](https://collado.io/tags/) lists them all with live counts.
 
@@ -80,6 +88,6 @@ Everything else:
 
 Waiting for a second post: `politics`, `religion`, `science`.
 
-## Formatting
+## More
 
-Pull requests run `npx prettier -c` to verify code style. Run `npm run format` to fix files locally.
+Architecture and conventions: [CLAUDE.md](CLAUDE.md).
